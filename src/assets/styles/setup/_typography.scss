@@ -1,0 +1,21 @@
+@font-face {
+    font-family: fiverr;
+    src: url('/src/assets/styles/fonts/fivver/Chunk\ Five\ Print.otf')
+}
+
+@font-face {
+    font-family: Anton;
+    src: url('/src/assets/styles/fonts/Anton/Anton-Regular.ttf')
+
+}
+
+
+:fonts {
+    --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524e: "DomaineDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524g: Georgia, "Times New Roman", serif;
+}
+
+.FONTS-ARANGMENT {
+    font-family: anton, Arial, Helvetica, sans-serif;
+}
