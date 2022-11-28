@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h1>ETTI RULZ</h1>
     <user-msg />
     <app-header />
     <categories-list />
