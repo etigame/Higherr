@@ -1,5 +1,24 @@
 import { gigService } from '../services/gig-service'
 
+export function getActionRemoveGig(gigId) {
+    return {
+        type: 'removeGig',
+        gigId
+    }
+}
+export function getActionAddGig(gig) {
+    return {
+        type: 'addGig',
+        gig
+    }
+}
+export function getActionUpdateGig(gig) {
+    return {
+        type: 'updateGig',
+        gig
+    }
+}
+
 export const gigStore = {
     state: {
         gigs: []
@@ -31,7 +50,7 @@ export const gigStore = {
         async addGig(context, { gig }) {
             try {
                 gig = await gigService.save(gig)
-                context.commit({type: 'addGig', gig})
+                context.commit(getActionAddGig(gig))
                 return gig
             } catch (err) {
                 console.log('gigStore: Error in addGig', err)
@@ -41,7 +60,7 @@ export const gigStore = {
         async updateGig(context, { gig }) {
             try {
                 gig = await gigService.save(gig)
-                context.commit({type: 'updateGig', gig})
+                context.commit(getActionUpdateGig(gig))
                 return gig
             } catch (err) {
                 console.log('gigStore: Error in updateGig', err)
@@ -60,7 +79,7 @@ export const gigStore = {
         async removeGig(context, { gigId }) {
             try {
                 await gigService.remove(gigId)
-                context.commit({type: 'removeGig', gigId})
+                context.commit(getActionRemoveGig(gigId))
             } catch (err) {
                 console.log('gigStore: Error in removeGig', err)
                 throw err
