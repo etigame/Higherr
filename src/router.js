@@ -10,34 +10,32 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: home
+    component: home,
   },
   {
     path: '/explore',
     name: 'explore',
-    component: explore
+    component: explore,
   },
   {
     path: '/details/:id',
     name: 'gig-details',
-    component: gigDetails
+    component: gigDetails,
   },
   {
     path: '/seller-dashboard',
     name: 'seller-dashboard',
-    component: sellerDashboard
+    component: sellerDashboard,
   },
   {
     path: '/user/:id',
     name: 'user-details',
-    component: userDetails
+    component: userDetails,
   },
 ]
 
-
 export const router = createRouter({
   routes,
-  history: createWebHashHistory()
+  history: createWebHashHistory(),
   // base: process.env.BASE_URL,
 })
-
