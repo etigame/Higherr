@@ -10,6 +10,9 @@
         </p>
         <button @click="removeCar(car._id)">x</button>
         <button @click="updateCar(car)">Update</button>
+        <hr />
+        <button @click="addCarMsg(car._id)">Add car msg</button>
+        <button @click="printCarToConsole(car)">Print msgs to console</button>
       </li>
     </ul>
     <hr />
@@ -31,7 +34,7 @@ export default {
       carToAdd: carService.getEmptyCar()
     }
   },
-    computed: {
+  computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
@@ -74,7 +77,20 @@ export default {
         console.log(err)
         showErrorMsg('Cannot remove car')
       }
-    }
+    },
+    async addCarMsg(carId) {
+      try {
+        await this.$store.dispatch(getActionAddCarMsg(carId))
+        showSuccessMsg("Car msg added")
+      } catch (err) {
+        console.log(err)
+        showErrorMsg("Cannot add car msg")
+      }
+    },
+    printCarToConsole(car) {
+      console.log("Car msgs:", car.msgs)
+    },
+
   }
 
 

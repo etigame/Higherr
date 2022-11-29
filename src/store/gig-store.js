@@ -21,6 +21,11 @@ export const gigStore = {
         removeGig(state, { gigId }) {
             state.gigs = state.gigs.filter(gig => gig._id !== gigId)
         },
+        addGigMsg(state, { gigId , msg}) {
+            const gig = state.gigs.find(gig => gig._id === gigId)
+            if (!gig.msgs) gig.msgs = []
+            gig.msgs.push(msg)
+        },
     },
     actions: {
         async addGig(context, { gig }) {
@@ -58,6 +63,15 @@ export const gigStore = {
                 context.commit({type: 'removeGig', gigId})
             } catch (err) {
                 console.log('gigStore: Error in removeGig', err)
+                throw err
+            }
+        },
+        async addGigMsg(context, { gigId, txt }) {
+            try {
+                const msg = await gigService.addGigMsg(gigId, txt)
+                context.commit({type: 'addGigMsg', gigId, msg })
+            } catch (err) {
+                console.log('gigStore: Error in addGigMsg', err)
                 throw err
             }
         },

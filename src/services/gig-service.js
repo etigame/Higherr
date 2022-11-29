@@ -29,8 +29,10 @@ export const gigService = {
   save,
   remove,
   getEmptyGig,
+  addGigMsg
+
 }
-window.cs = gigService
+window.gigService = gigService
 
 async function query(filterBy = { txt: '', price: 0 }) {
   // return httpService.get(GIG_URL, filterBy)
@@ -62,21 +64,43 @@ async function remove(gigId) {
 
 async function save(gig) {
     var savedGig
-  // if (gig._id) savedGig = await httpService.put(GIG_URL + gig._id, gig)
-  // savedGig = await httpService.post(GIG_URL, gig)
-  
-  if (gig._id) {
-    savedGig = await storageService.put(GIG_STORAGE_KEY, gig)
-    gigChannel.postMessage(getActionUpdateGig(savedGig))
-  } else {
-    // Later, owner is set by the backend
-    gig.owner = userService.getLoggedinUser()
-    savedGig = await storageService.post(GIG_STORAGE_KEY, gig)
-    gigChannel.postMessage(getActionAddGig(savedGig))
-  }
-  return savedGig
+    if (gig._id) {
+      savedGig = await storageService.put(GIG_STORAGE_KEY, gig)
+      // savedGig = await httpService.put(GIG_URL + gig._id, gig)
+      gigChannel.postMessage(getActionUpdateGig(savedGig))
+    } else {
+      // Later, owner is set by the backend
+      gig.owner = userService.getLoggedinUser()
+      savedGig = await storageService.post(GIG_STORAGE_KEY, gig)
+      // savedGig = await httpService.post(GIG_URL, gig)
+      gigChannel.postMessage(getActionAddGig(savedGig))
+    }
+    return savedGig
 }
 
+// LOCAL-STORAGE
+async function addGigMsg(gigId, txt) {
+  // Later, this is all done by the backend
+  const gig = await getById(gigId)
+  if (!gig.msgs) gig.msgs = []
+
+  const msg = {
+      id: utilService.makeId(),
+      by: userService.getLoggedinUser(),
+      txt
+  }
+  gig.msgs.push(msg)
+  await storageService.put(GIG_STORAGE_KEY, gig)
+
+  return msg
+}
+
+
+// BACKEND
+// async function addGigMsg(gigId, txt) {
+//   const savedMsg = await httpService.post(GIG_URL + gigId + '/msg', {txt})
+//   return savedMsg
+// }
 
 function getEmptyGig() {
   return {

@@ -14,7 +14,7 @@
       <form @submit.prevent="doLogin">
         <select v-model="loginCred.username">
           <option value="">Select User</option>
-          <option v-for="user in users" :key="user._id" :value="user.username">{{user.fullname}}</option>
+          <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
         </select>
         <!-- <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input
@@ -28,16 +28,9 @@
       <form @submit.prevent="doSignup">
         <h2>Signup</h2>
         <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-        <input
-          type="text"
-          v-model="signupCred.password"
-          placeholder="Password"
-        />
-        <input
-          type="text"
-          v-model="signupCred.username"
-          placeholder="Username"
-        />
+        <input type="text" v-model="signupCred.password" placeholder="Password" />
+        <input type="text" v-model="signupCred.username" placeholder="Username" />
+        <img-uploader @uploaded="onUploaded"></img-uploader>
         <button>Signup</button>
       </form>
     </div>
@@ -57,13 +50,15 @@
 </template>
 
 <script>
+import imgUploader from '../cmps/img-uploader.vue'
+
 export default {
   name: 'login-signup',
   data() {
     return {
       msg: '',
-      loginCred: {username: 'user1', password: '123'},
-      signupCred: {username: '', password: '', fullname: ''},
+      loginCred: { username: 'user1', password: '123' },
+      signupCred: { username: '', password: '', fullname: '' },
     }
   },
   computed: {
@@ -86,9 +81,9 @@ export default {
       try {
         await this.$store.dispatch({ type: "login", userCred: this.loginCred })
         this.$router.push('/')
-      } catch(err) {
-          console.log(err)
-          this.msg = 'Failed to login'
+      } catch (err) {
+        console.log(err)
+        this.msg = 'Failed to login'
       }
     },
     doLogout() {
@@ -101,7 +96,7 @@ export default {
       }
       await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
       this.$router.push('/')
-      
+
     },
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" })
@@ -110,10 +105,17 @@ export default {
       try {
         await this.$store.dispatch({ type: "removeUser", userId })
         this.msg = 'User removed'
-      } catch(err) {
+      } catch (err) {
         this.msg = 'Failed to remove user'
       }
+    },
+    onUploaded(imgUrl) {
+      this.signupCred.imgUrl = imgUrl
     }
+
+  },
+  components: {
+    imgUploader
   }
 }
 </script>
