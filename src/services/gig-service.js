@@ -130,6 +130,7 @@ function _createGigs() {
   if (!gigs || !gigs.length) {
     gigs = [
       {
+        _id: utilService.makeId(),
         image:
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg',
         title: 'I will do hyper realistic pencil portrait by hand drawing',
@@ -205,6 +206,7 @@ function _createGigs() {
         ],
       },
       {
+        _id: utilService.makeId(),
         image:
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg',
         title:
@@ -241,6 +243,7 @@ function _createGigs() {
         ],
       },
       {
+        _id: utilService.makeId(),
         image:
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg',
         title:
@@ -317,6 +320,7 @@ function _createGigs() {
         ],
       },
       {
+        _id: utilService.makeId(),
         image:
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg',
         category: 'Lifestyle',
@@ -379,10 +383,6 @@ function _createGigs() {
             name: 'technical writing',
           },
         ],
-      },
-      {
-        image:
-          'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/220768020/original/0a2e276d2177b3e95593780f6c76e37d6aa367cf.jpg',
       },
     ]
     utilService.saveToStorage(GIG_STORAGE_KEY, gigs)

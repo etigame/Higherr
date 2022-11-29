@@ -21,12 +21,12 @@ const routes = [
     component: appExploreList,
   },
   {
-    path: '/gig/:id',
+    path: '/gig/:_id',
     name: 'gig-details',
     component: gigDetails,
   },
   {
-    path: '/gig/edit/:id?',
+    path: '/gig/edit/:_id?',
     name: 'gig-edit',
     component: gigEdit,
   },
