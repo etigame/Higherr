@@ -11,17 +11,17 @@ const routes = [
   {
     path: '/',
     name: 'app-home',
-    component: appHome
+    component: appHome,
   },
   {
     path: '/explore',
     name: 'app-explore-list',
-    component: appExploreList
+    component: appExploreList,
   },
   {
     path: '/gig/:id',
     name: 'gig-details',
-    component: gigDetails
+    component: gigDetails,
   },
   {
     path: '/gig/edit/:id?',
@@ -40,10 +40,8 @@ const routes = [
   },
 ]
 
-
 export const router = createRouter({
   routes,
-  history: createWebHashHistory()
+  history: createWebHashHistory(),
   // base: process.env.BASE_URL,
 })
-

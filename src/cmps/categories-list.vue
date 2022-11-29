@@ -1,5 +1,5 @@
 <template>
-    <section class="categories-list">
+    <section class="categories-list main-layout full">
         <h1>categories-list</h1>
     </section>
 </template>

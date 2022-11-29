@@ -1,5 +1,5 @@
 <template>
-    <section class="app-footer">
+    <section class="app-footer main-layout full">
         <h1>app-footer</h1>
     </section>
 </template>
