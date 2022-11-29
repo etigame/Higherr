@@ -25,5 +25,17 @@
     "@vitejs/plugin-vue": "^3.1.2",
     "sass": "^1.56.1",
     "vite": "^3.1.8"
-  }
+  },
+  "description": "",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etigame/Higherr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etigame/Higherr/issues"
+  },
+  "homepage": "https://github.com/etigame/Higherr#readme"
 }
