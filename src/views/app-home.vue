@@ -1,12 +1,12 @@
 <template>
-  <section class="home">
+  <section class="app-home">
     <h1>Home Page</h1>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'app-home',
   data() {
     return {
     }
