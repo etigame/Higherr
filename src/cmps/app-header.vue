@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="app-header main-layout full">
     <nav>
       <app-nav />
 
