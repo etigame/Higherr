@@ -1,6 +1,6 @@
 <template>
   <section>
-    <user-msg />
+  <user-msg />
     <app-header />
     <categories-list />
     <router-view />
