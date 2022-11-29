@@ -5,6 +5,7 @@ import appExploreList from './views/app-explore-list.vue'
 import gigDetails from './views/gig-details.vue'
 import sellerDashboard from './views/seller-dashboard.vue'
 import userDetails from './views/user-details.vue'
+import gigEdit from './views/gig-edit.vue'
 
 const routes = [
   {
@@ -18,19 +19,24 @@ const routes = [
     component: appExploreList
   },
   {
-    path: '/details/:id',
+    path: '/gig/:id',
     name: 'gig-details',
     component: gigDetails
   },
   {
-    path: '/seller-dashboard',
-    name: 'seller-dashboard',
-    component: sellerDashboard
+    path: '/gig/edit/:id?',
+    name: 'gig-edit',
+    component: gigEdit
   },
   {
     path: '/user/:id',
     name: 'user-details',
     component: userDetails
+  },
+  {
+    path: '/seller-dashboard',
+    name: 'seller-dashboard',
+    component: sellerDashboard
   },
 ]
 
