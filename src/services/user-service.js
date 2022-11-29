@@ -111,12 +111,12 @@ function getEmptyUser() {
   }
 }
 
-// function saveUser(user) {
-//     // if (user._id) return storageService.put(KEY, user)
-//     // return storageService.post(KEY, user)
-//     if (user._id) return httpService.put(USER_URL + user._id, user)
-//     return httpService.post(USER_URL, user)
-//   }
+function saveUser(user) {
+    if (user._id) return storageService.put(KEY, user)
+    return storageService.post(KEY, user)
+    // if (user._id) return httpService.put(USER_URL + user._id, user)
+    // return httpService.post(USER_URL, user)
+  }
 
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})

@@ -1,6 +1,8 @@
 <template>
   <header>
     <nav>
+      <app-nav />
+
 
       <router-link to="/">
         <span role="img" aria-label="logo">🙏</span>
@@ -17,8 +19,16 @@
     </section>
   </header>
 </template>
+
+
 <script>
+import appNav from './app-nav.vue'
+
 export default {
+  name: 'app-header',
+  components: {
+    appNav
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser

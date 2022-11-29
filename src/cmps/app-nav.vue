@@ -1,11 +1,11 @@
 <template>
-    <section class="explore">
-
+    <section class="app-nav">
+        <h1>app-nav</h1>
     </section>
 </template>
 
 <script>
 export default {
-    name: 'explore'
+    name: 'app-nav'
 }
 </script>
