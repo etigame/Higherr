@@ -26,17 +26,17 @@ const routes = [
   {
     path: '/gig/edit/:id?',
     name: 'gig-edit',
-    component: gigEdit
+    component: gigEdit,
   },
   {
     path: '/user/:id',
     name: 'user-details',
-    component: userDetails
+    component: userDetails,
   },
   {
     path: '/seller-dashboard',
     name: 'seller-dashboard',
-    component: sellerDashboard
+    component: sellerDashboard,
   },
 ]
 
