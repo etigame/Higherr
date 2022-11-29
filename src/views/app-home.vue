@@ -1,5 +1,5 @@
 <template>
-  <section class="app-home">
+  <section class="app-home main-layout full">
     <h1>Home Page</h1>
   </section>
 </template>
