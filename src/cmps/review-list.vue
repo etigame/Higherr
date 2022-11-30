@@ -1,11 +1,18 @@
 <template>
-  <section class="review-list">
-    <h1>review-list</h1>
+  <section v-if="reviews" class="review-list">
+    <ul class="clean-list">
+      <review-preview v-for="review in reviews" :review="review" :key="review._id" />
+    </ul>
   </section>
 </template>
 
 <script>
+import reviewPreview from './review-preview.vue'
+
 export default {
-  name: 'review-list'
+  name: 'review-list',
+  components: {
+    reviewPreview
+  }
 }
 </script>

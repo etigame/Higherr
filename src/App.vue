@@ -1,5 +1,5 @@
 <template>
-  <section class=" main-layout">
+  <section class="main-layout">
     <user-msg />
     <app-header />
     <categories-list />

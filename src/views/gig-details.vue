@@ -46,7 +46,7 @@
 
             <section class="reviews">
                 <h1>{{ gig.reviewers.length }} Reviews </h1>
-                <review-list />
+                <review-list :reviews="gig.reviewers" />
             </section>
 
         </section>

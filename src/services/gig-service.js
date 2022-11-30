@@ -137,7 +137,7 @@ function _createGigs() {
         title: 'I will do hyper realistic pencil portrait by hand drawing',
         description:
           "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-        price: '₪16.84',
+        price: '$16.84',
         daysToMake: '2 Days Delivery',
         fullname: 'frederickkessie',
         imgUrl:
@@ -150,6 +150,7 @@ function _createGigs() {
           "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'tobiaspille300',
             country: 'Thailand',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png',
@@ -158,6 +159,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'liam31',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -166,6 +168,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'liam31',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -174,6 +177,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'larsonraz',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -181,6 +185,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 week ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'stevekaszycki',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -214,7 +219,7 @@ function _createGigs() {
           'I will do hyper realistic pencil sketch portrait by hand drawing',
         description:
           "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black & White or colored realistic portraits.\nKindly provide me clear reference photo as much as possible.\nThe material I used for Creating pencil portraits are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, tombomono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can give me anything:\nPortrait photos\nFamily photos\nAnimal photos\nAny product photos\nLandscape photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITAL FILE, IF YOU WANT THE ORIGINAL ONE THEN MESSAGE ME FOR DETAILS.\nFeel free to ask me anything! :)\nThank You...\nvividstore",
-        price: '₪67.37',
+        price: '$67.37',
         daysToMake: '3 Days Delivery',
         fullname: 'vividstore',
         imgUrl:
@@ -251,7 +256,7 @@ function _createGigs() {
           'I will draw a hyperrealistic portrait of face or entire body and animals',
         description:
           'Desenho de lápis hiperrealista da sua foto, posso adicionar detalhes de fundo e personalizar o desenho do jeito que você quiser.',
-        price: '₪202.11',
+        price: '$202.11',
         daysToMake: '14 Days Delivery',
         fullname: 'andreacarvalho_',
         imgUrl:
@@ -264,6 +269,7 @@ function _createGigs() {
           "Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio.",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'rachelrbarnes1',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -272,6 +278,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'mark001994',
             country: 'Austria',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png',
@@ -280,6 +287,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'thurstonrobby',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -288,6 +296,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'gavrielm',
             country: 'Israel',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png',
@@ -295,6 +304,7 @@ function _createGigs() {
             reviewedAt: 'Published 6 days ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'garebear52',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -329,7 +339,7 @@ function _createGigs() {
         title: 'I will write sociology,psychology and social sciences articles',
         description:
           'Hello, welcome to my Gig, I write sociology psychology and all social sciences content\nI am an expert writer who can help you with writing essays, research projects, and articles on criminology, sociology, and psychology. I gained so much experience over the time. i can handle papers from undergraduate all the way to PHD in criminology and sociology and psychology.\nI always strive to provide best quality to my clients and provide plagiarism-free work. I am also familiar with the following reference formats: APA, MLA, HARVARD, CHICAGO\nPlease contact me before placing an order, thank you.',
-        price: '₪33.68',
+        price: '$33.68',
         daysToMake: '3 Days Delivery',
         fullname: 'winny_writer',
         imgUrl:
@@ -342,6 +352,7 @@ function _createGigs() {
           "My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'far832013',
             country: 'Canada',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
@@ -350,6 +361,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'rehanmirdk',
             country: 'Denmark',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1f0.png',
@@ -358,6 +370,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'raevyn22',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -365,6 +378,7 @@ function _createGigs() {
             reviewedAt: 'Published 8 hours ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'raevyn22',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -372,6 +386,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 day ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'junyeongcho',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -394,7 +409,7 @@ function _createGigs() {
         subCategory: 'Logo Design',
         description:
           "Hi there ! Thanks for stopping by !!\nA Team of Talented Graphic Designer with 8+ years of experience in Graphic Industry, expertise as Logo Maker, You'll get creative & AWESOME logo design for your business.\nMy portfolio : https://www.fiverr.com/users/design_desk/portfolio/NjFiYjE4NmMwZTgwMDUwMDAxZTMzMjJh\n★ Why Us? ★\nTalented Logo Maker Team\nFully custom made, creative, original, UNIQUE and AWESOME designs\nProfessional customer support 24/7\nHigh Quality work\n100% money back policy if not satisfied\n★ WHAT DO YOU GET? ★\n✔ Highly Professional, UNIQUE & High Quality designs\n✔ UNLIMITED revisions until u r 100% satisfied\n✔ Fast turn around time 24 to 48 hours only.\n✔ 100% original & unique vector design from Adobe Illustrator\n✔ Vector Source Files (scalable without any quality loss) (AI, EPS, PDF) for the final design ✔ PROFESSIONAL Communication & Outstanding Customer Support ✔ Guaranteed High Quality work\nIf you have any question,\nFeel free to★ Contact Me! ★I'll be happy to help !\nLet's get started!\n-Your Logo Maker",
-        price: '₪33.68',
+        price: '$33.68',
         daysToMake: '3 Days Delivery',
         fullname: 'design_desk',
         imgUrl:
@@ -407,6 +422,7 @@ function _createGigs() {
           "Hello! My name is VD. I am a connoisseur of art and music. I love being around nature and my pets. I have a team of professional graphic designers with an experience of 8+ years. We specialize in logo designing. We're available exclusively on fiverr to rock your world with our designing skills. Come and experience it for yourself!",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'airbornesnow',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -415,6 +431,7 @@ function _createGigs() {
             reviewedAt: 'Published 4 days ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'jacobmnb',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -423,6 +440,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'ashtonpeckham',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -431,6 +449,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 week ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'borowski10',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -439,6 +458,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 days ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'fowlplay_uk',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -475,7 +495,7 @@ function _createGigs() {
         title: 'I will create modern unique and creative logo design',
         description:
           "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
-        price: '₪84.20',
+        price: '$84.20',
         daysToMake: '2 Days Delivery',
         fullname: 'soduzai_gfx1',
         imgUrl:
@@ -488,6 +508,7 @@ function _createGigs() {
           "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'devsreads',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -496,6 +517,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 days ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'raymondyslas',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -504,6 +526,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'gbsol579',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -512,6 +535,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'antoniodixon65',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -520,6 +544,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'allendrozdowski',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -553,7 +578,7 @@ function _createGigs() {
         title: 'I will design 3 modern minimalist logo design',
         description:
           'ModernMarvel heartily welcomes you to Minimalist Modern Logo Design gig.\nWe are Brand Creators and professional business consultants. Each business has his own story to tell and having high recall value is prime purpose behind getting a LOGO. Thus, We believe in creating simple yet effective masterpiece which blown away your customers mind.\nYour idea of getting Modern memorable and attractive logo design is just one step away. So, Lets discuss and choose a best design for your business.\nOur recommendation BRANDING PACK @ $65 ONLY:\n5 BRANDED logos with minimal designs + vector source files\nAttractive Social media covers (FB + Twitter)\nProfessional stationery design (B card + letterhead)\nUnlimited revision rounds\nExclusive customer support\nRefund & Package selection guidelines:\nIf the designs are as per your initial shared brief, refund wont be a possible option. You can ask for revision if i missed out anything.\nMy samples are from my premium / standard package.\nWe are closed on Sunday.\nMy key skills:\nMinimalist Modern Logo Design | Minimal | Modern | Typography | Line art | Custom logo | Vintage |\nKeen to Get Started!',
-        price: '₪50.52',
+        price: '$50.52',
         daysToMake: '1 Day Delivery',
         fullname: 'modernmarvel',
         imgUrl:
@@ -566,6 +591,7 @@ function _createGigs() {
           'I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get the global exposure and would like to contribute more towards our creative community. Thanks.',
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'bartstrijbos',
             country: 'Netherlands',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
@@ -574,6 +600,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'v_winko33',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -582,6 +609,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'brendanpaull',
             country: 'Japan',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f5.png',
@@ -590,6 +618,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 month ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'tracyblehm',
             country: 'Canada',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
@@ -598,6 +627,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'jai_s22',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -637,7 +667,7 @@ function _createGigs() {
         subCategory: 'Logo Design',
         description:
           'Greetings!! Welcome to Budding Solutions.\n"Your one-stop-shop for all your graphic needs"\nIf you are looking for a Modern and Professional Business logo design, then you are at the right place. We focus on creating simple yet effective designs that elevate your business outlook and leave an everlasting impression.\nWe stand out from our competition due to our best-in-class Customer Support and Quality Designs.\nWhy Us?\n✔ Combination of experience and creativity\n✔ Unique and original designs\n✔ Superior customer care and satisfaction\n✔ Transparent and High-resolution image types\n✔ Different types of source files (AI, EPS, PDF and SVG)\n✔ Complete Branding Guide\n✔ Unlimited revisions until you are 100% satisfied\n✔ Full Copyrights\nMASCOT DESIGNS ARE NOT INCLUDED IN BASIC OR STANDARD GIGS.\nTHE DESIGNS SHOWN ON THE PORTFOLIO ARE FROM STANDARD OR PREMIUM PACKS.\nLogo Design | Professional Logo | Modern Logo | Badge | Hand drawn | Feminine | Signature | Business Logo\nWe look forward to working with you. Please don\'t hesitate to reach out at any time with any questions.\nPlease review the FAQ section for further clarification.',
-        price: '₪151.55',
+        price: '$151.55',
         daysToMake: '2 Days Delivery',
         fullname: 'shailene_george',
         imgUrl:
@@ -650,6 +680,7 @@ function _createGigs() {
           "Welcome to Budding Solutions. An agency of 15+ Graphic Designers with great expertise. We strive to provide unique & graphically rich designs with exceptional & lifetime customer service. Let us be your GO-TO option for your graphic design needs and you won't be disappointed.",
         reviewers: [
           {
+            _id: utilService.makeId(),
             name: 'bossymouse',
             country: 'Netherlands',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
@@ -658,6 +689,7 @@ function _createGigs() {
             reviewedAt: 'Published 1 week ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'coastalcleaners',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -666,6 +698,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'ndethlefs',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -674,6 +707,7 @@ function _createGigs() {
             reviewedAt: 'Published 3 weeks ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'mrmikevh',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -682,6 +716,7 @@ function _createGigs() {
             reviewedAt: 'Published 2 months ago',
           },
           {
+            _id: utilService.makeId(),
             name: 'j_powell23',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
