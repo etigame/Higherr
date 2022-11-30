@@ -49,9 +49,10 @@ async function query(filterBy = { txt: '', price: 0 }) {
   return gigs
 }
 
-function getById(gigId) {
+async function getById(gigId) {
   //   return httpService.get(GIG_URL + gigId)
-  return storageService.get(GIG_STORAGE_KEY, gigId)
+  var gig = await storageService.get(GIG_STORAGE_KEY, gigId)
+  return gig
 }
 
 async function remove(gigId) {
@@ -143,7 +144,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',
         loc: 'Ghana',
         memberSince: 'Jul 2021',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: '1 week',
         about:
           "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
@@ -220,7 +221,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg',
         loc: 'Bangladesh',
         memberSince: 'Dec 2019',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: 'about 16 hours',
         about:
           'Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.',
@@ -257,7 +258,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg',
         loc: 'Brazil',
         memberSince: 'May 2020',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: '3 days',
         about:
           "Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio.",
@@ -335,7 +336,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg',
         loc: 'Kenya',
         memberSince: 'May 2021',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: 'about 21 hours',
         about:
           "My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you",
@@ -400,7 +401,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg',
         loc: 'India',
         memberSince: 'Jun 2014',
-        avgResponceTime: '2 hours',
+        avgResponseTime: '2 hours',
         lastDelivery: 'about 3 hours',
         about:
           "Hello! My name is VD. I am a connoisseur of art and music. I love being around nature and my pets. I have a team of professional graphic designers with an experience of 8+ years. We specialize in logo designing. We're available exclusively on fiverr to rock your world with our designing skills. Come and experience it for yourself!",
@@ -481,7 +482,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg',
         loc: 'Pakistan',
         memberSince: 'Oct 2017',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: 'about 25 minutes',
         about:
           "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
@@ -559,7 +560,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d366617946e54cbc9aa114f27259e3ef-1552848300306/3c155f72-15c9-47d0-8f68-b75a519a7999.jpg',
         loc: 'India',
         memberSince: 'Mar 2019',
-        avgResponceTime: '2 hours',
+        avgResponseTime: '2 hours',
         lastDelivery: 'about 22 minutes',
         about:
           'I am a professional artist having rich experience in hand sketched and digital artwork. I have served tons of businesses with smarter business solutions. I am here to get the global exposure and would like to contribute more towards our creative community. Thanks.',
@@ -643,7 +644,7 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg',
         loc: 'Pakistan',
         memberSince: 'Jun 2016',
-        avgResponceTime: '1 hour',
+        avgResponseTime: '1 hour',
         lastDelivery: 'about 16 minutes',
         about:
           "Welcome to Budding Solutions. An agency of 15+ Graphic Designers with great expertise. We strive to provide unique & graphically rich designs with exceptional & lifetime customer service. Let us be your GO-TO option for your graphic design needs and you won't be disappointed.",

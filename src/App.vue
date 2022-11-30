@@ -3,8 +3,9 @@
     <user-msg />
     <app-header />
     <categories-list />
-    <router-view  class="main-layout full" />
-    <!-- <main><router-view /></main> -->
+    <main class="main-layout full">
+      <router-view />
+    </main>
     <app-footer />
   </section>
 </template>
