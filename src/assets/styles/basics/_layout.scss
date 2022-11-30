@@ -1,3 +1,6 @@
+
+
+
 .main-layout {
     display: grid;
     grid-template-columns: $layoutPadding 1fr $layoutPadding;
@@ -9,6 +12,7 @@
         grid-column: 1 / -1;
     }
 
+ 
 
     // @include for-mobile-layout {
     //     @include layoutGTC($mobile-breakpoint);
@@ -21,6 +25,11 @@
     // @include for-normal-layout {
     //     @include layoutGTC($normal-breakpoint);
     // }
+}
+
+
+.app-container{
+    min-height: 100vh;
 }
 
 

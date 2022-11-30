@@ -19,6 +19,7 @@
     "vue-chart-3": "^3.1.8",
     "vue-router": "^4.1.5",
     "vue3-google-map": "^0.15.0",
+    "vueperslides": "^3.5.1",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
