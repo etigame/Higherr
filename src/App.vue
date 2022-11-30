@@ -2,7 +2,7 @@
   <section class="main-layout">
     <user-msg />
     <app-header />
-    <categories-list type="txt" />
+    <categories-list type="tag"  />
     <main class="app-container main-layout full">
       <router-view />
     </main>
@@ -19,6 +19,9 @@ import userMsg from './cmps/user-msg.vue'
 import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+
 
 
 export default {
@@ -31,7 +34,8 @@ export default {
     appHeader,
     userMsg,
     categoriesList,
-    appFooter
+    appFooter,
+  // { VueperSlides, VueperSlide },
   },
 }
 </script>
