@@ -1,4 +1,13 @@
 .app-footer{
     background-color:rgb(241, 255, 192) ;
     height: 170px;
+    border-top: 1px solid $clr2;
+
+    .logo{
+        margin-right: 30px;
+    }
+
+    .social-links{
+        flex-basis: 20%;
+    }
 }

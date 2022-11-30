@@ -1,18 +1,50 @@
 .categories-list{
-    background-color:rgb(192, 255, 192) ;
     
     section {
-        &.type-txt{
+      
+        &.type-tag{
             height:70px;
             align-items: center;
         }
+        &.type-svg{
+            display: grid;
+            padding-inline-start: 20px;
+            padding-inline-end: 20px;
+            grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+
+            background-color: white;
+            height: 520px;
+            
+            span{
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+              
+                svg{
+
+                    width: 60px;
+                }
+                
+              
+            }
+          
+        }
         &.type-card{
-            margin-right: 30px;
+            background-color: aquamarine;
+          margin-bottom: 90px;  
+         
+          
+         
+
+          }
+
         }
+        }
+        
     
-        h1{    
-            margin-bottom: 20px;
-        }
-    }
+    
+       
+    
    
-}
+

@@ -1,5 +1,12 @@
 .card{
+    position: relative;
     display: inline-block;
     width: 240px;
+    color: $CLR0;
 
+  h2{
+    position: absolute;
+    
+  }
+   
 }
