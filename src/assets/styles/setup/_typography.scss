@@ -1,6 +1,18 @@
 @font-face {
-    font-family: fiverr;
-    src: url('/src/assets/styles/fonts/fivver/Chunk\ Five\ Print.otf')
+    font-family: MacanBold;
+    src: url('/src/assets/styles/fonts/macan/macan-bold.ttf')
+}
+@font-face {
+    font-family: macanLight;
+    src: url('/src/assets/styles/fonts/macan/macan-light.ttf')
+}
+@font-face {
+    font-family: macanRegular;
+    src: url('src/assets/styles/fonts/macan/macan-regular.woff2')
+}
+@font-face {
+    font-family: macanSemiBold;
+    src: url('src/assets/styles/fonts/macan/macan-semibold.woff2')
 }
 
 @font-face {

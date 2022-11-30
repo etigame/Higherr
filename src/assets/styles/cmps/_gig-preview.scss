@@ -1,9 +1,24 @@
 
 .gig-preview{
     background-color:$CLR0;
-    border: 1px solid $clr6;
+    border:1px solid #e4e5e7;
     h2{
         font-size: 1rem;
+     
+    }
+    a{
+        text-decoration: none;
+        color: $clr4;
+    }
+    .preview-title{
+        max-height: 43px;
+        padding: 0 12px 0 12px;
+        // white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-overflow: ellipsis " [..]";
+        //TODO FIX HERE
     }
     .seller-info-preview{
         display: flex;
@@ -21,9 +36,15 @@
         border-radius: 50%;
         margin: 16px 8px 10px 11px;
     }
+
     .content-info{
+        display: flex;
+        align-items: center;
         height: 40px;
-        padding:0 12px 10px 12px;
+        padding:10px 12px 10px 12px;
+        .preview-rate-icon{
+            fill:gold;
+        }
     }
     .preview-footer{
         display: flex;

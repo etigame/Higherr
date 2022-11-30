@@ -6,11 +6,11 @@
 
         </div>
         <hr />
-        <form @submit.prevent="addGig()">
+        <!-- <form @submit.prevent="addGig()">
             <h2>Add gig</h2>
-            <input type="text" v-model="gigToAdd.vendor" />
+            <input type="text" v-model="gigToAdd.title" />
             <button>Save</button>
-        </form>
+        </form> -->
     </div>
 </template>
 

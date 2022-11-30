@@ -7,11 +7,13 @@
         <div class="seller-img"><img :src="gig.imgUrl"></div>
         <p>{{gig.fullname}}</p>
         </div>
-         <router-link :to="`/gig/${gig._id}`">
+            <div  class="preview-title">
+         <router-link :to="`/gig/${gig._id}`" >
             <h2>{{ gig.title }}</h2>
             </router-link>
+            </div>
             <div class="content-info">
-                
+                <span v-icon="'star'" class="preview-rate-icon"></span>
             </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
