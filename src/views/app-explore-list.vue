@@ -1,11 +1,10 @@
 <template>
     <div class="app-explore-list">
-        <h1>app-explore-list</h1>
-        <ul v-if="gigs" class="gig-list clean-list">
+        <div v-if="gigs" class="gig-list clean-list list-container">
 
                 <gig-preview  v-for="gig in gigs" :gig="gig" :key="gig._id" />
 
-        </ul>
+        </div>
         <hr />
         <form @submit.prevent="addGig()">
             <h2>Add gig</h2>

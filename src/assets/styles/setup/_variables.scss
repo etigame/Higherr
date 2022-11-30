@@ -1,10 +1,14 @@
-// LAYOUT
-$layoutPadding: 20px;
-
 // Breakpoints
-$mobile-breakpoint: 460px;
-$narrow-breakpoint: 720px;
-$normal-breakpoint: 960px;
+$mobile-breakpoint: 400px;
+$narrow-breakpoint: 600px;
+$normal-breakpoint: 900px;
+
+// LAYOUT
+$layoutPadding: 32px;
+// @media screen and (min-width: $narrow-breakpoint) {
+// $layoutPadding: 32px;
+// // $layoutPadding: 32px;
+// }
 
 
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
