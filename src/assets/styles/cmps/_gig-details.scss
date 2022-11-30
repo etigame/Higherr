@@ -1,3 +1,7 @@
+.details-container {
+    margin-block-start: 32px;
+}
+
 .gig-details {
     background-color: lightsalmon;
 
@@ -6,10 +10,6 @@
         width: 300px;
         object-fit: cover;
     }
-}
-
-.main {
-    flex: 2;
 }
 
 .details-nav {
@@ -45,6 +45,9 @@
 }
 
 .main {
+    margin-inline-end: 5.5%;
+    width: 59.5%;
+
     .title {
         font-size: rem(28px);
         padding-block-end: em(16px, 28px);
