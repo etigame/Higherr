@@ -5,6 +5,7 @@
 
 
       <router-link to="/">
+        <h1>Higherr.</h1>
         <span role="img" aria-label="logo">🙏</span>
       </router-link>
       <router-link to="/explore">Explore</router-link>
