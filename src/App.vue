@@ -2,9 +2,10 @@
   <section class=" main-layout">
     <user-msg />
     <app-header />
-    <categories-list type="txt" />
-    <router-view  class="app-container main-layout full" />
-    <!-- <main><router-view /></main> -->
+    <categories-list />
+    <main class="main-layout full">
+      <router-view />
+    </main>
     <app-footer />
   </section>
 </template>

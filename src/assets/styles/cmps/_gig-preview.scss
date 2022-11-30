@@ -1,8 +1,40 @@
 
 .gig-preview{
-    background-color: rgb(223, 223, 199);
-    margin: 20px 0 20px 0;
-    border-radius: 10px;
-    padding:10px;
-    border:1px grey solid
+    background-color:$CLR0;
+    border: 1px solid $clr6;
+    h2{
+        font-size: 1rem;
+    }
+    .seller-info-preview{
+        display: flex;
+        align-items: center;
+        height: 54px;
+    }
+    .gig-img{
+        width:100%;
+        height: 165px;
+    
+    }
+    .seller-img>*{
+        max-height: 24px;
+        max-width: 24px;
+        border-radius: 50%;
+        margin: 16px 8px 10px 11px;
+    }
+    .content-info{
+        height: 40px;
+        padding:0 12px 10px 12px;
+    }
+    .preview-footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 45px;
+        padding:10px 12px;
+        .preview-heart{
+        fill: $clr2;
+        //  background-color:  rgb(108, 108, 205);
+        }
+    }
+
 }
