@@ -1,3 +1,14 @@
-.gig-package {
-    background-color: blue;
+.package-container {
+    flex: 1;
+    background-color: yellow;
+    padding-inline: em(24px, 16px);
+    padding-block-start: em(32px, 16px);
+
+    &.package-container > * {
+        background-color: yellow
+    }
+}
+
+.package-content {
+    border: 1px solid var(--yro5245);
 }

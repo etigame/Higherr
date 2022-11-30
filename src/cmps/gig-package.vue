@@ -1,13 +1,11 @@
 <template>
     <section class="gig-package">
         <section class="package-content">
-            <h3>Basic</h3>
-            <h3> {{ gig.price }} </h3>
-        </section>
-        <section class="package-continue">
-            <button>continue</button>
-        </section>
-        <section class="package-continue">
+            <section class="header flex space-between">
+                <h3 class="title">Order Details</h3>
+                <h3 class="price"> {{ gig.price }} </h3>
+            </section>
+            <h3> {{ gig.daysToMake }} </h3>
             <button>continue</button>
         </section>
         <section class="contact-seller">

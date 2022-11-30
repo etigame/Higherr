@@ -1,5 +1,6 @@
 .gig-details {
-    background-color: salmon;
+    background-color: lightsalmon;
+
     img {
         height: 300px;
         width: 300px;
@@ -7,14 +8,49 @@
     }
 }
 
-.details-nav {
-    background-color: blue;
+.main {
+    flex: 2;
 }
 
-// .details-overview {
-//     .slideshow {
-//         img {
-//             @include img;
-//         }
-//     }
-// }
+.details-nav {
+    border-bottom: 1px solid var(--yro5245);
+    position: sticky;
+    width: 100%;
+    background-color: #fff;
+}
+
+.details-nav-list > li {
+    font-size: rem(14px);
+    margin: 0 em(12px, 14px);
+    color: var(--yro5248);
+    cursor: pointer;
+    font-weight: 600;
+    line-height: em(53px, 14px);
+    transition: color .2s;
+
+    &:first-of-type {
+        margin-inline-start: 0;
+    }
+    &:hover {
+        color: var(--yro5249);
+    }
+    &.selected {
+        color: var(--yro524c);
+        box-shadow: 0px -4px 0px 0px $clr1 inset;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.main {
+    .title {
+        font-size: rem(28px);
+        padding-block-end: em(16px, 28px);
+        overflow-wrap: break-word;
+        color: var(--yro524);
+        font-weight: 700;
+        line-height: 130%;
+    }
+}

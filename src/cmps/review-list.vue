@@ -11,6 +11,9 @@ import reviewPreview from './review-preview.vue'
 
 export default {
   name: 'review-list',
+  props: {
+    reviews: Array
+  },
   components: {
     reviewPreview
   }
