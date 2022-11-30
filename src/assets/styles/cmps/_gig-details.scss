@@ -1,0 +1,20 @@
+.gig-details {
+    background-color: salmon;
+    img {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+}
+
+.details-nav {
+    background-color: blue;
+}
+
+// .details-overview {
+//     .slideshow {
+//         img {
+//             @include img;
+//         }
+//     }
+// }

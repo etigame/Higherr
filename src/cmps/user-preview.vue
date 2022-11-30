@@ -1,7 +1,7 @@
 <template>
-    <section class="user-preview">
+    <div>
         <h1>user-preview</h1>
-    </section>
+    </div>
 </template>
 
 <script>
