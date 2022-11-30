@@ -1,6 +1,6 @@
 <template>
     <section class="app-nav">
-        <h1>app-nav</h1>
+        <h1></h1>
     </section>
 </template>
 

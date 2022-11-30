@@ -18,6 +18,64 @@
     @media screen and (min-width: 1160px) {
         grid-template-columns: repeat(4, 1fr)
     }
+}
+.advanced-filter{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+    .advanced-input{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .budget-input,
+        .category-input,
+        .delivery-input{
+        margin-inline-end: 10px;
+        width:105px;
+        margin-top:16px;
+        }
+    }
+    .advanced-switches{
+            display: flex;
+            align-items: center;
+            width: 316px;
 
 
+        .pro-switch{
+            justify-content: end;
+            margin-inline-end: 40px;
+        }
+        .online-switch,
+        .pro-switch{
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+        }
+    }
+}
+.sorting-click{
+    display: flex;
+    flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+    margin: 15px 0;
+    .sort-input {
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        height: 40px;
+       
+    .sortby-select{
+        width:130px;
+        .el-input__wrapper{
+            box-shadow: 0 0 0 0;
+            color: black
+        }
+        .el-input__wrapper:focus{
+            box-shadow: 0 0 0 0;
+        }
+    
+
+    }
+    }
 }
