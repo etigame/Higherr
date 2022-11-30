@@ -3,7 +3,8 @@
     <user-msg />
     <app-header />
     <categories-list />
-    <main><router-view /></main>
+    <router-view  class="main-layout full" />
+    <!-- <main><router-view /></main> -->
     <app-footer />
   </section>
 </template>
