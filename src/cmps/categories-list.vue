@@ -6,7 +6,7 @@
                 <img :src="item.imageUrl"/>
             </div>
         </section>
-        <section v-else-if="type==='txt'">
+        <section class="type-txt flex space-between" v-else-if="type==='txt'">
             <h3 v-for="item in list">{{item.txt}}</h3>
         </section>
     </section>

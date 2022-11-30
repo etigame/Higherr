@@ -2,7 +2,7 @@
   <section class="main-layout">
     <user-msg />
     <app-header />
-    <categories-list />
+    <categories-list type="txt" />
     <main class="app-container main-layout full">
       <router-view />
     </main>
