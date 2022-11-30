@@ -10,10 +10,11 @@
 @import "basics/base";
 @import "basics/links";
 @import "basics/forms";
+@import "basics/card";
 
 // Components
 @import "cmps/app-header";
-@import "cmps/app-categories-list";
+@import "cmps/categories-list";
 @import "cmps/app-home";
 @import "cmps/user-msg";
 @import "cmps/review-list";

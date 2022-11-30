@@ -1,9 +1,9 @@
 <template>
-  <section class="main-layout">
+  <section class=" main-layout">
     <user-msg />
     <app-header />
     <categories-list />
-    <main class="main-layout full">
+    <main class="app-container main-layout full">
       <router-view />
     </main>
     <app-footer />
