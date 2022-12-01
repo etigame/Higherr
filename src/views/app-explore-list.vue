@@ -38,11 +38,27 @@
         </div>
         <div class="sorting-click">
           <div class="flex "><h4 v-if="gigs">{{gigs.length}} </h4><p> Services available</p></div>
-          <div class="sort-input"><p> Sort by </p><el-select class="m-2 sortby-select" placeholder="Revevance" size="large">
+          <div class="sort-input"><p> Sort by </p><el-select class="m-2 sortby-select" placeholder="Relevance" size="large">
             <el-option value="bestSelling">Best Selling</el-option>
             <el-option value="newestArrivals">Newest Arrivals</el-option>
           </el-select> </div>
         </div>
+      
+        <!-- <el-dropdown>
+          <span class="el-dropdown-link">
+            Relevance
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>Relevance</el-dropdown-item>
+              <el-dropdown-item>Best Selling</el-dropdown-item>
+              <el-dropdown-item>Newest Arrivals</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown> -->
 
 
        

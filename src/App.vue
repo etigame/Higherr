@@ -19,8 +19,8 @@ import userMsg from './cmps/user-msg.vue'
 import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+// import { VueperSlides, VueperSlide } from 'vueperslides'
+// import 'vueperslides/dist/vueperslides.css'
 
 
 
