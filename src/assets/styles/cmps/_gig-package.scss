@@ -1,14 +1,131 @@
 .package-container {
-    flex: 1;
-    background-color: yellow;
-    padding-inline: em(24px, 16px);
-    padding-block-start: em(32px, 16px);
+  width: 35%;
+  background-color: #fff;
 
-    &.package-container > * {
-        background-color: yellow
-    }
+  //   &.package-container > * {
+  //     background-color: #fff;
+  //   }
+
+  svg {
+    float: left;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.gig-package {
+  button {
+    border: 1px solid transparent;
+    border-radius: em(4px, 16px);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 100%;
+    padding: em(12px, 16px) em(24px, 16px);
+    position: relative;
+    text-align: center;
+    width: 100%;
+    transition: 70ms cubic-bezier(.75,0,.25,1);
+    cursor: pointer;
+  }
 }
 
 .package-content {
-    border: 1px solid var(--yro5245);
+  padding: em(32px, 16px) em(24px, 16px);
+  border: 1px solid var(--yro5245);
+  margin-block-end: 16px;
+
+  & > p {
+    font-size: rem(14px);
+    min-height: 63px;
+    margin-block-end: 10px;
+    line-height: 140%;
+    font-weight: 500;
+    color: $clr3;
+  }
+
+  .header {
+    margin-block-end: 18px;
+    min-height: 48px;
+  }
+
+  .title {
+    font-size: 1rem;
+    line-height: em(24px, 16px);
+    color: var(--yro524b);
+  }
+
+  .price {
+    font-size: rem(20px);
+    line-height: em(24px, 16px);
+    font-weight: 400;
+    color: var(--yro524b);
+  }
+
+  .continue-btn {
+    background-color: $clr7;
+    color: #fff;
+
+    &:hover {
+      background-color: var(--yro5218);
+    }
+
+    & > span {
+      width: 16px;
+      height: 16px;
+      float: right;
+    }
+  }
+}
+
+.additional-info {
+  align-items: center;
+  font-size: rem(14px);
+  color: $clr3;
+  font-weight: 600;
+  margin-block-end: 8px;
+
+  p {
+    margin-inline-start: 8px;
+    line-height: em(22px, 14px);
+  }
+
+  & > * {
+    align-items: center;
+  }
+
+  .revisions-wrapper {
+    margin-inline-start: 16px;
+  }
+}
+
+.features {
+  margin-block-end: 20px;
+
+  & > li {
+    display: flex;
+    align-items: center;
+    font-size: rem(14px);
+    color: var(--yro5248);
+    font-weight: 400;
+    line-height: em(24px, 14px);
+
+    & > span {
+      padding-inline-end: 12px;
+    }
+  }
+}
+
+.contact-seller {
+    padding: 24px;
+  button {
+    background: none;
+    border-color: currentColor;
+    color: $clr3;
+
+    &:hover {
+        background-color: $clr5;
+        color: #fff;
+    }
+  }
 }
