@@ -10,20 +10,36 @@
     
     </section> -->
     <app-hero></app-hero>
+
+    <div class="trusted-by full">
+      <div class="logo-container flex space-around">
+      <img src="\src\assets\img\trustby1.png"/>
+      <img src="\src\assets\img\trustby2.png"/>
+      <img src="\src\assets\img\trustby3.png"/>
+      <img src="\src\assets\img\trustby4.png"/>
+      <img src="\src\assets\img\trustby5.png"/>
+    </div>
+    </div>
     <categories-list :type="'card'"/>
-    <section class="video-section flex full">
-      <p>
-      <h1>A whole world of freelance talent at your fingertips</h1>
-      <ul>
-        <li class="text-item" v-for="item in pageText">
-          <span v-icon="'check'"></span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-        </li>
-      </ul>
-      </p>
-      <div class="vid-container ">
-        <img src="src/assets/img/vid-teaser.webp">
+   
+    <section class="video-section flex full main-layout">
+
+      <div class="flex">
+        <div class="info">
+          <p class="side-text">
+          <h1>A whole world of freelance talent at your fingertips</h1>
+          <ul>
+            <li v-for="item in pageText">
+              <span v-icon="'check'"></span>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </li>
+          </ul>
+          </p>
+        </div>
+        <div class="vid-container ">
+          <img src="src/assets/img/vid-teaser.webp">
+        </div>
       </div>
       </section>
     <categories-list :type="'svg'"/>
