@@ -1,7 +1,7 @@
 <template>
     <section v-if="gig" class="gig-details">
         <section class="details-nav">
-            <ul class="details-nav-list clean-list flex">
+            <ul class="details-nav-list clean-list flex align-center">
                 <!-- //TODO: try implement with exact-active -->
                 <!-- //TODO: fix bug in URL with hash -->
                 <li v-for="({ to, title }, idx) in links" :key="to" @click="(selected = idx)"
@@ -23,7 +23,11 @@
 
         <section class="details-container flex">
             <section id="overview" class="main">
-                <p>Graphics & Design > Logo Design</p>
+                <p class="bread-crumbs">
+                    Graphics & Design
+                    <span v-icon="'breadCrumbsArrow'"></span>
+                    Logo Design
+                </p>
                 <p class="title">{{ gig.title }}</p>
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="slideshow">
