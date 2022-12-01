@@ -3,7 +3,7 @@
 
     <div class="advanced-filter">
       <div class="advanced-input">
-        <el-select v-model="filterBy.category" class="m-2 category-input" placeholder="Category" size="large">
+        <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category" size="large">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
         <!-- <el-dropdown split-button type="secondary" class="m-2 budget-input">
@@ -31,18 +31,25 @@
           </template>
         </el-dropdown> -->
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input v-model="filterBy.min" @click.stop  placeholder="Any" /></el-option>
-          <el-option value="1"><el-input v-model="filterBy.max" @click.stop  placeholder="Any" /></el-option>
-          <el-button >Apply</el-button>
+          <el-option value="1"><el-input type="number" v-model="filterBy.min" @click.stop  placeholder="Any" /></el-option>
+          <el-option value="1"><el-input type="number" v-model="filterBy.max" @click.stop  placeholder="Any" /></el-option>
+          <el-button @click="filter()" >Apply</el-button>
         </el-select>
 
-        <el-select class="m-2 delivery-input" placeholder="Delivery Time" size="large">
-          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Express 24H" /></el-option>
-          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Up to 3 days" /></el-option>
-          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Up to 7 days" /></el-option>
-          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Anytime" /></el-option>
+        <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time" size="large">
+          <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
+          <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
+          <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
+          <el-option value="0" v-model="filterBy.delivery">Anytime</el-option>
         </el-select>
       </div>
+        <!-- <el-select @change="filter()" class="m-2 delivery-input" placeholder="Delivery Time" size="large">
+          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Express 24H" /></el-option>
+          <el-option value="3"><el-checkbox v-model="filterBy.delivery" label="Up to 3 days" /></el-option>
+          <el-option value="7"><el-checkbox v-model="filterBy.delivery" label="Up to 7 days" /></el-option>
+          <el-option value="0"><el-checkbox v-model="filterBy.delivery" label="Anytime" /></el-option>
+        </el-select>
+      </div> -->
 
 
       <div class="advanced-switches">
@@ -110,16 +117,16 @@ export default {
 
       options: [
         {
-          value: 'All category',
+          value: '',
           label: 'All category',
         },
         {
-          value: 'Other',
-          label: 'Other',
+          value: 'Graphics & Design',
+          label: 'Graphics & Design',
         },
         {
-          value: 'Other',
-          label: 'Other',
+          value: 'Lifestyle',
+          label: 'Lifestyle',
         },
         {
           value: 'Other',
@@ -148,7 +155,9 @@ export default {
     gigPreview
   },
   methods: {
-    filter(filterBy) {
+    filter(filterBy = this.filterBy) {
+      filterBy.min = parseInt(this.filterBy.min)
+      filterBy.max = parseInt(this.filterBy.max)
       this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
     },
     //  filter() {

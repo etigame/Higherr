@@ -57,7 +57,14 @@ async function query(
   //   }
 
   var filteredGigs = gigs
-  if (!filterBy.title && !filterBy.subCategory && !filterBy.category) {
+  if (
+    !filterBy.title &&
+    !filterBy.subCategory &&
+    !filterBy.category &&
+    !filterBy.min &&
+    !filterBy.max &&
+    filterBy.delivery === 'Anytime'
+  ) {
     filteredGigs = gigs
   } else {
     if (!filterBy.category) {
@@ -72,6 +79,29 @@ async function query(
         (gig) => gig.subCategory === filterBy.subCategory
       )
     }
+    if (!filterBy.min) {
+      filteredGigs = filteredGigs
+    } else {
+      filteredGigs = gigs.filter(
+        (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
+      )
+    }
+    if (!filterBy.max) {
+      filteredGigs = filteredGigs
+    } else {
+      filteredGigs = gigs.filter(
+        (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
+      )
+    }
+    if (!filterBy.delivery) {
+      filteredGigs = filteredGigs
+    } else {
+      filteredGigs = gigs.filter(
+        (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+      )
+      console.log(filteredGigs)
+    }
+
     const regex = new RegExp(filterBy.title, 'i')
     filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
   }
