@@ -1,12 +1,13 @@
 <template>
 
     <section class="categories-list main-layout full">
+        
         <section v-if="(type==='tag')" class="type-tag flex space-between" >
             <h3 v-for="category in categories">{{category.name}}</h3>
         </section>
      
     
-        <section v-else-if="(type==='card')" class="type-card ">
+        <section v-if="(type==='card')" class="type-card ">
             <h1>Popular Professional Services</h1>
             <div class="cards flex space-between">
             <div class="card" v-for="tag in tags" >
@@ -16,7 +17,7 @@
         </div>
         </section>
 
-        <section v-else-if="(type==='svg')" class="type-svg" >
+        <section v-if="(type==='svg')" class="type-svg" >
             <span v-for="category in categories">
                 <span  v-icon="category.svg"></span>
                 <h4>{{category.name}}</h4>

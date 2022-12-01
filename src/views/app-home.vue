@@ -1,7 +1,16 @@
 <template>
   <section class="app-home main-layout full">
-    <section class="hero full"><img src="src/assets/img/hero1.webp" /></section>
-    <categories-list type="card"/>
+    <!-- <section class="hero full">
+      <img class="hero-andrea" src="src/assets/img/hero1.webp" />
+      <img class="hero-moon" src="src/assets/img/hero2.webp" />
+      <img class="hero-moon" src="src/assets/img/hero3.webp" />
+      <img class="hero-zach" src="src/assets/img/hero4.webp" />
+      <img class="hero-gabrielle" src="src/assets/img/hero5.webp" />
+
+    
+    </section> -->
+    <app-hero></app-hero>
+    <categories-list :type="'card'"/>
     <section class="video-section flex full">
       <p>
         <h1>A whole world of freelance talent at your fingertips</h1>
@@ -17,17 +26,17 @@
         <img src="src/assets/img/vid-teaser.webp" >
       </div>
       </section>
-    <categories-list type="svg"/>
+    <categories-list :type="'svg'"/>
   </section>
 </template>
 
 <script>
-
+import appHero from "../cmps/app-hero.vue"
 import categoriesList from '../cmps/categories-list.vue';
 
 export default {
   name: 'app-home',
-  components: {categoriesList},
+  components: {categoriesList, appHero},
  
   data() {
     return {
