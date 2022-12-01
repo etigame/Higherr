@@ -3,20 +3,22 @@
     <section class="categories-list main-layout full">
         
         <section  v-if="(type==='tag')" class="type-tag  main-layout full" >
-            <div class="flex space-between">
-            <h3 v-for="category in categories">{{category.name}}</h3>
+            <div class="flex space-between ">
+            <a href="" v-for="category in categories">{{category.name}}</a>
         </div>
         </section>
      
     
         <section v-if="(type==='card')" class="type-card ">
+            <div class="main-layout full">
             <h1>Popular Professional Services</h1>
-            <div class="cards flex space-between">
+            <div class="cards flex space-between ">
             <div class="card" v-for="tag in tags" >
-                <h2>{{tag.subTxt}}  <h3>{{tag.txt}}</h3></h2>
+                <h2><small>{{tag.subTxt}}</small>{{tag.txt}}</h2>
                 <img :src="tag.imageUrl"/>
             </div>
         </div>
+    </div>
         </section>
 
         <section v-if="(type==='svg')" class="type-svg" >

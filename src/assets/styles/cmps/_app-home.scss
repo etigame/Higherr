@@ -1,32 +1,40 @@
 .app-home{
-    background-color:rgb(192, 252, 255) ;
+    color: $clr11;
     line-height: 26px;
     width: 100%;
 
 
     .trusted-by{
-        background-color: antiquewhite;
+  background-color: #fafafa;
+        padding: 0px 90px;
         width: 100%;
         margin-bottom: 96px;
-        
-    .logo-container{
-        width:100px;
+        height:96px;
       
-        }
     }
-}
+
+    .logos >*{
+        font-weight:600;
+        color: $clr2;
+        font-size:1em;
+        padding-inline-end: 60px;
+    }
+
+
 
 
     .video-section{
         
-        background-color: grey;
+        background-color: $CLR01;
         min-height:690px;
         padding: 96px 0px;
     
         &>*{
             flex-basis:50%;
-
         }
+
+      
+
     
 
     .info{
@@ -64,3 +72,4 @@
 
 }
 
+}

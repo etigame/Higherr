@@ -1,5 +1,5 @@
 <template>
-<select class="login-signup">
+<div class="login-signup">
   <el-button text @click="dialogFormVisible = true">
       Sign In
     </el-button>
@@ -26,7 +26,7 @@
         </span>
       </template>
     </el-dialog>
-  </select>
+  </div>
   </template>
   
   <script lang="ts" setup>

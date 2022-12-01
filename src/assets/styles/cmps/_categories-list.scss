@@ -3,13 +3,22 @@
     section {
       
         &.type-tag{
-            height:70px;
+            height:40px;
             align-items: center;
             background: yellowgreen;
+            border-top:1px solid $clr3;
+            border-bottom:1px solid $clr3;
+
+           a{
+            text-decoration: none;
+            color:black;
+           
+           }
             // position: fixed;
             // width: 100%;
             // transform: translate(0, $headingHeight);
             // z-index: 10;
+          
         
        
         }
@@ -19,7 +28,7 @@
             padding-inline-end: 20px;
             grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
 
-            background-color: white;
+            
             height: 520px;
             
             span{
@@ -38,16 +47,35 @@
           
         }
         &.type-card{
-            background-color: aquamarine;
+           
           margin-bottom: 90px;  
-         
-          
-         
+          h1{
+            padding-bottom: 24px;
+        }
+        .card{
+            height: 345px;
+            border-radius:4px;
+            overflow: hidden;
+
+            h2{
+                padding: 16px;
+                font-size: 1.7rem;
+                
+
+                small{
+                    font-weight:100;
+                    font-size: 1rem;
+                    display:block;
+                    padding-bottom: 5px;
+                }
+                }
+            }
+        }
 
           }
 
         }
-        }
+        
 
 
         

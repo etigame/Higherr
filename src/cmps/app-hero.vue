@@ -1,11 +1,17 @@
 <template>
     <section class="hero-container full">
-     
-            <Transition>
-      <!-- <img v-for= "(image, idx) in images"  :src= "getUrl(idx)" /> -->
-        <img class="hero-img" v-if="show" :src= "getImgUrl" />
+      
+        <div class="img-container">
+        <Transition>
+            <img  class="hero-img" v-if= "(this. idx===1)" :src= "`src/assets/img/hero${this.idx}.webp`" />
+            <img  class="hero-img" v-else-if="(this.idx===2)" :src= "`src/assets/img/hero${this.idx}.webp`" />
+            <img  class="hero-img" v-else-if="(this.idx===3)" :src= "`src/assets/img/hero${this.idx}.webp`" />
+            <img  class="hero-img" v-else-if="(this.idx===4)" :src= "`src/assets/img/hero${this.idx}.webp`" />
+            <img  class="hero-img" v-else-if="(this.idx===5)" :src= "`src/assets/img/hero${this.idx}.webp`" />
      </Transition>
-  
+    </div>
+   
+    
       
       <!-- <img v-else-if="image==='moon'"  key="moon" src="src/assets/img/hero2.webp" />
       <img v-else-if="image==='rikita'"   key="rikita" src="src/assets/img/hero3.webp" />
@@ -19,31 +25,24 @@
 export default {
     name: 'hero',
     mounted(){
-        setInterval(this.changeCurrImage, 3000)
+        setInterval(this.changeCurrImage, 7000)
          
     },
     data(){
         return {
-            show: false,
             idx: 1,
+          
         }
     },
     methods: {
         changeCurrImage(){
-            this.show=!this.show
-            if(!this.show){
-          this.idx=this.idx< 5 ? this.idx+1 : 1
+           this.idx= this.idx<5 ? this.idx+1 : 1
+           console.log(this.idx)
+
          
             }
         }
-    },
-
-        computed:{
-            getImgUrl(){
-                return `src/assets/img/hero${this.idx}.webp`
-            },
-        
-        }
+    
     }
      
 

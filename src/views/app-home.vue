@@ -12,12 +12,11 @@
     <app-hero></app-hero>
 
     <div class="trusted-by main-layout full">
-      <div class="logo-container flex space-around">
-      <img src="\src\assets\img\trustby1.png"/>
-      <img src="\src\assets\img\trustby2.png"/>
-      <img src="\src\assets\img\trustby3.png"/>
-      <img src="\src\assets\img\trustby4.png"/>
-      <img src="\src\assets\img\trustby5.png"/>
+      <div class="logos flex justify-center align-center">
+        <span>Trusted By:</span>
+        <div class="logo-container"  v-for="num in 5">
+          <img :src="`src/assets/img/trustby${num}.png`">
+      </div>
     </div>
     </div>
     <categories-list :type="'card'"/>

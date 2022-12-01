@@ -5,11 +5,11 @@
             <small>© Higherr International Ltd. 2022</small>
         </div>
         <div class="social-links flex space-between ">
-            <span v-icon="'twitter'"></span>
-            <span v-icon="'facebook'"></span>
-            <span v-icon="'linkedin'"></span>
-            <span v-icon="'pinterest'"></span>
-            <span v-icon="'instagram'"></span>
+            <a v-icon="'twitter'"></a>
+            <a v-icon="'facebook'"></a>
+            <a v-icon="'linkedin'"></a>
+            <a v-icon="'pinterest'"></a>
+            <a v-icon="'instagram'"></a>
         </div>
 
     </section>
