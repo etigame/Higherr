@@ -11,7 +11,7 @@
     </section> -->
     <app-hero></app-hero>
 
-    <div class="trusted-by full">
+    <div class="trusted-by main-layout full">
       <div class="logo-container flex space-around">
       <img src="\src\assets\img\trustby1.png"/>
       <img src="\src\assets\img\trustby2.png"/>

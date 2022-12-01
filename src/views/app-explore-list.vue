@@ -3,11 +3,9 @@
 
     <div class="advanced-filter">
       <div class="advanced-input">
-        <el-select v-model="demoOption" class="m-2 category-input" placeholder="Category" size="large">
+        <el-select v-model="filterBy.category" class="m-2 category-input" placeholder="Category" size="large">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
-
-
         <!-- <el-dropdown split-button type="secondary" class="m-2 budget-input">
           Default
           <template #dropdown>
@@ -32,32 +30,21 @@
             </el-dropdown-menu>
           </template>
         </el-dropdown> -->
-
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
-          <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
-          <el-button type="secondary" @click="onSubmit">Apply</el-button>
+          <el-option value="1"><el-input v-model="filterBy.min" @click.stop  placeholder="Any" /></el-option>
+          <el-option value="1"><el-input v-model="filterBy.max" @click.stop  placeholder="Any" /></el-option>
+          <el-button >Apply</el-button>
         </el-select>
 
         <el-select class="m-2 delivery-input" placeholder="Delivery Time" size="large">
-          <el-option value="1"><el-checkbox label="Express 24H" /></el-option>
-          <el-option value="1"><el-checkbox label="Up to 3 days" /></el-option>
-          <el-option value="1"><el-checkbox label="Up to 7 days" /></el-option>
-          <el-option value="1"><el-checkbox label="Anytime" /></el-option>
+          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Express 24H" /></el-option>
+          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Up to 3 days" /></el-option>
+          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Up to 7 days" /></el-option>
+          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Anytime" /></el-option>
         </el-select>
-
-        <!-- <el-select v-model="value" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option><el-input v-model="demoInfo1" placeholder="Any" /></el-option>
-          <el-option><el-input v-model="demoInfo1" placeholder="Any" /></el-option>
-        </el-select>
-
-        <el-select v-model="demoInfo1" class="m-2 delivery-input" placeholder="Delivery Time" size="large">
-          <el-option><el-checkbox v-model="demoInfo1" label="Express 24H"/></el-option>
-          <el-option><el-checkbox v-model="demoInfo1" label="Up to 3 days"/></el-option>
-          <el-option><el-checkbox v-model="demoInfo1" label="Up to 7 days"/></el-option>
-          <el-option><el-checkbox v-model="demoInfo1" label="Anytime"/></el-option>
-        </el-select> -->
       </div>
+
+
       <div class="advanced-switches">
         <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
@@ -67,8 +54,8 @@
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
           <h4>Online seller</h4>
         </div>
-
       </div>
+      
     </div>
     <div class="sorting-click">
       <div class="flex ">
@@ -82,26 +69,7 @@
       </div>
     </div>
 
-    <el-dropdown>
-      <span class="el-dropdown-link">
-        Relevance
-        <el-icon class="el-icon--right">
-          <arrow-down />
-        </el-icon>
-      </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item>Relevance</el-dropdown-item>
-          <el-dropdown-item>Best Selling</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
-
-
-
-
     <div v-if="gigs" class="gig-list clean-list list-container">
-
       <gig-preview v-for="gig in gigs" :gig="gig" :key="gig._id" />
 
     </div>
@@ -126,6 +94,14 @@ import gigPreview from '../cmps/gig-preview.vue'
 export default {
   data() {
     return {
+      filterBy: {
+        title: '',
+        category: '',
+        subCategory: '',
+        min:null,
+        max:null,
+        delivery:'Anytime',
+      },
       gigToAdd: gigService.getEmptyGig(),
       demoInfo: true,
       demoInfo1: 1,
@@ -172,6 +148,13 @@ export default {
     gigPreview
   },
   methods: {
+    filter(filterBy) {
+      this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
+    },
+    //  filter() {
+    //         this.$emit('filter', { ...this.filterBy })
+    //         console.log(this.filterBy)
+    //     },
     async addGig() {
       try {
         await this.$store.dispatch({ type: 'addGig', gig: this.gigToAdd })
@@ -218,7 +201,5 @@ export default {
     },
 
   }
-
-
 }
 </script>
