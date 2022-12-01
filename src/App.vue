@@ -2,7 +2,7 @@
   <section class="main-layout">
     <user-msg />
     <app-header />
-    <categories-list type="tag" />
+    <categories-list :type="'tag'"  />
     <main class="app-container main-layout full">
       <router-view />
     </main>
@@ -21,6 +21,8 @@ import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
 
 
+
+
 export default {
   created() {
     console.log('Vue App created')
@@ -32,7 +34,7 @@ export default {
     userMsg,
     categoriesList,
     appFooter,
-    // { VueperSlides, VueperSlide },
+
   },
 }
 </script>
