@@ -7,9 +7,23 @@
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input  placeholder="Any" /></el-option>
-          <el-option value="1"><el-input  placeholder="Any" /></el-option>
+          <el-option value="1"><el-form :inline="true" :model="formInline" class="demo-form-inline">
+            <el-form-item label="Min-price">
+              <el-input placeholder="Any" @click.stop />
+            </el-form-item>
+            <el-form-item label="Max-price">
+              <el-input placeholder="Any" @click.stop />
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">Query</el-button>
+            </el-form-item>
+          </el-form>
+        </el-option>
         </el-select>
+        <!-- <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
+          <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
+          <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
+        </el-select> -->
 
         <el-select class="m-2 delivery-input" placeholder="Delivery Time" size="large">
           <el-option value="1"><el-checkbox  label="Express 24H"/></el-option>
@@ -31,20 +45,20 @@
         </el-select> -->
         </div>
         <div class="advanced-switches">
-            <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2" style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ffffff" /><p>Pro service</p></div>
-            <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2" style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ffffff" /><p>Online seller</p></div>
+            <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2" style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" /><h4>Pro service</h4></div>
+            <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2" style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" /><h4>Online seller</h4></div>
 
         </div>
         </div>
         <div class="sorting-click">
-          <div class="flex "><h4 v-if="gigs">{{gigs.length}} </h4><p> Services available</p></div>
-          <div class="sort-input"><p> Sort by </p><el-select class="m-2 sortby-select" placeholder="Relevance" size="large">
+          <div class="flex "><h4 v-if="gigs">{{gigs.length}} Services available</h4></div>
+          <div class="sort-input"><h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance" size="large">
             <el-option value="bestSelling">Best Selling</el-option>
             <el-option value="newestArrivals">Newest Arrivals</el-option>
           </el-select> </div>
         </div>
       
-        <!-- <el-dropdown>
+        <el-dropdown>
           <span class="el-dropdown-link">
             Relevance
             <el-icon class="el-icon--right">
@@ -55,10 +69,9 @@
             <el-dropdown-menu>
               <el-dropdown-item>Relevance</el-dropdown-item>
               <el-dropdown-item>Best Selling</el-dropdown-item>
-              <el-dropdown-item>Newest Arrivals</el-dropdown-item>
             </el-dropdown-menu>
           </template>
-        </el-dropdown> -->
+        </el-dropdown>
 
 
        
