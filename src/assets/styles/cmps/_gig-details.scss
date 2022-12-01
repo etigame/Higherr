@@ -2,9 +2,9 @@
   margin-block-start: 32px;
 }
 
-.gig-details {
-  background-color: lightsalmon;
-}
+// .gig-details {
+//   background-color: lightsalmon;
+// }
 
 .details-nav {
   border-bottom: 1px solid var(--yro5245);
@@ -28,21 +28,20 @@
     color: $clr4;
   }
 
-  
   a {
-      font-size: rem(14px);
-      color: var(--yro5248);
-      cursor: pointer;
-      font-weight: 600;
-      line-height: em(53px, 14px);
-      text-decoration: none;
-      transition: color 0.2s;
-      
-      &:hover {
-        color: var(--yro5249);
-      }
+    font-size: rem(14px);
+    color: var(--yro5248);
+    cursor: pointer;
+    font-weight: 600;
+    line-height: em(53px, 14px);
+    text-decoration: none;
+    transition: color 0.2s;
 
-      // &.router-link-exact-active {
+    &:hover {
+      color: var(--yro5249);
+    }
+
+    // &.router-link-exact-active {
     // }
   }
 }
@@ -50,6 +49,24 @@
 .main {
   margin-inline-end: 5.5%;
   width: 59.5%;
+
+  .bread-crumbs {
+    color: var(--yro52j);
+    font-size: rem(14px);
+    cursor: pointer;
+    margin-block-end: em(10px, 14px);
+
+    span {
+      width: rem(12px);
+      height: rem(12px);
+      
+      svg {
+        width: rem(12px);
+        height: rem(12px);
+        margin: 0 em(8px, 14px);
+      }
+    }
+  }
 
   .title {
     font-size: rem(28px);
