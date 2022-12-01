@@ -16,6 +16,7 @@
 
         <section class="details-container flex">
             <section id="overview" class="main">
+                <p>Graphics & Design > Logo Design</p>
                 <p class="title">{{ gig.title }}</p>
                 <user-preview />
                 <section class="slideshow">
@@ -63,12 +64,6 @@
 
             <section class="package-container">
                 <gig-package :gig="gig" />
-
-                <section class="highly-responsive">
-                    <span v-icon="'highlyResponsive'" class="highly-responsive-icon"></span>
-                    <p>Highly responsive!</p>
-                    <p>Known for exceptionally quick replies</p>
-                </section>
             </section>
 
         </section>
