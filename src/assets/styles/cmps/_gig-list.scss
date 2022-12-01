@@ -1,106 +1,140 @@
-.app-explore-list{
+.app-explore-list {
     // background-color: blue;
-    margin-top:$layoutPadding;
+    margin-top: $layoutPadding;
 }
-.list-container{
-    display:grid;
+
+.list-container {
+    display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: $layoutPadding;
+
     // @media screen and (min-width: $mobile-breakpoint) {
     //     grid-template-columns: repeat(2, 1fr)
     // }
     @media screen and (min-width: $narrow-breakpoint) {
         grid-template-columns: repeat(2, 1fr)
     }
+
     @media screen and (min-width: $normal-breakpoint) {
         grid-template-columns: repeat(3, 1fr)
     }
+
     @media screen and (min-width: 1160px) {
         grid-template-columns: repeat(4, 1fr)
     }
 }
-.advanced-filter{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-    .advanced-input{
+
+.advanced-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .advanced-input {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .preview-budget-container{
+            flex-direction: column;
+        .preview-budget {
+            .el-input {
+                min-width: none;
+                max-width: 100px;
+            }
+        }
+        }
         .budget-input,
         .category-input,
-        .delivery-input{
-        margin-inline-end: 10px;
-        width:105px;
-        margin-top:16px;
+        .delivery-input {
+            margin-inline-end: 10px;
+            width: 105px;
+            margin-top: 16px;
+
+            .el-input__wrapper {
+                width: 120px
+            }
         }
+
     }
-    .advanced-switches{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            width: 316px;
+
+    .advanced-switches {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 316px;
 
 
-        .pro-switch{
+        .pro-switch {
             justify-content: end;
             margin-inline-end: 40px;
 
         }
+
         .online-switch,
-        .pro-switch{
+        .pro-switch {
             display: flex;
             align-items: center;
             margin-top: 16px;
-            color:$CLR00;
-            .ml-2{
-               margin-inline-end: 5px; 
+            color: $CLR00;
+
+            .ml-2 {
+                margin-inline-end: 5px;
             }
+
             .el-switch__core {
                 height: 18px;
                 min-width: 31px;
             }
+
             .el-switch__action {
-               height: 14px;
-               width:14px 
+                height: 14px;
+                width: 14px
             }
         }
     }
 }
-.el-input__inner {color:black}
-.sorting-click{
+
+.el-input__inner {
+    color: black
+}
+
+.sorting-click {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin: 15px 0;
-    color:$CLR00;
+    color: $CLR00;
+
     .sort-input {
-        display:flex;
+        display: flex;
         flex-direction: row;
         align-items: center;
         height: 40px;
-       
-    .sortby-select{                                  
-        width:130px;
-        .el-select .el-input.is-focus .el-input__wrapper{
-            box-shadow: 0 0 0 5px  !important;
-            //  box-shadow: 0 0 0 1px var(--el-seput-focus-border-color) inset !important;
-        }
-        .el-input__wrapper{
-            box-shadow: 0 0 0 0;
-            color: black
-        }
-        .el-input__wrapper:focus{
-            box-shadow: 0 0 0 0;
-        }
-    
 
-    }
+        .sortby-select {
+            width: 130px;
+
+            .el-select .el-input.is-focus .el-input__wrapper {
+                box-shadow: 0 0 0 5px !important;
+                //  box-shadow: 0 0 0 1px var(--el-seput-focus-border-color) inset !important;
+            }
+
+            .el-input__wrapper {
+                box-shadow: 0 0 0 0;
+                color: black
+            }
+
+            .el-input__wrapper:focus {
+                box-shadow: 0 0 0 0;
+            }
+
+
+        }
     }
 }
 
 // TODO: export to reset
-.el-select .el-input.is-focus .el-input__wrapper, .el-select .el-input__wrapper.is-focus{
+.el-select .el-input.is-focus .el-input__wrapper,
+.el-select .el-input__wrapper.is-focus {
     box-shadow: 0 0 0 0 transparent !important;
 }

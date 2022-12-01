@@ -13,7 +13,10 @@
         grid-column: 1 / -1;
     }
 
- 
+    @media screen and (min-width: $padded-break-wide) {
+        grid-template-columns: 1fr $wide-breakpoint 1fr;
+
+     }
 
     // @include for-mobile-layout {
     //     @include layoutGTC($mobile-breakpoint);

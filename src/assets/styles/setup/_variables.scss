@@ -2,6 +2,7 @@
 $mobile-breakpoint: 400px;
 $narrow-breakpoint: 600px;
 $normal-breakpoint: 900px;
+$wide-breakpoint: 1400px;
 
 // LAYOUT
 $layoutPadding: 32px;
@@ -19,6 +20,7 @@ $headingHeight: 80px;
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 $padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
 $padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
+$padded-break-wide: $wide-breakpoint + $layoutPadding * 2;
 
 
 // // LAYOUT BREAKPOINTS - wide screens
