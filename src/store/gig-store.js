@@ -25,7 +25,10 @@ export const gigStore = {
     filterBy: {
       title: '',
       category: '',
-      tags: '',
+      subCategory: '',
+      min: null,
+      max: null,
+      delivery: 'Anytime',
     },
   },
   getters: {
@@ -33,32 +36,30 @@ export const gigStore = {
       return gigs
     },
 
-    filteredGigs({ gigs, filterBy }) {
-      var filteredGigs = gigs
-      if (
-        !filterBy.title &&
-        filterBy.label === 'All' &&
-        filterBy.inStock === 'All'
-      ) {
-        filteredGigs = gigs
-      } else {
-        if (!filterBy.category) {
-          filteredGigs = gigs
-        } else {
-          filteredGigs = gigs.filter((gig) =>
-            gig.category.includes(filterBy.category)
-          )
-        }
-        if (!filterBy.tags) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = gigs.filter((gig) => gig.tags.includes(filterBy.tags))
-        }
-        const regex = new RegExp(filterBy.title, 'i')
-        filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
-      }
-      return filteredGigs
-    },
+    // gigs({ gigs, filterBy }) {
+    //   var filteredGigs = gigs
+    //   if (!filterBy.title && !filterBy.subCategory && !filterBy.category) {
+    //     filteredGigs = gigs
+    //   } else {
+    //     if (!filterBy.category) {
+    //       filteredGigs = gigs
+    //     } else {
+    //       filteredGigs = gigs.filter(
+    //         (gig) => gig.category === filterBy.category
+    //       )
+    //     }
+    //     if (!filterBy.subCategory) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = gigs.filter(
+    //         (gig) => gig.subCategory === filterBy.subCategory
+    //       )
+    //     }
+    //     const regex = new RegExp(filterBy.title, 'i')
+    //     filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
+    //   }
+    //   return filteredGigs
+    // },
   },
   mutations: {
     setFilter(state, { filterBy }) {
@@ -104,10 +105,12 @@ export const gigStore = {
         throw err
       }
     },
-    async loadGigs(context) {
+    async loadGigs(context, { filterBy }) {
       try {
-        const gigs = await gigService.query()
+        // const filterBy = context.state.filterBy
+        const gigs = await gigService.query(filterBy)
         context.commit({ type: 'setGigs', gigs })
+        console.log(gigs)
       } catch (err) {
         console.log('gigStore: Error in loadGigs', err)
         throw err

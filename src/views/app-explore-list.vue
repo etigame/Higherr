@@ -43,6 +43,8 @@
           <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Anytime" /></el-option>
         </el-select>
       </div>
+
+
       <div class="advanced-switches">
         <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
@@ -52,8 +54,8 @@
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
           <h4>Online seller</h4>
         </div>
-
       </div>
+      
     </div>
     <div class="sorting-click">
       <div class="flex ">
@@ -95,7 +97,7 @@ export default {
       filterBy: {
         title: '',
         category: '',
-        tags: '',
+        subCategory: '',
         min:null,
         max:null,
         delivery:'Anytime',
@@ -146,10 +148,13 @@ export default {
     gigPreview
   },
   methods: {
-    filter() {
-      this.$emit('filter', { ...this.filterBy })
-      console.log(this.filterBy)
+    filter(filterBy) {
+      this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
     },
+    //  filter() {
+    //         this.$emit('filter', { ...this.filterBy })
+    //         console.log(this.filterBy)
+    //     },
     async addGig() {
       try {
         await this.$store.dispatch({ type: 'addGig', gig: this.gigToAdd })

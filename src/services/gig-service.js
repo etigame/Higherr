@@ -33,7 +33,16 @@ export const gigService = {
 }
 window.gigService = gigService
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(
+  filterBy = {
+    title: '',
+    category: '',
+    subCategory: '',
+    min: null,
+    max: null,
+    delivery: 'Anytime',
+  }
+) {
   // return httpService.get(GIG_URL, filterBy)
 
   var gigs = await storageService.query(GIG_STORAGE_KEY)
@@ -46,7 +55,29 @@ async function query(filterBy = { txt: '', price: 0 }) {
   //   if (filterBy.price) {
   //     gigs = gigs.filter((gig) => gig.price <= filterBy.price)
   //   }
-  return gigs
+
+  var filteredGigs = gigs
+  if (!filterBy.title && !filterBy.subCategory && !filterBy.category) {
+    filteredGigs = gigs
+  } else {
+    if (!filterBy.category) {
+      filteredGigs = gigs
+    } else {
+      filteredGigs = gigs.filter((gig) => gig.category === filterBy.category)
+    }
+    if (!filterBy.subCategory) {
+      filteredGigs = filteredGigs
+    } else {
+      filteredGigs = gigs.filter(
+        (gig) => gig.subCategory === filterBy.subCategory
+      )
+    }
+    const regex = new RegExp(filterBy.title, 'i')
+    filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
+  }
+  return filteredGigs
+  // },
+  // return gigs
 }
 
 async function getById(gigId) {
