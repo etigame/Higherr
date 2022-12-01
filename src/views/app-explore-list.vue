@@ -8,7 +8,7 @@
         </el-select>
 
 
-        <el-dropdown split-button type="secondary" class="m-2">
+        <!-- <el-dropdown split-button type="secondary" class="m-2 budget-input">
           Default
           <template #dropdown>
             <el-dropdown-menu>
@@ -31,13 +31,13 @@
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
-        </el-dropdown>
+        </el-dropdown> -->
 
-        <!-- <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
+        <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
           <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
           <el-option value="1"><el-input @click.stop  placeholder="Any" /></el-option>
-          <el-button type="primary" @click="onSubmit">Apply</el-button>
-        </el-select> -->
+          <el-button type="secondary" @click="onSubmit">Apply</el-button>
+        </el-select>
 
         <el-select class="m-2 delivery-input" placeholder="Delivery Time" size="large">
           <el-option value="1"><el-checkbox label="Express 24H" /></el-option>
@@ -105,7 +105,10 @@
       <gig-preview v-for="gig in gigs" :gig="gig" :key="gig._id" />
 
     </div>
-    <hr />
+
+    <div class="pagination">
+      <el-pagination large background layout="prev, pager, next" :total="30" class="mt-3" />
+    </div>
     <!-- <form @submit.prevent="addGig()">
             <h2>Add gig</h2>
             <input type="text" v-model="gigToAdd.title" />
