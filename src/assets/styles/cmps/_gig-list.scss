@@ -1,6 +1,7 @@
 .app-explore-list {
     // background-color: blue;
     margin-top: $layoutPadding;
+    margin-bottom: $layoutPadding;
 }
 
 .list-container {
@@ -110,14 +111,14 @@
         flex-direction: row;
         align-items: center;
         height: 40px;
-
+        .el-select .el-input.is-focus .el-input__wrapper,
+        .el-select .el-input__wrapper.is-focus {
+                box-shadow: 0 0 0 0 transparent !important;
+        }
         .sortby-select {
             width: 130px;
 
-            .el-select .el-input.is-focus .el-input__wrapper {
-                box-shadow: 0 0 0 5px !important;
-                //  box-shadow: 0 0 0 1px var(--el-seput-focus-border-color) inset !important;
-            }
+            
 
             .el-input__wrapper {
                 box-shadow: 0 0 0 0;
@@ -133,8 +134,29 @@
     }
 }
 
-// TODO: export to reset
-.el-select .el-input.is-focus .el-input__wrapper,
-.el-select .el-input__wrapper.is-focus {
-    box-shadow: 0 0 0 0 transparent !important;
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 45px 30px;
+    .el-pagination.is-background .btn-next,
+    .el-pagination.is-background .btn-prev,
+    .el-pagination.is-background .el-pager li {
+        margin: 0 4px;
+        background-color: transparent;
+        border: 1px $clr2 solid;
+        font-size: 1rem;
+    }
+    .el-pagination.is-background .el-pager li.is-active {
+            background-color: transparent;
+            color: $clr4;
+    }
+        
 }
+
+
+// TODO: export to reset
+// .el-select .el-input.is-focus .el-input__wrapper,
+// .el-select .el-input__wrapper.is-focus {
+//     box-shadow: 0 0 0 0 transparent !important;
+// }
