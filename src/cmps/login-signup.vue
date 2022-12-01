@@ -1,5 +1,52 @@
 <template>
-  <div class="container about">
+
+  <el-button text @click="dialogFormVisible = true">
+      Sign In
+    </el-button>
+    <el-button text @click="dialogFormVisible = true">
+      Join
+    </el-button>
+  
+  
+    <el-dialog v-model="dialogFormVisible" title="Sign In to Higherr">
+      <el-form :model="form">
+        <el-form-item  >
+          <el-input v-model="form.username" placeholder="username" autocomplete="off" />
+        </el-form-item>
+        <el-form-item >
+          <el-input v-model="form.password" placeholder="password" />
+      </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="dialogFormVisible = false">
+            Continue
+          </el-button>
+        </span>
+      </template>
+    </el-dialog>
+  </template>
+  
+  <script lang="ts" setup>
+  import { reactive, ref } from 'vue'
+  
+  
+  const dialogFormVisible = ref(false)
+  // const formLabelWidth = '140px'
+  
+  const form = reactive({
+  username: '',
+  password: ''
+  })
+  
+  
+  </script>
+  
+
+
+<!-- <template> -->
+  <!-- <div class="container about">
     <p>{{ msg }}</p>
 
     <div v-if="loggedinUser">
@@ -15,14 +62,14 @@
         <select v-model="loginCred.username">
           <option value="">Select User</option>
           <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
-        </select>
+        </select> -->
         <!-- <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input
           type="text"
           v-model="loginCred.password"
           placeholder="Password"
         /> -->
-        <button>Login</button>
+        <!-- <button>Login</button>
       </form>
       <p class="mute">user1 or admin, pass:123 </p>
       <form @submit.prevent="doSignup">
@@ -118,4 +165,4 @@ export default {
     imgUploader
   }
 }
-</script>
+</script> -->

@@ -2,7 +2,7 @@
 
     <section class="categories-list main-layout full">
         
-        <section v-if="(type==='tag')" class="type-tag flex space-between" >
+        <section v-if="(type==='tag')" class="type-tag flex space-between " >
             <h3 v-for="category in categories">{{category.name}}</h3>
         </section>
      

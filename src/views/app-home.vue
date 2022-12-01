@@ -15,7 +15,7 @@
       <p>
       <h1>A whole world of freelance talent at your fingertips</h1>
       <ul>
-        <li v-for="item in pageText">
+        <li class="text-item" v-for="item in pageText">
           <span v-icon="'check'"></span>
           <h3>{{ item.title }}</h3>
           <p>{{ item.text }}</p>
