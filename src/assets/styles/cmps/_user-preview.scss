@@ -47,3 +47,108 @@
     font-weight: 600;
   }
 }
+
+.seller-preview-long {
+  margin-block-end: 24px;
+  font-size: 1rem;
+
+  .img-container {
+    height: 110px;
+    width: 110px;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .seller-details {
+    padding-inline-start: em(15px, 16px);
+
+    .seller-fullname {
+      color: $clr3;
+      cursor: pointer;
+      font-weight: 700;
+      line-height: em(20px, 16px);
+      padding-block-end: em(5px, 16px);
+    }
+
+    .online-indicator {
+      border: 1px solid $clr1;
+      color: $clr1;
+      line-height: em(18px, 16px);
+      margin-inline-start: 30px;
+      border-radius: em(12px, 16px);
+      font-size: rem(14px);
+      margin-block-end: em(5px, 16px);
+      padding: 0 em(10px, 16px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        width: 4px;
+        height: 4px;
+        padding-inline-end: em(8px, 16px);
+        vertical-align: middle;
+      }
+
+      svg {
+        float: left;
+        height: 100%;
+      }
+    }
+
+    .seller-level,
+    .seller-reviews-count {
+      color: $CLR00;
+      font-weight: 400;
+      line-height: 130%;
+    }
+    
+    .seller-reviews-stat {
+      font-size: rem(14px);
+      line-height: em(21px, 14px);
+      margin-block-start: em(5px, 16px);
+    }
+
+    .rate-score {
+      color: var(--yro523v);
+      font-weight: 600;
+      padding-inline-start: em(4px, 14px);
+    }
+
+    .seller-reviews-count {
+      padding-inline-start: em(4px, 14px);
+    }
+
+    .stars {
+      svg {
+        fill: var(--yro523v);
+      }
+
+      > * {
+        padding-inline-start: 4px;
+      }
+    }
+  }
+}
+
+.contact-me-btn {
+  padding: em(12px, 14px) em(24px, 14px);
+  margin-block-start: 20px;
+  font-size: rem(14px);
+  color: $clr3;
+  cursor: pointer;
+  width: auto;
+  background: none;
+  font-weight: 600;
+  line-height: 100%;
+  border: 1px solid $clr3;
+  border-radius: em(4px, 14px);
+  max-width: 130px;
+
+  &:hover {
+    background-color: $clr5;
+    color: #fff;
+  }
+}
