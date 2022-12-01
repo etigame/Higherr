@@ -1,34 +1,35 @@
 <template>
   <header class="app-header main-layout full">
-    <nav>
-      <app-nav />
-
-
+    <nav class="flex space-between align-center">
+  
       <router-link to="/">
-        <h1>Higherr.</h1>
-        <span role="img" aria-label="logo">🙏</span>
-      </router-link>
-      <router-link to="/explore">Explore</router-link>
-      <!-- <router-link to="/review">Reviews</router-link>
-      <router-link to="/chat">Chat</router-link>
-      <router-link to="/login">Login / Signup</router-link> -->
+        <div class="home">
+          <span role="img" aria-label="logo">🙏</span>
+          <h1>Higherr.</h1>
+      </div>
+    </router-link>
+      <div>
+        <router-link to="/explore">Explore</router-link>
+        <login-signup/>
+    </div>
     </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
+    <!-- <section class="loggedin-user" v-if="loggedInUser">
       <router-link :to="`/user/${loggedInUser._id}`">
         {{ loggedInUser.fullname }}
       </router-link>
-    </section>
+    </section> -->
   </header>
 </template>
 
 
 <script>
-import appNav from './app-nav.vue'
+
+import loginSignup from './login-signup.vue';
 
 export default {
   name: 'app-header',
   components: {
-    appNav
+   loginSignup
   },
   computed: {
     loggedInUser() {

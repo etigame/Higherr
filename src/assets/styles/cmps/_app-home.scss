@@ -1,14 +1,66 @@
 .app-home{
     background-color:rgb(192, 252, 255) ;
+    line-height: 26px;
+    width: 100%;
 
+
+    .trusted-by{
+        background-color: antiquewhite;
+        width: 100%;
+        margin-bottom: 96px;
+        
+    .logo-container{
+        width:100px;
+      
+        }
+    }
+}
 
 
     .video-section{
         
-        justify-content: center;
         background-color: grey;
-        height:690px;
-        padding: 100px 100px;
+        min-height:690px;
+        padding: 96px 0px;
+    
+        &>*{
+            flex-basis:50%;
 
+        }
+    
+
+    .info{
+
+
+    .side-text{
+        
+            // padding-inline-end: 150px;
+            h1{
+            padding-bottom: 24px;
+            }
+
+        ul{
+            line-height: 26px;
+            list-style: none; 
+        
+            li{
+                padding-bottom: 30px;
+
+                h3{
+                display: inline;
+                }
+                span{
+                    padding-inline-end: 10px;
+                }
+            }
+        }
+    }
+
+    .vid-container{
+        min-width:100%;
+        
     }
 }
+
+}
+

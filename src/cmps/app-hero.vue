@@ -1,9 +1,9 @@
 <template>
     <section class="hero-container full">
-        <div class="img-container">
+     
             <Transition>
       <!-- <img v-for= "(image, idx) in images"  :src= "getUrl(idx)" /> -->
-        <img v-if="show" :src= "getImgUrl" />
+        <img class="hero-img" v-if="show" :src= "getImgUrl" />
      </Transition>
   
       
@@ -11,7 +11,7 @@
       <img v-else-if="image==='rikita'"   key="rikita" src="src/assets/img/hero3.webp" />
       <img v-else-if="image==='zach'"  key="zach" src="src/assets/img/hero4.webp" />
       <img v-else-if="image==='gabrie`lle'" key="gabrielle" src="src/assets/img/hero5.webp" /> -->
-    </div>
+
     </section>
 </template>
 

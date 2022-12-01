@@ -5,8 +5,11 @@
         &.type-tag{
             height:70px;
             align-items: center;
-            background-color: "yellow";
-          
+            background: yellowgreen;
+            position: fixed;
+            width: 100%;
+            transform: translate(0, $headingHeight);
+            z-index: 10;
         
        
         }
@@ -45,6 +48,8 @@
 
         }
         }
+
+
         
     
     
