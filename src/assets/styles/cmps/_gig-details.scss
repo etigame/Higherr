@@ -59,7 +59,7 @@
     span {
       width: rem(12px);
       height: rem(12px);
-      
+
       svg {
         width: rem(12px);
         height: rem(12px);
@@ -75,5 +75,43 @@
     color: var(--yro524);
     font-weight: 700;
     line-height: 130%;
+  }
+
+  .gig-gallery {
+    margin-block-end: 64px;
+  }
+
+  .gallery-thumbnails {
+    height: 60px;
+    border: 1px solid $clr2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: $clr2;
+    }
+  }
+
+  .gig-reviews-snippet {
+    margin-block-end: 64px;
+
+    .header {
+      margin-block-end: 25px;
+
+      h2 {
+        font-size: rem(20px);
+        line-height: em(28px, 20px);
+        font-weight: 700;
+        color: var(--yro524);
+      }
+
+      p {
+        font-size: rem(14px);
+        color: $clr1;
+        cursor: pointer;
+        font-weight: 400;
+      }
+    }
   }
 }

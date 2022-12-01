@@ -12,7 +12,7 @@
                 <li v-for="n in sellerRate"><span v-icon="'star'" class="flex justify-center align-center"></span></li>
             </ul>
             <p class="rate-score"> {{ ratingScore }} </p>
-            <p class="seller-reviews-count">({{ gig.reviewers.length }})</p>
+            <p class="seller-reviews-count" v-if="gig.reviewers">({{ gig.reviewers.length }})</p>
 
 
         </section>

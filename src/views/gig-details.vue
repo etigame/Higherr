@@ -30,16 +30,21 @@
                 </p>
                 <p class="title">{{ gig.title }}</p>
                 <user-preview :type="'sellerShort'" :gig="gig" />
-                <section class="slideshow">
-                    <img :src="gig.image" alt="gig-image">
-                </section>
-                <section class="gallery-thumbnails">
-                    <h1>gallery-thumbnails</h1>
+                <section class="gig-gallery">
+                    <section class="slideshow">
+                        <img :src="gig.image" alt="gig-image">
+                    </section>
+                    <section class="gallery-thumbnails">
+                        <h1>gallery-thumbnails</h1>
+                    </section>
                 </section>
 
                 <section class="gig-reviews-snippet">
-                    <h1>What people loved about this seller</h1>
-                    <h1>gig-reviews-snippet</h1>
+                    <section class="header flex align-center space-between">
+                        <h2>What people loved about this seller</h2>
+                        <p>See all reviews</p>
+                    </section>
+                    <review-list :reviews="gig.reviewers" />
                 </section>
 
                 <section class="gig-desc">
@@ -62,7 +67,7 @@
                     </section>
                 </section>
 
-                <section id="reviews" class="reviews">
+                <section id="reviews" class="reviews" v-if="gig.reviewers">
                     <h1>{{ gig.reviewers.length }} Reviews </h1>
                     <section class="reviews-stat">
                         <h1>reviews-stat</h1>
