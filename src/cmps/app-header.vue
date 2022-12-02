@@ -1,25 +1,18 @@
 <template>
   <header class="app-header main-layout full">
     <nav class="flex space-between align-center">
-  
       <router-link to="/">
         <div class="home">
           <span role="img" aria-label="logo">🙏</span>
           <h1>Higherr.</h1>
-      </div>
-      
-    </router-link>
-      <div>
-        <div>
-          <input @input="filter" v-model="filterBy.title" placeholder="title"/>
-          <input v-model="filterBy.category" placeholder="category"/>
-          <input v-model="filterBy.subCategory" placeholder="subCategory"/>
-    
-          <button @click="filter">click</button>
         </div>
+      </router-link>
+
+      <app-search />
+      <div>
         <router-link to="/explore">Explore</router-link>
-        <login-signup/>
-    </div>
+        <login-signup />
+      </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
       <router-link :to="`/user/${loggedInUser._id}`">
@@ -29,10 +22,9 @@
   </header>
 </template>
 
-
 <script>
-
-import loginSignup from './login-signup.vue';
+import loginSignup from './login-signup.vue'
+import appSearch from './app-search.vue'
 
 export default {
   name: 'app-header',
@@ -46,11 +38,11 @@ export default {
         max: null,
         delivery: 'Anytime',
       },
-  }
-}
-  ,
+    }
+  },
   components: {
-   loginSignup
+    loginSignup,
+    appSearch,
   },
   computed: {
     loggedInUser() {
@@ -60,10 +52,10 @@ export default {
   methods: {
     filter() {
       this.$store.dispatch({ type: 'loadGigs', filterBy: this.filterBy })
-       //  filter() {
-    //         this.$emit('filter', { ...this.filterBy })
-    //         console.log(this.filterBy)
-    //     },
+      //  filter() {
+      //         this.$emit('filter', { ...this.filterBy })
+      //         console.log(this.filterBy)
+      //     },
     },
   },
 }

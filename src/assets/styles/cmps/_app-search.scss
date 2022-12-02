@@ -1,0 +1,17 @@
+.app-search {
+  > * {
+    display: inline;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: var(--el-fill-color-blank);
+  }
+
+  button {
+    background-color: black;
+    height: var(--el-input-inner-height);
+
+    svg {
+      fill: white;
+    }
+  }
+}

@@ -1,31 +1,29 @@
 // Setup
-@import "setup/variables";
-@import "setup/functions";
-@import "setup/mixins";
-@import "setup/typography";
+@import 'setup/variables';
+@import 'setup/functions';
+@import 'setup/mixins';
+@import 'setup/typography';
 
 // Basics
-@import "basics/helpers";
-@import "basics/layout";
-@import "basics/base";
-@import "basics/links";
-@import "basics/forms";
-@import "basics/card";
+@import 'basics/helpers';
+@import 'basics/layout';
+@import 'basics/base';
+@import 'basics/links';
+@import 'basics/forms';
+@import 'basics/card';
 
 // Components
-@import "cmps/app-header";
-@import "cmps/categories-list";
-@import "cmps/app-home";
-@import "cmps/user-msg";
-@import "cmps/review-list";
-@import "cmps/gig-list";
-@import "cmps/gig-preview";
-@import "cmps/gig-details";
-@import "cmps/gig-package";
-@import "cmps/app-footer";
-@import "cmps/app-hero";
-@import "cmps/login-signup";
-@import "cmps/user-preview";
-
-
-
+@import 'cmps/app-header';
+@import 'cmps/categories-list';
+@import 'cmps/app-home';
+@import 'cmps/user-msg';
+@import 'cmps/review-list';
+@import 'cmps/gig-list';
+@import 'cmps/gig-preview';
+@import 'cmps/gig-details';
+@import 'cmps/gig-package';
+@import 'cmps/app-footer';
+@import 'cmps/app-hero';
+@import 'cmps/login-signup';
+@import 'cmps/user-preview';
+@import 'cmps/app-search';
