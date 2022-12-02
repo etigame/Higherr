@@ -28,42 +28,72 @@ export const gigStore = {
       subCategory: '',
       min: null,
       max: null,
-      delivery: 'Anytime',
+      delivery: '',
     },
   },
   getters: {
-    gigs({ gigs }) {
-      return gigs
-    },
-
-    // gigs({ gigs, filterBy }) {
-    //   var filteredGigs = gigs
-    //   if (!filterBy.title && !filterBy.subCategory && !filterBy.category) {
-    //     filteredGigs = gigs
-    //   } else {
-    //     if (!filterBy.category) {
-    //       filteredGigs = gigs
-    //     } else {
-    //       filteredGigs = gigs.filter(
-    //         (gig) => gig.category === filterBy.category
-    //       )
-    //     }
-    //     if (!filterBy.subCategory) {
-    //       filteredGigs = filteredGigs
-    //     } else {
-    //       filteredGigs = gigs.filter(
-    //         (gig) => gig.subCategory === filterBy.subCategory
-    //       )
-    //     }
-    //     const regex = new RegExp(filterBy.title, 'i')
-    //     filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
-    //   }
-    //   return filteredGigs
+    // gigs({ gigs }) {
+    //   return gigs
     // },
+
+    gigs({ gigs, filterBy }) {
+      var filteredGigs = gigs
+      if (
+        !filterBy.title &&
+        !filterBy.subCategory &&
+        !filterBy.category &&
+        !filterBy.min &&
+        !filterBy.max &&
+        !filterBy.delivery
+      ) {
+        filteredGigs = filteredGigs
+      } else {
+        if (!filterBy.category) {
+          filteredGigs = filteredGigs
+        } else {
+          filteredGigs = filteredGigs.filter(
+            (gig) => gig.category === filterBy.category
+          )
+        }
+        if (!filterBy.subCategory) {
+          filteredGigs = filteredGigs
+        } else {
+          filteredGigs = filteredGigs.filter(
+            (gig) => gig.subCategory === filterBy.subCategory
+          )
+        }
+        if (!filterBy.min) {
+          filteredGigs = filteredGigs
+        } else {
+          filteredGigs = filteredGigs.filter(
+            (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
+          )
+        }
+        if (!filterBy.max) {
+          filteredGigs = filteredGigs
+        } else {
+          filteredGigs = filteredGigs.filter(
+            (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
+          )
+        }
+        if (!filterBy.delivery) {
+          filteredGigs = filteredGigs
+        } else {
+          filteredGigs = filteredGigs.filter(
+            (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+          )
+          console.log(filteredGigs)
+        }
+        const regex = new RegExp(filterBy.title, 'i')
+        filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
+      }
+      return filteredGigs
+    },
   },
   mutations: {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
+      console.log(state.filterBy)
     },
     setGigs(state, { gigs }) {
       state.gigs = gigs
@@ -107,9 +137,7 @@ export const gigStore = {
     },
     async loadGigs(context, { filterBy }) {
       try {
-        // const filterBy = context.state.filterBy
-        console.log(filterBy)
-        const gigs = await gigService.query(filterBy)
+        const gigs = await gigService.query()
         context.commit({ type: 'setGigs', gigs })
         console.log(gigs)
       } catch (err) {

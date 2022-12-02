@@ -33,81 +33,9 @@ export const gigService = {
 }
 window.gigService = gigService
 
-async function query(
-  filterBy = {
-    title: '',
-    category: '',
-    subCategory: '',
-    min: null,
-    max: null,
-    delivery: 'Anytime',
-  }
-) {
-  // return httpService.get(GIG_URL, filterBy)
-
-  var gigs = await storageService.query(GIG_STORAGE_KEY)
-  //   if (filterBy.txt) {
-  //     const regex = new RegExp(filterBy.txt, 'i')
-  //     gigs = gigs.filter(
-  //       (gig) => regex.test(gig.vendor) || regex.test(gig.description)
-  //     )
-  //   }
-  //   if (filterBy.price) {
-  //     gigs = gigs.filter((gig) => gig.price <= filterBy.price)
-  //   }
-
-  var filteredGigs = gigs
-  if (
-    !filterBy.title &&
-    !filterBy.subCategory &&
-    !filterBy.category &&
-    !filterBy.min &&
-    !filterBy.max &&
-    filterBy.delivery === 'Anytime'
-  ) {
-    filteredGigs = gigs
-  } else {
-    if (!filterBy.category) {
-      filteredGigs = gigs
-    } else {
-      filteredGigs = gigs.filter((gig) => gig.category === filterBy.category)
-    }
-    if (!filterBy.subCategory) {
-      filteredGigs = filteredGigs
-    } else {
-      filteredGigs = gigs.filter(
-        (gig) => gig.subCategory === filterBy.subCategory
-      )
-    }
-    if (!filterBy.min) {
-      filteredGigs = filteredGigs
-    } else {
-      filteredGigs = gigs.filter(
-        (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
-      )
-    }
-    if (!filterBy.max) {
-      filteredGigs = filteredGigs
-    } else {
-      filteredGigs = gigs.filter(
-        (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
-      )
-    }
-    if (!filterBy.delivery) {
-      filteredGigs = filteredGigs
-    } else {
-      filteredGigs = gigs.filter(
-        (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
-      )
-      console.log(filteredGigs)
-    }
-
-    const regex = new RegExp(filterBy.title, 'i')
-    filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
-  }
-  return filteredGigs
-  // },
-  // return gigs
+async function query() {
+  return await storageService.query(GIG_STORAGE_KEY)
+  // var gigs = await storageService.query(GIG_STORAGE_KEY)
 }
 
 async function getById(gigId) {
