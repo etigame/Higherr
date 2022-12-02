@@ -1,7 +1,7 @@
 <template>
   <section v-if="reviews" class="review-list">
     <ul class="clean-list">
-      <review-preview v-for="review in reviews" :review="review" :key="review._id" />
+      <review-preview v-for="review in reviews" :review="review" :key="review._id" :type="type" />
     </ul>
   </section>
 </template>
@@ -12,7 +12,8 @@ import reviewPreview from './review-preview.vue'
 export default {
   name: 'review-list',
   props: {
-    reviews: Array
+    reviews: Array,
+    type: String
   },
   components: {
     reviewPreview

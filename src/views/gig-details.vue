@@ -45,7 +45,7 @@
                         <p>See all reviews</p>
                     </section>
                     <section class="review-list-container">
-                        <!-- <review-list :reviews="gig.reviewers" /> -->
+                        <review-list :type="'reviewSnippet'" :reviews="gig.reviewers" />
                     </section>
                 </section>
 
@@ -57,6 +57,7 @@
                 <section id="aboutSeller" class="seller-profile">
                     <h2>About The Seller</h2>
                     <user-preview :type="'sellerLong'" :gig="gig" />
+
                     <section class="seller-details-container">
                         <section class="seller-stat">
                             <ul class="grid clean-list">
@@ -66,6 +67,7 @@
                                 </li>
                             </ul>
                         </section>
+
                         <section class="seller-desc">
                             <p>{{ gig.about }}</p>
                         </section>
@@ -77,7 +79,7 @@
                     <section class="reviews-stat">
                         <h1>reviews-stat</h1>
                     </section>
-                    <review-list :reviews="gig.reviewers" />
+                    <review-list :type="'reviewLong'" :reviews="gig.reviewers" />
                 </section>
 
             </section>

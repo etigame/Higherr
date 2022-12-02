@@ -150,6 +150,7 @@
   border: 1px solid $clr9;
   border-radius: em(3px, 16px);
   padding: em(24px, 16px);
+  margin-block-end: 64px;
   color: $clr5;
 
   .seller-stat ul {
@@ -157,7 +158,21 @@
     grid-template-rows: repeat(2, 1fr);
 
     > li {
-      width: 50%;
+      padding-block-end: em(16px, 16px);
     }
+
+    .key {
+      padding-block-end: em(4px, 16px);
+    }
+
+    .value {
+      font-weight: 700;
+    }
+  }
+
+  .seller-desc {
+    border-top: 1px solid $clr9;
+    line-height: 150%;
+    padding-block-start: em(15px, 16px);
   }
 }

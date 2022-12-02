@@ -217,7 +217,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png',
             review:
               'frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !',
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -226,7 +226,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
             review:
               'I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!',
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -235,7 +235,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
             review:
               'Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!',
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -243,7 +243,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'Very detailed',
-            reviewedAt: 'Published 1 week ago',
+            reviewedAt: '1 week ago',
           },
           {
             _id: utilService.makeId(),
@@ -251,7 +251,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'very nice portrait, very good quality.',
-            reviewedAt: 'Published 2 weeks ago',
+            reviewedAt: '2 weeks ago',
           },
         ],
         tags: [
@@ -336,7 +336,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'Incredibly grateful for the amazing experience working with you . You are so talented and a kind soul! I highly recommend if you want high quality art to work with her every time',
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -345,7 +345,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png',
             review:
               "The artist was very kind and polite also very fast at the communication. The delivery of the project was on time. And her work is worth the money. I'm really excited about the painting she did. I can truely recommend the Aritst and her work. Big Thanks! :)",
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -354,7 +354,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'incredible on how precise that art is, picture perfect. 100% amazing job and I will use your services again ...',
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -362,7 +362,7 @@ function _createGigs() {
             country: 'Israel',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png',
             review: 'amazing saller and great work',
-            reviewedAt: 'Published 6 days ago',
+            reviewedAt: '6 days ago',
           },
           {
             _id: utilService.makeId(),
@@ -370,7 +370,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'Beautiful drawing! Just what I wanted.',
-            reviewedAt: 'Published 1 week ago',
+            reviewedAt: '1 week ago',
           },
         ],
         tags: [
@@ -419,7 +419,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
             review:
               'I had a bad experience…. The work doesn’t match the requirement at all. Although l sent a specific and detailed question, l received a general answer. Not recommend and will not deal again.',
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -428,7 +428,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1f0.png',
             review:
               'She was excellent in communicating, using my references to write a proper academic paper in sociology, and finish in only 15 hours after getting questions. Most recommended seller!',
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -436,7 +436,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'Exactly what I asked for',
-            reviewedAt: 'Published 8 hours ago',
+            reviewedAt: '8 hours ago',
           },
           {
             _id: utilService.makeId(),
@@ -444,7 +444,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'Always gets the job done',
-            reviewedAt: 'Published 1 day ago',
+            reviewedAt: '1 day ago',
           },
           {
             _id: utilService.makeId(),
@@ -452,7 +452,7 @@ function _createGigs() {
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review: 'She could understand the contents and write well',
-            reviewedAt: 'Published 3 days ago',
+            reviewedAt: '3 days ago',
           },
         ],
         tags: [
@@ -489,7 +489,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "The seller's communication was EXCELLENT and the service was exactly as described. When I wanted revisions, they did not hesitate to provide me with alterations of the design. Although they were nice and kind when I asked for the revisions, all the revisions were half a**ed and sloppy. Even when I provided a concept drawing for them to TRACE, the results were still not what I expected. Buyers BEWARE: The seller's communication is excellent, friendly, and VERY kind. However, if you ask for any revisions, the revisions you will receive will be sloppy and half-a**ed.",
-            reviewedAt: 'Published 4 days ago',
+            reviewedAt: '4 days ago',
           },
           {
             _id: utilService.makeId(),
@@ -498,7 +498,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
             review:
               'I thought this service was amazing, I bought the basic option just hoping for a basic logo, but the seller went above my expectations and provided me with a bunch of concepts that were better than I could have imagined, for £7.90 I think this service is a must-buy for anyone needing a professional-looking logo and not wanting to spend a huge amount',
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -507,7 +507,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "The seller was very responsive. We had revisions after the initial designs were delivered and the seller made them very quickly. The logo we selected is perfect for our current needs. Recommend including your vision in the initial request so you don't end up with ideas that you don't like. There were only 2 real contenders because the Fiverr site wouldn't allow me to attach my hand drawn idea. The paperclip icon was essentially rendered inactive, even after several attempts. This is no fault of the designers; i should have been even more descriptive with my request when I was unable to attach files.",
-            reviewedAt: 'Published 1 week ago',
+            reviewedAt: '1 week ago',
           },
           {
             _id: utilService.makeId(),
@@ -516,7 +516,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "Ultimately, I am very happy with the final logo I received. However, the seller's communication could have been better. There were a few times I asked for specific revisions and I was sent the same thing or something else that I didn't ask for. It took about 2 weeks for me to finally get what I was looking for. In the end, I got what I paid for and I am grateful for the service!",
-            reviewedAt: 'Published 2 days ago',
+            reviewedAt: '2 days ago',
           },
           {
             _id: utilService.makeId(),
@@ -525,7 +525,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
             review:
               "VD was great. I had a very specific design in mind already that I needed recreating professionally and they did not disappoint. Even when I started to get picky with the design, nothing I requested was ever too much trouble. We went through many revisions to get it to exactly how I wanted it and every interaction we had was effortless. This is the first project I'd commissioned so wasn't really sure on the correct etiquette, yet VD made things so easy for me. Can't recommend these guys enough for that",
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
         ],
         tags: [
@@ -575,7 +575,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!',
-            reviewedAt: 'Published 3 days ago',
+            reviewedAt: '3 days ago',
           },
           {
             _id: utilService.makeId(),
@@ -584,7 +584,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.',
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -593,7 +593,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!',
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -602,7 +602,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -611,7 +611,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.',
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
         ],
         tags: [
@@ -658,7 +658,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
             review:
               'Use your revisions and communication, and you will have something that works for you! I recommend modernmarvel for the price they ask! I did not know what to expect from my first buy on FIverr. The previews where what I was going for, so I thought why not give it a try. The initial delivery had two good concepts and three concepts I did not like. The two good concepts however, where not really what I wanted though. I submitted a revision proposal and hoped for the best. This is where this seller shines! From the initial designs, he worked quickly with every suggestion I made for revisions and was good in communication. I slowly saw my project evolving to something I love. Recommended!',
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -667,7 +667,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "Working with this seller was a great experience in that he was quick to respond (considering the 11+ hr time zone difference), friendly, reliable, and professional. He created some concepts with literally no reference the first time around, and the second time around I gave him more of an idea of what I was looking for and found the ideal logo. You get what you pay for, and the price I think is a very good deal that's hard to find. Communication +asking questions is key to get all that you want and need from this great offer. Although I am satisfied with the logo, I probably would've liked something more like the work he shows in his second picture on his profile/gigs. I do recommend him!",
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -676,7 +676,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f5.png',
             review:
               'Seller was extremely communicative and always responded very quickly even on his/her day off (Sunday). While I got something that will get my started and I suppose I got what I paid for (the price was definitely quite low), I would be hard pressed to call the designs I got as "modern" or "minimalist" like the logo presented in the profile. They felt like clip-art from 10 to 15 years ago attached to my website name.',
-            reviewedAt: 'Published 1 month ago',
+            reviewedAt: '1 month ago',
           },
           {
             _id: utilService.makeId(),
@@ -685,7 +685,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
             review:
               'I was a little nervous as I had never hired anyone before and have had bad experiences on other platforms. However this was absolutely marvelous. I loved the design. It was shocking how fast it was done and how amazing it turned out. I will definitely be hiring them again for my other projects that are coming up. Thank-you!!',
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -694,7 +694,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               'Using this service was a pretty decent experience. It took a bit longer than I wanted to finally get the final design. I had to go back and forth for a week trying to find the correct revision of the design. At first, I thought the experience of the designer was not the best due to finding some logos with minimal effort. Once I messaged the designer that I felt that the designs that they were producing were not satisfying me, they then were able to put a lot of effort into my ideas. I personally had to come up with the design of my logo instead of them using their experience and trusting them to come up with one themselves. Eventually, they did deliver so I am happy with the way it finished.',
-            reviewedAt: 'Published 2 weeks ago',
+            reviewedAt: '2 weeks ago',
           },
         ],
         tags: [
@@ -747,7 +747,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
             review:
               "I'd recommend this seller. She was skilled and very communicative. Also I got tons of revisions as promised and always quickly. Sometimes it was hard to get her to polish the details as I intended, I think because of the language barrier, but if a revision turned out different than I expected she started working on it again without asking questions. Lastly she gave tips about branding when needed. To be honest I'm not quite sure if the social media kit and website optimized image were worth my money, because those were mostly the same image in different ratios. But I probably had unrealistic expectations. On the other hand the copyright document is very polished and accurate!",
-            reviewedAt: 'Published 1 week ago',
+            reviewedAt: '1 week ago',
           },
           {
             _id: utilService.makeId(),
@@ -756,7 +756,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "I'm so grateful & thrilled that I can say, my experience was a sucess! I love my LOGO that Shailene created, I couldn't be happier! I reached out and let her know exactly what I needed, she promptly responded and made me an offer. I couldn't refuse, as she was more than willing to accommodate my budget. She sent me the drafts soon after, and I was pleased to see the results! I didn't need any revisions and I'm pleased to say that I've now got a NEW LOGO For my Brand/Company. I officially feel Accomplished! Thank you SO Much Shailene and Fiverr! You have made this journey so much lighter on my feet, and I would definitely recommend Shailene as an Artist and the Fiverr company!",
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -765,7 +765,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "This was the first time I've used Fiverr and was a little worried how it would go. This was by far the best experience I've had working with someone remote and at a fair price. shailene_george always got back to me right away. I couldn't be happier with my experience and will also being recommending George to anyone I can and using again when needed. 5 stars all the way here!",
-            reviewedAt: 'Published 3 weeks ago',
+            reviewedAt: '3 weeks ago',
           },
           {
             _id: utilService.makeId(),
@@ -774,7 +774,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "Shailene is awesome to work with. Very professional and attentive. She deliveries amazing work at a value you just can't find anywhere else. As a busy front-end developer, I find buying her premium GIG is the way to go. My clients are always blown away with her work. She has made me a customer for life with her work and her friendly personality. Thank you Shailene and bless you. Can't wait for our next GIG together.",
-            reviewedAt: 'Published 2 months ago',
+            reviewedAt: '2 months ago',
           },
           {
             _id: utilService.makeId(),
@@ -783,7 +783,7 @@ function _createGigs() {
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
             review:
               "A friend of mine (Maximum Performance Productions) recommended Fiverr. I'm starting a new business and needed a design to catapult us to new heights. It didn't take long to find the right artist. Shallene was able to capture my idea and interpret it into the design that I am very pleased with. Her communication skills and response time are second to none. She is very informative and answered all my questions satisfactorily. Shallene performed her tasks timely and without delay. I am forever grateful for the outstanding designs she has provided and would highly recommend her to anyone. Thank You Shallene!",
-            reviewedAt: 'Published 1 week ago',
+            reviewedAt: '1 week ago',
           },
         ],
         tags: [

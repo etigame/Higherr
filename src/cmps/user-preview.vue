@@ -55,10 +55,11 @@ export default {
         type: String,
         gig: Object
     },
+    // DEMO DATA - should get from the gigService
     data() {
         return {
             sellerRate: 5,
-            ratingScore: 4.9
+            ratingScore: 5
         }
     }
 }
