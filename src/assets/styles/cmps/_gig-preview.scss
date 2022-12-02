@@ -1,5 +1,11 @@
 
 .gig-preview{
+    .vueperslides__parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 66.66666% !important;
+    
+        }
     background-color:$CLR0;
     border:1px solid #e4e5e7;
     h3{
@@ -17,6 +23,7 @@
         color: $clr1;
      }
     }
+
     .preview-title{
         max-height: 43px;
         padding: 0 12px 0 12px;
@@ -84,5 +91,47 @@
         }
         
     }
+    
+        .vueperslides__inner {
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            // @include aspect-ratio(16, 9)
+                    
+        }
 
+        ///HERE WE CAN CONTROLL THE SIZE OF THE SLIDE
+        /// 
+        .vueperslides__parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+            // min-height: 150px;
+            // max-height: 320px;
+            
+        }
+                                
+
+    /////VUPER SLIDES BULLETS
+        .vueperslides__bullet {
+            margin: .6em 0.2em;
+            padding: 0;
+            border: none;
+            background: none;
+        }
+        .vueperslides__bullet .default {
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            border: 1px solid currentColor;
+            background-color:$CLR01;
+            box-shadow: 0 0 1px #00000080, 0 0 3px #0000004d;
+            transition: .4s ease-in-out;
+            box-sizing: border-box;
+        }
+        .vueperslides__bullet--active .default {
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+        }
 }

@@ -61,6 +61,7 @@
 import { gigService } from '../services/gig-service'
 import gigPreview from '../cmps/gig-preview.vue'
 
+
 export default {
   data() {
     return {
@@ -110,7 +111,7 @@ export default {
     // this.$store.dispatch({ type: 'loadGigs' })
   },
   components: {
-    gigPreview
+    gigPreview,
   },
   methods: {
     filter(filterBy = this.filterBy) {

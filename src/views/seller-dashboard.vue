@@ -7,6 +7,11 @@
                     <input type="text" v-model="gigToAdd.title" />
                     <button>Save</button>
                 </form> -->
+                <!-- <button @click="removeGig(gig._id)"> x </button>
+                <button @click="updateGig(gig)"> Update</button>
+                <hr />
+                <button @click="addGigMsg(gig._id)"> Add gig msg </button>
+                <li button @click="printGigToConsole(gig)"> Print msgs to console</li> -->
 </template>
 
 <script>
@@ -61,5 +66,8 @@ export default {
 //     printGigToConsole(gig) {
 //       console.log("Gig msgs:", gig.msgs)
 //     },
+
+
+
 
 </script>
