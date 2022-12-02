@@ -4,7 +4,8 @@
         
         <section  v-if="(type==='tag')" class="type-tag  main-layout full" >
             <div class="flex space-between ">
-            <a href="" v-for="category in categories">{{category.name}}</a>
+            <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)" to="/explore" >{{category.name}}</router-link>
+            <!-- <a @click="categoryFilter(`${category.name}`)" href="" v-for="category in categories" >{{category.name}}</a> -->
         </div>
         </section>
      
@@ -50,7 +51,15 @@ export default {
     data(){
         return{
             categories: categoriesService.categories,
-            tags: categoriesService.tags
+            tags: categoriesService.tags,
+            filterBy: {
+                title: '',
+                category: '',
+                subCategory: '',
+                min: null,
+                max: null,
+                delivery: '',
+            },
         }
      
     },
@@ -60,6 +69,16 @@ export default {
             backgroundImage: url(item.imageUrl)
        } 
     }
-}
+    },methods:{
+        categoryFilter(category){
+            this.filterBy.category=category
+            this.filter()
+            this.$router.push('/explore')
+        },
+         filter() {
+            this.$emit('filter', { ...this.filterBy })
+            console.log(this.filterBy)
+        },
+    },
 }
 </script>
