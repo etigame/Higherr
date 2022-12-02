@@ -1,8 +1,9 @@
 <template>
-    <section class="gig-preview">
-        <router-link :to="`/gig/${gig._id}`">
-            <div class="gig-img"><img :src="gig.image"></div>
-        </router-link>
+    <section class="gig-preview" v-if="gig">
+            <vueper-slides fade :touchable="false" >
+                <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
+                </vueper-slide>
+            </vueper-slides>
         <div class="seller-info-preview">
         <div class="seller-img"><img :src="gig.imgUrl"></div>
         <p>{{gig.fullname}}</p>
@@ -22,23 +23,35 @@
             <div class="preview-price-container flex"><p>starting at </p><h3 class="preview-price">{{gig.price}}</h3></div>
         </div>
 
-            
-
-                            <!-- <button @click="removeGig(gig._id)">x</button> -->
-                            <!-- <button @click="updateGig(gig)">Update</button> -->
-                            <!-- <hr /> -->
-                            <!-- <button @click="addGigMsg(gig._id)">Add gig msg</button> -->
-                            <!-- <button @click="printGigToConsole(gig)">Print msgs to console</button> -->
-                            <!-- </li> -->
                             
     </section>
 </template>
 
 <script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+
 export default {
     name: 'gig-preview',
     props:{
         gig:Object,
-    }
+    },
+    data(){
+        return{
+            slides: [
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.'
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.'
+                }
+            ]
+        }
+    },
+    components: {
+    VueperSlides,
+    VueperSlide
+    },
 }
 </script>

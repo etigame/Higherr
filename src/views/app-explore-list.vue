@@ -6,51 +6,21 @@
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category" size="large">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
-        <!-- <el-dropdown split-button type="secondary" class="m-2 budget-input">
-          Default
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>
-                <div class="preview-budget-container flex">
-                <div class="preview-budget flex">
-                  <div>
-                    <p>Min.</p>
-                    <el-input @click.stop placeholder="Any" />
-                  </div>
-                  <div>
-                    <p>Max.</p>
-                    <el-input @click.stop placeholder="Any" />
-                  </div>
-                </div>
-                <div>
-                <el-button type="secondary" @click="onSubmit">Apply</el-button>
-                </div>
-                </div>
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown> -->
+ 
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input type="number" v-model="filterBy.min" @click.stop  placeholder="Any" /></el-option>
-          <el-option value="1"><el-input type="number" v-model="filterBy.max" @click.stop  placeholder="Any" /></el-option>
-          <el-button @click="filter()" >Apply</el-button>
+          <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
+          <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop  placeholder="Any" /></el-option>
+          <div><el-button @click="filter()" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div>
         </el-select>
 
+        <!-- // TODO IN V-FOR -->
         <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time" size="large">
           <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
           <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
           <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
-          <el-option value="0" v-model="filterBy.delivery">Anytime</el-option>
+          <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
         </el-select>
       </div>
-        <!-- <el-select @change="filter()" class="m-2 delivery-input" placeholder="Delivery Time" size="large">
-          <el-option value="1"><el-checkbox v-model="filterBy.delivery" label="Express 24H" /></el-option>
-          <el-option value="3"><el-checkbox v-model="filterBy.delivery" label="Up to 3 days" /></el-option>
-          <el-option value="7"><el-checkbox v-model="filterBy.delivery" label="Up to 7 days" /></el-option>
-          <el-option value="0"><el-checkbox v-model="filterBy.delivery" label="Anytime" /></el-option>
-        </el-select>
-      </div> -->
-
 
       <div class="advanced-switches">
         <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
@@ -84,19 +54,13 @@
     <div class="pagination">
       <el-pagination large background layout="prev, pager, next" :total="30" class="mt-3" />
     </div>
-    <!-- <form @submit.prevent="addGig()">
-            <h2>Add gig</h2>
-            <input type="text" v-model="gigToAdd.title" />
-            <button>Save</button>
-        </form> -->
   </div>
 </template>
 
 <script>
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service'
 import { gigService } from '../services/gig-service'
-import { getActionRemoveGig, getActionUpdateGig } from '../store/gig-store'
 import gigPreview from '../cmps/gig-preview.vue'
+
 
 export default {
   data() {
@@ -107,14 +71,9 @@ export default {
         subCategory: '',
         min:null,
         max:null,
-        delivery:'Anytime',
+        delivery:'',
       },
-      gigToAdd: gigService.getEmptyGig(),
-      demoInfo: true,
-      demoInfo1: 1,
-      value: 'str',
-      demoOption: 'Category',
-
+      demoInfo:true,
       options: [
         {
           value: '',
@@ -149,66 +108,27 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch({ type: 'loadGigs' })
+    // this.$store.dispatch({ type: 'loadGigs' })
   },
   components: {
-    gigPreview
+    gigPreview,
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      filterBy.min = parseInt(this.filterBy.min)
-      filterBy.max = parseInt(this.filterBy.max)
-      this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
+      this.$store.commit({ type: 'setFilter', filterBy:{...filterBy}})
+      // this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
     },
     //  filter() {
     //         this.$emit('filter', { ...this.filterBy })
     //         console.log(this.filterBy)
     //     },
-    async addGig() {
-      try {
-        await this.$store.dispatch({ type: 'addGig', gig: this.gigToAdd })
-        showSuccessMsg('Gig added')
-        this.gigToAdd = gigService.getEmptyGig()
-      } catch (err) {
-        console.log(err)
-        showErrorMsg('Cannot add gig')
-      }
-    },
-    async removeGig(gigId) {
-      try {
-        await this.$store.dispatch(getActionRemoveGig(gigId))
-        showSuccessMsg('Gig removed')
 
-      } catch (err) {
-        console.log(err)
-        showErrorMsg('Cannot remove gig')
-      }
+    clearBudget(){
+      this.filterBy.min=''
+      this.filterBy.max=''
+      this.filter()
     },
-    async updateGig(gig) {
-      try {
-        gig = { ...gig }
-        gig.price = +prompt('New price?', gig.price)
-        await this.$store.dispatch(getActionUpdateGig(gig))
-        showSuccessMsg('Gig removed')
-
-      } catch (err) {
-        console.log(err)
-        showErrorMsg('Cannot remove gig')
-      }
-    },
-    async addGigMsg(gigId) {
-      try {
-        await this.$store.dispatch(getActionAddGigMsg(gigId))
-        showSuccessMsg("Gig msg added")
-      } catch (err) {
-        console.log(err)
-        showErrorMsg("Cannot add gig msg")
-      }
-    },
-    printGigToConsole(gig) {
-      console.log("Gig msgs:", gig.msgs)
-    },
-
+    
   }
 }
 </script>
