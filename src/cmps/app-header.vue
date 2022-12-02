@@ -3,13 +3,13 @@
     <nav class="flex space-between align-center">
       <router-link to="/">
         <div class="home">
-          <span role="img" aria-label="logo">🙏</span>
+          <span role="img" aria-label="logo"></span>
           <h1>Higherr.</h1>
         </div>
       </router-link>
 
       <app-search />
-      <div>
+      <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <login-signup />
       </div>

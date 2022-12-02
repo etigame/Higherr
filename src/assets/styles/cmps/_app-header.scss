@@ -2,16 +2,35 @@
 
 
 .app-header{
-    background-color:pink ;
     height: $headingHeight;
     width: 100%;
     // position: fixed;
     // z-index: 10;
 
-   .home{
 
+    a{
+        text-decoration: none;
+        color:black;
+        margin: 0px 10px;
+        transition: 0.3s;
+    }
+
+   .home{
+    
     >*{
+        font-family: chunkFive;
         display: inline;
+        padding: none;
+        text-decoration: none;
+    
     }
    }
-}
+
+   .nav-links{
+   
+    a:hover{
+        color: $clr1;
+    }
+    
+    }
+   }

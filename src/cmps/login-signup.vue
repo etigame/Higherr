@@ -1,9 +1,9 @@
 <template>
 <div class="login-signup">
-  <el-button text @click="dialogFormVisible = true">
+  <el-button class="signin-btn" text @click="dialogFormVisible = true">
       Sign In
     </el-button>
-    <el-button text @click="dialogFormVisible = true">
+    <el-button class="join-btn" text @click="dialogFormVisible = true">
       Join
     </el-button>
   
