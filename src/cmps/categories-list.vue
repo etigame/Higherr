@@ -49,7 +49,7 @@ export default {
     },
 },
 created(){
-    isShown(50)
+   
 },
     data(){
         return{
@@ -71,12 +71,7 @@ created(){
         return {
             backgroundImage: url(item.imageUrl)
        }
-    },
-       isShown(num){
-            if (window.scrollY>num){
-                return true
-            }
-       }      
+    },   
     },
     methods:{
         categoryFilter(category){
