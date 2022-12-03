@@ -114,7 +114,6 @@ export default {
   created() {
     // this.$store.dispatch({ type: 'loadGigs' })
     this.filterBy= this.$route.query
-    console.log(this.$route.query);
     this.filter()
   },
   components: {
@@ -123,9 +122,9 @@ export default {
   methods: {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
-      console.log(this.$route.query);
-      this.$store.commit({ type: 'setFilter', filterBy:{...filterBy}})
-      // this.loadParams(filterBy)
+      this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+     
+
     },
 
 
