@@ -39,19 +39,19 @@
         .preview-budget {
             .el-input {
                 min-width: none;
-                max-width: 100px;
+                max-width: em(100px);
             }
         }
         }
         .budget-input,
         .category-input,
         .delivery-input {
-            margin-inline-end: 10px;
-            width: 105px;
-            margin-top: 16px;
+            margin-inline-end: em(10px);
+            width: em(105px);
+            margin-top: em(16px);
 
             .el-input__wrapper {
-                width: 120px
+                width: em(120px)
             }
         }
 
@@ -61,34 +61,35 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        width: 316px;
+        width: em(316px);
 
 
         .pro-switch {
             justify-content: end;
-            margin-inline-end: 40px;
+            margin-inline-end: em(40px);
 
         }
 
         .online-switch,
         .pro-switch {
+            // font-weight: 600;
             display: flex;
             align-items: center;
-            margin-top: 16px;
+            margin-top: em(16px);
             color: $CLR00;
 
             .ml-2 {
-                margin-inline-end: 5px;
+                margin-inline-end: em(5px);
             }
 
             .el-switch__core {
-                height: 18px;
-                min-width: 31px;
+                height: em(18px);
+                min-width: em(31px);
             }
 
             .el-switch__action {
-                height: 14px;
-                width: 14px
+                height: em(14px);
+                width: em(14px);
             }
         }
     }
@@ -103,20 +104,29 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: em(15px) 0;
     color: $CLR00;
-
+    .available-services{
+        font-size: rem(14px);
+        line-height: rem(22px);
+        font-weight: 600;
+    }
+    h4{
+    font-size: 16px;
+    line-height: 120%;
+    font-weight: 600;
+    }
     .sort-input {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 40px;
+        height: em(40px);
         .el-select .el-input.is-focus .el-input__wrapper,
         .el-select .el-input__wrapper.is-focus {
                 box-shadow: 0 0 0 0 transparent !important;
         }
         .sortby-select {
-            width: 130px;
+            width: em(130px);
 
             
 
@@ -136,11 +146,11 @@
 .pagination{
     display: flex;
     justify-content: center;
-    margin: 45px 30px;
+    margin: em(45px) em(30px);
     .el-pagination.is-background .btn-next,
     .el-pagination.is-background .btn-prev,
     .el-pagination.is-background .el-pager li {
-        margin: 0 4px;
+        margin: 0 em(4px);
         background-color: transparent;
         border: 1px $clr2 solid;
         font-size: 1rem;
@@ -149,6 +159,7 @@
             background-color: transparent;
             color: $clr4;
     }
+
         
 }
 
