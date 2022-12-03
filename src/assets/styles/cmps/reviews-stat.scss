@@ -11,7 +11,7 @@
 }
 
 .stars-counters {
-  width: 50%;
+  min-width: 50%;
 
   ul > li {
     .key {
@@ -50,7 +50,7 @@
 }
 
 .ranking {
-  width: 50%;
+  min-width: 50%;
   padding-block-start: 6px;
 
   h6 {
@@ -64,7 +64,7 @@
   ul > li {
     padding-block-end: em(8px, 16px);
     color: #95979d;
-
+    
     .star-container {
       margin-left: 12px;
       line-height: 21px;
