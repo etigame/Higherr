@@ -89,6 +89,19 @@
   margin-block-end: 64px;
 }
 
+.slideshow {
+  .vueperslides__parallax-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 66.66666% !important;
+  }
+
+  // .vueperslides--fixed-height {
+  //   height: 375px;
+  //   width: 640px;
+  // }
+}
+
 .gallery-thumbnails {
   height: 60px;
   border: 1px solid $clr2;

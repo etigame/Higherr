@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      this.$router.push(`/explore/title=${filterBy.title}`)
+      this.$router.push({ name:'app-explore-list',query:{...filterBy}})
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
     },

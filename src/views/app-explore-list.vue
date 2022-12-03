@@ -1,6 +1,6 @@
 <template>
   <div class="app-explore-list">
-    <h1>Results for "{{$route.params.title}}"</h1>
+    <h1 v-if="$route.query.title">Results for "{{$route.query.title}}"</h1>
     <div class="advanced-filter">
       <div class="advanced-input">
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category" size="large">
@@ -10,6 +10,7 @@
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
           <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
           <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop  placeholder="Any" /></el-option>
+          <!-- <div><el-button @click="loadParams" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div> -->
           <div><el-button @click="filter()" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div>
         </el-select>
 
@@ -112,7 +113,7 @@ export default {
   },
   created() {
     // this.$store.dispatch({ type: 'loadGigs' })
-    this.filterBy.title = this.$route.params.title
+    this.filterBy= this.$route.query
     this.filter()
   },
   components: {
@@ -120,13 +121,12 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      this.$store.commit({ type: 'setFilter', filterBy:{...filterBy}})
-      // this.$store.dispatch({ type: 'loadGigs', filterBy:filterBy })
+      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+      this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+     
+
     },
-    //  filter() {
-    //         this.$emit('filter', { ...this.filterBy })
-    //         console.log(this.filterBy)
-    //     },
+
 
     clearBudget(){
       this.filterBy.min=''
@@ -134,6 +134,18 @@ export default {
       this.filter()
     },
     
+  },
+  watch: {
+    $route: {
+      handler(newValue) {
+        console.log('this is the real thing:',newValue);
+        this.filter(newValue.query)
+
+      },
+      deep: true
+    }
   }
+
+
 }
 </script>

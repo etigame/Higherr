@@ -12,7 +12,7 @@
       </div>
     </div>
     </div>
-    <categories-list :type="'card'"/>
+    <categories-list :type="'card'"  @filter="filter"/>
    
     <section class="video-section flex full main-layout">
 
@@ -34,7 +34,7 @@
         </div>
       </div>
       </section>
-    <categories-list :type="'svg'"/>
+    <categories-list :type="'svg'"  @filter="filter"/>
   </section>
 </template>
 
@@ -60,7 +60,23 @@ export default {
   },
   created() {
   },
+  data() {
+    return {
+      filterBy: {
+        title: '',
+        category: '',
+        subCategory: '',
+        min: null,
+        max: null,
+        delivery: '',
+      },
+    }
+  },
   methods: {
+    filter(filterBy = this.filterBy) {
+      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+      this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+    },
   }
 
 }

@@ -1,17 +1,19 @@
 .app-footer{
     height: 80px;
-    border-top: 1px solid $clr2;
+    border-top: 1px solid var(--yro5247);
 
-    .logo{
+    .logo, .copy-rights{
         margin-right: 30px;
+        color: var(--yro5247);
+        font-size: rem(14px);
     }
 
     .social-links{
-        flex-basis: 20%;
-
+        // flex-basis: 20%;
         a{
             width:100%;
-
+            margin-inline-start: 32px;
+            cursor: pointer;
         }
     }
 }
