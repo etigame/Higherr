@@ -1,14 +1,22 @@
 
 .hero-image{
-    display:grid;
+  
+    .hero-info{
+        
+        z-index: 20;
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        color: white;
+    }
+
+  
+
+  
     
 }
 
-.info-container{
-        width: 100px;
-        z-index:20;
-        
-    }
+
 
 
 
