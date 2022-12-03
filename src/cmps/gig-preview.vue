@@ -10,17 +10,17 @@
         </div>
             <div  class="preview-title">
          <router-link :to="`/gig/${gig._id}`" >
-            <h3>{{ gig.title }}</h3>
+            <a>{{ gig.title }}</a>
             </router-link>
             </div>
             <div class="content-info">
                 <span v-icon="'star'" class="preview-rate-icon"></span>
-                <p class="rate-preview">5.0</p>
-                <p class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length}})</p>
+                <span class="rate-preview">5.0</span>
+                <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length}})</span>
             </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
-            <div class="preview-price-container flex"><p>starting at </p><h3 class="preview-price">{{gig.price}}</h3></div>
+            <div class="preview-price-container flex"><p>starting at </p><span class="preview-price">{{gig.price}}</span></div>
         </div>
 
                             

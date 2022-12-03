@@ -36,7 +36,7 @@
     </div>
     <div class="sorting-click">
       <div class="flex ">
-        <h4 v-if="gigs">{{ gigs.length }} Services available</h4>
+        <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
       </div>
       <div class="sort-input">
         <h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance" size="large">
