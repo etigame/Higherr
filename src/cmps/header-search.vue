@@ -1,11 +1,11 @@
-<template #prepend>
+<template>
   <div class="header-search flex">
     <el-input size="large" />
     <el-button  size="large" :icon="Search" />
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
 
 import { Search } from '@element-plus/icons-vue'
 

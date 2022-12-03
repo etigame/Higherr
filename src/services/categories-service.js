@@ -1,3 +1,5 @@
+const popular = ['Website Design', 'WordPress', 'Logo Design', 'Video Editing']
+
 const tags = {
   logoDesign: {
     txt: 'Logo Design',
@@ -66,4 +68,4 @@ const categories = [
   },
 ]
 
-export default { tags, categories }
+export default { popular, tags, categories }

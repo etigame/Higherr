@@ -1,5 +1,45 @@
 .hero-search{
-
-    margin: 10px 0px;
+margin: 24px 0;
+    height: 3rem;
+    width: 650px;
    
+
+ 
+
+
+    .el-button{
+        background-color: $clr1;
+        border: 1px solid $clr1;
+        border-radius: 0px;
+        border-end-end-radius: 4px;
+        border-start-end-radius: 4px;
+        color: white;
+        font-weight:600;
+        font-size:1rem;
+        height: 3rem;
+
+    
+        &:hover{
+          background-color: #18ad68;
+          border-color: #18ad68;
+        }
+      }
+
+      .el-input__wrapper{
+        box-shadow: 0 0 0 1px grey inset;
+        border-end-end-radius: 0px;
+        border-start-end-radius: 0px;
+        min-width: 100%;
+    
+    
+        
+    
+    
+        &.is-focus{
+          box-shadow: 0 0 0 1px black inset;
+    
+        }
+      }
+    
+     
     }

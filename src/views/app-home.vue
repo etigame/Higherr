@@ -1,14 +1,7 @@
 <template>
   <section class="app-home main-layout full">
-    <!-- <section class="hero full">
-      <img class="hero-andrea" src="src/assets/img/hero1.webp" />
-      <img class="hero-moon" src="src/assets/img/hero2.webp" />
-      <img class="hero-moon" src="src/assets/img/hero3.webp" />
-      <img class="hero-zach" src="src/assets/img/hero4.webp" />
-      <img class="hero-gabrielle" src="src/assets/img/hero5.webp" />
 
     
-    </section> -->
     <app-hero></app-hero>
 
     <div class="trusted-by main-layout full">
