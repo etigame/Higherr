@@ -1,5 +1,5 @@
 <template #prepend>
-  <div class="app-search flex">
+  <div class="header-search flex">
     <el-input size="large" />
     <el-button  size="large" :icon="Search" />
   </div>
@@ -8,7 +8,5 @@
 <script setup lang="ts">
 
 import { Search } from '@element-plus/icons-vue'
-
-
 
 </script>

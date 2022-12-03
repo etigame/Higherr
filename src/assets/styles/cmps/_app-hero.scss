@@ -1,5 +1,5 @@
 .hero-container {
-        height: 680px;
+        height: $heroHeight;
         position: relative;
         
         .img-container{
@@ -17,8 +17,28 @@
 }
            
 }
+
+.search-container{
+  position: relative;
+  z-index: 10;
 }
 
+
+.search-container{
+  color: white;
+  width: 50%;
+  transform: translate(0, calc($heroHeight/3));
+  height: 150px;
+  line-height:1.2;
+
+  h1{
+      font-family: var(--yro524e);
+      font-size: 3rem;
+      
+      
+  }
+}
+}
 
  
 
