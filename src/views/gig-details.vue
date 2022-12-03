@@ -38,9 +38,9 @@
                         </vueper-slides>
                         <!-- <img :src="gig.image" alt="gig-image"> -->
                     </section>
-                    <section class="gallery-thumbnails">
+                    <!-- <section class="gallery-thumbnails">
                         <h1>gallery-thumbnails</h1>
-                    </section>
+                    </section> -->
                 </section>
 
                 <section class="gig-reviews-snippet">
