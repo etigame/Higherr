@@ -32,7 +32,11 @@
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="gig-gallery">
                     <section class="slideshow">
-                        <img :src="gig.image" alt="gig-image">
+                        <vueper-slides fade :touchable="true">
+                            <vueper-slide v-for="image in gig.image" :key="1" :image="image">
+                            </vueper-slide>
+                        </vueper-slides>
+                        <!-- <img :src="gig.image" alt="gig-image"> -->
                     </section>
                     <section class="gallery-thumbnails">
                         <h1>gallery-thumbnails</h1>
@@ -97,13 +101,17 @@ import { gigService } from '../services/gig-service.js'
 import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+
 
 export default {
     name: 'gig-details',
     components: {
         gigPackage,
         userPreview,
-        reviewList
+        reviewList,
+        VueperSlides,
+        VueperSlide
     },
     data() {
         return {
