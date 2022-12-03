@@ -1,0 +1,87 @@
+.stat-header {
+  padding-block-end: 20px;
+
+  h2 {
+    margin-inline-end: em(8px, 20px);
+  }
+
+  .rating-score {
+    border: none;
+  }
+}
+
+.stars-counters {
+  width: 50%;
+
+  ul > li {
+    .key {
+      color: var(--yro52j);
+      font-weight: 700;
+      padding: em(6px, 16px);
+      width: 25%;
+    }
+
+    progress {
+      margin-inline-end: 10px;
+      margin-block-start: 8px;
+      display: flex;
+    }
+
+    progress[value] {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    progress[value]::-webkit-progress-bar {
+      background-color: var(--yro5244);
+      border-radius: 999px;
+      height: 8px;
+    }
+
+    progress[value]::-webkit-progress-value {
+      background-color: var(--yro523v);
+      border-radius: 999px;
+    }
+
+    .star-num {
+      color: var(--yro52j);
+    }
+  }
+}
+
+.ranking {
+  width: 50%;
+  padding-block-start: 6px;
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 700;
+    padding-block-end: em(16px, 16px);
+    line-height: 140%;
+    color: $clr11;
+  }
+
+  ul > li {
+    padding-block-end: em(8px, 16px);
+    color: #95979d;
+
+    .star-container {
+      margin-left: 12px;
+      line-height: 21px;
+      color: var(--yro523v);
+      font-weight: 700;
+
+      svg {
+        fill: var(--yro523v);
+      }
+
+      .value {
+        padding-inline-start: em(4px, 16px);
+      }
+    }
+  }
+}
+
+.reviews-stat {
+  margin-block-end: 24px;
+}
