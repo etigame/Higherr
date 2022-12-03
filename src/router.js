@@ -16,7 +16,7 @@ const routes = [
     component: appHome,
   },
   {
-    path: '/explore',
+    path: '/explore/title=:title?',
     name: 'app-explore-list',
     component: appExploreList,
   },
@@ -60,9 +60,9 @@ export const router = createRouter({
       return {
         el: to.hash,
         behavior: 'smooth',
-        top: 10
+        top: 10,
       }
     }
-  }
+  },
   // base: process.env.BASE_URL,
 })

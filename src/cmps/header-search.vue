@@ -1,12 +1,29 @@
-<template #prepend>
+<template >
   <div class="header-search flex">
-    <el-input size="large" />
-    <el-button  size="large" :icon="Search" />
+    <el-input v-model="title" size="large" />
+    <el-button @click="filter" size="large"/>
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
 
-import { Search } from '@element-plus/icons-vue'
+// import { Search } from '@element-plus/icons-vue'
 
+export default {
+  name: 'header-search',
+  data() {
+    return {
+        title: '', 
+    }
+  },
+
+  methods: {
+
+    filter() {
+      this.$emit('filter', this.title)
+      console.log(this.title)
+    },
+
+  },
+}
 </script>

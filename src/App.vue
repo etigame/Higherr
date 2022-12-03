@@ -1,7 +1,7 @@
 <template>
   <section class="main-layout">
     <user-msg />
-    <app-header />
+    <app-header @filter="filter"/>
     <categories-list :type="'tag'" @filter="filter" />
     <main class="app-container main-layout full">
       <router-view />
@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
+      this.$router.push(`/explore/title=${filterBy.title}`)
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
     },
