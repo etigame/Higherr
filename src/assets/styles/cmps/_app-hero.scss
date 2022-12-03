@@ -1,10 +1,13 @@
 .hero-container {
- 
+   
       height: $heroHeight;
-    
+      position: relative;
 
-
-  
+      .img-container{
+        img{
+          position: absolute;
+        }
+      
         
             .v-enter-active,
             .v-leave-active {
@@ -16,53 +19,54 @@
               opacity: 0;
             }
            
-        
+      }
 
-          .search-container{
-            position: relative;
-            color: white;
-            z-index:20;
-            line-height:1.2;
-
-            h1{
-              width: 650px;
-                font-family: var(--yro524e);
-                font-size: 3rem;
-                span{
-                  font-style:italic;
-                }   
-            }
-
-
-            .categories{
-              text-decoration: none;
-              gap:10px;
-              
-              >*{
-                font-weight:600;
+      .search-container{
+            grid-column: 2;
+              color: white;
+              z-index:20;
+              line-height:1.2;
+      
+              h1{
+                width: 650px;
+                  font-family: var(--yro524e);
+                  font-size: 3rem;
+                  span{
+                    font-style:italic;
+                  }   
               }
-              
-              a{
-                
-                display:block;
+      
+      
+              .categories{
                 text-decoration: none;
-                color: white;
-                border: 1px solid white;
-                border-radius: 2.5rem;
-                padding: 1px 12px 0;
-                line-height:24px;
-                transition: all .2s ease-in-out;
+                gap:10px;
                 
-
-                &:hover{
-                  background-color: white;
-                  color: black;
-
+                >*{
+                  font-weight:600;
                 }
+                
+                a{
+                  
+                  display:block;
+                  text-decoration: none;
+                  color: white;
+                  border: 1px solid white;
+                  border-radius: 2.5rem;
+                  padding: 1px 12px 0;
+                  line-height:24px;
+                  transition: all .2s ease-in-out;
+                  
+      
+                  &:hover{
+                    background-color: white;
+                    color: black;
+      
+                  }
+      
+                }
+              }    
+          }
 
-              }
-            }    
-}
 
           
 }
