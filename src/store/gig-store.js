@@ -48,6 +48,9 @@ export const gigStore = {
       ) {
         filteredGigs = filteredGigs
       } else {
+        const regex = new RegExp(filterBy.title, 'i')
+        filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+
         if (!filterBy.category) {
           filteredGigs = filteredGigs
         } else {
@@ -69,6 +72,7 @@ export const gigStore = {
             (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
           )
         }
+
         if (!filterBy.max) {
           filteredGigs = filteredGigs
         } else {
@@ -76,16 +80,14 @@ export const gigStore = {
             (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
           )
         }
+
         if (!filterBy.delivery) {
           filteredGigs = filteredGigs
         } else {
           filteredGigs = filteredGigs.filter(
             (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
           )
-          console.log(filteredGigs)
         }
-        const regex = new RegExp(filterBy.title, 'i')
-        filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
       }
       return filteredGigs
     },
