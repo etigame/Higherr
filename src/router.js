@@ -7,7 +7,6 @@ import gigEdit from './views/gig-edit.vue'
 import sellerProfile from './views/seller-profile.vue'
 import sellerOrders from './views/seller-orders.vue'
 import sellerRegister from './views/seller-register.vue'
-import chat from './views/chat.vue'
 
 const routes = [
   {
@@ -49,11 +48,6 @@ const routes = [
     path: '/seller/register',
     name: 'seller-register',
     component: sellerRegister,
-  },
-  {
-    path: '/chat',
-    name: 'chat',
-    component: chat,
   },
 ]
 

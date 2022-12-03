@@ -1,0 +1,13 @@
+.chat-seller {
+  position:fixed;
+  background-color: burlywood;
+  height: 620px;
+  width:550px;
+  .img-seller{
+    width:48px;
+    &>*{
+    border-radius: 50%;
+  }
+  }
+
+}
