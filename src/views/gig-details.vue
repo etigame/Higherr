@@ -88,7 +88,7 @@
             <section class="package-container">
                 <gig-package :gig="gig" />
             </section>
-
+            <chat-seller :gig="gig"/>
         </section>
     </section>
 </template>
@@ -99,6 +99,7 @@ import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
+import chatSeller from '../cmps/chat.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 
@@ -109,6 +110,7 @@ export default {
         userPreview,
         reviewList,
         reviewsStat,
+        chatSeller,
         VueperSlides,
         VueperSlide
     },
