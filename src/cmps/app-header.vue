@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header main-layout full">
+  <header class="app-header main-layout full"   ref="header">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="home">
@@ -29,6 +29,13 @@ import headerSearch from './header-search.vue'
 
 export default {
   name: 'app-header',
+
+  mounted() {
+    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+      rootMargin: "100px 0px 0px",
+    });
+    this.headerObserver.observe(this.$refs.header);
+  },
   data() {
     return {
       filterBy: {
@@ -39,6 +46,8 @@ export default {
         max: null,
         delivery: '',
       },
+      headerObserver: null,
+      headerState: "closed",
     }
   },
   components: {
@@ -54,8 +63,14 @@ export default {
        filter(title) {
         this.filterBy.title=title
         this.$emit('filter', { ...this.filterBy })
-          },
-  
+        console.log(this.filterBy)
+      },
+      onHeaderObserved(entries) {
+        entries.forEach((entry) => {
+          console.log("change")
+        this.class = entry.isIntersecting ? " ": "closed";
+        });
+      }
   },
 }
 </script>
