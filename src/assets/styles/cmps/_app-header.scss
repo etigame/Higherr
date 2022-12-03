@@ -4,27 +4,35 @@
 .app-header{
     height: $headingHeight;
     width: 100%;
+
+  z-index:10;
     // position: fixed;
     // z-index: 10;
 
 
+    &.closed{
+        background:none;
+        
+        a,.logo,.el-button.is-text {
+            color:white;
+        }
+        
+    }
+
+  
+
     a{
         text-decoration: none;
         color:black;
-        
         transition: 0.3s;
-     
     }
 
    .home{
     flex-basis: 30%;
-    >*{
-      
-       
+    >*{   
         display: inline;
         padding: none;
         text-decoration: none;
-    
     }
    }
 
@@ -40,6 +48,7 @@
     a:hover{
         color: $clr1;
     }
-    
     }
-   }
+   
+}
+

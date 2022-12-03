@@ -1,12 +1,12 @@
 
 <template>
-    <section>
-    <img  :src= "hero.imgUrl" />
-    <div>
-                <span v-for="n in hero.rating" v-icon="star"></span>
-                <span>{{hero.name}}</span>
-                <span>{{hero.profession}}r</span>       
-    </div>
+    <section class="hero-image">
+        <img  :src= "hero.imgUrl" />
+        <div class="info-container">
+            <!-- <span v-for="n in hero.rating" v-icon="star"></span> -->
+            <span>{{hero.name}}</span>
+            <span>{{hero.profession}}</span>       
+        </div>
 
 </section>
 </template>
