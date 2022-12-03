@@ -77,13 +77,10 @@ created(){
         categoryFilter(category){
             this.filterBy.category=category
             this.filter()
-            this.$router.push('/explore')
         },
          filter() {
             this.$emit('filter', { ...this.filterBy })
-            console.log(this.filterBy)
-        },
-       
+        },     
   }
     }
 

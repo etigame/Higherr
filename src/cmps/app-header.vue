@@ -51,11 +51,9 @@ export default {
     },
   },
   methods: {
-    
        filter(title) {
         this.filterBy.title=title
-      this.$emit('filter', { ...this.filterBy })
-      console.log(this.filterBy)
+        this.$emit('filter', { ...this.filterBy })
           },
   
   },

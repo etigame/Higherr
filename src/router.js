@@ -16,10 +16,15 @@ const routes = [
     component: appHome,
   },
   {
-    path: '/explore/title=:title?',
+    path: '/explore',
     name: 'app-explore-list',
     component: appExploreList,
   },
+  // {
+  //   path: '/explore/title=:title?',
+  //   name: 'app-explore-list',
+  //   component: appExploreList,
+  // },
   {
     path: '/gig/:_id',
     name: 'gig-details',
