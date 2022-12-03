@@ -95,7 +95,6 @@ export const gigStore = {
   mutations: {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
-      console.log(state.filterBy)
     },
     setGigs(state, { gigs }) {
       state.gigs = gigs
@@ -141,7 +140,6 @@ export const gigStore = {
       try {
         const gigs = await gigService.query()
         context.commit({ type: 'setGigs', gigs })
-        console.log(gigs)
       } catch (err) {
         console.log('gigStore: Error in loadGigs', err)
         throw err

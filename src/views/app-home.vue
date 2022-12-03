@@ -2,7 +2,7 @@
   <section class="app-home main-layout full">
 
     
-    <app-hero></app-hero>
+    <app-hero @filter="filter"></app-hero>
 
     <div class="trusted-by main-layout full">
       <div class="logos flex justify-center align-center">
@@ -17,7 +17,7 @@
     <section class="video-section flex full main-layout">
 
       <div class="flex">
-        <div class="info">
+        <div class="site-info">
           <p class="side-text">
           <h1>A whole world of freelance talent at your fingertips</h1>
           <ul>

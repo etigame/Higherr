@@ -63,7 +63,7 @@ export default {
        filter(title) {
         this.filterBy.title=title
         this.$emit('filter', { ...this.filterBy })
-        console.log(this.filterBy)
+     
       },
       onHeaderObserved(entries) {
         entries.forEach((entry) => {

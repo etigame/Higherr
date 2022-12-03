@@ -1,6 +1,9 @@
 .categories-list{
+
+
     
     section {
+
       
         &.type-tag{
             height:40px;
@@ -37,6 +40,7 @@
              flex-direction: column;
              justify-content: center;
              align-items: center;
+             cursor: pointer;
               
                 svg{
 
@@ -53,10 +57,18 @@
           h1{
             padding-bottom: 24px;
         }
+        
+        .cards{
+            max-width: 100%;
+        }
         .card{
-            height: 345px;
+            flex-basis: 20%;
             border-radius:4px;
-            overflow: hidden;
+            
+
+            &:hover{
+                cursor: pointer;
+            }
 
             h2{
                 padding: 16px;
