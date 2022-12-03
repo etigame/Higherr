@@ -1,5 +1,5 @@
 <template>
-<div class="login-signup">
+<div class="login-signup flex">
   <el-button class="signin-btn" text @click="dialogFormVisible = true">
       Sign In
     </el-button>

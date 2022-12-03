@@ -2,7 +2,7 @@
 
     <section class="categories-list main-layout full">
         
-        <section  v-if="(type==='tag')" class="type-tag  main-layout full" >
+        <section  v-if="(type==='tag')"  class="type-tag  main-layout full" >
             <div class="flex space-between ">
             <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)" to="/explore" >{{category.name}}</router-link>
             <!-- <a @click="categoryFilter(`${category.name}`)" href="" v-for="category in categories" >{{category.name}}</a> -->
@@ -48,6 +48,9 @@ export default {
             
     },
 },
+created(){
+    isShown(50)
+},
     data(){
         return{
             categories: categoriesService.categories,
@@ -67,9 +70,15 @@ export default {
        getImage(item){
         return {
             backgroundImage: url(item.imageUrl)
-       } 
-    }
-    },methods:{
+       }
+    },
+       isShown(num){
+            if (window.scrollY>num){
+                return true
+            }
+       }      
+    },
+    methods:{
         categoryFilter(category){
             this.filterBy.category=category
             this.filter()
@@ -79,6 +88,8 @@ export default {
             this.$emit('filter', { ...this.filterBy })
             console.log(this.filterBy)
         },
-    },
-}
+       
+  }
+    }
+
 </script>

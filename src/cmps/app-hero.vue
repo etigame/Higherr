@@ -20,7 +20,7 @@
 export default {
     name: 'hero',
     mounted(){
-        setInterval(this.changeCurrImage, 7000)
+        setInterval(this.changeCurrImage, 5000)
          
     },
     data(){

@@ -1,14 +1,15 @@
 <template>
   <header class="app-header main-layout full">
-    <nav class="flex space-between align-center">
+    <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="home">
-          <span role="img" aria-label="logo"></span>
-          <h1>Higherr.</h1>
+          <h1>Higherr</h1>
         </div>
       </router-link>
 
+      <div class="search">
       <app-search />
+    </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <login-signup />

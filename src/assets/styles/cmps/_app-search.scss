@@ -19,7 +19,9 @@
     .el-icon{
       fill:#ffff;
       color: #ffff;
+     
     }
+
   }
   .input-with-select .el-input-group__prepend {
     background-color: var(--el-fill-color-blank);
@@ -32,7 +34,7 @@
     box-shadow: 0 0 0 1px grey inset;
     border-end-end-radius: 0px;
     border-start-end-radius: 0px;
-    width: 600px;
+    min-width: 100%;
 
 
     
