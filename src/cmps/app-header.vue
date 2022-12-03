@@ -8,7 +8,7 @@
       </router-link>
 
       <div class="search">
-      <app-search />
+      <header-search />
     </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
@@ -25,7 +25,7 @@
 
 <script>
 import loginSignup from './login-signup.vue'
-import appSearch from './app-search.vue'
+import headerSearch from './header-search.vue'
 
 export default {
   name: 'app-header',
@@ -43,7 +43,7 @@ export default {
   },
   components: {
     loginSignup,
-    appSearch,
+    headerSearch,
   },
   computed: {
     loggedInUser() {

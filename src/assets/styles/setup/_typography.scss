@@ -21,17 +21,15 @@
 
 }
 @font-face {
-    font-family: chunkFive;
-    src: url('/src/assets/styles/fonts/ChunkFive/ChunkFive.ttf')
-
+    font-family: domainDisplay;
+    src: url('/src/assets/styles/fonts/domainDisplay/domain-display.ttf')
 }
-
 
 
 
 :fonts {
     --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --yro524e: "DomaineDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524e: "domainDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --yro524g: Georgia, "Times New Roman", serif;
 }
 
