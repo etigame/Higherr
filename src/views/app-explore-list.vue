@@ -1,6 +1,6 @@
 <template>
   <div class="app-explore-list">
-
+    <h1>Results for "{{$route.params.title}}"</h1>
     <div class="advanced-filter">
       <div class="advanced-input">
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category" size="large">
@@ -105,10 +105,15 @@ export default {
     },
     gigs() {
       return this.$store.getters.gigs
+    },
+    titleId(){
+      return this.$route.params.title
     }
   },
   created() {
     // this.$store.dispatch({ type: 'loadGigs' })
+    this.filterBy.title = this.$route.params.title
+    this.filter()
   },
   components: {
     gigPreview,

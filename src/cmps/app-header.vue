@@ -8,7 +8,7 @@
       </router-link>
 
       <div class="search">
-      <header-search />
+      <header-search @filter="filter" />
     </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
@@ -37,7 +37,7 @@ export default {
         subCategory: '',
         min: null,
         max: null,
-        delivery: 'Anytime',
+        delivery: '',
       },
     }
   },
@@ -51,13 +51,13 @@ export default {
     },
   },
   methods: {
-    filter() {
-      this.$store.dispatch({ type: 'loadGigs', filterBy: this.filterBy })
-      //  filter() {
-      //         this.$emit('filter', { ...this.filterBy })
-      //         console.log(this.filterBy)
-      //     },
-    },
+    
+       filter(title) {
+        this.filterBy.title=title
+      this.$emit('filter', { ...this.filterBy })
+      console.log(this.filterBy)
+          },
+  
   },
 }
 </script>
