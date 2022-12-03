@@ -79,10 +79,7 @@
                 </section>
 
                 <section id="reviews" class="reviews-container" v-if="gig.reviewers">
-                    <h2>{{ gig.reviewers.length }} Reviews </h2>
-                    <section class="reviews-stat">
-                        <h1>reviews-stat</h1>
-                    </section>
+                    <reviews-stat :reviews="gig.reviewers" />
                     <review-list :type="'reviewLong'" :reviews="gig.reviewers" />
                 </section>
 
@@ -101,6 +98,7 @@ import { gigService } from '../services/gig-service.js'
 import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
+import reviewsStat from '../cmps/reviews-stat.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 
@@ -110,6 +108,7 @@ export default {
         gigPackage,
         userPreview,
         reviewList,
+        reviewsStat,
         VueperSlides,
         VueperSlide
     },
