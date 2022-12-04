@@ -1,3 +1,18 @@
+
+/*elements*/
+
+
+@mixin card ($width, $height){
+  background-color: white;
+  width: $width;
+  height: $height;
+  border: 1px solid var(--yro5245)
+}
+
+
+
+
+
 /* Breakpoint mixins */
 
 @mixin for-mobile-layout {

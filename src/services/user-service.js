@@ -1,5 +1,6 @@
 import { storageService } from './async-storage-service'
 import { httpService } from './http-service'
+import { utilService } from './util-service.js'
 import { store } from '../store/store'
 import {
   socketService,
@@ -11,6 +12,8 @@ import { showSuccessMsg } from './event-bus-service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const USER_STORAGE_KEY = 'user'
 const USER_URL = 'user/'
+
+_createUser()
 
 export const userService = {
   login,
@@ -90,7 +93,7 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-  user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl}
+  user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
 
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user
@@ -112,14 +115,41 @@ function getEmptyUser() {
 }
 
 function saveUser(user) {
-    if (user._id) return storageService.put(KEY, user)
-    return storageService.post(KEY, user)
-    // if (user._id) return httpService.put(USER_URL + user._id, user)
-    // return httpService.post(USER_URL, user)
-  }
+  if (user._id) return storageService.put(KEY, user)
+  return storageService.post(KEY, user)
+  // if (user._id) return httpService.put(USER_URL + user._id, user)
+  // return httpService.post(USER_URL, user)
+}
 
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
 //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
+function _createUser() {
+  let user = utilService.loadFromStorage(USER_STORAGE_KEY)
+  if (!user || !user.length) {
+    user = {
+      _id: 'u101',
+      fullname: 'frederickkessie',
+      imgUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+      username: 'fred',
+      password: '1234',
+      reviews: [
+        {
+          id: 'r1',
+          // gig: {id: '654', },
+          txt: 'Very kind and works fast',
+          rate: 4,
+          by: {
+            _id: 'u102',
+            fullname: 'Tanya',
+            imgUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+          },
+        },
+      ],
+    }
+    utilService.saveToStorage(USER_STORAGE_KEY, user)
+    return user
+  }
+}

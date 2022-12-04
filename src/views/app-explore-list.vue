@@ -49,6 +49,7 @@
 
     <div v-if="gigs" class="gig-list clean-list list-container">
       <gig-preview v-for="gig in gigs" :gig="gig" :key="gig._id" />
+      
 
     </div>
 

@@ -67,7 +67,6 @@ export default {
       },
       onHeaderObserved(entries) {
         entries.forEach((entry) => {
-          console.log("change")
         this.class = entry.isIntersecting ? " ": "closed";
         });
       }

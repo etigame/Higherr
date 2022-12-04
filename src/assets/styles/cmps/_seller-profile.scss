@@ -1,0 +1,21 @@
+
+.seller-profile{
+display:grid;
+grid-template-columns: 40% 60%;
+
+
+.profile-container{
+    @include card(340px, 450px);
+    padding: 30px;
+    
+}
+
+
+.status-filter-bar{
+    @include card(430px, 60px);
+       margin-bottom: 40px;
+        list-style: none;
+       
+    }
+}
+
