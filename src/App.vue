@@ -22,9 +22,6 @@ import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
 
-
-
-
 export default {
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
@@ -47,7 +44,6 @@ export default {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
-
     },
   },
   components: {
