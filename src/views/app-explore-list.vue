@@ -72,7 +72,7 @@ export default {
         subCategory: '',
         min:null,
         max:null,
-        delivery:'',
+        delivery:null,
       },
       demoInfo:true,
       options: [
@@ -112,7 +112,6 @@ export default {
     }
   },
   created() {
-    // this.$store.dispatch({ type: 'loadGigs' })
     this.filterBy= this.$route.query
     this.filter()
   },
@@ -121,8 +120,16 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+
+      console.log(filterBy);
+      // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
+      // this.$router.push({ name: 'app-explore-list', query: {...filterBy}})
+      // this.$router.push({ name: 'app-explore-list', query:{ title:filterBy.title,category:filterBy.category,min:filterBy.min,max:filterBy.max}})
+      this.$router.push({ name: 'app-explore-list', query:{ title:filterBy.title,category:filterBy.category,subCategory:filterBy.subCategory,min:filterBy.min,max:filterBy.max}})
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+
+      console.log(this.$router);
+      
      
 
     },
@@ -139,10 +146,25 @@ export default {
     $route: {
       handler(newValue) {
         this.filter(newValue.query)
+        console.log('route',newValue.query)
 
       },
       deep: true
-    }
+    },
+      '$route.query'(newValue) {
+        // this.filter(newValue.query)
+        console.log('query',newValue)
+
+      },
+      
+    // filterBy: {
+    //   handler(newValue) {
+    //     this.filter()
+    //     console.log('filter',newValue);
+
+    //   },
+    //   deep: true
+    // }
   }
 
 

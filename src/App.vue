@@ -44,6 +44,7 @@ export default {
   methods: {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name:'app-explore-list',query:{...filterBy}})
+      // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
     },
