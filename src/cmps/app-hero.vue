@@ -1,6 +1,6 @@
 <template>
-    <section class="hero-container main-layout full ">
-        <div class="img-container full ">
+    <section class="hero-container main-layout full">
+        <div class=" img-container full ">
             <Transition>
                 <img v-if="(idx === 1)" :src="getImageUrl">
                 <img v-else-if="(idx === 2)" :src="getImageUrl">

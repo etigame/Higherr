@@ -1,19 +1,21 @@
 .app-header {
-  background-color: transparent;
-  border-bottom: none;
+  height: $headingHeight;
+  width: 100%;
+  color: #62646a;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #e4e5e7;
   transition: background-color 0.5s ease;
-  color: #fff;
+  transition: border .5s ease;
 
-  &.visible {
-    height: $headingHeight;
-    width: 100%;
-    color: #62646a;
-    background-color: #fff;
+  &.transparent {
+    background-color: transparent;
+    border-bottom: none;
     transition: background-color 0.5s ease;
+    color: #fff;
   }
-  
-  a,
-  .logo,
+
   .el-button.is-text {
     color: white;
   }
@@ -24,8 +26,12 @@
     transition: 0.3s;
   }
 
-  .home {
+  .logo {
     flex-basis: 30%;
+    margin: 4px 0 0;
+    min-width: 121px;
+    transition: color .2s;
+
     > * {
       display: inline;
       padding: none;
@@ -36,6 +42,14 @@
   .search {
     flex-basis: 65%;
     margin: 0px 10px;
+    opacity: 0;
+    width: 100%;
+    transition: opacity .25s ease;
+
+    &.shown {
+        opacity: 1;
+        transition: opacity .25s ease;
+    }
   }
 
   .nav-links {

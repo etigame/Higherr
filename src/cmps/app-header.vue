@@ -1,13 +1,13 @@
 <template>
-  <header class="app-header main-layout full" ref="header" :class="{ visible: stickyHeader }">
+  <header class="app-header main-layout full" :class="{ transparent: windowTop === 0 }">
     <nav class="flex align-center space-between">
       <router-link to="/">
-        <div class="home">
+        <div class="logo">
           <h1>Higherr</h1>
         </div>
       </router-link>
 
-      <div class="search">
+      <div class="search" :class="{ shown: isSearchShown }">
         <header-search @filter="filter" />
       </div>
       <div class="nav-links flex align-center">
@@ -43,15 +43,15 @@ export default {
         max: null,
         delivery: '',
       },
-      headerObserver: null,
-      stickyHeader: false,
+      windowTop: window.top.scrollY,
+      isSearchShown: false
     }
   },
   mounted() {
-    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
-      rootMargin: "-85px 0 0",
-    })
-    this.headerObserver.observe(this.$refs.header)
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll)
   },
   methods: {
     filter(title) {
@@ -59,12 +59,10 @@ export default {
       this.$emit('filter', { ...this.filterBy })
       console.log(this.filterBy)
     },
-    onHeaderObserved(entries) {
-      entries.forEach((entry) => {
-        console.log(entry)
-        console.log(entry.boundingClientRect)
-        this.stickyHeader = entry.isIntersecting ? false : true
-      })
+    onScroll(e) {
+      if (this.$route.path !== '/') return
+      this.windowTop = window.top.scrollY
+      this.isSearchShown = this.windowTop > 150 ? true : false
     }
   },
   computed: {
@@ -72,18 +70,12 @@ export default {
       return this.$store.getters.loggedinUser
     },
   },
-  methods: {
-    filter(title) {
-      this.filterBy.title = title
-      this.$emit('filter', { ...this.filterBy })
-      console.log(this.filterBy)
+  watch: {
+    $route: {
+      handler(route) {
+        this.isSearchShown = route.path !== '/' ? true : false
+      },
     },
-    onHeaderObserved(entries) {
-      entries.forEach((entry) => {
-        console.log("change")
-        this.class = entry.isIntersecting ? " " : "closed"
-      })
-    }
   },
 }
 </script>
