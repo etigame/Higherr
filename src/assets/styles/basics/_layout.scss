@@ -13,7 +13,10 @@
         grid-column: 1 / -1;
     }
 
-    @media screen and (min-width: $padded-break-wide) {
+    @media screen and (min-width: $padded-break-normal) {
+        grid-template-columns: $layoutPaddingWide 1fr $layoutPaddingWide;
+     }
+    @media screen and (min-width: calc($padded-break-wide + $layoutPaddingWide)) {
         grid-template-columns: 1fr $wide-breakpoint 1fr;
 
      }

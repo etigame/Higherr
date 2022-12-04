@@ -1,9 +1,11 @@
 <template>
     <section class="gig-preview" v-if="gig">
+        <!-- <router-link :to="`/gig/${gig._id}`"> -->
             <vueper-slides fade :touchable="false" >
                 <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
                 </vueper-slide>
             </vueper-slides>
+            <!-- </router-link> -->
         <div class="seller-info-preview">
         <div class="seller-img"><img :src="gig.imgUrl"></div>
         <p>{{gig.fullname}}</p>

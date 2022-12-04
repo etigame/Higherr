@@ -7,10 +7,13 @@
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
  
+
+        <!-- <div class="budget-input-1 flex">
+          <span>Budget</span>
+        </div> -->
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
           <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
           <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop  placeholder="Any" /></el-option>
-          <!-- <div><el-button @click="loadParams" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div> -->
           <div><el-button @click="filter()" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div>
         </el-select>
 
@@ -72,7 +75,7 @@ export default {
         subCategory: '',
         min:null,
         max:null,
-        delivery:'',
+        delivery:null,
       },
       demoInfo:true,
       options: [
@@ -112,8 +115,7 @@ export default {
     }
   },
   created() {
-    // this.$store.dispatch({ type: 'loadGigs' })
-    this.filterBy= this.$route.query
+    this.filterBy= {...this.$route.query}
     this.filter()
   },
   components: {
@@ -121,8 +123,13 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+
+      console.log(filterBy);
+      this.$router.push({ name: 'app-explore-list', query: {...filterBy}})
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+
+      console.log(this.$router);
+      
      
 
     },
@@ -139,10 +146,25 @@ export default {
     $route: {
       handler(newValue) {
         this.filter(newValue.query)
+        console.log('route',newValue.query)
 
       },
       deep: true
-    }
+    },
+      '$route.query'(newValue) {
+        // this.filter(newValue.query)
+        console.log('query',newValue)
+
+      },
+      
+    // filterBy: {
+    //   handler(newValue) {
+    //     this.filter()
+    //     console.log('filter',newValue);
+
+    //   },
+    //   deep: true
+    // }
   }
 
 
