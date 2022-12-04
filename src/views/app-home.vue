@@ -1,19 +1,19 @@
 <template>
   <section class="app-home main-layout full">
 
-    
+
     <app-hero @filter="filter"></app-hero>
 
     <div class="trusted-by main-layout full">
       <div class="logos flex justify-center align-center">
         <span>Trusted By:</span>
-        <div class="logo-container"  v-for="num in 5">
+        <div class="logo-container" v-for="num in 5">
           <img :src="`src/assets/img/trustby${num}.png`">
+        </div>
       </div>
     </div>
-    </div>
-    <categories-list :type="'card'"  @filter="filter"/>
-   
+    <categories-list :type="'card'" @filter="filter" />
+
     <section class="video-section flex full main-layout">
       <div class="flex">
         <div class="site-info">
@@ -29,24 +29,24 @@
           </p>
         </div>
         <div class="vid-container ">
-          <img  src="src/assets/img/vid-teaser.webp">
+          <img src="src/assets/img/vid-teaser.webp">
         </div>
       </div>
-      </section>
+    </section>
 
-      
-    <categories-list :type="'svg'"  @filter="filter"/>
+
+    <categories-list :type="'svg'" @filter="filter" />
   </section>
 </template>
 
 <script>
 import appHero from "../cmps/app-hero.vue"
-import categoriesList from '../cmps/categories-list.vue';
+import categoriesList from '../cmps/categories-list.vue'
 
 export default {
   name: 'app-home',
-  components: {categoriesList, appHero},
- 
+  components: { categoriesList, appHero },
+
   data() {
     return {
       // pageText: [
@@ -59,7 +59,7 @@ export default {
     }
   },
   computed: {
-    getPageText(){
+    getPageText() {
       return [
         { title: 'The best for every budget', text: ' Find high-quality services at every price point. No hourly rates, just project-based pricing.' },
         { title: 'Quality work done quickly', text: ' Find the right freelancer to begin working on your project within minutes.' },

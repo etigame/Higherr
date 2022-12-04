@@ -9,6 +9,8 @@
 .details-nav {
   border-bottom: 1px solid var(--yro5245);
   position: sticky;
+  top: 0;
+  z-index: 10;
   width: 100%;
   background-color: #fff;
 }

@@ -1,8 +1,10 @@
 <template>
   <section class="main-layout">
     <user-msg />
-    <app-header @filter="filter"/>
-    <categories-list :type="'tag'" @filter="filter" />
+    <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
+      <app-header @filter="filter" />
+      <categories-list :type="'tag'" @filter="filter" />
+    </section>
     <main class="app-container main-layout full">
       <router-view />
     </main>
@@ -20,9 +22,6 @@ import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
 
-
-
-
 export default {
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
@@ -39,14 +38,32 @@ export default {
         max: null,
         delivery: '',
       },
+      isHeaderSticky: false
     }
   },
+  // created() {
+  //   console.log(this.$route)
+  //   this.isHeaderSticky = this.$route.path === '/' ? true : false
+  // },
+  // computed: {
+  //   stam() {
+  //     this.isHeaderSticky = this.$route.path === '/' ? true : false
+  //     console.log(this.isHeaderSticky)
+  //   }
+  // },
   methods: {
     filter(filterBy = this.filterBy) {
-      this.$router.push({ name:'app-explore-list',query:{...filterBy}})
+      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
-
+    },
+  },
+  watch: {
+    $route: {
+      handler(route) {
+        this.isHeaderSticky = route.path === '/' ? true : false
+      },
     },
   },
   components: {

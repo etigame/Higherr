@@ -1,21 +1,29 @@
 <template>
   <div class="app-explore-list">
-    <h1 v-if="$route.query.title">Results for "{{$route.query.title}}"</h1>
+    <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
     <div class="advanced-filter">
       <div class="advanced-input">
-        <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category" size="large">
+        <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
+          size="large">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
- 
+
+
+        <!-- <div class="budget-input-1 flex">
+          <span>Budget</span>
+        </div> -->
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
-          <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop  placeholder="Any" /></el-option>
-          <!-- <div><el-button @click="loadParams" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div> -->
-          <div><el-button @click="filter()" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div>
+          <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop
+              placeholder="Any" /></el-option>
+          <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop
+              placeholder="Any" /></el-option>
+          <div><el-button @click="filter()">Apply</el-button><el-button @click="clearBudget()">Clear All</el-button>
+          </div>
         </el-select>
 
         <!-- // TODO IN V-FOR -->
-        <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time" size="large">
+        <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time"
+          size="large">
           <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
           <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
           <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
@@ -33,7 +41,7 @@
           <h4>Online seller</h4>
         </div>
       </div>
-      
+
     </div>
     <div class="sorting-click">
       <div class="flex ">
@@ -71,11 +79,11 @@ export default {
         title: '',
         category: '',
         subCategory: '',
-        min:null,
-        max:null,
-        delivery:null,
+        min: null,
+        max: null,
+        delivery: null,
       },
-      demoInfo:true,
+      demoInfo: true,
       options: [
         {
           value: '',
@@ -108,12 +116,12 @@ export default {
     gigs() {
       return this.$store.getters.gigs
     },
-    titleId(){
+    titleId() {
       return this.$route.params.title
     }
   },
   created() {
-    this.filterBy= {...this.$route.query}
+    this.filterBy = { ...this.$route.query }
     this.filter()
   },
   components: {
@@ -122,39 +130,39 @@ export default {
   methods: {
     filter(filterBy = this.filterBy) {
 
-      console.log(filterBy);
-      this.$router.push({ name: 'app-explore-list', query: {...filterBy}})
+      console.log(filterBy)
+      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
-      console.log(this.$router);
-      
-     
+      console.log(this.$router)
+
+
 
     },
 
 
-    clearBudget(){
-      this.filterBy.min=''
-      this.filterBy.max=''
+    clearBudget() {
+      this.filterBy.min = ''
+      this.filterBy.max = ''
       this.filter()
     },
-    
+
   },
   watch: {
     $route: {
       handler(newValue) {
         this.filter(newValue.query)
-        console.log('route',newValue.query)
+        console.log('route', newValue.query)
 
       },
       deep: true
     },
-      '$route.query'(newValue) {
-        // this.filter(newValue.query)
-        console.log('query',newValue)
+    '$route.query'(newValue) {
+      // this.filter(newValue.query)
+      console.log('query', newValue)
 
-      },
-      
+    },
+
     // filterBy: {
     //   handler(newValue) {
     //     this.filter()
