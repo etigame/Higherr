@@ -138,7 +138,6 @@ export default {
   watch: {
     $route: {
       handler(newValue) {
-        console.log('this is the real thing:',newValue);
         this.filter(newValue.query)
 
       },

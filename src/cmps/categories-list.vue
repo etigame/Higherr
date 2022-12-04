@@ -25,7 +25,6 @@
         </section>
 
         <section v-if="(type==='svg')" class="type-svg" >
-            
             <span v-for="category in categories">
                 <div @click="categoryFilter(`${category.name}`)">
                 <span  v-icon="category.svg"></span>
@@ -43,6 +42,7 @@
 <script>
 
 import categoriesService from "../services/categories-service.js"
+import { VueperSlides, VueperSlide } from 'vueperslides'
 
 export default {
     name: 'categories-list',
@@ -69,6 +69,7 @@ created(){
                 max: null,
                 delivery: '',
             },
+        
         }
      
     },

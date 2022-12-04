@@ -72,5 +72,18 @@ export default {
       return this.$store.getters.loggedinUser
     },
   },
+  methods: {
+    filter(title) {
+      this.filterBy.title = title
+      this.$emit('filter', { ...this.filterBy })
+
+    },
+    onHeaderObserved(entries) {
+      entries.forEach((entry) => {
+        console.log("change")
+        this.class = entry.isIntersecting ? " " : "closed"
+      })
+    }
+  },
 }
 </script>

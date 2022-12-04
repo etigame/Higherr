@@ -5,7 +5,7 @@
 
 
     .trusted-by{
-  background-color: #fafafa;
+        background-color: #fafafa;
         padding: 0px 90px;
         width: 100%;
         margin-bottom: 96px;
@@ -29,47 +29,39 @@
         min-height:690px;
         padding: 96px 0px;
     
-        &>*{
-            flex-basis:50%;
-        }
 
-      
-
-    
-
-    .info{
-
-
-    .side-text{
-        
-            // padding-inline-end: 150px;
+        .side-text{
+           padding-inline-end:30%;
+           >*{
+            line-height: 30px;
+           }
             h1{
             padding-bottom: 24px;
             }
-
-        ul{
-            line-height: 26px;
-            list-style: none; 
-        
-            li{
-                padding-bottom: 30px;
-
-                h3{
-                display: inline;
-                }
-                span{
-                    padding-inline-end: 10px;
+            ul{
+                list-style: none; 
+                li{
+                    padding-bottom: 30px;
+                    h3{
+                    display: inline;
+                    }
+                    span{
+                        padding-inline-end: 10px;
+                    }
                 }
             }
         }
-    }
 
-    .vid-container{
-        min-width:100%;
+        .vid-container{
+            img{
+            object-fit: contain !important;
+            }
+        }
+            
+    }
         
-    }
-}
+ }
+    
 
-}
+    
 
-}

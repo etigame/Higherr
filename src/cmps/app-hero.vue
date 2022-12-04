@@ -11,10 +11,10 @@
         </div>
         <div class="search-container full">
                 <h1>Find the perfect <span>freelance</span> services for your business</h1>
-                <hero-search/>
+                <hero-search @filter="titleFilter"/>
                 <div class="categories flex">
                     Popular: 
-                    <a href="" class="tag" v-for="tag in tags">{{tag}}</a>
+                    <div class="tag" @click="tagFilter(tag)" v-for="tag in tags">{{tag}}</div>
                 </div>    
         </div>
     </section>
@@ -25,7 +25,6 @@
 <script>
 
 import heroSearch from "./hero-search.vue"
-import heroImage from "./hero-image.vue"
 import categoriesService from "../services/categories-service.js"
 import  heroService from "../services/hero-service.js"
 
@@ -33,7 +32,7 @@ import  heroService from "../services/hero-service.js"
 
 export default {
     name: 'hero',
-    components: { heroSearch, heroImage},
+    components: { heroSearch},
     mounted(){
         setInterval(this.changeCurrImage, 5000)
          
@@ -42,7 +41,15 @@ export default {
         return {
           idx: 1,  
           tags: categoriesService.popular,
-          heroes: heroService.heroes
+          heroes: heroService.heroes,
+          filterBy: {
+            title: '',
+            category: '',
+            subCategory: '',
+            min: null,
+            max: null,
+            delivery: '',
+        },
           
         }
     },
@@ -50,7 +57,19 @@ export default {
         changeCurrImage(){
            this.idx= this.idx<5 ? this.idx+1 : 1
         
-            }
+            },
+            
+        filter() {
+            this.$emit('filter', { ...this.filterBy })
+        },
+        titleFilter(title) {
+            this.filterBy.title=title
+          
+        },
+        tagFilter(tag){
+            this.filterBy.subCategory=tag
+            this.filter()
+        },
         },
         computed: {
             getImageUrl(){

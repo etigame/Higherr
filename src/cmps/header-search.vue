@@ -21,7 +21,6 @@ export default {
 
     filter() {
       this.$emit('filter', this.title)
-      console.log(this.title)
     },
 
   },
