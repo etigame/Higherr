@@ -38,59 +38,90 @@ export const gigStore = {
 
     gigs({ gigs, filterBy }) {
       var filteredGigs = gigs
-      if (
-        !filterBy.title &&
-        !filterBy.subCategory &&
-        !filterBy.category &&
-        !filterBy.min &&
-        !filterBy.max &&
-        !filterBy.delivery
-      ) {
-        filteredGigs = filteredGigs
-      } else {
-        const regex = new RegExp(filterBy.title, 'i')
-        filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+      console.log('something')
+      const regex = new RegExp(filterBy.title, 'i')
+      filteredGigs = gigs.filter((gig) => regex.test(gig.title))
 
-        if (!filterBy.category) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = filteredGigs.filter(
-            (gig) => gig.category === filterBy.category
-          )
-        }
-        if (!filterBy.subCategory) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = filteredGigs.filter(
-            (gig) => gig.subCategory === filterBy.subCategory
-          )
-        }
-        if (!filterBy.min) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = filteredGigs.filter(
-            (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
-          )
-        }
+      if (filterBy.category)
+        filteredGigs = filteredGigs.filter(
+          (gig) => gig.category === filterBy.category
+        )
 
-        if (!filterBy.max) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = filteredGigs.filter(
-            (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
-          )
-        }
+      if (filterBy.subCategory)
+        filteredGigs = filteredGigs.filter(
+          (gig) => gig.subCategory === filterBy.subCategory
+        )
 
-        if (!filterBy.delivery) {
-          filteredGigs = filteredGigs
-        } else {
-          filteredGigs = filteredGigs.filter(
-            (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
-          )
-        }
-      }
+      if (filterBy.min)
+        filteredGigs = filteredGigs.filter(
+          (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
+        )
+      if (filterBy.max)
+        filteredGigs = filteredGigs.filter(
+          (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
+        )
+      if (filterBy.delivery)
+        filteredGigs = filteredGigs.filter(
+          (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+        )
+
       return filteredGigs
     },
+    // gigs({ gigs, filterBy }) {
+    //   var filteredGigs = gigs
+    //   if (
+    //     !filterBy.title &&
+    //     !filterBy.subCategory &&
+    //     !filterBy.category &&
+    //     !filterBy.min &&
+    //     !filterBy.max &&
+    //     !filterBy.delivery
+    //   ) {
+    //     filteredGigs = filteredGigs
+    //   } else {
+    //     const regex = new RegExp(filterBy.title, 'i')
+    //     filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+
+    //     if (!filterBy.category) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = filteredGigs.filter(
+    //         (gig) => gig.category === filterBy.category
+    //       )
+    //     }
+    //     if (!filterBy.subCategory) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = filteredGigs.filter(
+    //         (gig) => gig.subCategory === filterBy.subCategory
+    //       )
+    //     }
+    //     if (!filterBy.min) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = filteredGigs.filter(
+    //         (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
+    //       )
+    //     }
+
+    //     if (!filterBy.max) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = filteredGigs.filter(
+    //         (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
+    //       )
+    //     }
+
+    //     if (!filterBy.delivery) {
+    //       filteredGigs = filteredGigs
+    //     } else {
+    //       filteredGigs = filteredGigs.filter(
+    //         (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+    //       )
+    //     }
+    //   }
+    //   return filteredGigs
+    // },
   },
   mutations: {
     setFilter(state, { filterBy }) {
