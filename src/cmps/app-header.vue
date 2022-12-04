@@ -1,15 +1,15 @@
 <template>
-  <header class="app-header main-layout full"   ref="header">
+  <header class="app-header main-layout full" :class="{ transparent: windowTop === 0 }">
     <nav class="flex align-center space-between">
       <router-link to="/">
-        <div class="home">
+        <div class="logo">
           <h1>Higherr</h1>
         </div>
       </router-link>
 
-      <div class="search">
-      <header-search @filter="filter" />
-    </div>
+      <div class="search" :class="{ shown: isSearchShown }">
+        <header-search @filter="filter" />
+      </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <login-signup />
@@ -29,12 +29,9 @@ import headerSearch from './header-search.vue'
 
 export default {
   name: 'app-header',
-
-  mounted() {
-    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
-      rootMargin: "100px 0px 0px",
-    });
-    this.headerObserver.observe(this.$refs.header);
+  components: {
+    loginSignup,
+    headerSearch,
   },
   data() {
     return {
@@ -46,31 +43,39 @@ export default {
         max: null,
         delivery: '',
       },
-      headerObserver: null,
-      headerState: "closed",
+      windowTop: window.top.scrollY,
+      isSearchShown: false
     }
   },
-  components: {
-    loginSignup,
-    headerSearch,
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll)
+  },
+  methods: {
+    filter(title) {
+      this.filterBy.title = title
+      this.$emit('filter', { ...this.filterBy })
+      console.log(this.filterBy)
+    },
+    onScroll(e) {
+      if (this.$route.path !== '/') return
+      this.windowTop = window.top.scrollY
+      this.isSearchShown = this.windowTop > 150 ? true : false
+    }
   },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
   },
-  methods: {
-       filter(title) {
-        this.filterBy.title=title
-        this.$emit('filter', { ...this.filterBy })
-     
+  watch: {
+    $route: {
+      handler(route) {
+        this.isSearchShown = route.path !== '/' ? true : false
       },
-      onHeaderObserved(entries) {
-        entries.forEach((entry) => {
-          console.log("change")
-        this.class = entry.isIntersecting ? " ": "closed";
-        });
-      }
+    },
   },
 }
 </script>
