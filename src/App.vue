@@ -1,7 +1,7 @@
 <template>
   <section class="main-layout">
     <user-msg />
-    <section class="main-header" :class="{ sticky: isHeaderSticky }">
+    <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
       <app-header @filter="filter" />
       <categories-list :type="'tag'" @filter="filter" />
     </section>

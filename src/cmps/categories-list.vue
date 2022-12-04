@@ -2,7 +2,7 @@
 
     <section class="categories-list main-layout full">
 
-        <section v-if="(type === 'tag')" class="type-tag  main-layout full" :class="{ shown: isCategoriesShown }">
+        <section v-if="(type === 'tag')" class="type-tag main-layout full" :class="{ shown: isCategoriesShown }">
             <div class="flex space-between ">
                 <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)" to="/explore">{{
                         category.name
@@ -13,7 +13,7 @@
 
 
         <section v-if="(type === 'card')" class="type-card ">
-            <div class="main-layout full">
+            <div>
                 <h1>Popular Professional Services</h1>
                 <div class="cards flex space-between ">
                     <div class="card" v-for="tag in tags">
