@@ -51,10 +51,20 @@
             margin-inline-end: em(10px);
             width: em(105px);
             margin-top: em(16px);
-
+        
             .el-input__wrapper {
                 width: em(120px)
             }
+        }
+        /////////
+        .budget-input-1{
+            justify-content: center;
+            align-items: center;
+            color: $CLR00;
+            margin-inline-end: em(10px);
+            width: em(105px);
+            margin-top: em(16px);
+            box-shadow: 0 0 1px 0;
         }
 
     }

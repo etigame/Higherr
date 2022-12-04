@@ -7,10 +7,13 @@
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
  
+
+        <!-- <div class="budget-input-1 flex">
+          <span>Budget</span>
+        </div> -->
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
           <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
           <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop  placeholder="Any" /></el-option>
-          <!-- <div><el-button @click="loadParams" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div> -->
           <div><el-button @click="filter()" >Apply</el-button><el-button @click="clearBudget()">Clear All</el-button></div>
         </el-select>
 
