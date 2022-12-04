@@ -112,7 +112,7 @@ export default {
     }
   },
   created() {
-    this.filterBy= this.$route.query
+    this.filterBy= {...this.$route.query}
     this.filter()
   },
   components: {
@@ -122,10 +122,7 @@ export default {
     filter(filterBy = this.filterBy) {
 
       console.log(filterBy);
-      // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
-      // this.$router.push({ name: 'app-explore-list', query: {...filterBy}})
-      // this.$router.push({ name: 'app-explore-list', query:{ title:filterBy.title,category:filterBy.category,min:filterBy.min,max:filterBy.max}})
-      this.$router.push({ name: 'app-explore-list', query:{ title:filterBy.title,category:filterBy.category,subCategory:filterBy.subCategory,min:filterBy.min,max:filterBy.max}})
+      this.$router.push({ name: 'app-explore-list', query: {...filterBy}})
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
       console.log(this.$router);
