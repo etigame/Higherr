@@ -45,7 +45,7 @@
                   font-weight:600;
                 }
                 
-                a{
+                div{
                   
                   display:block;
                   text-decoration: none;
@@ -55,6 +55,7 @@
                   padding: 1px 12px 0;
                   line-height:24px;
                   transition: all .2s ease-in-out;
+                  cursor: pointer;
                   
       
                   &:hover{

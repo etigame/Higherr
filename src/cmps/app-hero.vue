@@ -11,10 +11,10 @@
         </div>
         <div class="search-container full">
                 <h1>Find the perfect <span>freelance</span> services for your business</h1>
-                <hero-search @filter="filter"/>
+                <hero-search @filter="titleFilter"/>
                 <div class="categories flex">
                     Popular: 
-                    <a href="" class="tag" v-for="tag in tags">{{tag}}</a>
+                    <div class="tag" @click="tagFilter(tag)" v-for="tag in tags">{{tag}}</div>
                 </div>    
         </div>
     </section>
@@ -58,9 +58,17 @@ export default {
            this.idx= this.idx<5 ? this.idx+1 : 1
         
             },
-        filter(title) {
-            this.filterBy.title=title
+            
+        filter() {
             this.$emit('filter', { ...this.filterBy })
+        },
+        titleFilter(title) {
+            this.filterBy.title=title
+          
+        },
+        tagFilter(tag){
+            this.filterBy.subCategory=tag
+            this.filter()
         },
         },
         computed: {
