@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header main-layout full"   ref="header">
+  <header class="app-header main-layout full" ref="header" :class="{ visible: stickyHeader }">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="home">
@@ -8,8 +8,8 @@
       </router-link>
 
       <div class="search">
-      <header-search @filter="filter" />
-    </div>
+        <header-search @filter="filter" />
+      </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <login-signup />
@@ -29,12 +29,9 @@ import headerSearch from './header-search.vue'
 
 export default {
   name: 'app-header',
-
-  mounted() {
-    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
-      rootMargin: "100px 0px 0px",
-    });
-    this.headerObserver.observe(this.$refs.header);
+  components: {
+    loginSignup,
+    headerSearch,
   },
   data() {
     return {
@@ -47,30 +44,33 @@ export default {
         delivery: '',
       },
       headerObserver: null,
-      headerState: "closed",
+      stickyHeader: false,
     }
   },
-  components: {
-    loginSignup,
-    headerSearch,
+  mounted() {
+    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+      rootMargin: "-85px 0 0",
+    })
+    this.headerObserver.observe(this.$refs.header)
+  },
+  methods: {
+    filter(title) {
+      this.filterBy.title = title
+      this.$emit('filter', { ...this.filterBy })
+      console.log(this.filterBy)
+    },
+    onHeaderObserved(entries) {
+      entries.forEach((entry) => {
+        console.log(entry)
+        console.log(entry.boundingClientRect)
+        this.stickyHeader = entry.isIntersecting ? false : true
+      })
+    }
   },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
-  },
-  methods: {
-       filter(title) {
-        this.filterBy.title=title
-        this.$emit('filter', { ...this.filterBy })
-        console.log(this.filterBy)
-      },
-      onHeaderObserved(entries) {
-        entries.forEach((entry) => {
-          console.log("change")
-        this.class = entry.isIntersecting ? " ": "closed";
-        });
-      }
   },
 }
 </script>

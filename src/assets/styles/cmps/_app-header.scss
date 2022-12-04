@@ -1,54 +1,48 @@
+.app-header {
+  background-color: transparent;
+  border-bottom: none;
+  transition: background-color 0.5s ease;
+  color: #fff;
 
-
-
-.app-header{
+  &.visible {
     height: $headingHeight;
     width: 100%;
-
-  z-index:10;
-    // position: fixed;
-    // z-index: 10;
-
-
-    &.closed{
-        background:none;
-        
-        a,.logo,.el-button.is-text {
-            color:white;
-        }
-        
-    }
-
+    color: #62646a;
+    background-color: #fff;
+    transition: background-color 0.5s ease;
+  }
   
+  a,
+  .logo,
+  .el-button.is-text {
+    color: white;
+  }
 
-    a{
-        text-decoration: none;
-        color:black;
-        transition: 0.3s;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+  }
 
-   .home{
+  .home {
     flex-basis: 30%;
-    >*{   
-        display: inline;
-        padding: none;
-        text-decoration: none;
+    > * {
+      display: inline;
+      padding: none;
+      text-decoration: none;
     }
-   }
+  }
 
-
-   .search{
+  .search {
     flex-basis: 65%;
-    margin: 0px 10px;    
-   }
-   
-   .nav-links{
-    flex-basis: 10%;
-   
-    a:hover{
-        color: $clr1;
-    }
-    }
-   
-}
+    margin: 0px 10px;
+  }
 
+  .nav-links {
+    flex-basis: 10%;
+
+    a:hover {
+      color: $clr1;
+    }
+  }
+}
