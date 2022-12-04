@@ -19,11 +19,6 @@ const routes = [
     name: 'app-explore-list',
     component: appExploreList,
   },
-  // {
-  //   path: '/explore/title=:title?',
-  //   name: 'app-explore-list',
-  //   component: appExploreList,
-  // },
   {
     path: '/gig/:_id',
     name: 'gig-details',

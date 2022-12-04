@@ -10,6 +10,9 @@
 
         <!-- <div class="budget-input-1 flex">
           <span>Budget</span>
+          <div>
+            
+          </div>
         </div> -->
         <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
           <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop  placeholder="Any" /></el-option>
