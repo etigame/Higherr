@@ -157,19 +157,22 @@ export default {
     },
     methods: {
         addOrder() {
-            const order = [
-                {
-                    "buyer": '',
-                    "seller": this.gig.owner,
-                    "gig": {
-                        "_id": this.gig._id,
-                        "name": this.gig.title,
-                        "price": this.gig.price
-                    },
-                    "status": "pending"
-                }
-            ]
-        }
-    },
+            const order =
+            {
+                "buyer": '',
+                "seller": this.gig.owner,
+                "gig": {
+                    "_id": this.gig._id,
+                    "name": this.gig.title,
+                    "price": this.gig.price
+                },
+                "status": "pending"
+            }
+
+            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+            console.log(order)
+        },
+    }
+
 }
 </script>

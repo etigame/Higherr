@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  </div>
+  <!-- </div> -->
 
   <div v-if="isOpen" class="chat-seller">
     <div class="chat-seller-header flex">
