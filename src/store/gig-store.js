@@ -38,7 +38,6 @@ export const gigStore = {
 
     gigs({ gigs, filterBy }) {
       var filteredGigs = gigs
-      console.log('something')
       const regex = new RegExp(filterBy.title, 'i')
       filteredGigs = gigs.filter((gig) => regex.test(gig.title))
 

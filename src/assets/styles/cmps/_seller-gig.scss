@@ -1,7 +1,7 @@
 .seller-gig{
-    @include card(230px, 260px);
+    @include card(230px, 262px);
 
-
+    
     background-color:$CLR0;
     border:1px solid #e4e5e7;
     h3{
@@ -21,11 +21,16 @@
     }
 
 
+    .img-container{
+        height: 142px;
+    }
+
 
 
     .preview-title{
         max-height: em(43px);
         padding: 0 em(12px);
+        margin: 6px 12px 32px;
         line-height: 22px;
         font-weight: 400;
         -webkit-line-clamp: 2;
@@ -36,6 +41,7 @@
     }
 
     .preview-footer{
+       
         p{
             color: $clr5;
         }
@@ -43,9 +49,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: em(45px);
-        padding:em(10px) em(12px);
-        border-top:em(1px) solid #e4e5e7;
+        padding: 0.625em 0.75em;
         .preview-heart{
         fill: $clr2;
         //  background-color:  rgb(108, 108, 205);
