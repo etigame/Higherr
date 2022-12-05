@@ -15,14 +15,17 @@
         <section v-if="(type === 'card')" class="type-card ">
             <div>
                 <h1>Popular Professional Services</h1>
-                <div class="cards flex space-between ">
-                    <div class="card" v-for="tag in tags">
+                <!-- <div class="cards flex space-between "> -->
+                    <vueper-slides class="no-shadow" :visible-slides="4" slide-multiple :slide-ratio="(1 / 5)" :gap="5">
+                        <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt" :content="tag.txt" />
+                    </vueper-slides>
+                    <!-- <div class="card" v-for="tag in tags">
                         <h2><small>{{ tag.subTxt }}</small>{{ tag.txt }}</h2>
                         <div @click="tagFilter(`${tag.txt}`)">
                             <img :src="tag.imageUrl" />
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
             </div>
         </section>
 
@@ -109,6 +112,10 @@ export default {
                 this.isCategoriesShown = route.path !== '/' ? true : false
             },
         },
+    },
+    components: {
+        VueperSlides,
+        VueperSlide
     },
 }
 

@@ -34,6 +34,14 @@
                     <div class="due-on-col"><h4>Due On</h4></div>
                     <div class="total-col"><h4>Total</h4></div>
                     <div class="status-col"><h4>status</h4></div>
+                    <div class="set-col"><h4>set</h4>
+                    <div v-if="setOpen" class="set-status">
+                        <button>Complete</button>
+                        <button>Pending</button>
+                        <button>On Progress</button>
+                        <button>Reject</button>
+                    </div>
+                    </div>
                 </div>
             <div class="table-entity flex" v-for="i in 5">
                 <div class="buyer-col flex user-col">
@@ -58,7 +66,12 @@
                         <span>Completed</span>
                     </div>
                 </div>
+                <div class="set-col flex column">
+                    <button @click="toggleSet"><span v-icon="'dots'"></span></button>
+                    
+                </div>
             </div>
+           
             </div>
 
         
@@ -69,6 +82,16 @@
 import { utilService } from '../services/util-service.js'
 export default {
     name: 'seller-orders',
+    data(){
+        return{
+            setOpen:false
+        }
+    },
+    methods:{
+        toggleSet(){
+            this.setOpen=!this.setOpen
+        }
+    },
 computed: {
     randomNum() {
         return utilService.getRandomIntInclusive(1, 99)

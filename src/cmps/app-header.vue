@@ -13,7 +13,13 @@
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <button class="el-button is-text">Become a Seller</button>
-        <login-signup />
+        <el-button class="signin-btn" @click="register">
+      Sign In
+    </el-button>
+    <el-button class="join-btn" @click="register">
+      Join
+    </el-button>
+
       </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
@@ -27,6 +33,8 @@
 <script>
 import loginSignup from './login-signup.vue'
 import headerSearch from './header-search.vue'
+import {eventBus} from '../services/event-bus-service.js'
+
 
 export default {
   name: 'app-header',
@@ -64,6 +72,9 @@ export default {
       if (this.$route.path !== '/') return
       this.windowTop = window.top.scrollY
       this.isSearchShown = this.windowTop > 150 ? true : false
+    },
+    register(){
+        eventBus.emit('get-cmp', 'login-signup')
     }
   },
   computed: {

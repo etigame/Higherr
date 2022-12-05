@@ -12,7 +12,8 @@
         </div>
       </div>
     </div>
-    <categories-list :type="'card'" @filter="filter" />
+    <categories-list :type="'card'" />
+    <!-- <categories-list :type="'card'" @filter="filter" /> -->
 
     <section class="video-section flex full main-layout">
       <div class="flex">

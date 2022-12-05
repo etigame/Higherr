@@ -19,23 +19,26 @@
     height: 150px;
     width:90%;
     margin: 40px 0;
-    >*{
 
-    }
-    
     // background-color: aquamarine;
     .dashboard-item{
+      // background-color: aquamarine;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items:center;
       width:15%;
       justify-content: space-between;
+      padding: 20px;
       span{
         text-align: center;
-        margin-bottom: 20px;
         font-weight: 700;
         font-size: rem(18px);
         color:$clr1;
+      }
+      h3{
+        font-size: 28px;
+        font-weight: 500;
       }
     }
   }
@@ -72,7 +75,7 @@
           }
       .buyer-col{
         flex-direction: row;
-        width:20%
+        width:15%
           }
         }
         
@@ -88,7 +91,13 @@
       }
       .status-col{
         width:15%;
-
+      }
+      .set-col{
+        width:5%;
+        button{
+          border:0;
+          background-color: transparent;
+        }
       }
       .user-col{
         flex-direction: column;
@@ -106,6 +115,20 @@
         border-radius: 3px;
         width:70%;
         padding:10px
+      }
+      .set-status{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: aqua;
+        border-radius: 10px;
+        width: 250px;
+        height: 300px;
+        position: fixed;
+        top: 50%;
+        right: 30%;
+        transform: translate(50%, -50%);
+        
       }
     }
 
