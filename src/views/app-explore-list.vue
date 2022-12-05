@@ -59,7 +59,7 @@
     </div>
 
     <div v-if="gigs" class="gig-list clean-list list-container">
-      <gig-preview v-for="gig in gigs" :gig="gig" :key="gig._id" />
+      <gig-preview-explore v-for="gig in gigs" :gig="gig" :key="gig._id" />
       
 
     </div>
@@ -71,8 +71,8 @@
 </template>
 
 <script>
-import { gigService } from '../services/gig-service'
-import gigPreview from '../cmps/gig-preview.vue'
+
+import gigPreviewExplore from '../cmps/gig-preview-explore.vue'
 
 
 export default {
@@ -128,7 +128,7 @@ export default {
     this.filter()
   },
   components: {
-    gigPreview,
+    gigPreviewExplore,
   },
   methods: {
     filter(filterBy = this.filterBy) {

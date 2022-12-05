@@ -32,17 +32,7 @@
         </div>
 
       </div>
-
     </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
-      <router-link :to="`/user/${loggedInUser._id}`">
-        <div class="user-img">
-          <img :src="loggedInUser.imgUrl">
-          <!-- {{ loggedInUser.imgUrl }} -->
-        </div>
-      </router-link>
-    </section>
-
   </header>
 </template>
 

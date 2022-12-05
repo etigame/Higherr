@@ -1,16 +1,35 @@
 <template>
-    <section class="seller-profile ">
+    <section class="seller-profile flex space-between full">
 
         <div class="profile-container">
-            profile container
+            <div class="img-container">
+                <img src="https://randomuser.me/api/portraits/women/1.jpg"/> 
+            </div>
+            
+            <span v-icon="'edit'"></span>
+            <div class="user-stats">
+                <ul>
+                    <li class="flex space-between"><span><span v-icon="'location'"></span>From</span><span>Israel</span></li>
+                    <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb 2021</span></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="user-gigs">
+        <div class="gigs-status">
             <ul class=" status-filter-bar flex align-center">
                 <li>Active Gigs</li>
             </ul>
 
-            <seller-gig :gig="dummyGig" />
+            <div class="gigs-list flex">
+                <gig-preview-seller :gig="dummyGig" />
+                <div class="add-gig  flex justify-center align-center">
+                    <div class= "flex column align-center">
+                        <span class="add-gig-btn flex justify-center align-center">+</span>
+                        <h2>Create a new Gig</h2>
+                    </div>
+              
+            </div>
+        </div>
         </div>
 
 
@@ -20,20 +39,15 @@
 
 <script>
 
-import sellerGig from "../cmps/gig-preview/seller-gig.vue"
+import gigPreviewSeller from "../cmps/gig-preview-seller.vue"
 
 
 export default {
     name: 'seller-profile',
-    components: { sellerGig },
+    components: { gigPreviewSeller },
+    props: ["loggedUser"],
     async created() {
         await this.$store.dispatch({ type: 'loadUsers' })
-    },
-    data() {
-        return {
-            user: this.$store.getters.loggedInUser
-        }
-
     },
     computed: {
         dummyGig() {

@@ -1,5 +1,5 @@
 <template>
-<section class="seller-gig">
+<section class="gig-preview-seller">
     <div class="img-container">
     <img :src="gig.image[0]" />
 </div>

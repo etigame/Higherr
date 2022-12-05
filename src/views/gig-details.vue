@@ -86,7 +86,7 @@
             </section>
 
             <section class="package-container">
-                <gig-package :gig="gig" />
+                <gig-package :gig="gig" @addOrder="addOrder" />
             </section>
             <chat-seller :gig="gig" />
         </section>
@@ -95,6 +95,7 @@
 
 <script>
 import { gigService } from '../services/gig-service.js'
+import { utilService } from '../services/util-service.js'
 import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
@@ -143,6 +144,23 @@ export default {
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
         }
-    }
+    },
+    methods:{
+        addOrder(){
+            const order = [
+                {
+                    "_id": utilService.makeId(),
+                    "buyer": "mini-user",
+                    "seller": "mini-user",
+                    "gig": {
+                        "_id": "i101",
+                        "name": "Design Logo",
+                        "price": 20
+                    },
+                    "status": "pending"
+                }
+            ]
+        }
+    },
 }
 </script>

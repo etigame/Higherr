@@ -1,5 +1,5 @@
 <template>
-    <section class="gig-preview" v-if="gig">
+    <section class="gig-preview-explore" v-if="gig">
             <vueper-slides fade :touchable="false" >
                 <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
                 </vueper-slide>
@@ -31,7 +31,7 @@
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 export default {
-    name: 'gig-preview',
+    name: 'gig-preview-explore',
     props:{
         gig:Object,
     },
