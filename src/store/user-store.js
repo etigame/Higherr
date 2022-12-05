@@ -5,8 +5,9 @@ import {
   SOCKET_EVENT_USER_UPDATED,
 } from '../services/socket-service'
 
-// var localLoggedinUser = null
-// if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user || null)
+var localLoggedinUser = null
+if (sessionStorage.user)
+  localLoggedinUser = JSON.parse(sessionStorage.user || null)
 
 export const userStore = {
   state: {
@@ -54,6 +55,7 @@ export const userStore = {
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setLoggedinUser', user })
+        console.log(user)
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)
