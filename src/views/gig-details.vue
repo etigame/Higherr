@@ -58,7 +58,7 @@
                     <p>{{ gig.description }}</p>
                 </section>
 
-                <section id="aboutSeller" class="seller-profile">
+                <section id="aboutSeller" class="seller-preview">
                     <h2>About The Seller</h2>
                     <user-preview :type="'sellerLong'" :gig="gig" />
 
@@ -88,7 +88,7 @@
             <section class="package-container">
                 <gig-package :gig="gig" />
             </section>
-            <chat-seller :gig="gig"/>
+            <chat-seller :gig="gig" />
         </section>
     </section>
 </template>
