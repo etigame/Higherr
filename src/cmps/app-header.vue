@@ -3,7 +3,7 @@
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
-          <h1>Higherr</h1>
+          <h1>Higherr.</h1>
         </div>
       </router-link>
 
