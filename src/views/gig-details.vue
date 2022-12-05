@@ -143,24 +143,30 @@ export default {
                 { key: 'Avg. response time', value: this.gig.avgResponseTime },
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
-        }
+        },
+        loggedInUser() {
+            return this.$store.getters.loggedinUser
+        },
+
     },
     methods:{
         addOrder(){
-            const order = [
+            
+            const order = 
                 {
-                    "_id": utilService.makeId(),
-                    "buyer": "mini-user",
-                    "seller": "mini-user",
+                    "buyer": '',
+                    "seller": this.gig.owner,
                     "gig": {
-                        "_id": "i101",
-                        "name": "Design Logo",
-                        "price": 20
+                        "_id": this.gig._id,
+                        "name": this.gig.title,
+                        "price": this.gig.price
                     },
                     "status": "pending"
                 }
-            ]
-        }
+            
+            this.$store.dispatch({ type: 'addOrder', order:{...order}})
+            console.log(order);
     },
+    }
 }
 </script>

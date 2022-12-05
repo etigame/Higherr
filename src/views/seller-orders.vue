@@ -6,11 +6,11 @@
         <div class="income-order-dashboard flex">
             <div class="dashboard-item">
                 <span>This Year income</span>
-                <h3>$ 26,226</h3>
+                <h3>$26,226</h3>
             </div>
             <div class="dashboard-item">
                 <span>This Month Income</span>
-                <h3>$ 26,226</h3>
+                <h3>$26,226</h3>
             </div>
             <div class="dashboard-item">
                 <span>This Year Orders Completed</span>
@@ -43,28 +43,29 @@
                     </div>
                     </div>
                 </div>
-            <div class="table-entity flex" v-for="i in 5">
+            <div class="table-entity flex" v-for="order in orders">
                 <div class="buyer-col flex user-col">
                     <div class="user-img">
                         <!-- <img :src="`https://randomuser.me/api/portraits/${randomGender}/${randomNum}.jpg`"> -->
-                        <img :src="loggedUser.imgUrl">
+                        <img :src="order.buyer.imgUrl">
+                        <!-- <img :src="loggedUser.imgUrl"> -->
                     </div>
                     <div class="username">
-                    <p>PukiJa</p>
+                    <p>{{order.buyer.fullname}}</p>
                     </div>
                 </div>
                 <div class="gig-col flex column">
-                    <span>lorem ipsum puki is the king of CASERP wtf?!</span>
+                    <span>{{order.gig.name}}</span>
                 </div>
                 <div class="due-on-col flex column">
                     <span>26/12/2022</span>
                 </div>
                 <div class="total-col flex column">
-                    <span>226$</span>
+                    <span>{{order.gig.price}}</span>
                 </div>
                 <div class="status-col flex column">
                     <div class="status flex">
-                        <span>Completed</span>
+                        <span>{{order.status}}</span>
                     </div>
                 </div>
                 <div class="set-col flex column">
@@ -72,7 +73,6 @@
                     
                 </div>
             </div>
-           <h1>{{loggedUser.fullname}}</h1>
             </div>
 
         
@@ -86,8 +86,12 @@ export default {
     name: 'seller-orders',
     data(){
         return{
-            setOpen:false
+            setOpen:false,
+            orders:null
         }
+    },
+    created(){
+        this.$store.dispatch({ type: 'loadOrders' })
     },
     methods:{
         toggleSet(){
@@ -95,6 +99,9 @@ export default {
         }
     },
 computed: {
+    orders() {
+        return this.$store.getters.orders
+    },
     randomNum() {
         return utilService.getRandomIntInclusive(1, 99)
     },
