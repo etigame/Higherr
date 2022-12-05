@@ -1,85 +1,63 @@
 .hero-container {
-   
-      height: $heroHeight;
-      position: relative;
+  height: $heroHeight;
+  position: relative;
 
-      .img-container{
-        img{
-          position: absolute;
-        }
-      
-        
-            .v-enter-active,
-            .v-leave-active {
-              transition: opacity 0.9s ease;
-            }
+  .img-container {
+    img {
+      position: absolute;
+    }
 
-            .v-enter-from,
-            .v-leave-to {
-              opacity: 0;
-            }
-           
+    .v-enter-active,
+    .v-leave-active {
+      transition: opacity 0.9s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+      opacity: 0;
+    }
+  }
+
+  .search-container {
+    grid-column: 2;
+    color: white;
+    z-index: 20;
+    line-height: 1.2;
+
+    h1 {
+      width: 650px;
+      font-family: var(--yro524e);
+      font-size: 3rem;
+      span {
+        font-style: italic;
+      }
+    }
+
+    .categories {
+      text-decoration: none;
+      align-items: center;
+      gap: 10px;
+
+      > * {
+        font-weight: 600;
       }
 
-      .search-container{
-            grid-column: 2;
-              color: white;
-              z-index:20;
-              line-height:1.2;
-      
-              h1{
-                width: 650px;
-                  font-family: var(--yro524e);
-                  font-size: 3rem;
-                  span{
-                    font-style:italic;
-                  }   
-              }
-      
-      
-              .categories{
-                text-decoration: none;
-                gap:10px;
-                
-                >*{
-                  font-weight:600;
-                }
-                
-                div{
-                  
-                  display:block;
-                  text-decoration: none;
-                  color: white;
-                  border: 1px solid white;
-                  border-radius: 2.5rem;
-                  padding: 1px 12px 0;
-                  line-height:24px;
-                  transition: all .2s ease-in-out;
-                  cursor: pointer;
-                  
-      
-                  &:hover{
-                    background-color: white;
-                    color: black;
-      
-                  }
-      
-                }
-              }    
-          }
+      div {
+        display: block;
+        text-decoration: none;
+        color: white;
+        border: 1px solid white;
+        border-radius: 2.5rem;
+        padding: 1px 12px 0;
+        line-height: 24px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
 
-
-          
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
 }
-
-    
-          
-
-
- 
-
-
-
-
-
-
