@@ -1,6 +1,8 @@
 <template>
     <section class="gig-edit">
-        <h1>gig-edit</h1>
+        <form>
+
+            </form>
     </section>
 </template>
 
