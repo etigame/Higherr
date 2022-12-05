@@ -46,7 +46,8 @@
             <div class="table-entity flex" v-for="i in 5">
                 <div class="buyer-col flex user-col">
                     <div class="user-img">
-                        <img :src="`https://randomuser.me/api/portraits/${randomGender}/${randomNum}.jpg`">
+                        <!-- <img :src="`https://randomuser.me/api/portraits/${randomGender}/${randomNum}.jpg`"> -->
+                        <img :src="loggedUser.imgUrl">
                     </div>
                     <div class="username">
                     <p>PukiJa</p>
@@ -71,7 +72,7 @@
                     
                 </div>
             </div>
-           
+           <h1>{{loggedUser.fullname}}</h1>
             </div>
 
         
@@ -81,6 +82,7 @@
 <script>
 import { utilService } from '../services/util-service.js'
 export default {
+    props:["loggedUser"],
     name: 'seller-orders',
     data(){
         return{

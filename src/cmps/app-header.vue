@@ -24,7 +24,9 @@
           <!-- <img :src="loggedInUser.imgUrl"> -->
           {{loggedInUser.fullname}}
           <div v-if="modalOpen" class="user-modal">
-            lala
+            <router-link to="/seller/profile"><button class="el-button is-text">Profile</button></router-link>
+            <router-link to="/seller/orders"><button class="el-button is-text">Dashboard</button></router-link>
+            <button @click="doLogout" class="el-button is-text">Logout</button>
           </div>
         </div>
 
@@ -84,7 +86,11 @@ export default {
     },
     toggleUserModal() {
       this.modalOpen = !this.modalOpen
-    }
+    },
+    doLogout() {
+      this.$store.dispatch({ type: 'logout' })
+    },
+
   },
   computed: {
     loggedInUser() {

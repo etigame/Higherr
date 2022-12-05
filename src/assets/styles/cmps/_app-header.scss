@@ -144,16 +144,16 @@
   }
   .user-modal{
     position: fixed;
-    color: black;
+    color: $CLR00;
     z-index: 100;
     background-color: aqua;
-    height: 300px;
+    height: 200px;
     width:180px;
     padding:5px 15px;
     right:0px;
     transform:translate(-50% , 5%);
     border-radius:8px 0 8px 8px;
-    box-shadow: 0 0 0 0;
+    box-shadow: 0px 5px 9px 0;
 
 
   }
