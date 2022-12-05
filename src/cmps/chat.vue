@@ -11,9 +11,9 @@
       </div>
   </div>
 
-
   <div v-if="isOpen" class="chat-seller">
     <div class="chat-seller-header flex">
+
     <div class="seller-info flex">
       <div class="img-seller">
         <img :src="gig.owner.imgUrl" alt="seller-img" />
@@ -33,7 +33,7 @@
       <div class="flex send-btn"><span v-icon="'send'"></span><p>Send Message</p></div>
     </div>
   </div>
-  
+  <h1>hello</h1>
   
 
 </template>
