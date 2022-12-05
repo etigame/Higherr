@@ -11,24 +11,25 @@
         <header-search @filter="filter" />
       </div>
       <div class="nav-links flex align-center">
-        <router-link to="/explore">Explore</router-link>
-        <button class="el-button is-text">Become a Seller</button>
-        <button class="signin-btn" @click="register">
-          Sign In
-        </button>
-        <button class="join-btn" @click="register">
-          Join
-        </button>
 
-      </div>
-      <section class="loggedin-user" v-if="loggedInUser">
-      <router-link :to="`/user/${loggedInUser._id}`">
-        <div class="user-img">
+        <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
+        <button v-if="!loggedInUser" class="el-button is-text">Become a Seller</button>
+        <button v-if="!loggedInUser" class="signin-btn" @click="register">Sign In</button>
+        <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
+
+        <button v-if="loggedInUser" class="el-button is-text">Orders</button>
+        <button v-if="loggedInUser" class="el-button is-text">Switch To Selling</button>
+        
+        <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
           <!-- <img :src="loggedInUser.imgUrl"> -->
           {{loggedInUser.fullname}}
+          <div v-if="modalOpen" class="user-modal">
+            lala
+          </div>
         </div>
-      </router-link>
-    </section>
+
+      </div>
+
     </nav>
     
   </header>
@@ -57,7 +58,8 @@ export default {
         delivery: '',
       },
       windowTop: window.top.scrollY,
-      isSearchShown: false
+      isSearchShown: false,
+      modalOpen:false
     }
   },
   mounted() {
@@ -79,6 +81,9 @@ export default {
     },
     register() {
       eventBus.emit('get-cmp', 'login-signup')
+    },
+    toggleUserModal() {
+      this.modalOpen = !this.modalOpen
     }
   },
   computed: {
