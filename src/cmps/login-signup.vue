@@ -12,14 +12,14 @@
             </form>
            
   
-            <!-- <form  @submit.prevent="doSignup">
+            <form  @submit.prevent="doSignup">
               <h2>Signup</h2>
               <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
               <input type="text" v-model="signupCred.password" placeholder="Password" />
               <input type="text" v-model="signupCred.username" placeholder="Username" />
               <img-uploader @uploaded="onUploaded"></img-uploader>
               <button>Signup</button>
-            </form> -->
+            </form>
   
        
       </template>

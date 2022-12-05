@@ -22,11 +22,14 @@
 
       </div>
     </nav>
-    <!-- <section class="loggedin-user" v-if="loggedInUser">
+    <section class="loggedin-user" v-if="loggedInUser">
       <router-link :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
+        <div class="user-img">
+          <img :src="loggedInUser.imgUrl">
+        <!-- {{ loggedInUser.imgUrl }} -->
+        </div>
       </router-link>
-    </section> -->
+    </section>
   </header>
 </template>
 

@@ -69,7 +69,7 @@ async function login(userCred) {
   // const user = await httpService.post('auth/login', userCred)
   const users = await storageService.query(USER_STORAGE_KEY)
   const user = users.find((user) => user.username === userCred.username)
-
+  console.log(user, 'login')
   if (user) {
     socketService.login(user._id)
     return saveLocalUser(user)
@@ -81,6 +81,7 @@ async function signup(userCred) {
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
   //   const user = await httpService.post('auth/signup', userCred)
+  console.log(userCred)
   const user = await storageService.post(USER_STORAGE_KEY, userCred)
   //   socketService.login(user._id)
   return saveLocalUser(user)
@@ -129,26 +130,28 @@ function saveUser(user) {
 function _createUser() {
   let user = utilService.loadFromStorage(USER_STORAGE_KEY)
   if (!user || !user.length) {
-    user = {
-      _id: 'u101',
-      fullname: 'frederickkessie',
-      imgUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
-      username: 'fred',
-      password: '1234',
-      reviews: [
-        {
-          id: 'r1',
-          // gig: {id: '654', },
-          txt: 'Very kind and works fast',
-          rate: 4,
-          by: {
-            _id: 'u102',
-            fullname: 'Tanya',
-            imgUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+    user = [
+      {
+        _id: 'u101',
+        fullname: 'frederickkessie',
+        imgUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+        username: 'fred',
+        password: '1234',
+        reviews: [
+          {
+            id: 'r1',
+            // gig: {id: '654', },
+            txt: 'Very kind and works fast',
+            rate: 4,
+            by: {
+              _id: 'u102',
+              fullname: 'Tanya',
+              imgUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+            },
           },
-        },
-      ],
-    }
+        ],
+      },
+    ]
     utilService.saveToStorage(USER_STORAGE_KEY, user)
     return user
   }
