@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC } from '../services/socket-service'
+// import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC } from '../services/socket-service'
 
 export default {
   name: 'chat-seller',
@@ -58,15 +58,15 @@ export default {
       isOpen: false
     }
   },
-  created() {
-    socketService.setup()
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic)
-    socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
-  },
-  unmounted() {
-    socketService.off(SOCKET_EVENT_ADD_MSG, this.addMsg)
-    socketService.terminate()
-  },
+  // created() {
+  //   socketService.setup()
+  //   socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic)
+  //   socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
+  // },
+  // unmounted() {
+  //   socketService.off(SOCKET_EVENT_ADD_MSG, this.addMsg)
+  //   socketService.terminate()
+  // },
   methods: {
     toggleChat() {
       this.isOpen = !this.isOpen

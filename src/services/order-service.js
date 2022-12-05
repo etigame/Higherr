@@ -4,31 +4,31 @@ import { userService } from './user-service'
 import { utilService } from './util-service'
 
 import { store } from '../store/store'
-import {
-  socketService,
-  SOCKET_EVENT_REVIEW_ADDED,
-  SOCKET_EVENT_REVIEW_ABOUT_YOU,
-} from './socket-service'
+// import {
+//   socketService,
+//   SOCKET_EVENT_REVIEW_ADDED,
+//   SOCKET_EVENT_REVIEW_ABOUT_YOU,
+// } from './socket-service'
 import { showSuccessMsg } from './event-bus-service.js'
 const ORDER_STORAGE_KEY = 'order'
 const orderChannel = new BroadcastChannel('orderChannel')
 
 _createOrders()
-;(() => {
-  //   orderChannel.addEventListener('message', (ev) => {
-  //     console.log('msg event', ev)
-  //     store.commit(ev.data)
-  //   })
-  setTimeout(() => {
-    socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
-      console.log('GOT from socket', order)
-      store.commit({ type: 'addOrder', order })
-    })
-    socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
-      showSuccessMsg(`New order about me ${order.txt}`)
-    })
-  }, 0)
-})()
+// ;(() => {
+//   //   orderChannel.addEventListener('message', (ev) => {
+//   //     console.log('msg event', ev)
+//   //     store.commit(ev.data)
+//   //   })
+//   setTimeout(() => {
+//     socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
+//       console.log('GOT from socket', order)
+//       store.commit({ type: 'addOrder', order })
+//     })
+//     socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
+//       showSuccessMsg(`New order about me ${order.txt}`)
+//     })
+//   }, 0)
+// })()
 
 export const orderService = {
   add,

@@ -5,6 +5,13 @@ export const orderStore = {
     orders: [],
   },
   getters: {
+    // orders({ orders }) {
+    //   filteredOrders = orders.filter(
+    //     (order) => order.seller._id === this.$store.getters.loggedinUser._id
+    //   )
+
+    //   return filteredOrders
+    // },
     orders({ orders }) {
       return orders
     },

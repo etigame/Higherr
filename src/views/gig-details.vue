@@ -102,7 +102,7 @@ import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
 import chatSeller from '../cmps/chat.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
-import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
+// import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
 
 export default {
     name: 'gig-details',
@@ -132,14 +132,14 @@ export default {
             const gig = await gigService.getById(_id)
             this.gig = gig
 
-            socketService.setup()
-            socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig._id)
+            // socketService.setup()
+            // socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig._id)
         } catch (err) {
             console.error(err)
         }
     },
     unmounted() {
-        socketService.terminate()
+        // socketService.terminate()
     },
     computed: {
         sellerStats() {

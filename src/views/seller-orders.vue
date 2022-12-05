@@ -46,9 +46,7 @@
             <div class="table-entity flex" v-for="order in orders">
                 <div class="buyer-col flex user-col">
                     <div class="user-img">
-                        <!-- <img :src="`https://randomuser.me/api/portraits/${randomGender}/${randomNum}.jpg`"> -->
                         <img :src="order.buyer.imgUrl">
-                        <!-- <img :src="loggedUser.imgUrl"> -->
                     </div>
                     <div class="username">
                     <p>{{order.buyer.fullname}}</p>
@@ -61,7 +59,7 @@
                     <span>26/12/2022</span>
                 </div>
                 <div class="total-col flex column">
-                    <span>{{order.gig.price}}</span>
+                    <span>US${{order.gig.price}}</span>
                 </div>
                 <div class="status-col flex column">
                     <div class="status flex">
@@ -80,18 +78,16 @@
 </template>
 
 <script>
-import { utilService } from '../services/util-service.js'
 export default {
     props:["loggedUser"],
     name: 'seller-orders',
     data(){
         return{
             setOpen:false,
-            orders:null
         }
     },
     created(){
-        this.$store.dispatch({ type: 'loadOrders' })
+        this.$store.dispatch({ type: 'loadOrders' }) 
     },
     methods:{
         toggleSet(){
@@ -100,14 +96,14 @@ export default {
     },
 computed: {
     orders() {
-        return this.$store.getters.orders
+        const orders = this.$store.getters.orders
+          const filteredOrders = orders.filter(
+              (order) => order.seller._id === this.loggedUser._id)
+        return filteredOrders
     },
-    randomNum() {
-        return utilService.getRandomIntInclusive(1, 99)
-    },
-    randomGender() {
-        return Math.random() > 0.5 ? 'women' : 'men'
-    }
+    // orders() {
+    //     return this.$store.getters.orders
+    // },
 },
 }
 </script>
