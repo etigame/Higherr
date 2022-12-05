@@ -2,17 +2,6 @@
   <div v-if="!isOpen" class="chat-seller-pill flex">
     <div @click="toggleChat" class="seller-info flex">
       <div class="img-seller">
-        <img :src="gig.imgUrl" alt="seller-img" />
-      </div>
-      <div class="info-txt flex">
-        <h4>Message {{ gig.fullname }}</h4>
-        <span>Avg. response time: {{ gig.avgResponseTime }}</span>
-      </div>
-    </div>
-  </div>
-  <div v-if="!isOpen" class="chat-seller-pill flex">
-    <div @click="toggleChat" class="seller-info flex">
-      <div class="img-seller">
         <img :src="gig.owner.imgUrl" alt="seller-img" />
       </div>
       <div class="info-txt flex">
@@ -21,10 +10,11 @@
       </div>
     </div>
   </div>
-
+  </div>
 
   <div v-if="isOpen" class="chat-seller">
     <div class="chat-seller-header flex">
+
       <div class="seller-info flex">
         <div class="img-seller">
           <img :src="gig.owner.imgUrl" alt="seller-img" />
@@ -47,6 +37,9 @@
       </div>
     </div>
   </div>
+  <h1>hello</h1>
+
+
 </template>
 
 <script>
