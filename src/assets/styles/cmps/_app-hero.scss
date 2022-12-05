@@ -37,6 +37,8 @@
       text-decoration: none;
       align-items: center;
       gap: 10px;
+      font-size: rem(14px);
+      font-weight: 600;
 
       > * {
         font-weight: 600;
@@ -49,6 +51,7 @@
         border: 1px solid white;
         border-radius: 2.5rem;
         padding: 1px 12px 0;
+        font-size: rem(14px);
         line-height: 24px;
         transition: all 0.2s ease-in-out;
         cursor: pointer;

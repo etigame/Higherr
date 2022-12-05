@@ -1,5 +1,6 @@
 <template>
-  <header class="app-header main-layout full flex align-center" :class="{ transparent: windowTop === 0 }">
+  <header class="app-header main-layout full flex align-center"
+    :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
@@ -19,10 +20,10 @@
 
         <button v-if="loggedInUser" class="el-button is-text">Orders</button>
         <button v-if="loggedInUser" class="el-button is-text">Switch To Selling</button>
-        
+
         <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
           <!-- <img :src="loggedInUser.imgUrl"> -->
-          {{loggedInUser.fullname}}
+          {{ loggedInUser.fullname }}
           <div v-if="modalOpen" class="user-modal">
             <router-link to="/seller/profile"><button class="el-button is-text">Profile</button></router-link>
             <router-link to="/seller/orders"><button class="el-button is-text">Dashboard</button></router-link>
@@ -33,7 +34,15 @@
       </div>
 
     </nav>
-    
+    <section class="loggedin-user" v-if="loggedInUser">
+      <router-link :to="`/user/${loggedInUser._id}`">
+        <div class="user-img">
+          <img :src="loggedInUser.imgUrl">
+          <!-- {{ loggedInUser.imgUrl }} -->
+        </div>
+      </router-link>
+    </section>
+
   </header>
 </template>
 
@@ -61,7 +70,7 @@ export default {
       },
       windowTop: window.top.scrollY,
       isSearchShown: false,
-      modalOpen:false
+      modalOpen: false
     }
   },
   mounted() {
@@ -96,6 +105,9 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
+    currRoutePath() {
+      return this.$route.path
+    }
   },
   watch: {
     $route: {
