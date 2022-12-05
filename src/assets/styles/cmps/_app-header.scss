@@ -31,9 +31,10 @@
   }
 
   .logo {
-    flex-basis: 30%;
+    // flex-basis: 30%;
     margin: 4px 0 0;
     min-width: 121px;
+    margin-inline-end: 32px;
     transition: color 0.2s;
 
     > * {
@@ -44,11 +45,12 @@
   }
 
   .search {
-    flex-basis: 65%;
-    margin: 0px 10px;
+    // flex-basis: 65%;
+    // margin: 0px 10px;
     opacity: 0;
     width: 100%;
     transition: opacity 0.25s ease;
+    flex: 1;
 
     &.shown {
       opacity: 1;
@@ -57,22 +59,58 @@
   }
 
   .nav-links {
-    flex-basis: 10%;
+    // flex-basis: 10%;
+    margin-inline-start: 32px;
 
     > * {
       color: #62646a;
+      padding: 0 10px;
 
       &:hover {
         color: $clr1;
       }
     }
 
-    & > :first-child {
-      margin-inline-end: 10px;
+    .signin-btn {
+      font-size: 1rem;
+      background-color: inherit;
+      border: none;
+      font-weight: 600;
+      transition: color 0.2s;
+      cursor: pointer;
     }
+
+    .join-btn {
+      padding: 7px 20px;
+      font-weight: 700;
+      font-size: rem(14px);
+      background-color: inherit;
+      transition: all 0.2s ease;
+      border: 1px solid $clr1;
+      border-radius: 4px;
+      color: $clr1;
+      margin-inline-start: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background: $clr1;
+        color: #fff;
+      }
+    }
+
+    // .user-img {
+    //   border-radius: 50%;
+    //   max-height: 32px;
+    //   max-width: 32px;
+
+    //   img {
+    //     height: 100%;
+    //     width: 100px;
+    //     object-fit: cover;
+    //   }
+    // }
   }
 
-  
   // HEADER TRANSPARENT
   &.transparent {
     background-color: transparent;
@@ -91,61 +129,17 @@
       > * {
         color: white;
       }
+
+      .join-btn {
+        border: 1px solid #fff;
+        color: #fff;
+
+        &:hover {
+          border: 1px solid $clr1;
+          background: $clr1;
+          color: #fff;
+        }
+      }
     }
   }
 }
-
-
-
-.el-button {
-  padding: 0 10px;
-}
-
-.el-button.is-text {
-  margin-right: 15px;
-  color: #fff;
-  margin: 0px;
-  font-size: 1rem;
-  font-weight: 700;
-
-  transition: 0.3s;
-
-  &.join-btn {
-    padding: 7px 20px;
-    font-weight: 700;
-    font-size: rem(14px);
-
-    &:hover {
-      background: $clr1;
-    }
-  }
-
-  &.signin-btn {
-    margin-inline-end: 10px;
-    &:hover {
-      background: none;
-      color: $clr1;
-    }
-  }
-}
-
-// .join-btn {
-//   border: 1px solid white;
-//   &:hover {
-//     background: $CLR03;
-//     color: white;
-//     border: 1px solid $clr1;
-
-//   }
-// }
-
-// .el-select {
-//   width: 300px;
-// }
-// .el-input {
-//   width: 300px;
-// }
-// .dialog-footer button:first-child {
-//   margin-right: 10px;
-// }
-// }
