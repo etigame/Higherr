@@ -6,6 +6,7 @@ import {
 } from '../services/socket-service'
 
 var localLoggedinUser = null
+
 if (sessionStorage.user)
   localLoggedinUser = JSON.parse(sessionStorage.user || null)
 

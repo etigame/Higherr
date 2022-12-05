@@ -13,23 +13,24 @@
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <button class="el-button is-text">Become a Seller</button>
-        <el-button class="signin-btn" @click="register">
+        <el-button v-if="!loggedInUser" class="signin-btn" @click="register">
       Sign In
     </el-button>
-    <el-button class="join-btn" @click="register">
+    <el-button v-if="!loggedInUser" class="join-btn" @click="register">
       Join
     </el-button>
 
       </div>
-    </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
+      <section class="loggedin-user" v-if="loggedInUser">
       <router-link :to="`/user/${loggedInUser._id}`">
         <div class="user-img">
-          <img :src="loggedInUser.imgUrl">
-        <!-- {{ loggedInUser.imgUrl }} -->
+          <!-- <img :src="loggedInUser.imgUrl"> -->
+          {{loggedInUser.fullname}}
         </div>
       </router-link>
     </section>
+    </nav>
+    
   </header>
 </template>
 
