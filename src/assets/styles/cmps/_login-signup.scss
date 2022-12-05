@@ -1,41 +1,45 @@
-.login-signup{
-
+.login-signup {
+  .el-button {
+    padding: 0 10px;
+  }
 
   .el-button.is-text {
     margin-right: 15px;
-    color: black;
+    color: #fff;
     margin: 0px;
     font-size: 1rem;
-  
+    font-weight: 700;
+
     transition: 0.3s;
-    
-    &.join-btn{
-      padding: 0px 20px;
-      &:hover{
-        background:$clr1;
-        
+
+    &.join-btn {
+      padding: 7px 20px;
+      font-weight: 700;
+      font-size: rem(14px);
+
+      &:hover {
+        background: $clr1;
       }
     }
-    &.signin-btn{
-      margin: 0px 10px;
-      &:hover{
-        background:none;
+
+    &.signin-btn {
+      margin-inline-end: 10px;
+      &:hover {
+        background: none;
         color: $clr1;
       }
     }
-
   }
 
- .join-btn{
-  border: 1px solid $clr1;
-  &:hover{
-    background: $CLR03;
-    color: white;
+  .join-btn {
+    border: 1px solid white;
+    &:hover {
+      background: $CLR03;
+      color: white;
+      border: 1px solid $clr1;
 
-  
+    }
   }
-}
-
 
   .el-select {
     width: 300px;
@@ -46,9 +50,4 @@
   .dialog-footer button:first-child {
     margin-right: 10px;
   }
-
-
 }
-  
-
-  

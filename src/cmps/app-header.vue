@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header main-layout full" :class="{ transparent: windowTop === 0 }">
+  <header class="app-header main-layout full flex align-center" :class="{ transparent: windowTop === 0 }">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
@@ -12,6 +12,7 @@
       </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
+        <button class="el-button is-text">Become a Seller</button>
         <login-signup />
       </div>
     </nav>
