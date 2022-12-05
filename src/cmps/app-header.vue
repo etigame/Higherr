@@ -1,5 +1,6 @@
 <template>
-  <header class="app-header main-layout full flex align-center" :class="{ transparent: windowTop === 0 }">
+  <header class="app-header main-layout full flex align-center"
+    :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
@@ -26,7 +27,7 @@
       <router-link :to="`/user/${loggedInUser._id}`">
         <div class="user-img">
           <img :src="loggedInUser.imgUrl">
-        <!-- {{ loggedInUser.imgUrl }} -->
+          <!-- {{ loggedInUser.imgUrl }} -->
         </div>
       </router-link>
     </section>
@@ -56,7 +57,8 @@ export default {
         delivery: '',
       },
       windowTop: window.top.scrollY,
-      isSearchShown: false
+      isSearchShown: false,
+
     }
   },
   mounted() {
@@ -84,6 +86,9 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
+    currRoutePath() {
+      return this.$route.path
+    }
   },
   watch: {
     $route: {
