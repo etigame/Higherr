@@ -1,35 +1,37 @@
 <template>
 <div class="login-signup flex">
-  <el-button class="signin-btn" text @click="dialogFormVisible = true">
-      Sign In
-    </el-button>
-    <el-button class="join-btn" text @click="dialogFormVisible = true">
-      Join
-    </el-button>
-  
-  
-    <el-dialog v-model="dialogFormVisible" title="Sign In to Higherr">
-      <el-form :model="form">
-        <el-form-item  >
-          <el-input v-model="form.username" placeholder="username" autocomplete="off" />
-        </el-form-item>
-        <el-form-item >
-          <el-input v-model="form.password" placeholder="password" />
+<el-button class="signin-btn" text @click="dialogFormVisible = true">
+    Sign In
+  </el-button>
+  <el-button class="join-btn" text @click="dialogFormVisible = true">
+    Join
+  </el-button>
+
+
+  <el-dialog v-model="dialogFormVisible" title="Sign In to Higherr">
+    <el-form :model="form">
+      <el-form-item  >
+        <el-input v-model="form.username" placeholder="username" autocomplete="off" />
       </el-form-item>
-      </el-form>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="dialogFormVisible = false">
-            Continue
-          </el-button>
-        </span>
-      </template>
-    </el-dialog>
-  </div>
-  </template>
+      <el-form-item >
+        <el-input v-model="form.password" placeholder="password" />
+    </el-form-item>
+    </el-form>
+    <span>Don't have an account?</span>
+    <a>Sign-Up</a>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">
+          Continue
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+</div>
+</template>
   
-  <script lang="ts" setup>
+<script lang="ts" setup>
   import { reactive, ref } from 'vue'
   
   
