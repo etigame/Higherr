@@ -1,19 +1,16 @@
 <template >
   <div class="header-search flex">
-    <el-input v-model="title" size="large" />
-    <el-button @click="filter" size="large"/>
+    <el-input v-model="title" size="large" placeholder="What service are you looking for today?" />
+    <el-button @click="filter" size="large"><span v-icon="'search'"></span></el-button>
   </div>
 </template>
 
 <script>
-
-// import { Search } from '@element-plus/icons-vue'
-
 export default {
   name: 'header-search',
   data() {
     return {
-        title: '', 
+      title: '',
     }
   },
 
