@@ -28,7 +28,7 @@
                 <li><span v-icon="'grayV'"></span> Include social media kit</li>
             </ul>
 
-            <button class="continue-btn">Continue
+            <button @click="addOrder" class="continue-btn">Continue
                 <span v-icon="'continueArrow'"></span>
             </button>
         </section>
@@ -50,6 +50,11 @@ export default {
     name: 'gig-package',
     props: {
         gig: Object
-    }
+    },
+    methods:{
+        addOrder(){
+            this.$emit('addOrder')
+        }
+    },
 }
 </script>
