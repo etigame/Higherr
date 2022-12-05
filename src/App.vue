@@ -1,4 +1,5 @@
 <template>
+     <popup-content/>
   <section class="main-layout">
     <user-msg />
     <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
@@ -21,6 +22,7 @@ import userMsg from './cmps/user-msg.vue'
 import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
+import popupContent from './cmps/UI/popup-content.vue'
 
 export default {
   created() {
@@ -71,6 +73,7 @@ export default {
     userMsg,
     categoriesList,
     appFooter,
+    popupContent
 
   },
 }

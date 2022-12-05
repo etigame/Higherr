@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header main-layout full" :class="{ transparent: windowTop === 0 }">
+  <header class="app-header main-layout full flex align-center" :class="{ transparent: windowTop === 0 }">
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
@@ -12,7 +12,14 @@
       </div>
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
-        <login-signup />
+        <button class="el-button is-text">Become a Seller</button>
+        <el-button class="signin-btn" @click="register">
+      Sign In
+    </el-button>
+    <el-button class="join-btn" @click="register">
+      Join
+    </el-button>
+
       </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
@@ -26,6 +33,8 @@
 <script>
 import loginSignup from './login-signup.vue'
 import headerSearch from './header-search.vue'
+import {eventBus} from '../services/event-bus-service.js'
+
 
 export default {
   name: 'app-header',
@@ -63,6 +72,9 @@ export default {
       if (this.$route.path !== '/') return
       this.windowTop = window.top.scrollY
       this.isSearchShown = this.windowTop > 150 ? true : false
+    },
+    register(){
+        eventBus.emit('get-cmp', 'login-signup')
     }
   },
   computed: {
