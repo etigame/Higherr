@@ -5,8 +5,8 @@
                 </vueper-slide>
             </vueper-slides>
         <div class="seller-info-preview">
-        <div class="seller-img"><img :src="gig.imgUrl"></div>
-        <p>{{gig.fullname}}</p>
+        <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
+        <p>{{gig.owner.fullname}}</p>
         </div>
             <div  class="preview-title">
          <router-link :to="`/gig/${gig._id}`" >
@@ -15,7 +15,7 @@
             </div>
             <div class="content-info">
                 <span v-icon="'star'" class="preview-rate-icon"></span>
-                <span class="rate-preview">5.0</span>
+                <span class="rate-preview">{{gig.owner.rate}}</span>
                 <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length}})</span>
             </div>
         <div class="preview-footer">
