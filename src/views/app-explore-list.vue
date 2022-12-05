@@ -132,15 +132,9 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-
       console.log(filterBy)
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
-
-      console.log(this.$router)
-
-
-
     },
 
 
@@ -154,26 +148,10 @@ export default {
   watch: {
     $route: {
       handler(newValue) {
-        this.filter(newValue.query)
-        console.log('route', newValue.query)
-
+        if (newValue.path == '/explore') this.filter(newValue.query)
       },
       deep: true
     },
-    '$route.query'(newValue) {
-      // this.filter(newValue.query)
-      console.log('query', newValue)
-
-    },
-
-    // filterBy: {
-    //   handler(newValue) {
-    //     this.filter()
-    //     console.log('filter',newValue);
-
-    //   },
-    //   deep: true
-    // }
   }
 
 
