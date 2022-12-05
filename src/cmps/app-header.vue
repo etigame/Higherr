@@ -13,12 +13,12 @@
       <div class="nav-links flex align-center">
         <router-link to="/explore">Explore</router-link>
         <button class="el-button is-text">Become a Seller</button>
-        <el-button class="signin-btn" @click="register">
-      Sign In
-    </el-button>
-    <el-button class="join-btn" @click="register">
-      Join
-    </el-button>
+        <button class="signin-btn" @click="register">
+          Sign In
+        </button>
+        <button class="join-btn" @click="register">
+          Join
+        </button>
 
       </div>
     </nav>
@@ -33,7 +33,7 @@
 <script>
 import loginSignup from './login-signup.vue'
 import headerSearch from './header-search.vue'
-import {eventBus} from '../services/event-bus-service.js'
+import { eventBus } from '../services/event-bus-service.js'
 
 
 export default {
@@ -73,8 +73,8 @@ export default {
       this.windowTop = window.top.scrollY
       this.isSearchShown = this.windowTop > 150 ? true : false
     },
-    register(){
-        eventBus.emit('get-cmp', 'login-signup')
+    register() {
+      eventBus.emit('get-cmp', 'login-signup')
     }
   },
   computed: {
