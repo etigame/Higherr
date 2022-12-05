@@ -12,16 +12,27 @@
         <header-search @filter="filter" />
       </div>
       <div class="nav-links flex align-center">
-        <router-link to="/explore">Explore</router-link>
-        <button class="el-button is-text">Become a Seller</button>
-        <button class="signin-btn" @click="register">
-          Sign In
-        </button>
-        <button class="join-btn" @click="register">
-          Join
-        </button>
+
+        <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
+        <button v-if="!loggedInUser" class="el-button is-text">Become a Seller</button>
+        <button v-if="!loggedInUser" class="signin-btn" @click="register">Sign In</button>
+        <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
+
+        <button v-if="loggedInUser" class="el-button is-text">Orders</button>
+        <button v-if="loggedInUser" class="el-button is-text">Switch To Selling</button>
+
+        <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
+          <!-- <img :src="loggedInUser.imgUrl"> -->
+          {{ loggedInUser.fullname }}
+          <div v-if="modalOpen" class="user-modal">
+            <router-link to="/seller/profile"><button class="el-button is-text">Profile</button></router-link>
+            <router-link to="/seller/orders"><button class="el-button is-text">Dashboard</button></router-link>
+            <button @click="doLogout" class="el-button is-text">Logout</button>
+          </div>
+        </div>
 
       </div>
+
     </nav>
     <section class="loggedin-user" v-if="loggedInUser">
       <router-link :to="`/user/${loggedInUser._id}`">
@@ -31,6 +42,7 @@
         </div>
       </router-link>
     </section>
+
   </header>
 </template>
 
@@ -58,7 +70,7 @@ export default {
       },
       windowTop: window.top.scrollY,
       isSearchShown: false,
-
+      modalOpen: false
     }
   },
   mounted() {
@@ -80,7 +92,14 @@ export default {
     },
     register() {
       eventBus.emit('get-cmp', 'login-signup')
-    }
+    },
+    toggleUserModal() {
+      this.modalOpen = !this.modalOpen
+    },
+    doLogout() {
+      this.$store.dispatch({ type: 'logout' })
+    },
+
   },
   computed: {
     loggedInUser() {
