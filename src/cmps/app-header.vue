@@ -24,7 +24,9 @@
         <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
           <!-- <img :src="loggedInUser.imgUrl"> -->
           {{ loggedInUser.fullname }}
+          <!-- <div v-if="modalOpen" :class="{ transparent: (windowTop === 0) }"> -->
           <div v-if="modalOpen" class="user-modal">
+          <!-- <div v-if="modalOpen" class="user-modal"> -->
             <router-link to="/seller/profile"><button class="el-button is-text">Profile</button></router-link>
             <router-link to="/seller/orders"><button class="el-button is-text">Dashboard</button></router-link>
             <button @click="doLogout" class="el-button is-text">Logout</button>

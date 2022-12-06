@@ -166,7 +166,8 @@ export default {
                     "name": this.gig.title,
                     "price": this.gig.price
                 },
-                "status": "Pending"
+                "status": "Pending",
+                createdAt: new Date()
             }
 
             this.$store.dispatch({ type: 'saveOrder', order: { ...order } })

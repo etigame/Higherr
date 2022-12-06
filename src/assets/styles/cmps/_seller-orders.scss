@@ -87,17 +87,14 @@
         width:15%;
       }
       .total-col{
-        width:10%;
+        width:15%;
       }
       .status-col{
         width:15%;
-      }
-      .set-col{
-        width:5%;
-        button{
-          border:0;
-          background-color: transparent;
-        }
+          button {
+              border: 0;
+              background-color: transparent;
+            }
       }
       .user-col{
         flex-direction: column;
@@ -114,7 +111,8 @@
         align-items: center;
         border-radius: 3px;
         width:70%;
-        padding:10px
+        padding:10px;
+        cursor: pointer;
       }
       .set-status{
         display: flex;
@@ -129,7 +127,7 @@
         position: absolute;
         // position: fixed;
         top: 700px;
-        right: 15%;
+        right: 20%;
         transform: translate(50%, -50%);
         &>*{
           padding-bottom: 10px;

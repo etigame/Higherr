@@ -1,26 +1,25 @@
 .popup-content{
-
+    position: fixed;
     justify-content: center;
     padding-left:20px;
     padding-right: 20px;
     border-radius: 0.8rem;
-    position: absolute;
+    // position: absolute;
 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color:white;
-    height: 500px;
-    width: 500px;
-    z-index: 100;
+    z-index: 400;
+    box-shadow: 0 0 0 0;
 }
 
 .backdrop {
-    position: absolute;
+    position: fixed;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.7;
     width: 100%;
-    min-height: 100vh;
-    z-index: 100;
+    min-height: 100%;
+    z-index: 300;
 
 }

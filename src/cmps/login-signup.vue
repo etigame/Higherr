@@ -1,30 +1,32 @@
      
-     <template>
-      <form  @submit.prevent="doLogin">
-        <h2>Login</h2>
-              <input type="text" v-model="loginCred.username" placeholder="username" />
-              <input
-                type="text"
-                v-model="loginCred.password"
-                placeholder="Password"
-              />
-            <button>Login</button>
-            </form>
-           
-  
-            <form  @submit.prevent="doSignup">
-              <h2>Signup</h2>
-              <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-              <input type="text" v-model="signupCred.password" placeholder="Password" />
-              <input type="text" v-model="signupCred.username" placeholder="Username" />
-              <img-uploader @uploaded="onUploaded"></img-uploader>
-              <button>Signup</button>
-            </form>
-  
-       
-      </template>
+<template>
+<Section class="login-signup">
+  <section>
+<form  @submit.prevent="doLogin">
+  <h2>Login</h2>
+        <input type="text" v-model="loginCred.username" placeholder="username" />
+        <input
+          type="text"
+          v-model="loginCred.password"
+          placeholder="Password"
+        />
+      <button>Login</button>
+      </form>
+    </section>
+    <section>
+      <form  @submit.prevent="doSignup">
+        <h2>Signup</h2>
+        <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
+        <input type="text" v-model="signupCred.password" placeholder="Password" />
+        <input type="text" v-model="signupCred.username" placeholder="Username" />
+        <img-uploader @uploaded="onUploaded"></img-uploader>
+        <button>Signup</button>
+      </form>
+  </section>
+</Section>
+</template>
      
-      <script>
+<script>
      import imgUploader from '../cmps/img-uploader.vue'
      
      export default {

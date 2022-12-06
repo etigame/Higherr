@@ -8,6 +8,7 @@ export const orderStore = {
   getters: {
     orders({ orders }) {
       // console.log(userStore.state.loggedinUser._id)
+
       const filteredOrders = orders.filter(
         (order) => order.seller._id === userStore.state.loggedinUser._id
       )
@@ -22,7 +23,13 @@ export const orderStore = {
       state.orders = orders
     },
     saveOrder(state, { order }) {
+      const idx = state.orders.findIndex((o) => o._id === order._id)
+      if (idx !== -1) {
+        state.orders.splice(idx, 1, order)
+        return
+      }
       state.orders.push(order)
+      console.log(state.orders)
     },
     removeOrder(state, { orderId }) {
       state.orders = state.orders.filter((order) => order._id !== orderId)
@@ -41,6 +48,7 @@ export const orderStore = {
       }
     },
     async loadOrders(context) {
+      console.log(context)
       try {
         const orders = await orderService.query()
         context.commit({ type: 'setOrders', orders })

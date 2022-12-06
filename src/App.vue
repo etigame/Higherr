@@ -27,6 +27,8 @@ import popupContent from './cmps/UI/popup-content.vue'
 export default {
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
+    this.$store.dispatch({ type: 'loadOrders' })
+ 
     const user = userService.getLoggedinUser()
     if (user) store.commit({ type: 'setLoggedinUser', user })
   },
