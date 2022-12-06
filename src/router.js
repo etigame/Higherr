@@ -8,7 +8,6 @@ import gigDetails from './views/gig-details.vue'
 import gigEdit from './views/gig-edit.vue'
 import sellerProfile from './views/seller-profile.vue'
 import sellerOrders from './views/seller-orders.vue'
-import sellerRegister from './views/seller-register.vue'
 
 const routes = [
   {

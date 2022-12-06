@@ -1,8 +1,8 @@
 <template>
-    <section class="gig-edit">
+    <section v-if="gigToEdit" class="gig-edit">
         <form class="flex column" @submit.prevent="saveGig">
             <label>Gig Title
-                <input v-model="gigToEdit.title" type="text"/>
+                <input v-model="gigToEdit.title" type="text" />
             </label>
             <label>Description
                 <textarea v-model="gigToEdit.description"> </textarea>
@@ -26,10 +26,10 @@
             <label>Image
                 <img-uploader @uploaded="onUploaded"></img-uploader>
             </label>
-       
-       
+
+
             <button>Submit</button>
-            </form>
+        </form>
     </section>
 </template>
 
@@ -43,29 +43,29 @@ import imgUploader from "../cmps/img-uploader.vue"
 
 export default {
     name: 'gig-edit',
-    components: {imgUploader},
-    created(){
+    components: { imgUploader },
+    created() {
         const { _id } = this.$route.params
-      if (_id) {
-        gigService.getById(_id).then((gig) => {
-          this.gigToEdit = gig
-        })
-      } else this.gigToEdit = gigService.getEmptyGig()
+        if (_id) {
+            gigService.getById(_id).then((gig) => {
+                this.gigToEdit = gig
+            })
+        } else this.gigToEdit = gigService.getEmptyGig()
     },
-    
-    data(){
+
+    data() {
         return {
-        gigToEdit: null
+            gigToEdit: null
         }
     },
-    methods:{
-        saveGig(){
-            this.$store.dispatch({ type: "addGig", gig: {...this.gigToEdit} })
+    methods: {
+        saveGig() {
+            this.$store.dispatch({ type: "addGig", gig: { ...this.gigToEdit } })
         },
         onUploaded(imgUrl) {
-           this.gigToEdit.image.push(imgUrl)
-         }
-       
+            this.gigToEdit.image.push(imgUrl)
+        }
+
     }
 }
 </script>
