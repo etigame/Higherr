@@ -4,9 +4,9 @@
         <!-- SELLER DETAILS SHORT -->
         <section v-if="(type === 'sellerShort')" class="seller-preview-short flex align-center">
             <div class="img-container">
-                <img :src="gig.imgUrl" alt="seller-img" />
+                <img :src="gig.owner.imgUrl" alt="seller-img" />
             </div>
-            <p class="seller-fullname"> {{ gig.fullname }}</p>
+            <p class="seller-fullname"> {{ gig.owner.fullname }}</p>
             <p class="seller-level"> Level 2 Seller </p>
             <div class="line"> | </div>
             <ul class="stars clean-list flex">
@@ -24,7 +24,7 @@
 
             <section class="seller-details flex column">
                 <section class="name-line flex">
-                    <p class="seller-fullname"> {{ gig.fullname }}</p>
+                    <p class="seller-fullname"> {{ gig.owner.fullname }}</p>
                     <div class="online-indicator">
                         <span v-icon="'onlineSeller'"></span>
                         Online

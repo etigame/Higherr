@@ -136,13 +136,20 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg',
         ],
         title: 'I will do hyper realistic pencil portrait by hand drawing',
+        owner: {
+          _id: 'u101',
+          fullname: 'frederickkessie',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',
+          level: 2,
+          rate: 4,
+        },
+        likedByUsers: [1, 1],
         description:
           "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-        price: 'US$16.84',
+        price: 16,
         daysToMake: '2 Days Delivery',
-        fullname: 'frederickkessie',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',
+
         loc: 'Ghana',
         memberSince: 'Jul 2021',
         avgResponseTime: '1 hour',
@@ -152,6 +159,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'tobiaspille300',
             country: 'Thailand',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png',
@@ -161,6 +169,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 3,
             name: 'liam31',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -179,6 +188,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 2,
             name: 'larsonraz',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -187,6 +197,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'stevekaszycki',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -221,15 +232,21 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg',
         ],
+        owner: {
+          _id: 'u102',
+          fullname: 'vividstore',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg',
+          level: 3,
+          rate: 5,
+        },
+        likedByUsers: [1, 1],
         title:
           'I will do hyper realistic pencil sketch portrait by hand drawing',
         description:
           "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black & White or colored realistic portraits.\nKindly provide me clear reference photo as much as possible.\nThe material I used for Creating pencil portraits are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, tombomono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can give me anything:\nPortrait photos\nFamily photos\nAnimal photos\nAny product photos\nLandscape photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITAL FILE, IF YOU WANT THE ORIGINAL ONE THEN MESSAGE ME FOR DETAILS.\nFeel free to ask me anything! :)\nThank You...\nvividstore",
-        price: 'US$67.37',
+        price: 67,
         daysToMake: '3 Days Delivery',
-        fullname: 'vividstore',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg',
         loc: 'Bangladesh',
         memberSince: 'Dec 2019',
         avgResponseTime: '1 hour',
@@ -263,15 +280,22 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg',
         ],
+        owner: {
+          _id: 'u103',
+          fullname: 'andreacarvalho_',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg',
+          level: 1,
+          rate: 3,
+        },
+        likedByUsers: [1, 1, 1],
         title:
           'I will draw a hyperrealistic portrait of face or entire body and animals',
         description:
           'Desenho de lápis hiperrealista da sua foto, posso adicionar detalhes de fundo e personalizar o desenho do jeito que você quiser.',
-        price: 'US$202.11',
+        price: 202,
         daysToMake: '14 Days Delivery',
-        fullname: 'andreacarvalho_',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg',
+
         loc: 'Brazil',
         memberSince: 'May 2020',
         avgResponseTime: '1 hour',
@@ -281,6 +305,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'rachelrbarnes1',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -299,6 +324,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'thurstonrobby',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -316,6 +342,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'garebear52',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -350,16 +377,23 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg',
         ],
+        owner: {
+          _id: 'u104',
+          fullname: 'winny_writer',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg',
+          level: 3,
+          rate: 5,
+        },
+        likedByUsers: [1, 1, 1, 1],
         category: 'Lifestyle',
         subCategory: 'Arts & Crafts',
         title: 'I will write sociology,psychology and social sciences articles',
         description:
           'Hello, welcome to my Gig, I write sociology psychology and all social sciences content\nI am an expert writer who can help you with writing essays, research projects, and articles on criminology, sociology, and psychology. I gained so much experience over the time. i can handle papers from undergraduate all the way to PHD in criminology and sociology and psychology.\nI always strive to provide best quality to my clients and provide plagiarism-free work. I am also familiar with the following reference formats: APA, MLA, HARVARD, CHICAGO\nPlease contact me before placing an order, thank you.',
-        price: 'US$33.68',
+        price: 33,
         daysToMake: '3 Days Delivery',
-        fullname: 'winny_writer',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg',
+
         loc: 'Kenya',
         memberSince: 'May 2021',
         avgResponseTime: '1 hour',
@@ -369,6 +403,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 1,
             name: 'far832013',
             country: 'Canada',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
@@ -387,6 +422,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'raevyn22',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -403,6 +439,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 3,
             name: 'junyeongcho',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -426,16 +463,23 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3171448/original/a41a38f3733bb97279a49d1449f7337dece50693.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3171448/original/a41a38f3733bb97279a49d1449f7337dece50693.jpg',
         ],
+        owner: {
+          _id: 'u105',
+          fullname: 'design_desk',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg',
+          level: 1,
+          rate: 5,
+        },
+        likedByUsers: [1],
         title: 'I will design 3 modern minimalist flat logo designs',
         category: 'Graphics & Design',
         subCategory: 'Logo Design',
         description:
           "Hi there ! Thanks for stopping by !!\nA Team of Talented Graphic Designer with 8+ years of experience in Graphic Industry, expertise as Logo Maker, You'll get creative & AWESOME logo design for your business.\nMy portfolio : https://www.fiverr.com/users/design_desk/portfolio/NjFiYjE4NmMwZTgwMDUwMDAxZTMzMjJh\n★ Why Us? ★\nTalented Logo Maker Team\nFully custom made, creative, original, UNIQUE and AWESOME designs\nProfessional customer support 24/7\nHigh Quality work\n100% money back policy if not satisfied\n★ WHAT DO YOU GET? ★\n✔ Highly Professional, UNIQUE & High Quality designs\n✔ UNLIMITED revisions until u r 100% satisfied\n✔ Fast turn around time 24 to 48 hours only.\n✔ 100% original & unique vector design from Adobe Illustrator\n✔ Vector Source Files (scalable without any quality loss) (AI, EPS, PDF) for the final design ✔ PROFESSIONAL Communication & Outstanding Customer Support ✔ Guaranteed High Quality work\nIf you have any question,\nFeel free to★ Contact Me! ★I'll be happy to help !\nLet's get started!\n-Your Logo Maker",
-        price: 'US$33.68',
+        price: 33,
         daysToMake: '3 Days Delivery',
-        fullname: 'design_desk',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg',
+
         loc: 'India',
         memberSince: 'Jun 2014',
         avgResponseTime: '2 hours',
@@ -445,6 +489,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'airbornesnow',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -454,6 +499,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 2,
             name: 'jacobmnb',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -463,6 +509,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'ashtonpeckham',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -481,6 +528,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'fowlplay_uk',
             country: 'United Kingdom',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
@@ -519,14 +567,21 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg',
         ],
+        owner: {
+          _id: 'u106',
+          fullname: 'soduzai_gfx1',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg',
+          level: 1,
+          rate: 3,
+        },
+        likedByUsers: [1, 1, 1, 1, 1, 1, 1, 1],
         title: 'I will create modern unique and creative logo design',
         description:
           "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
-        price: 'US$84.20',
+        price: 84,
         daysToMake: '2 Days Delivery',
-        fullname: 'soduzai_gfx1',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg',
+
         loc: 'Pakistan',
         memberSince: 'Oct 2017',
         avgResponseTime: '1 hour',
@@ -545,6 +600,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'raymondyslas',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -554,6 +610,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'gbsol579',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -563,6 +620,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'antoniodixon65',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -572,6 +630,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'allendrozdowski',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -607,14 +666,21 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125798593/original/fea4f6af37e201fa9cb71a85583fedc171da2a26.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125798593/original/fea4f6af37e201fa9cb71a85583fedc171da2a26.jpg',
         ],
+        owner: {
+          _id: 'u107',
+          fullname: 'modernmarvel',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d366617946e54cbc9aa114f27259e3ef-1552848300306/3c155f72-15c9-47d0-8f68-b75a519a7999.jpg',
+          level: 3,
+          rate: 5,
+        },
+        likedByUsers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         title: 'I will design 3 modern minimalist logo design',
         description:
           'ModernMarvel heartily welcomes you to Minimalist Modern Logo Design gig.\nWe are Brand Creators and professional business consultants. Each business has his own story to tell and having high recall value is prime purpose behind getting a LOGO. Thus, We believe in creating simple yet effective masterpiece which blown away your customers mind.\nYour idea of getting Modern memorable and attractive logo design is just one step away. So, Lets discuss and choose a best design for your business.\nOur recommendation BRANDING PACK @ US$65 ONLY:\n5 BRANDED logos with minimal designs + vector source files\nAttractive Social media covers (FB + Twitter)\nProfessional stationery design (B card + letterhead)\nUnlimited revision rounds\nExclusive customer support\nRefund & Package selection guidelines:\nIf the designs are as per your initial shared brief, refund wont be a possible option. You can ask for revision if i missed out anything.\nMy samples are from my premium / standard package.\nWe are closed on Sunday.\nMy key skills:\nMinimalist Modern Logo Design | Minimal | Modern | Typography | Line art | Custom logo | Vintage |\nKeen to Get Started!',
-        price: 'US$50.52',
+        price: 50,
         daysToMake: '1 Day Delivery',
-        fullname: 'modernmarvel',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d366617946e54cbc9aa114f27259e3ef-1552848300306/3c155f72-15c9-47d0-8f68-b75a519a7999.jpg',
+
         loc: 'India',
         memberSince: 'Mar 2019',
         avgResponseTime: '2 hours',
@@ -624,6 +690,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'bartstrijbos',
             country: 'Netherlands',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
@@ -633,6 +700,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'v_winko33',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -651,6 +719,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 3,
             name: 'tracyblehm',
             country: 'Canada',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png',
@@ -660,6 +729,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'jai_s22',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -698,17 +768,24 @@ function _createGigs() {
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142024147/original/25c0cb214ccc1e1458cb975cddec0e3e348f75ee.jpg',
           'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142024147/original/25c0cb214ccc1e1458cb975cddec0e3e348f75ee.jpg',
         ],
+        owner: {
+          _id: 'u108',
+          fullname: 'shailene_george',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg',
+          level: 1,
+          rate: 5,
+        },
+        likedByUsers: [1, 1],
         title:
           'I will do professional modern business logo design with copyrights',
         category: 'Graphics & Design',
         subCategory: 'Logo Design',
         description:
           'Greetings!! Welcome to Budding Solutions.\n"Your one-stop-shop for all your graphic needs"\nIf you are looking for a Modern and Professional Business logo design, then you are at the right place. We focus on creating simple yet effective designs that elevate your business outlook and leave an everlasting impression.\nWe stand out from our competition due to our best-in-class Customer Support and Quality Designs.\nWhy Us?\n✔ Combination of experience and creativity\n✔ Unique and original designs\n✔ Superior customer care and satisfaction\n✔ Transparent and High-resolution image types\n✔ Different types of source files (AI, EPS, PDF and SVG)\n✔ Complete Branding Guide\n✔ Unlimited revisions until you are 100% satisfied\n✔ Full Copyrights\nMASCOT DESIGNS ARE NOT INCLUDED IN BASIC OR STANDARD GIGS.\nTHE DESIGNS SHOWN ON THE PORTFOLIO ARE FROM STANDARD OR PREMIUM PACKS.\nLogo Design | Professional Logo | Modern Logo | Badge | Hand drawn | Feminine | Signature | Business Logo\nWe look forward to working with you. Please don\'t hesitate to reach out at any time with any questions.\nPlease review the FAQ section for further clarification.',
-        price: 'US$151.55',
+        price: 151,
         daysToMake: '2 Days Delivery',
-        fullname: 'shailene_george',
-        imgUrl:
-          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg',
+
         loc: 'Pakistan',
         memberSince: 'Jun 2016',
         avgResponseTime: '1 hour',
@@ -718,6 +795,7 @@ function _createGigs() {
         reviewers: [
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'bossymouse',
             country: 'Netherlands',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
@@ -727,6 +805,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'coastalcleaners',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -736,6 +815,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 3,
             name: 'ndethlefs',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -745,6 +825,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 5,
             name: 'mrmikevh',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',
@@ -754,6 +835,7 @@ function _createGigs() {
           },
           {
             _id: utilService.makeId(),
+            rate: 4,
             name: 'j_powell23',
             country: 'United States',
             flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png',

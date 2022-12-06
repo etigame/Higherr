@@ -2,11 +2,11 @@ import { storageService } from './async-storage-service'
 import { httpService } from './http-service'
 import { utilService } from './util-service.js'
 import { store } from '../store/store'
-import {
-  socketService,
-  SOCKET_EVENT_USER_UPDATED,
-  SOCKET_EMIT_USER_WATCH,
-} from './socket-service'
+// import {
+//   socketService,
+//   SOCKET_EVENT_USER_UPDATED,
+//   SOCKET_EMIT_USER_WATCH,
+// } from './socket-service'
 import { showSuccessMsg } from './event-bus-service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -71,7 +71,7 @@ async function login(userCred) {
   const user = users.find((user) => user.username === userCred.username)
   console.log(user, 'login')
   if (user) {
-    socketService.login(user._id)
+    // socketService.login(user._id)
     return saveLocalUser(user)
   }
 }
@@ -134,9 +134,52 @@ function _createUser() {
       {
         _id: 'u101',
         fullname: 'frederickkessie',
-        imgUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+        imgUrl:
+          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',
         username: 'fred',
-        password: '1234',
+        password: '123',
+        reviews: [
+          {
+            id: 'r1',
+            // gig: {id: '654', },
+            txt: 'Very kind and works fast',
+            rate: 4,
+            by: {
+              _id: 'u102',
+              fullname: 'Tanya',
+              imgUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+            },
+          },
+        ],
+      },
+      {
+        _id: 'u102',
+        fullname: 'vividstore',
+        imgUrl:
+          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg',
+        username: 'vivi',
+        password: '123',
+        reviews: [
+          {
+            id: 'r1',
+            // gig: {id: '654', },
+            txt: 'Very kind and works fast',
+            rate: 4,
+            by: {
+              _id: 'u102',
+              fullname: 'Tanya',
+              imgUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+            },
+          },
+        ],
+      },
+      {
+        _id: 'u103',
+        fullname: 'andreacarvalho_',
+        imgUrl:
+          'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg',
+        username: 'andrea',
+        password: '123',
         reviews: [
           {
             id: 'r1',
