@@ -1,17 +1,12 @@
 <template>
-  <div className="upload-preview flex ">
-    <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '200px', float: 'right' }" />
+  <div className="upload-preview">
+    <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '120px', maxHeight: '120px' }" />
     <label for="imgUpload">{{ uploadMsg }}</label>
-
     <label class="upload-container">
       <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
       <span v-icon="'camera'"></span>
     </label>
-
-
-
   </div>
-
 </template>
 
 <script>
@@ -21,10 +16,9 @@ export default {
   data() {
     return {
       imgUrl: null,
-      height: 500,
+      height: 250,
       width: 500,
       isUploading: false,
-
     }
   },
   methods: {
