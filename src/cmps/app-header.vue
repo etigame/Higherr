@@ -14,7 +14,7 @@
       <div class="nav-links flex align-center">
 
         <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
-        <button v-if="!loggedInUser" class="el-button is-text">Become a Seller</button>
+        <button v-if="!loggedInUser" class="el-button is-text" @click="registerSeller">Become a Seller</button>
         <button v-if="!loggedInUser" class="signin-btn" @click="register">Sign In</button>
         <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
 
@@ -26,7 +26,7 @@
           {{ loggedInUser.fullname }}
           <!-- <div v-if="modalOpen" :class="{ transparent: (windowTop === 0) }"> -->
           <div v-if="modalOpen" class="user-modal">
-          <!-- <div v-if="modalOpen" class="user-modal"> -->
+            <!-- <div v-if="modalOpen" class="user-modal"> -->
             <router-link to="/seller/profile"><button class="el-button is-text">Profile</button></router-link>
             <router-link to="/seller/orders"><button class="el-button is-text">Dashboard</button></router-link>
             <button @click="doLogout" class="el-button is-text">Logout</button>
@@ -85,12 +85,16 @@ export default {
     register() {
       eventBus.emit('get-cmp', 'login-signup')
     },
+    registerSeller() {
+      eventBus.emit('get-cmp', 'seller-signup')
+    },
     toggleUserModal() {
       this.modalOpen = !this.modalOpen
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
     },
+
 
   },
   computed: {

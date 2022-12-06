@@ -3,7 +3,9 @@
 
     .gig-info {
         background-color: $CLR0;
-        border: 1px solid #e4e5e7;
+        height: 100%;
+
+
 
         h3 {
             font-size: 1rem;
@@ -32,16 +34,12 @@
 
 
         .preview-title {
-            max-height: em(43px);
-            padding: 0 em(12px);
-            margin: 6px 12px 32px;
-            line-height: 22px;
-            font-weight: 400;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
+
             overflow: hidden;
             text-overflow: ellipsis;
+
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         .preview-footer {

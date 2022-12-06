@@ -1,9 +1,44 @@
-.gig-edit{
+.gig-edit {
+    margin: 78px auto;
 
-    form{
-margin-top: 30px;
-        >*{
-            margin-bottom: 30px;
+
+    @include card(772px, 1352px);
+    padding: 30px;
+
+    form {
+        height: 100%;
+
+
+
+        label {
+            display: flex;
+
+
+            span {
+                width: 242px;
+                padding-right: 32px;
+                font-weight: 600;
+
+                p {
+                    margin-top: 10px;
+                    font-weight: 400;
+                }
+
+            }
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                border: 1px solid var(--yro5245);
+            }
+
+            textarea {
+                height: 200px;
+                padding: 10px;
+            }
         }
     }
-}   
+
+
+}

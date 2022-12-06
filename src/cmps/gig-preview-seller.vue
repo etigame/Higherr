@@ -1,7 +1,7 @@
 <template>
     <section class="gig-preview-seller">
 
-        <div class="gig-info" v-if="!modalOpen">
+        <div class="gig-info flex column space-between" v-if="!modalOpen">
             <div class="img-container">
                 <img :src="gig.image[0]" />
             </div>
@@ -22,7 +22,7 @@
         <div v-else class="user-modal flex column" v-clickOutside="toggleGigModal">
             <router-link :to="`/gig/edit/${gig._id}`"><button class="el-button is-text">Edit</button></router-link>
             <button class="el-button is-text" @click="removeGig">Remove</button>
-            <router-link to="/seller/orders"><button class="el-button is-text">Preview</button></router-link>
+            <router-link :to="`/gig/${gig._id}`"><button class="el-button is-text">Preview</button></router-link>
         </div>
 
     </section>

@@ -1,13 +1,21 @@
 <template>
-  <div className="upload-preview">
+  <div className="upload-preview flex ">
     <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '200px', float: 'right' }" />
     <label for="imgUpload">{{ uploadMsg }}</label>
-    <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
+
+    <label class="upload-container">
+      <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
+      <span v-icon="'camera'"></span>
+    </label>
+
+
+
   </div>
+
 </template>
 
 <script>
-import {uploadService} from "../services/upload-service.js"
+import { uploadService } from "../services/upload-service.js"
 
 export default {
   data() {
@@ -15,7 +23,8 @@ export default {
       imgUrl: null,
       height: 500,
       width: 500,
-      isUploading: false
+      isUploading: false,
+
     }
   },
   methods: {
