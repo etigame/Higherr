@@ -166,10 +166,10 @@ export default {
                     "name": this.gig.title,
                     "price": this.gig.price
                 },
-                "status": "pending"
+                "status": "Pending"
             }
 
-            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+            this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
             console.log(order)
         },
     }

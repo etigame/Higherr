@@ -31,7 +31,7 @@ _createOrders()
 // })()
 
 export const orderService = {
-  add,
+  save,
   query,
   remove,
   //   save,
@@ -54,7 +54,7 @@ async function remove(orderId) {
   //   orderChannel.postMessage({type: 'removeOrder', orderId})
 }
 
-async function add(order) {
+async function save(order) {
   var savedOrder
   console.log(order)
   if (order._id) {
