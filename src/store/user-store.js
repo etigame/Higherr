@@ -27,6 +27,11 @@ export const userStore = {
       return watchedUser
     },
   },
+  rootGetters: {
+    loggedinUser({ loggedinUser }) {
+      return loggedinUser
+    },
+  },
   mutations: {
     setLoggedinUser(state, { user }) {
       state.loggedinUser = user ? { ...user } : null

@@ -22,7 +22,7 @@
             </div>
             <div class="dashboard-item">
                 <span>Order Pending</span>
-                <h3>3</h3>
+                <h3>{{pendingOrders}}</h3>
             </div>
         </div>
 
@@ -36,10 +36,10 @@
                     <div class="status-col"><h4>status</h4></div>
                     <div class="set-col"><h4>set</h4>
                     <div v-if="setOpen" class="set-status">
-                        <button>Complete</button>
-                        <button>Pending</button>
-                        <button>On Progress</button>
-                        <button>Reject</button>
+                        <button @click="changeStatus('Complete')">Complete</button>
+                        <button @click="changeStatus('Pending')">Pending</button>
+                        <button @click="changeStatus('On Progress')">On Progress</button>
+                        <button @click="changeStatus('Reject')">Reject</button>
                     </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="set-col flex column">
-                    <button @click="toggleSet"><span v-icon="'dots'"></span></button>
+                    <button @click="selectOrder(order)"><span v-icon="'dots'"></span></button>
                     
                 </div>
             </div>
@@ -84,26 +84,55 @@ export default {
     data(){
         return{
             setOpen:false,
+            selectedOrder:null,
         }
     },
     created(){
-        this.$store.dispatch({ type: 'loadOrders' }) 
+        this.loadOrders()
     },
     methods:{
+        loadOrders(){
+            return this.$store.dispatch({ type: 'loadOrders' })  
+        },
+        selectOrder(order){
+            console.log(order);
+            this.selectedOrder = {...order}
+            console.log(this.selectedOrder);
+            this.toggleSet()
+        },
         toggleSet(){
             this.setOpen=!this.setOpen
-        }
+        },
+        async changeStatus(status){
+            this.selectedOrder.status=status
+            console.log(this.selectedOrder);
+            this.toggleSet()
+           await this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder }) 
+            this.loadOrders()
+        },
     },
 computed: {
-    orders() {
-        const orders = this.$store.getters.orders
-          const filteredOrders = orders.filter(
-              (order) => order.seller._id === this.loggedUser._id)
-        return filteredOrders
-    },
     // orders() {
-    //     return this.$store.getters.orders
+    //     const orders = this.$store.getters.orders
+    //       const filteredOrders = orders.filter(
+    //           (order) => order.seller._id === this.loggedUser._id)
+    //     return filteredOrders
     // },
+    orders() {
+        return this.$store.getters.orders
+    },
+    annualIncome(){
+        
+    },
+    pendingOrders(){
+        var pending = 0
+        this.orders.forEach(order => {
+            if(order.status==="Pending"){pending++}
+        })
+        console.log(this.orders);
+        return pending
+
+    },
 },
 }
 </script>
