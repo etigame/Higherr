@@ -32,7 +32,6 @@
         </div>
 
 
-
     </section>
 </template>
 
@@ -43,9 +42,12 @@ import gigPreviewSeller from "../cmps/gig-preview-seller.vue"
 
 export default {
     name: 'seller-profile',
-    components: { gigPreviewSeller },
-    props: ["loggedUser"],
- 
+    components: { gigPreviewSeller }, 
+
+   async created(){
+        await this.$store.dispatch({ type: 'loadGigs' })
+        
+    },
     methods:{
         editGig(){
             this.$router.push({ name: 'gig-edit'})
@@ -58,7 +60,12 @@ export default {
                     'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg'], price: "$16.84", title: 'I will do hyper realistic pencil portrait by hand drawing'
             }
             return gig
-        }
+        }, 
+        gigsByUser(){
+            return this.$store.getters.gigsByUser
+        } 
+    
     }
-}
+    }
+
 </script>

@@ -1,4 +1,5 @@
 import { gigService } from '../services/gig-service'
+import { userStore } from '../store/user-store.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -35,6 +36,21 @@ export const gigStore = {
     // gigs({ gigs }) {
     //   return gigs
     // },
+
+    // gigsByUser({ gigs }, rootGetters) {
+    //   const user = rootGetters.loggedinUser
+
+    //   var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+    //   return filteredGigs
+    // },
+
+    gigsByUser({ gigs }) {
+      console.log(gigs)
+      const filteredGigs = gigs.filter(
+        (gig) => gig.owner._id === userStore.state.loggedinUser._id
+      )
+      return filteredGigs
+    },
 
     gigs({ gigs, filterBy }) {
       var filteredGigs = gigs
