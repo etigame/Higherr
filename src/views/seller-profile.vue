@@ -22,13 +22,12 @@
 
             <div class="gigs-list flex">
                 <gig-preview-seller :gig="dummyGig" />
-                <div class="add-gig  flex justify-center align-center">
+                <div @click="editGig" class="add-gig  flex justify-center align-center">
                     <div class= "flex column align-center">
                         <span class="add-gig-btn flex justify-center align-center">+</span>
                         <h2>Create a new Gig</h2>
                     </div>
-              
-            </div>
+                </div>
         </div>
         </div>
 
@@ -46,8 +45,11 @@ export default {
     name: 'seller-profile',
     components: { gigPreviewSeller },
     props: ["loggedUser"],
-    async created() {
-        await this.$store.dispatch({ type: 'loadUsers' })
+ 
+    methods:{
+        editGig(){
+            this.$router.push({ name: 'gig-edit'})
+        }
     },
     computed: {
         dummyGig() {

@@ -43,7 +43,7 @@
                     </section> -->
                 </section>
 
-                <section class="gig-reviews-snippet">
+                <section class="gig-reviews-snippet" v-if="gig.reviewers">
                     <section class="header flex align-center space-between">
                         <h2>What people loved about this seller</h2>
                         <p>See all reviews</p>

@@ -2,7 +2,7 @@
   <section v-if="reviews" class="review-list">
 
     <section v-if="(type === 'reviewSnippet')">
-      <review-preview :review="firstReview" :type="type" />
+      <review-preview :review="firstReview" :type="type"  />
     </section>
 
     <section v-if="(type === 'reviewLong')">
@@ -10,6 +10,8 @@
         <review-preview v-for="review in reviews" :review="review" :key="review._id" :type="type" />
       </ul>
     </section>
+
+   
 
   </section>
 </template>
@@ -25,7 +27,7 @@ export default {
   },
   data() {
     return {
-      firstReview: this.reviews[0]
+      firstReview: this.reviews[0] 
     }
   },
   components: {

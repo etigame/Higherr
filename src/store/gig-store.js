@@ -76,6 +76,7 @@ export const gigStore = {
     },
     addGig(state, { gig }) {
       state.gigs.push(gig)
+      console.log(state.gigs)
     },
     updateGig(state, { gig }) {
       const idx = state.gigs.findIndex((c) => c.id === gig._id)
