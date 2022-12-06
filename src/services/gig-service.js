@@ -124,6 +124,7 @@ function getEmptyGig() {
 // }
 function _createGigs() {
   let gigs = utilService.loadFromStorage(GIG_STORAGE_KEY)
+  console.log(gigs)
   if (!gigs || !gigs.length) {
     gigs = [
       {
