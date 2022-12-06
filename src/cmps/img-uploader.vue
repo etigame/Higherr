@@ -1,6 +1,6 @@
 <template>
   <div className="upload-preview">
-    <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '200px', float: 'right' }" />
+    <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '120px',maxHeight:'120px'}" />
     <label for="imgUpload">{{ uploadMsg }}</label>
     <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
   </div>
@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       imgUrl: null,
-      height: 500,
+      height: 250,
       width: 500,
       isUploading: false
     }

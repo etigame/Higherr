@@ -5,6 +5,7 @@ import { store } from './store/store.js'
 import appHome from './views/app-home.vue'
 import appExploreList from './views/app-explore-list.vue'
 import gigDetails from './views/gig-details.vue'
+import gigPayment from './views/gig-payment.vue'
 import gigEdit from './views/gig-edit.vue'
 import sellerProfile from './views/seller-profile.vue'
 import sellerOrders from './views/seller-orders.vue'
@@ -24,6 +25,11 @@ const routes = [
     path: '/gig/:_id',
     name: 'gig-details',
     component: gigDetails,
+  },
+  {
+    path: '/gig/payment/:_id?',
+    name: 'gig-payment',
+    component: gigPayment,
   },
   {
     path: '/gig/edit/:_id?',

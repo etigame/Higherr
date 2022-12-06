@@ -123,7 +123,7 @@ computed: {
     //     return filteredOrders
     // },
     orders() {
-        return this.$store.getters.orders
+        return this.$store.getters.sellerOrders
     },
     annualIncome(){
         var income = 0

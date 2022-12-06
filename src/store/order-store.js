@@ -6,11 +6,15 @@ export const orderStore = {
     orders: [],
   },
   getters: {
-    orders({ orders }) {
-      // console.log(userStore.state.loggedinUser._id)
-
+    sellerOrders({ orders }) {
       const filteredOrders = orders.filter(
         (order) => order.seller._id === userStore.state.loggedinUser._id
+      )
+      return filteredOrders
+    },
+    buyerOrders({ orders }) {
+      const filteredOrders = orders.filter(
+        (order) => order.buyer._id === userStore.state.loggedinUser._id
       )
       return filteredOrders
     },

@@ -164,7 +164,8 @@ export default {
                 "gig": {
                     "_id": this.gig._id,
                     "name": this.gig.title,
-                    "price": this.gig.price
+                    "price": this.gig.price,
+                    "img":this.gig.image[0]
                 },
                 "status": "Pending",
                 createdAt: new Date()
