@@ -19,7 +19,7 @@
         <!-- SELLER DETAILS LONG -->
         <section v-if="(type === 'sellerLong')" class="seller-preview-long flex">
             <div class="img-container">
-                <img :src="gig.imgUrl" alt="seller-img" />
+                <img :src="gig.owner.imgUrl" alt="seller-img" />
             </div>
 
             <section class="seller-details flex column">

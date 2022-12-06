@@ -28,8 +28,8 @@ export const gigService = {
   getById,
   save,
   remove,
-  getEmptyGig,
   addGigMsg,
+  getEmptyGig,
 }
 window.gigService = gigService
 
@@ -56,13 +56,13 @@ async function save(gig) {
   if (gig._id) {
     savedGig = await storageService.put(GIG_STORAGE_KEY, gig)
     // savedGig = await httpService.put(GIG_URL + gig._id, gig)
-    gigChannel.postMessage(getActionUpdateGig(savedGig))
+    // gigChannel.postMessage(getActionUpdateGig(savedGig))
   } else {
     // Later, owner is set by the backend
     gig.owner = userService.getLoggedinUser()
     savedGig = await storageService.post(GIG_STORAGE_KEY, gig)
     // savedGig = await httpService.post(GIG_URL, gig)
-    gigChannel.postMessage(getActionAddGig(savedGig))
+    // gigChannel.postMessage(getActionAddGig(savedGig))
   }
   return savedGig
 }
@@ -91,7 +91,14 @@ async function addGigMsg(gigId, txt) {
 // }
 
 function getEmptyGig() {
-  return {}
+  return {
+    // _id: utilService.makeId(),
+    title: '',
+    price: null,
+    daysToMake: 3,
+    description: '',
+    image: [],
+  }
 }
 
 // function _createGigs() {
@@ -117,7 +124,6 @@ function getEmptyGig() {
 // }
 function _createGigs() {
   let gigs = utilService.loadFromStorage(GIG_STORAGE_KEY)
-  console.log(gigs)
   if (!gigs || !gigs.length) {
     gigs = [
       {
@@ -860,6 +866,7 @@ function _createGigs() {
         ],
       },
     ]
+
     utilService.saveToStorage(GIG_STORAGE_KEY, gigs)
   }
   return gigs
