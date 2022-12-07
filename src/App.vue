@@ -30,6 +30,8 @@ import { utilService } from './services/util-service'
 export default {
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
+    this.$store.dispatch({ type: 'loadOrders' })
+ 
     const user = userService.getLoggedinUser()
     if (user) store.commit({ type: 'setLoggedinUser', user })
 

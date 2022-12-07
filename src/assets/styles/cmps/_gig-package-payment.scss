@@ -1,6 +1,29 @@
 
-.gig-package{
+.gig-package-payment{
+  max-width: 320px;
+    p {
+        font-size: rem(16px);
+        min-height: 45px;
+        margin-block-end: 10px;
+        line-height: 120%;
+        font-weight: 700;
+        
+      }
+      
+.package-container {
+  width: 35%;
+  background-color: #fff;
+  position: sticky;
+  align-self: flex-start;
+  top: 53px;
+  overflow-y: auto;
 
+  svg {
+    float: left;
+    height: 100%;
+    width: 100%;
+  }
+}
 
 // .gig-package {
   button {
@@ -18,7 +41,10 @@
     cursor: pointer;
   }
 // }
-
+.img-container{
+  max-width: 100px;
+  margin-inline-end: 10px;
+}
 .package-content {
   padding: em(32px, 16px) em(24px, 16px);
   border: 1px solid var(--yro5245);
@@ -50,10 +76,17 @@
     font-weight: 400;
     color: var(--yro524b);
   }
-
+  .pricing{
+    display: flex;
+    justify-content: space-between;
+    color: $clr3;
+  }
+    .total {
+      color: $clr11;
+    }
   .continue-btn {
-    background-color: $clr7;
-    color: #fff;
+    background-color: $clr4;
+    color: $CLR0;
 
     &:hover {
       background-color: var(--yro5218);
@@ -118,18 +151,4 @@
     }
   }
 }
-}
-.package-container {
-  width: 35%;
-  background-color: #fff;
-  position: sticky;
-  align-self: flex-start;
-  top: 53px;
-  overflow-y: auto;
-
-  svg {
-    float: left;
-    height: 100%;
-    width: 100%;
-  }
 }

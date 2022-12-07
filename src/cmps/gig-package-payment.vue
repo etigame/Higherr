@@ -1,13 +1,18 @@
 <template>
-    <section class="gig-package">
+    <section class="gig-package-payment">
         <section class="package-content">
             <section class="header flex space-between">
-                <h3 class="title">Order Details</h3>
-                <h3 class="price"> US${{ gig.price }} </h3>
+                <!-- <h3 class="title">Order Details</h3> -->
+                <div class="img-container">
+                <img :src="`${gig.image[0]}`"/>
+                </div>
+                <h3 class="title">{{gig.title}}</h3>
+                
             </section>
+            <h3 class="price"> US${{ gig.price }} </h3>
             <p>1 custom logo+high resolution file+3d mockup+logo transparency+ 300dpi</p>
 
-            <section class="additional-info flex">
+            <!-- <section class="additional-info flex">
                 <div class="delivery-wrapper flex">
                     <span v-icon="'clock'"></span>
                     <p> {{ gig.daysToMake }} </p>
@@ -16,7 +21,7 @@
                     <span v-icon="'revisions'"></span>
                     <p> Unlimited Revisions </p>
                 </div>
-            </section>
+            </section> -->
 
             <ul class="features clean-list">
                 <li><span v-icon="'greenV'"></span> 1 concept included</li>
@@ -27,16 +32,31 @@
                 <li><span v-icon="'grayV'"></span> Include source file</li>
                 <li><span v-icon="'grayV'"></span> Include social media kit</li>
             </ul>
-            <router-link :to="`/gig/payment/${gig._id}`">
-                <button class="continue-btn">Continue
-                    <span v-icon="'continueArrow'"></span>
-                </button>
-            </router-link>
+            <div class="pricing">
+            <p>Service Fee</p>
+            <p> US${{ serviceCalc(gig.price) }}</p>
+            </div>
+            <div class="pricing">
+            <p>VAT </p>
+            <p>US${{ vatCalc(gig.price) }}</p>
+            </div>
+            <div class="pricing total">
+            <p>You'll Pay </p>
+            <p>US${{ totalPrice(gig.price)}}</p>
+            </div>
+            <div class="pricing">
+            <p>Delivery</p>
+            <p>{{gig.daysToMake}}</p>
+            </div>
+
+            <button @click="addOrder" class="continue-btn">
+               Pay In US$
+            </button>
         </section>
 
-        <section class="contact-seller">
+        <!-- <section class="contact-seller">
             <button>Contact Seller</button>
-        </section>
+        </section> -->
 
         <!-- <section class="highly-responsive">
             <span v-icon="'highlyResponsive'" class="highly-responsive-icon"></span>
@@ -52,11 +72,20 @@ export default {
     props: {
         gig: Object
     },
-    methods: {
-        addOrder() {
+    methods:{
+        addOrder(){
             this.$emit('addOrder')
-        }
-    methods: {
+            this.$router.push('/')
         },
-    }
+        serviceCalc(price){
+            return price * 0.15.toFixed(2)
+        },
+        vatCalc(price){
+            return ((price - price / 1.17).toFixed(2))
+        },
+        totalPrice(price){
+            return (price*1.17 + price*0.15.toFixed(2))
+        },
+    },
+}
 </script>

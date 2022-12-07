@@ -1,4 +1,5 @@
 import { gigService } from '../services/gig-service'
+// import { userStore } from '../store/user-store.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -32,8 +33,19 @@ export const gigStore = {
     },
   },
   getters: {
-    // gigs({ gigs }) {
-    //   return gigs
+    gigsByUser({ gigs }, rootGetters) {
+      const user = rootGetters.loggedinUser
+
+      var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+      return filteredGigs
+    },
+
+    // gigsByUser({ gigs }) {
+    //   console.log(gigs)
+    //   const filteredGigs = gigs.filter(
+    //     (gig) => gig.owner._id === userStore.state.loggedinUser._id
+    //   )
+    //   return filteredGigs
     // },
 
     gigs({ gigs, filterBy }) {
@@ -76,6 +88,7 @@ export const gigStore = {
     },
     addGig(state, { gig }) {
       state.gigs.push(gig)
+      console.log(state.gigs)
     },
     updateGig(state, { gig }) {
       const idx = state.gigs.findIndex((c) => c.id === gig._id)
@@ -122,6 +135,7 @@ export const gigStore = {
     },
     async removeGig(context, { gigId }) {
       try {
+        console.log(gigId)
         await gigService.remove(gigId)
         context.commit(getActionRemoveGig(gigId))
       } catch (err) {

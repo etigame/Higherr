@@ -86,7 +86,7 @@
             </section>
 
             <section class="package-container">
-                <gig-package :gig="gig" @addOrder="addOrder" />
+                <gig-package :gig="gig" />
             </section>
             <chat-seller :gig="gig" />
         </section>
@@ -102,7 +102,7 @@ import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
 import chatSeller from '../cmps/chat.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
-import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
+// import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
 
 export default {
     name: 'gig-details',
@@ -155,22 +155,7 @@ export default {
 
     },
     methods: {
-        addOrder() {
-            const order =
-            {
-                "buyer": '',
-                "seller": this.gig.owner,
-                "gig": {
-                    "_id": this.gig._id,
-                    "name": this.gig.title,
-                    "price": this.gig.price
-                },
-                "status": "pending"
-            }
 
-            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
-            console.log(order)
-        },
     }
 
 }

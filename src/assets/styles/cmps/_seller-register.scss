@@ -1,0 +1,50 @@
+.seller-register {
+
+    form {
+        .field {
+            display: flex;
+            width: 100%;
+            padding-top: 35px;
+            padding-bottom: 96px;
+
+            label {
+                flex-basis: 50%;
+
+                h3 {
+                    margin-bottom: 10px;
+                    font-weight: 400;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                    color: #a8abb2;
+                }
+            }
+
+            .info-fill {
+
+                &.img-container {
+                    border-radius: 12em;
+                    overflow: hidden;
+
+                }
+
+                .el-input__wrapper {
+                    width: 500px;
+                    margin-inline-end: 15px;
+
+                }
+
+                .el-textarea__inner {
+                    width: 500px;
+                    height: 150px;
+
+                }
+            }
+
+
+
+
+        }
+    }
+}

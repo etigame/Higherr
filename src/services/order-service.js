@@ -4,34 +4,34 @@ import { userService } from './user-service'
 import { utilService } from './util-service'
 
 import { store } from '../store/store'
-import {
-  socketService,
-  SOCKET_EVENT_REVIEW_ADDED,
-  SOCKET_EVENT_REVIEW_ABOUT_YOU,
-} from './socket-service'
+// import {
+//   socketService,
+//   SOCKET_EVENT_REVIEW_ADDED,
+//   SOCKET_EVENT_REVIEW_ABOUT_YOU,
+// } from './socket-service'
 import { showSuccessMsg } from './event-bus-service.js'
 const ORDER_STORAGE_KEY = 'order'
 const orderChannel = new BroadcastChannel('orderChannel')
 
 _createOrders()
-;(() => {
-  //   orderChannel.addEventListener('message', (ev) => {
-  //     console.log('msg event', ev)
-  //     store.commit(ev.data)
-  //   })
-  setTimeout(() => {
-    socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
-      console.log('GOT from socket', order)
-      store.commit({ type: 'addOrder', order })
-    })
-    socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
-      showSuccessMsg(`New order about me ${order.txt}`)
-    })
-  }, 0)
-})()
+// ;(() => {
+//   //   orderChannel.addEventListener('message', (ev) => {
+//   //     console.log('msg event', ev)
+//   //     store.commit(ev.data)
+//   //   })
+//   setTimeout(() => {
+//     socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
+//       console.log('GOT from socket', order)
+//       store.commit({ type: 'addOrder', order })
+//     })
+//     socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
+//       showSuccessMsg(`New order about me ${order.txt}`)
+//     })
+//   }, 0)
+// })()
 
 export const orderService = {
-  add,
+  save,
   query,
   remove,
   //   save,
@@ -54,9 +54,8 @@ async function remove(orderId) {
   //   orderChannel.postMessage({type: 'removeOrder', orderId})
 }
 
-async function add(order) {
+async function save(order) {
   var savedOrder
-  console.log(order)
   if (order._id) {
     savedOrder = await storageService.put(ORDER_STORAGE_KEY, order)
     // savedOrder = await httpService.put(ORDER_URL + Order._id, Order)
