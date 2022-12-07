@@ -23,7 +23,7 @@
  data() {
    return {
      msg: '',
-     loginCred: { username: 'user1', password: '123' },
+     loginCred: { username: 'fred', password: '123' },
    }
  },
  computed: {
@@ -39,6 +39,7 @@
  },
  methods: {
    async doLogin() {
+    console.log('lala');
      if (!this.loginCred.username) {
        this.msg = 'Please enter username/password'
        return
