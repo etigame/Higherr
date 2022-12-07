@@ -11,7 +11,7 @@
         </div>
         <div class="search-container full">
             <h1>Find the perfect <span>freelance</span> services for your business</h1>
-            <hero-search @filter="titleFilter" />
+            <hero-search @filter="titleFilter"/>
             <div class="categories flex">
                 Popular:
                 <div class="tag" @click="tagFilter(tag)" v-for="tag in tags">{{ tag }}</div>
@@ -64,7 +64,7 @@ export default {
         },
         titleFilter(title) {
             this.filterBy.title = title
-
+            this.filter()
         },
         tagFilter(tag) {
             this.filterBy.subCategory = tag

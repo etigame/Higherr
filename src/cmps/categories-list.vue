@@ -16,7 +16,7 @@
             <div>
                 <h1>Popular Professional Services</h1>
                 <!-- <div class="cards flex space-between "> -->
-                    <vueper-slides class="no-shadow" :visible-slides="4" slide-multiple :slide-ratio="(1 / 5)" :gap="5">
+                    <vueper-slides class="no-shadow" :visible-slides="4" slide-multiple :slide-ratio="(1 / 5)" :gap="3">
                         <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt" :content="tag.txt" />
                     </vueper-slides>
                     <!-- <div class="card" v-for="tag in tags">
