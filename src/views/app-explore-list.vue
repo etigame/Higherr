@@ -1,8 +1,11 @@
 <template>
   <div class="app-explore-list">
     <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
+    <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
+    <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     <div class="advanced-filter">
       <div class="advanced-input">
+        <button class="clear-filter-btn">Clear Filter</button>
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
           size="large">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />

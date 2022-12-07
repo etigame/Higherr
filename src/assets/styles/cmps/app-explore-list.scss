@@ -51,6 +51,15 @@
                 max-width: em(100px);
             }
         }
+        
+        }
+        .clear-filter-btn {
+            width: 104px;
+            height: 40px;
+            border: 1px solid $clr2;
+            background-color:$CLR0 ;
+            margin-top: em(19px);
+            margin-inline-end: em(10px);
         }
         .budget-input,
         .category-input,
