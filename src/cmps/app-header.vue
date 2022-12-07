@@ -14,7 +14,7 @@
       <div class="nav-links flex align-center">
 
         <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
-        <button v-if="!loggedInUser" class="el-button is-text">Become a Seller</button>
+        <button v-if="!loggedInUser" class="el-button is-text" @click="registerSeller">Become a Seller</button>
         <button v-if="!loggedInUser" class="signin-btn" @click="login">Sign In</button>
         <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
 
@@ -108,6 +108,10 @@ export default {
     },
     register() {
       eventBus.emit('get-cmp', 'signup')
+    },
+    registerSeller() {
+      this.$router.push('/seller/register')
+
     },
     login() {
       eventBus.emit('get-cmp', 'login')

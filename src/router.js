@@ -9,6 +9,7 @@ import gigPayment from './views/gig-payment.vue'
 import gigEdit from './views/gig-edit.vue'
 import sellerProfile from './views/seller-profile.vue'
 import sellerOrders from './views/seller-orders.vue'
+import sellerRegister from './views/seller-register.vue'
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/gig/edit/:_id?',
     name: 'gig-edit',
     component: gigEdit,
+  },
+  {
+    path: '/seller/register',
+    name: 'seller-register',
+    component: sellerRegister,
   },
   {
     path: '/seller/profile',

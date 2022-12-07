@@ -2,20 +2,25 @@
     <section class="seller-profile flex space-between full">
 
         <div class="profile-container">
-            <div class="img-container">
-                <img :src="user.imgUrl" />
+            <div class="user-info">
+                <div class="img-container">
+                    <img :src="user.imgUrl" />
+                </div>
+
+                <span v-icon="'edit'"></span>
+                <div class="user-stats">
+                    <ul>
+                        <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb
+                                2021</span></li>
+                    </ul>
+                </div>
             </div>
 
-
-            <span v-icon="'edit'"></span>
-            <div class="user-stats">
-                <ul>
-                    <li class="flex space-between"><span><span v-icon="'location'"></span>From</span><span>Israel</span>
-                    </li>
-                    <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb
-                            2021</span></li>
-                </ul>
+            <div class="description-container">
+                <h3>Description</h3>
+                <p>{{ user.description }}</p>
             </div>
+
         </div>
 
         <div class="gigs-status">

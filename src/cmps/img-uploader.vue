@@ -4,7 +4,6 @@
     <label for="imgUpload">{{ uploadMsg }}</label>
     <label class="upload-container">
       <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
-      <span v-icon="'camera'"></span>
     </label>
   </div>
 </template>
@@ -18,7 +17,7 @@ export default {
       imgUrl: null,
       height: 250,
       width: 500,
-      isUploading: false,
+      isUploading: false
     }
   },
   methods: {

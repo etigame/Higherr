@@ -27,6 +27,7 @@ export const userService = {
   update,
   saveUser,
   getEmptyUser,
+  createEmptyUser,
 }
 
 window.userService = userService
@@ -106,7 +107,7 @@ function getLoggedinUser() {
 
 function getEmptyUser() {
   return {
-    fullName: '',
+    fullname: '',
     password: '',
     username: '',
     isAdmin: false,
@@ -127,6 +128,21 @@ function saveUser(user) {
 //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
+
+function createEmptyUser() {
+  const user = {
+    _id: utilService.makeId(),
+    fullname: '',
+    imgUrl: '',
+    username: '',
+    password: '',
+    reviews: [],
+    description: '',
+    languages: [],
+  }
+  return user
+}
+
 function _createUser() {
   let user = utilService.loadFromStorage(USER_STORAGE_KEY)
   if (!user || !user.length) {

@@ -1,71 +1,80 @@
-
-.seller-profile{
-padding-left:10%;
-padding-right:10%;
-padding-top: 47px;
-background-color: $CLR05;
-
+.seller-profile {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 47px;
+    background-color: $CLR05;
 
 
 
-.profile-container{
-    @include card(398px, 450px);
-    padding: 30px;
-    
-    .img-container {
-        width: 150px;
-        height: 150px;
-        border-radius: em(167px);
-        overflow: hidden;
-        margin-bottom: 15px;
+
+    .profile-container {
+
+        .user-info {
+            @include card(398px, 450px);
+            padding: 30px;
+
+
+            .img-container {
+                width: 150px;
+                height: 150px;
+                border-radius: em(167px);
+                overflow: hidden;
+                margin-bottom: 15px;
+            }
+
+
+            .user-stats {
+                border-top: 1px solid grey;
+                margin-top: 24px;
+            }
+
+
+            ul>li {
+                margin: 16px 0px;
+            }
         }
 
+        .description-container {
+            @include card(398px, 450px);
 
-    .user-stats{
-        border-top: 1px solid grey;
-        margin-top: 24px;
+
+        }
     }
 
-    ul>li{
-        margin: 16px 0px;
-    }
-    }
+
 }
 
 
 
-.gigs-status{
+.gigs-status {
     width: 736px;
     padding-inline-start: 20px;
 
-    .status-filter-bar{
+    .status-filter-bar {
         @include card(100%, 60px);
         margin-bottom: 40px;
-            list-style: none;
-            padding: 23px 25px;
-        }
+        list-style: none;
+        padding: 23px 25px;
+    }
 
-    .gigs-list{
+    .gigs-list {
         gap: 20px;
-        flex-wrap: wrap;    
-    
-    .add-gig{
-        @include card(230px, 262px);
-        
+        flex-wrap: wrap;
 
-        .add-gig-btn{
-            color: white;
-            width: 65px;
-            height: 65px;
-            background-color: rgb(120, 205, 210);
-            font-size:3rem;
-            border-radius: em(167px);
+        .add-gig {
+            @include card(230px, 262px);
+
+
+            .add-gig-btn {
+                color: white;
+                width: 65px;
+                height: 65px;
+                background-color: rgb(120, 205, 210);
+                font-size: 3rem;
+                border-radius: em(167px);
+            }
         }
     }
-}
 
 
 }
-
-
-
