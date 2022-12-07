@@ -51,9 +51,15 @@
   </section>
 
   <!-- ON SELLER PROFILE PAGE -->
-  <!-- <section v-if="currRoutePath === '/seller/profile'">
+  <section v-if="currRoutePath === '/seller/profile'">
     <section class="chat-seller flex column">
       <section class="chat-seller-header flex">
+        <div class="seller-info flex">
+          <div class="img-seller">
+            <img :src="gig.owner.imgUrl" alt="seller-img" />
+          </div>
+        </div>
+        <div @click="toggleChat"><span v-icon="'x'"></span></div>
       </section>
 
       <section class="msgs-area flex">
@@ -71,8 +77,8 @@
           <button class="flex send-btn"><span v-icon="'send'">Send Message</span></button>
         </form>
       </section>
-    </section> -->
-  <!-- </section> -->
+    </section>
+  </section>
 </template>
 
 <script>

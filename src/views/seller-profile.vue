@@ -10,8 +10,10 @@
                 <span v-icon="'edit'"></span>
                 <div class="user-stats">
                     <ul>
-                        <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb
-                                2021</span></li>
+                        <li class="flex space-between">
+                            <span v-icon="'member'"></span>
+                            Member Since Feb 2021
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,10 +23,15 @@
                 <p>{{ user.description }}</p>
             </div>
 
+            <button @click="toggleChat" class="chat-seller-btn">Messages</button>
         </div>
 
+        <section class="chat-modal" v-if="isChatOpen">
+            <chatVue :gig="randomGig" />
+        </section>
+
         <div class="gigs-status">
-            <ul class=" status-filter-bar flex align-center">
+            <ul class="status-filter-bar flex align-center">
                 <li>Active Gigs</li>
             </ul>
 
@@ -38,56 +45,50 @@
                 </div>
             </div>
         </div>
-
-
     </section>
 </template>
 
 <script>
-
 import gigPreviewSeller from "../cmps/gig-preview-seller.vue"
 import chatVue from '../cmps/chat.vue'
-
 
 export default {
     name: 'seller-profile',
     props: ['loggedUser'],
-    components: { gigPreviewSeller },
-
     components: {
         gigPreviewSeller,
         chatVue
     },
-    props: ["loggedUser"],
     data() {
         return {
-            isChatOpen: false
+            isChatOpen: false,
+            // randomGig: null
         }
     },
     async created() {
         await this.$store.dispatch({ type: 'loadGigs' })
-
     },
     methods: {
-
         removeGig(gigId) {
-
             this.$store.dispatch({ type: 'removeGig', gigId })
-
         },
         editGig() {
             this.$router.push("/gig/edit/")
+        },
+        toggleChat() {
+            this.isChatOpen = !this.isChatOpen
         }
     },
     computed: {
-
         gigsByUser() {
             return this.$store.getters.gigsByUser
+        },
+        randomGig() {
+            return this.gigsByUser[0]
         },
         user() {
             return this.$store.getters.loggedinUser
         }
-
     }
 }
 
