@@ -3,17 +3,24 @@
 
         <div class="profile-container">
             <div class="img-container">
-                <img src="https://randomuser.me/api/portraits/women/1.jpg"/> 
+                <img src="https://randomuser.me/api/portraits/women/1.jpg" />
             </div>
-            
+
             <span v-icon="'edit'"></span>
             <div class="user-stats">
                 <ul>
-                    <li class="flex space-between"><span><span v-icon="'location'"></span>From</span><span>Israel</span></li>
-                    <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb 2021</span></li>
+                    <li class="flex space-between"><span><span v-icon="'location'"></span>From</span><span>Israel</span>
+                    </li>
+                    <li class="flex space-between"><span><span v-icon="'member'"></span>Member Since</span><span>Feb
+                            2021</span></li>
                 </ul>
             </div>
+            <button @click="toggleChat" class="chat-seller-btn">Messages</button>
         </div>
+
+        <section class="chat-modal" v-if="isChatOpen">
+            <!-- <chatVue /> -->
+        </section>
 
         <div class="gigs-status">
             <ul class=" status-filter-bar flex align-center">
@@ -23,13 +30,13 @@
             <div class="gigs-list flex">
                 <gig-preview-seller :gig="dummyGig" />
                 <div class="add-gig  flex justify-center align-center">
-                    <div class= "flex column align-center">
+                    <div class="flex column align-center">
                         <span class="add-gig-btn flex justify-center align-center">+</span>
                         <h2>Create a new Gig</h2>
                     </div>
-              
+
+                </div>
             </div>
-        </div>
         </div>
 
 
@@ -40,14 +47,28 @@
 <script>
 
 import gigPreviewSeller from "../cmps/gig-preview-seller.vue"
+import chatVue from '../cmps/chat.vue'
 
 
 export default {
     name: 'seller-profile',
-    components: { gigPreviewSeller },
+    components: {
+        gigPreviewSeller,
+        chatVue
+    },
     props: ["loggedUser"],
+    data() {
+        return {
+            isChatOpen: false
+        }
+    },
     async created() {
         await this.$store.dispatch({ type: 'loadUsers' })
+    },
+    methods: {
+        toggleChat() {
+            this.isChatOpen = !this.isChatOpen
+        }
     },
     computed: {
         dummyGig() {

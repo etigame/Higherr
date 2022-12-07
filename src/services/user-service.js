@@ -45,9 +45,9 @@ async function getById(userId) {
   // const user = await httpService.get(USER_URL + userId)
   const user = await storageService.get(USER_STORAGE_KEY, userId)
 
-  socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
-  socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-  socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+  // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
+  // socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+  // socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
 
   return user
 }
@@ -71,7 +71,7 @@ async function login(userCred) {
   const user = users.find((user) => user.username === userCred.username)
   console.log(user, 'login')
   if (user) {
-    socketService.login(user._id)
+    // socketService.login(userCred)
     return saveLocalUser(user)
   }
 }
@@ -89,19 +89,21 @@ async function signup(userCred) {
 
 async function logout() {
   sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-  socketService.logout()
+  // socketService.logout()
   //   return await httpService.post('auth/logout')
 }
 
 function saveLocalUser(user) {
-  user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
-
-  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+  // user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
+  
+  utilService.saveToStorage('loggedInUser', user)
+  // sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user
 }
 
 function getLoggedinUser() {
-  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  // return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  return JSON.parse(localStorage.getItem('loggedInUser'))
 }
 
 function getEmptyUser() {

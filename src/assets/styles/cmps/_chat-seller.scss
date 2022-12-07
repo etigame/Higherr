@@ -30,13 +30,29 @@
 }
 }
   .text-explanation{
-    display: flex;
-    flex:1;
-    padding: em(20px) em(32px);
+    padding: em(20px, 16px) em(32px, 16px);
+    background-color: lightgreen;
   }
-  .msg-area{
+
+  .msgs-area{
     justify-content: space-between;
-    padding:0 em(20px) em(20px);
+    background-color: lightsalmon;
+    padding: em(20px, 16px) em(32px, 16px);
+    flex: 1;
+  }
+
+  .write-msg {
+    background-color: lightgray;
+    padding: em(20px, 16px) em(32px, 16px);
+    justify-content: space-between;
+    
+    input {
+      font-size: 1rem;
+      width: 90%;
+      padding: em(4px, 16px);
+    }
+
+
     .send-btn{
       color: rgba(128, 128, 128, 0.571);
       fill:rgba(128, 128, 128, 0.571);
@@ -46,6 +62,8 @@
     }
   }
 }
+
+
 .chat-seller-pill{
   cursor: pointer;
   z-index: 100;

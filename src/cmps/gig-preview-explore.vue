@@ -1,29 +1,31 @@
 <template>
     <section class="gig-preview-explore" v-if="gig">
-            <vueper-slides fade :touchable="false" >
-                <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
-                </vueper-slide>
-            </vueper-slides>
+        <vueper-slides fade :touchable="false">
+            <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
+            </vueper-slide>
+        </vueper-slides>
         <div class="seller-info-preview">
-        <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
-        <p>{{gig.owner.fullname}}</p>
+            <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
+            <p>{{ gig.owner.fullname }}</p>
         </div>
-            <div  class="preview-title">
-         <router-link :to="`/gig/${gig._id}`" >
-            <a>{{ gig.title }}</a>
+        <div class="preview-title">
+            <router-link :to="`/gig/${gig._id}`">
+                <a>{{ gig.title }}</a>
             </router-link>
-            </div>
-            <div class="content-info">
-                <span v-icon="'star'" class="preview-rate-icon"></span>
-                <span class="rate-preview">{{gig.owner.rate}}</span>
-                <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length}})</span>
-            </div>
+        </div>
+        <div class="content-info">
+            <span v-icon="'star'" class="preview-rate-icon"></span>
+            <span class="rate-preview">{{ gig.owner.rate }}</span>
+            <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length }})</span>
+        </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
-            <div class="preview-price-container flex"><p>starting at </p><span class="preview-price">{{gig.price}}</span></div>
+            <div class="preview-price-container flex">
+                <p>starting at </p><span class="preview-price">US${{ gig.price }}</span>
+            </div>
         </div>
 
-                            
+
     </section>
 </template>
 
@@ -32,11 +34,11 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 
 export default {
     name: 'gig-preview-explore',
-    props:{
-        gig:Object,
+    props: {
+        gig: Object,
     },
-    data(){
-        return{
+    data() {
+        return {
             slides: [
                 {
                     title: 'Slide #1',
@@ -50,8 +52,8 @@ export default {
         }
     },
     components: {
-    VueperSlides,
-    VueperSlide
+        VueperSlides,
+        VueperSlide
     },
 }
 </script>

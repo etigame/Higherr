@@ -1,9 +1,6 @@
 import { userService } from '../services/user-service'
-import {
-  socketService,
-  SOCKET_EMIT_USER_WATCH,
-  SOCKET_EVENT_USER_UPDATED,
-} from '../services/socket-service'
+import { socketService} from '../services/socket-service'
+import { utilService } from '../services/util-service'
 
 var localLoggedinUser = null
 
@@ -42,20 +39,30 @@ export const userStore = {
     },
   },
   actions: {
-    async login({ commit }, { userCred }) {
+    async login({ state, commit }, { userCred }) {
       try {
         const user = await userService.login(userCred)
         commit({ type: 'setLoggedinUser', user })
-        return user
+
+        const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
+        socketService.login(localLoggedInUser)
+
+        // socketService.login(state.loggedinUser)  - turn on when connect backend
+        // return user
       } catch (err) {
         console.log('userStore: Error in login', err)
         throw err
       }
     },
-    async signup({ commit }, { userCred }) {
+    async signup({ state, commit }, { userCred }) {
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setLoggedinUser', user })
+
+        const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
+        socketService.signup(localLoggedInUser)
+
+        // socketService.signup(state.loggedinUser)- turn on when connect backend
         console.log(user)
         return user
       } catch (err) {
@@ -67,6 +74,7 @@ export const userStore = {
       try {
         await userService.logout()
         commit({ type: 'setLoggedinUser', user: null })
+        socketService.logout()
       } catch (err) {
         console.log('userStore: Error in logout', err)
         throw err

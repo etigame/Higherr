@@ -1,5 +1,5 @@
 <template>
-     <popup-content/>
+  <popup-content />
   <section class="main-layout">
     <user-msg />
     <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
@@ -23,12 +23,17 @@ import categoriesList from './cmps/categories-list.vue'
 import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
 import popupContent from './cmps/UI/popup-content.vue'
+import { socketService } from './services/socket-service'
+import { eventBus, showSuccessMsg } from './services/event-bus-service'
+import { utilService } from './services/util-service'
 
 export default {
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
     const user = userService.getLoggedinUser()
     if (user) store.commit({ type: 'setLoggedinUser', user })
+
+    socketService.on('user-is-watching', showSuccessMsg)
   },
   data() {
     return {
@@ -43,16 +48,6 @@ export default {
       isHeaderSticky: false
     }
   },
-  // created() {
-  //   console.log(this.$route)
-  //   this.isHeaderSticky = this.$route.path === '/' ? true : false
-  // },
-  // computed: {
-  //   stam() {
-  //     this.isHeaderSticky = this.$route.path === '/' ? true : false
-  //     console.log(this.isHeaderSticky)
-  //   }
-  // },
   methods: {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })

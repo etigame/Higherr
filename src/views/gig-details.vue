@@ -43,7 +43,7 @@
                     </section> -->
                 </section>
 
-                <section class="gig-reviews-snippet">
+                <section class="gig-reviews-snippet" v-if="gig.reviewers">
                     <section class="header flex align-center space-between">
                         <h2>What people loved about this seller</h2>
                         <p>See all reviews</p>
@@ -132,14 +132,13 @@ export default {
             const gig = await gigService.getById(_id)
             this.gig = gig
 
-            socketService.setup()
-            socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig._id)
+            socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
         } catch (err) {
             console.error(err)
         }
     },
     unmounted() {
-        socketService.terminate()
+        // socketService.terminate()
     },
     computed: {
         sellerStats() {
