@@ -45,7 +45,7 @@
                 </div>
             <div class="table-entity flex" v-for="order in orders">
                 <div class="buyer-col flex user-col">
-                    <div class="user-img">
+                    <div class="user-img" >
                         <img :src="order.buyer.imgUrl">
                     </div>
                     <div class="username">
@@ -53,13 +53,13 @@
                     </div>
                 </div>
                 <div class="gig-col flex column">
-                    <span>{{order.gig.name}}</span>
+                    <span class="table-span">{{order.gig.name}}</span>
                 </div>
                 <div class="due-on-col flex column">
-                    <span>{{ new Date(order.createdAt).toLocaleString() }}</span>
+                    <span class="table-span">{{ new Date(order.createdAt).toLocaleString() }}</span>
                 </div>
                 <div class="total-col flex column">
-                    <span>US${{order.gig.price}}</span>
+                    <span class="table-span">US${{order.gig.price}}</span>
                 </div>
                 <div  @click="selectOrder(order)" class="status-col flex column">
                     <div class="status flex">
@@ -123,6 +123,7 @@ computed: {
     //     return filteredOrders
     // },
     orders() {
+        console.log(this.$store.getters.sellerOrders);
         return this.$store.getters.sellerOrders
     },
     annualIncome(){

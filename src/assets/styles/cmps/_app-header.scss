@@ -7,23 +7,42 @@
   border-bottom: 1px solid #e4e5e7;
   transition: background-color 0.5s ease;
   transition: border 0.5s ease;
-  
+
+  .app-header .el-button.is-text:active {
+      background-color: transparent !important;
+    }
+  .el-button.is-text:not(.is-disabled):active {
+      background-color: transparent !important;
+    }
   nav > * {
     color: #62646a;
   }
 
-  .el-button.is-text {
+  .btn.txt {
     color: #62646a;
     padding: 0 10px;
     margin-right: 15px;
     margin: 0px;
     font-size: 1rem;
     font-weight: 700;
-
+    background-color: inherit;
+    border:0;
     &:hover {
       background-color: inherit;
     }
   }
+  // .el-button.is-text {
+  //   color: #62646a;
+  //   padding: 0 10px;
+  //   margin-right: 15px;
+  //   margin: 0px;
+  //   font-size: 1rem;
+  //   font-weight: 700;
+
+  //   &:hover {
+  //     background-color: inherit;
+  //   }
+  // }
 
   a {
     text-decoration: none;
@@ -62,11 +81,11 @@
     // flex-basis: 10%;
     margin-inline-start: 32px;
 
-    > * {
+    > button,a{
       color: #62646a;
       padding: 0 10px;
 
-      &:hover {
+      &:hover{
         color: $clr1;
       }
     }
@@ -98,17 +117,7 @@
       }
     }
 
-    // .user-img {
-    //   border-radius: 50%;
-    //   max-height: 32px;
-    //   max-width: 32px;
 
-    //   img {
-    //     height: 100%;
-    //     width: 100px;
-    //     object-fit: cover;
-    //   }
-    // }
   }
 
   // HEADER TRANSPARENT
@@ -121,9 +130,12 @@
       color: #fff;
     }
 
-    .el-button.is-text {
+    .btn.txt {
       color: white;
     }
+    // .el-button.is-text {
+    //   color: white;
+    // }
 
     .nav-links {
       > * {
@@ -134,10 +146,11 @@
         border: 1px solid #fff;
         color: #fff;
 
-        &:hover {
+        &:hover:not(.order-modal) {
           border: 1px solid $clr1;
           background: $clr1;
           color: #fff;
+          
         }
       }
     }
@@ -153,11 +166,12 @@
     box-shadow: 0px 5px 9px 0;
   }
   .user-modal{
+    cursor: pointer;
     flex-direction: column;
     height: 200px;
     width: 180px;
     right: 0px;
-    transform: translate(-50%, 5%);
+    transform: translate(-20%, 2%);
     >*{
       margin-top:10px;
       color:$clr3;
@@ -197,5 +211,13 @@
         }
       }
     }
-
+        .user-img {
+          cursor: pointer;
+          height: 32px;
+          width: 32px;
+          margin-inline-start: 8px;
+          img {
+            border-radius: 50%;
+          }
+        }
 }
