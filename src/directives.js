@@ -34,5 +34,4 @@ const clickOutsideDirective = {
   },
 }
 
-// export { icon, clickOutsideDirective }
-export { icon}
+export { icon, clickOutsideDirective }
