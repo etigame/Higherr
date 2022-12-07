@@ -1,4 +1,5 @@
 .gig-payment{
+
   margin: $layoutPaddingWide;
 
 
@@ -6,7 +7,19 @@
   // margin-block-start: 32px;
 
 }
-
+.credit-selection{
+  background-color:white;
+  height: 50px;
+  // margin: 0 -$layoutPaddingWide;
+}
+.visa{
+  max-width: 50px;
+  max-height: 20px;
+  svg{
+    width: 100%;
+    height: 100%;
+  }
+}
 .payment-details-container {
   border: 1px solid $clr9;
   border-radius: em(3px, 16px);

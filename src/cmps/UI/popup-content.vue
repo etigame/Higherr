@@ -16,14 +16,6 @@ import login from "../login.vue"
 
 
 export default {
-  name: 'popup-content',
-  components: { loginSignup },
-  data() {
-    return {
-      currComponent: null
-    }
-  },
-  created() {
     name: 'popup-content',
       components: { signup, login },
     data() {
@@ -45,17 +37,9 @@ export default {
       unmounted() {
         this.unsubscribe()
       },
-    }
-
-  },
-  closeContent() {
-    this.currComponent = null
-  },
-  unmounted() {
-    this.unsubscribe()
-  },
+    },
 }
 
-}
+
 
 </script>

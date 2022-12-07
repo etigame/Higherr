@@ -53,10 +53,8 @@ export default {
         gig: Object
     },
     methods: {
-        addOrder() {
-            this.$emit('addOrder')
-        }
-    methods: {
-        },
+
+
+    },
     }
 </script>
