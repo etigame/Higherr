@@ -132,7 +132,6 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      console.log(filterBy)
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },

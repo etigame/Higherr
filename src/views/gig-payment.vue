@@ -1,36 +1,44 @@
 <template>
-    <section v-if="gig" class="gig-details">
-        <section class="details-container flex">
+    <section v-if="gig" class="gig-payment">
+        <section class="payment-container flex">
             <section id="overview" class="main">
-                <p class="bread-crumbs">
-                    Graphics & Design
-                    <span v-icon="'breadCrumbsArrow'"></span>
-                    Logo Design
-                </p>
-
-                    <section class="seller-details-container">
-                        <section class="seller-stat">
-                            <ul class="grid clean-list">
-                                <li class="flex column" v-for="{ key, value } in sellerStats" :key="key">
-                                    <span class="key">{{ key }}</span>
-                                    <span class="value">{{ value }}</span>
-                                </li>
-                            </ul>
-                        </section>
-
-                        <section class="seller-desc">
-                            <p>{{ gig.about }}</p>
-                        </section>
+                    <section class="payment-details-container">
+                        <h2>Payment Option</h2>
+                    <section class="payment-option">
+                        <div class="card-info flex">
+                            <div>
+                            <p>Card Number</p>
+                        <input class="card-num" type="text" value="4580 5926 2262 7546"/>
+                        </div>
+                        <div class="shorts-input">
+                            <div>
+                            <p>Expiration Date</p>
+                        <input class="short" type="text" value="12 / 26"/>
+                        </div>
+                        <div>
+                            <p>Security Code</p>
+                        <input class="short" type="text"  value="226"/>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="name-inputs flex">
+                            <div>
+                                <p>First Name</p>
+                                <input class="name-input" type="text"/>
+                                </div>
+                            <div>
+                                <p>Last Name</p>
+                                <input class="name-input" type="text"/>
+                            </div>
+                        </div>
+                    </section>
+ 
                     </section> 
-                
-
-
             </section>
-
             <section class="package-container">
                 <gig-package-payment :gig="gig" @addOrder="addOrder" />
             </section>
-            <!-- <chat-seller :gig="gig" /> -->
+
         </section>
     </section>
 </template>

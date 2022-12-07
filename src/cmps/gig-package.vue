@@ -27,10 +27,11 @@
                 <li><span v-icon="'grayV'"></span> Include source file</li>
                 <li><span v-icon="'grayV'"></span> Include social media kit</li>
             </ul>
-
-            <button @click="addOrder" class="continue-btn">Continue
+            <router-link :to="`/gig/payment/${gig._id}`">
+            <button class="continue-btn">Continue
                 <span v-icon="'continueArrow'"></span>
             </button>
+            </router-link>
         </section>
 
         <section class="contact-seller">
@@ -52,9 +53,6 @@ export default {
         gig: Object
     },
     methods:{
-        addOrder(){
-            this.$emit('addOrder')
-        }
     },
 }
 </script>

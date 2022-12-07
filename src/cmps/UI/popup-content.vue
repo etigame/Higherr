@@ -6,7 +6,6 @@
       <!-- <button @click="closeContent">Cancel</button> -->
     </section>
   </section>
-  </section>
 </template>
 
 <script>

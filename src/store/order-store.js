@@ -42,7 +42,6 @@ export const orderStore = {
   actions: {
     async saveOrder(context, { order }) {
       try {
-        console.log(order)
         order = await orderService.save(order)
         context.commit({ type: 'saveOrder', order })
         return order
@@ -52,7 +51,6 @@ export const orderStore = {
       }
     },
     async loadOrders(context) {
-      console.log(context)
       try {
         const orders = await orderService.query()
         context.commit({ type: 'setOrders', orders })

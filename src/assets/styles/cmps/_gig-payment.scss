@@ -1,0 +1,59 @@
+.gig-payment{
+  margin: $layoutPaddingWide;
+
+
+.payment-container {
+  // margin-block-start: 32px;
+
+}
+
+.payment-details-container {
+  border: 1px solid $clr9;
+  border-radius: em(3px, 16px);
+  padding: em(24px, 16px);
+  margin-block-end: 64px;
+  background-color: #fafafa ;
+  color: $clr5;
+
+.payment-option{
+      input {
+          height: 40px;
+          border-radius: 3px;
+          border:1px solid $clr5;
+          padding-inline-start: 15px;
+          font-size: 18px;
+          color:$clr3;
+        }
+        p {
+          font-size: 14px;
+          margin-bottom: 15px;
+          font-weight: 700;
+        }
+  .card-info{
+    margin-top: 30px;
+    height: 110px;
+    flex-wrap: wrap;
+
+    .card-num{
+      margin-inline-end: 50px;
+      width: 240px;
+    }
+    .shorts-input{
+      display: flex;
+    .short{
+      max-width: 110px;
+      margin-inline-end: 20px;
+    }
+  }
+  }
+
+  .name-inputs{
+    .name-input{
+      margin-inline-end: 50px;
+        width: 240px;
+    }
+  }
+}
+}
+
+}
