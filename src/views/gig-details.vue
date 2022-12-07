@@ -86,7 +86,7 @@
             </section>
 
             <section class="package-container">
-                <gig-package :gig="gig" @addOrder="addOrder" />
+                <gig-package :gig="gig" />
             </section>
             <chat-seller :gig="gig" />
         </section>
@@ -156,24 +156,7 @@ export default {
 
     },
     methods: {
-        addOrder() {
-            const order =
-            {
-                "buyer": '',
-                "seller": this.gig.owner,
-                "gig": {
-                    "_id": this.gig._id,
-                    "name": this.gig.title,
-                    "price": this.gig.price,
-                    "img":this.gig.image[0]
-                },
-                "status": "Pending",
-                createdAt: new Date()
-            }
 
-            this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
-            console.log(order)
-        },
     }
 
 }

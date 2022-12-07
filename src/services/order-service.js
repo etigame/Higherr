@@ -56,7 +56,6 @@ async function remove(orderId) {
 
 async function save(order) {
   var savedOrder
-  console.log(order)
   if (order._id) {
     savedOrder = await storageService.put(ORDER_STORAGE_KEY, order)
     // savedOrder = await httpService.put(ORDER_URL + Order._id, Order)
