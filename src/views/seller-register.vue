@@ -1,5 +1,6 @@
 <template>
-    <section v-if="userToEdit" class="seller-register">
+    <section v-if="userToEdit" class="seller-register main-layout full">
+
         <h1>Register as Seller</h1>
 
         <form>
@@ -22,6 +23,17 @@
                 </div>
             </div>
 
+            <div class="field">
+                <label>
+                    <h3>Password</h3>
+                    <p>4 characters or more</p>
+                </label>
+                <div class="info-fill flex">
+                    <el-input v-model="userToEdit.password" placeholder="enter password" />
+                </div>
+            </div>
+
+
             <div class="field ">
                 <label>
                     <h3>Profile Picture</h3>
@@ -31,8 +43,6 @@
                     <img-profile-uploader @uploaded="getImage"></img-profile-uploader>
                 </div>
             </div>
-
-
             <div class="field">
                 <label>
                     <h3>Description</h3>
@@ -42,6 +52,17 @@
                         placeholder="Share a bit about your work experience, cool projects you’ve completed, and your area of expertise." />
                 </div>
             </div>
+
+            <div class="field">
+                <label>
+                    <h3>Country</h3>
+                    <p>4 characters or more</p>
+                </label>
+                <div class="info-fill flex">
+                    <el-input v-model="userToEdit.country" placeholder="where are you from?" />
+                </div>
+            </div>
+
 
             <div class="field">
                 <label>
@@ -61,7 +82,6 @@
         </form>
 
         <button @click="saveUser">Sign up</button>
-
 
     </section>
 </template>
@@ -113,9 +133,10 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
+            this.$router.push('/seller/profile')
             console.log(this.userToEdit)
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
-            this.$router.push('/seller/profile')
+
         },
     }
 

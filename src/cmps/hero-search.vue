@@ -1,28 +1,28 @@
 <template>
-    <div class="hero-search flex">
-      <input v-model="title" size="large" />
-      <!-- <el-input v-model="title" size="large" /> -->
-      <el-button @click="filter"  size="large">Search</el-button>
-    </div>
-  </template>
+  <div class="hero-search flex">
+    <input v-model="title" />
+    <!-- <el-input v-model="title" size="large" /> -->
+    <el-button @click="filter">Search</el-button>
+  </div>
+</template>
   
-  <script>
+<script>
 
-  export default {
-    name: 'hero-search',
-    data() {
-      return {
-          title: '', 
+export default {
+  name: 'hero-search',
+  data() {
+    return {
+      title: '',
     }
   },
-  
+
   methods: {
     filter() {
       this.$emit('filter', this.title)
     },
 
-},
-  }
-  
-  </script>
+  },
+}
+
+</script>
   

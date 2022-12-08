@@ -19,7 +19,7 @@
         <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
 
         <button v-if="loggedInUser" class="btn txt" @click="toggleOrdersModal">Orders</button>
-        <div v-if="orderOpen" class="order-modal">
+        <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
 
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
 
@@ -47,7 +47,7 @@
           <img :src="loggedInUser.imgUrl">
           <!-- {{ loggedInUser.fullname }} -->
 
-          <div v-if="modalOpen" class="user-modal flex">
+          <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
             <router-link to="/seller/profile"><a>Profile</a></router-link>
             <router-link to="/seller/orders"><a>Dashboard</a></router-link>
             <a @click="doLogout">Logout</a>
@@ -125,6 +125,7 @@ export default {
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
       this.toggleUserModal()
+      this.$router.push('/')
     },
 
 

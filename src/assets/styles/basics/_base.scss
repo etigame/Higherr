@@ -7,20 +7,29 @@
 body {
   height: 100%;
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Macan;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Macan;
+}
+
+span,
+div,
+a,
+p {
+  font-family: Macan;
 }
 
 h1 {
   font-size: 2rem;
 }
+
 // ::selection {
 //     background-color: $clr1;
 //     color: $clr6;
