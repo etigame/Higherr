@@ -35,10 +35,10 @@ export default {
         }
     },
     methods: {
-        () {
+        updateUser() {
 
 
-}
+        }
     }
 
 }
