@@ -29,7 +29,7 @@
             <p>Use the search box to find the digital service you need</p>
           </div>
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
-            
+
             <div class="img-container">
               <router-link :to="`/gig/${order.gig._id}`">
                 <img :src="order.gig.img">
@@ -44,11 +44,10 @@
                 <span class="status">{{ order.status }}</span>
               </div>
             </div>
-            
-            </div>
+
           </div>
-         
-        <button v-if="loggedInUser" class="btn txt">Switch To Selling</button>
+        </div>
+
 
         <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
           <img :src="loggedInUser.imgUrl">
