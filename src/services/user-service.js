@@ -143,6 +143,7 @@ function createEmptyUser() {
     password: '',
     reviews: [],
     description: '',
+    country: '',
     languages: [],
   }
   return user
