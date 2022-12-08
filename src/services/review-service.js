@@ -47,7 +47,7 @@ async function remove(reviewId) {
 }
 
 async function add(review) {
-  review.byUser = userService.getLoggedinUser()
+  review.byUser = userService.getLoggedInUser()
   review.aboutUser = await userService.getById(review.aboutUserId)
   // const addedReview = await httpService.post(`review`, review)
   const addedReview = await storageService.post('review', review)

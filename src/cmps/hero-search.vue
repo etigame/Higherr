@@ -1,8 +1,13 @@
 <template>
   <div class="hero-search flex">
-    <input v-model="title" />
+    <div class="flex input-container">
+      <div class="search-icon">
+      <span v-icon="'searchGrey'"></span>
+      </div>
+    <input v-model="title" size="large" placeholder="Try 'Logo Design'">
+    </div>
     <!-- <el-input v-model="title" size="large" /> -->
-    <el-button @click="filter">Search</el-button>
+    <el-button @click="filter"  size="large">Search</el-button>
   </div>
 </template>
   

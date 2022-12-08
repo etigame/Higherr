@@ -9,7 +9,7 @@
                 <img v-else-if="(idx === 5)" :src="getImageUrl">
             </Transition>
         </div>
-        <div class="search-container full">
+        <div class="search-container full flex">
             <h1>Find the perfect <span>freelance</span> services for your business</h1>
             <hero-search @filter="titleFilter"/>
             <div class="categories flex">

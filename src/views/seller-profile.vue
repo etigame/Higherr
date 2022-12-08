@@ -83,13 +83,14 @@ export default {
     },
     async created() {
         await this.$store.dispatch({ type: 'loadGigs' })
+        // console.log(this.loggedUser)
     },
     methods: {
         removeGig(gigId) {
             this.$store.dispatch({ type: 'removeGig', gigId })
         },
         editGig() {
-            this.$router.push("/gig/edit/")
+            this.$router.push({ name: 'gig-edit', query: { ...this.loggedUser } })
         },
         toggleChat() {
             this.isChatOpen = !this.isChatOpen
