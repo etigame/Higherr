@@ -69,7 +69,7 @@ export default {
     components: { imgUploader },
     created() {
         const owner = this.$route.query
-        console.log(this.$route.query)
+        // console.log(this.$route.query)
         const { _id } = this.$route.params
         if (_id) {
 

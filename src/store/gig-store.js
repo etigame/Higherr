@@ -35,6 +35,7 @@ export const gigStore = {
   getters: {
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
+      console.log(user);
 
       var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
       return filteredGigs

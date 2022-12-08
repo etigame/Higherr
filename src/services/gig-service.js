@@ -101,6 +101,7 @@ function getEmptyGig(owner) {
     daysToMake: 3,
     description: '',
     image: [],
+    
   }
 }
 
