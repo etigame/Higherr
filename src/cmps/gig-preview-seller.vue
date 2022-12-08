@@ -20,9 +20,9 @@
         </div>
 
         <div v-else class="user-modal flex column" v-clickOutside="toggleGigModal">
-            <router-link :to="`/gig/edit/${gig._id}`"><button class="el-button is-text">Edit</button></router-link>
-            <button class="el-button is-text" @click="removeGig">Remove</button>
-            <router-link :to="`/gig/${gig._id}`"><button class="el-button is-text">Preview</button></router-link>
+            <router-link :to="`/gig/edit/${gig._id}`"><button>Edit</button></router-link>
+            <button @click="removeGig">Remove</button>
+            <router-link :to="`/gig/${gig._id}`"><button>Preview</button></router-link>
         </div>
 
     </section>

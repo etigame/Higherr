@@ -33,7 +33,10 @@
     src: url('src/assets/fonts/macan/macan-bold.ttf');
 }
 
-
+@font-face {
+    font-family: Macan-Light;
+    src: url('src/assets/fonts/macan/macan-light.ttf');
+}
 
 :fonts {
     --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;

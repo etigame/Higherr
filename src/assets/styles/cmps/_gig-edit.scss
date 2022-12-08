@@ -3,75 +3,82 @@
 
 
     form {
-        @include card(772px, 800px);
+        @include card(772px, fit-content);
+
+
 
         background: white;
         padding: 30px;
         margin: 30px auto;
 
 
+        input,
+        textarea {
+
+            border: 1px solid var(--yro5245);
+        }
+
+        select {
+            border: 1px solid var(--yro5245);
+        }
+
+        .top-form {
+            margin-bottom: 50px;
+        }
+
+
+
+        input {
+            height: 40px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+        }
+
         label {
             display: flex;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        span {
+            width: 200px;
+            flex-shrink: 0;
+            font-weight: 600;
+            padding: 10px;
+
+            p {
+                margin-top: 10px;
+                font-size: 0.9rem;
+                color: #a8abb2;
+
+            }
+
+
+
+        }
+
+
+
+        .bottom-form {
 
             span {
-                width: 200px;
-                flex-shrink: 0;
-                font-weight: 600;
-                padding-inline-end: 15px;
-
-                p {
-                    margin-top: 10px;
-                    font-weight: 400;
-                }
+                height: 100px;
             }
 
-            input,
-            textarea {
-                width: 100%;
-                border: 1px solid var(--yro5245);
-            }
-
-            textarea {
-                height: 64px;
-                padding: 10px;
-            }
-
-
-
-            select {
-                height: 34px;
-                padding: 12px;
-                border: 1px solid var(--yro5245);
-
-            }
-        }
-
-        .title {
+            select,
             input {
-                height: 64px;
-                width: 100%;
-                padding: 9px 16px;
+                height: 30px
             }
         }
 
-        .description {
-            textarea {
-                height: 200px;
-            }
-        }
-
-        .days-to-make select {
-            width: 30%;
-        }
-
-        .price {
-            input {
-                height: 30px;
-                width: 50px;
-                padding: 10px;
-            }
-        }
     }
+
 
     .btns {
 
@@ -82,11 +89,8 @@
             width: 85px;
             height: 45px;
 
-
-
-
-
-
         }
     }
+
+
 }
