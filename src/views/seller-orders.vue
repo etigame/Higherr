@@ -1,27 +1,70 @@
 <template>
+    <section class="dashboard flex">
+    <section class="profile-progress">
+        <div class="profile flex">
+            <div class="img-container">
+                <img :src="loggedUser.imgUrl">
+            </div>
+            <div class="user-desc flex">
+                <div class="profile-item">
+                    <p class="light">Positive Rating</p>
+                    <p class="bold" >100%</p>
+                </div>
+                <div class="profile-item">
+                    <p class="light">Response Time</p>
+                    <p class="bold">1 Hrs.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="progress">
+            <article class="progress-item">
+            <div class="progress-txt flex">
+            <p>Response Rate</p>
+            <p>{{ responseRate }}%</p>
+            </div>
+            <el-progress :percentage="responseRate" color="#1dbf73" />
+            </article>
+            <article class="progress-item">
+            <div class="progress-txt flex">
+                <p>Orders Completed</p>
+                <p>{{ completedOrderPrecent }}%</p>
+            </div> 
+            <el-progress :percentage="completedOrderPrecent" color="#1dbf73" />
+            </article>
+            <article class="progress-item">
+            <div class="progress-txt flex">
+                <p>Delivered on Time</p>
+                <p>{{ deliveredOnTime }}%</p>
+            </div>
+            <el-progress :percentage="deliveredOnTime" color="#1dbf73" />
+            </article>
+        </div>
+
+    </section>
     <section  class="seller-orders flex">
         <!-- <div class="headline"> -->
-        <h1  class="headline">Earnings</h1>
+        <!-- <h1  class="headline">Earnings</h1> -->
         <!-- </div> -->
         <div class="income-order-dashboard flex">
             <div class="dashboard-item">
-                <span>This Year income</span>
+                <span>Annual Revenue</span>
                 <h3>${{annualIncome}}</h3>
             </div>
             <div class="dashboard-item">
-                <span>This Month Income</span>
+                <span>Monthly Revenue</span>
                 <h3>${{monthIncome}}</h3>
             </div>
             <div class="dashboard-item">
-                <span>This Year Orders Completed</span>
+                <span>Annual Completed Orders </span>
                 <h3>{{ annualOrdersComplete }}</h3>
             </div>
             <div class="dashboard-item">
-                <span>This Month Orders Complete</span>
+                <span>Monthly Completed Orders </span>
                 <h3>{{monthOrdersComplete}}</h3>
             </div>
             <div class="dashboard-item">
-                <span>Order Pending</span>
+                <span>Pending Orders </span>
                 <h3>{{pendingOrders}}</h3>
             </div>
         </div>
@@ -31,13 +74,12 @@
                 <div class="table-head flex">
                     <div class="buyer-col"><h4>Buyer</h4></div>
                     <div class="gig-col"><h4>Gig</h4></div>
-                    <div class="due-on-col"><h4>Due On</h4></div>
+                    <div class="due-on-col"><h4>Order Date</h4></div>
                     <div class="total-col"><h4>Total</h4></div>
-                    <div class="status-col"><h4>status</h4>
+                    <div class="status-col"><h4>Status</h4>
                         <div v-if="setOpen" class="set-status">
-                            <button @click="changeStatus('Complete')">Complete</button>
-                            <button @click="changeStatus('Pending')">Pending</button>
-                            <button @click="changeStatus('On Progress')">On Progress</button>
+                            <button @click="changeStatus('Completed')">Completed</button>
+                            <button @click="changeStatus('In Progress')">In Progress</button>
                             <button @click="changeStatus('Reject')">Reject</button>
                         </div>
                     </div>
@@ -45,15 +87,13 @@
                 </div>
             <div class="table-entity flex" v-for="order in orders">
                 <div class="buyer-col flex user-col">
-                    <div class="user-img" >
                         <img :src="order.buyer.imgUrl">
-                    </div>
-                    <div class="username">
-                    <p>{{order.buyer.fullname}}</p>
-                    </div>
+
+                    <span>{{order.buyer.fullname}}</span>
+
                 </div>
                 <div class="gig-col flex column">
-                    <span class="table-span">{{order.gig.name}}</span>
+                    <span class="table-span light">{{order.gig.name}}</span>
                 </div>
                 <div class="due-on-col flex column">
                     <span class="table-span">{{ new Date(order.createdAt).toLocaleString() }}</span>
@@ -63,7 +103,7 @@
                 </div>
                 <div  @click="selectOrder(order)" class="status-col flex column">
                     <div class="status flex">
-                        <span>{{order.status}}</span>
+                        <span class="light">{{order.status}}</span>
                     </div>
                 </div>
                 <!-- <div class="set-col flex column">
@@ -75,6 +115,7 @@
 
         
     </section>
+    </section>
 </template>
 
 <script>
@@ -85,6 +126,8 @@ export default {
         return{
             setOpen:false,
             selectedOrder:null,
+            deliveredOnTime:95,
+            responseRate:95,
         }
     },
     created(){
@@ -130,7 +173,7 @@ computed: {
         var income = 0
         var yearTime = 1000 * 60 * 60 * 24 * 365
         this.orders.forEach(order => {
-            if (order.status === "Complete") { income += order.gig.price }
+            if (order.status === "Completed") { income += order.gig.price }
         })
         return income
 
@@ -147,7 +190,7 @@ computed: {
         // })
         // return income
         this.orders.forEach(order => {
-            if (order.status === "Complete") { income += order.gig.price }
+            if (order.status === "Completed") { income += order.gig.price }
         })
         return income
       
@@ -169,7 +212,7 @@ computed: {
         // return complete
 
         this.orders.forEach(order => {
-            if(order.status==="Complete"){complete++}
+            if(order.status==="Completed"){complete++}
         })
         return complete
     },
@@ -185,7 +228,13 @@ computed: {
             if (order.status === "Complete") { complete++ }
         })
         return complete
+
     },
+    completedOrderPrecent(){
+        console.log(this.loggedUser);
+        return (this.annualOrdersComplete/ this.orders.length)*100
+
+    }
 },
 }
 </script>

@@ -234,11 +234,11 @@
         font-size: 12px;
       }
 
-      // padding: 8px 0;
-      // border-bottom: $clr3 solid 1px;
-      // &:hover{
-      //   // border-bottom: $clr1 solid 3px;
-      // }
+      padding:0 0 10px 0;
+      border-bottom: $clr9 solid 1px;
+      &:hover{
+        border-bottom: $clr1 solid 1px;
+      }
     }
 
     // .gig-desc{
@@ -253,7 +253,7 @@
     .img-container {
       width: 70px;
       height: 54px;
-      margin-inline-end: 10px;
+
 
       img {
         margin: 10px 0;
