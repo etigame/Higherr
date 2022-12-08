@@ -10,7 +10,7 @@
             <section class="additional-info flex">
                 <div class="delivery-wrapper flex">
                     <span v-icon="'clock'"></span>
-                    <p> {{ gig.daysToMake }} </p>
+                    <p> {{ gig.daysToMake }} Days Delivery</p>
                 </div>
                 <div class="revisions-wrapper flex">
                     <span v-icon="'revisions'"></span>
@@ -56,5 +56,5 @@ export default {
 
 
     },
-    }
+}
 </script>

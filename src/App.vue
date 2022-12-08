@@ -35,7 +35,9 @@ export default {
     const user = userService.getLoggedInUser()
     if (user) store.commit({ type: 'setLoggedInUser', user })
 
-    socketService.on('user-is-watching', showSuccessMsg)
+    socketService.on('user-is-watching', (msg) => {
+      showSuccessMsg(msg)
+    })
   },
   data() {
     return {

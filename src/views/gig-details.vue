@@ -37,14 +37,14 @@
                             </vueper-slide>
                         </vueper-slides>
                         <div class="img-slider">
-                        <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
+                            <!-- <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                              :visible-slides="gig.image.length"
                             fixed-height="75px" :bullets="false" :touchable="false" :gap="0" :arrows="true" :gig="gig" >
                             <vueper-slide v-for="image in gig.image" :key="1" :image="image"
                                 @click.native="$refs.vueperslides2.goToSlide(i)"
                                 >
                             </vueper-slide>
-                        </vueper-slides>
+                        </vueper-slides> -->
                         </div>
                         <!-- <img :src="gig.image" alt="gig-image"> -->
                     </section>
