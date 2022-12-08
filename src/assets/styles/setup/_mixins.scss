@@ -1,8 +1,7 @@
-
 /*elements*/
 
 
-@mixin card ($width, $height){
+@mixin card ($width, $height) {
   background-color: white;
   width: $width;
   height: $height;
@@ -10,27 +9,33 @@
 }
 
 
+@mixin fiverr-btn {
+  background-color: $clr1;
+  color: white;
+  border: none;
+}
+
 
 
 
 /* Breakpoint mixins */
 
 @mixin for-mobile-layout {
-    @media (max-width: $padded-break-mobile) {
-        @content;
-    }
+  @media (max-width: $padded-break-mobile) {
+    @content;
+  }
 }
 
 @mixin for-narrow-layout {
-    @media (min-width: $padded-break-narrow) {
-        @content;
-    }
+  @media (min-width: $padded-break-narrow) {
+    @content;
+  }
 }
 
 @mixin for-normal-layout {
-    @media (min-width: $padded-break-normal) {
-        @content;
-    }
+  @media (min-width: $padded-break-normal) {
+    @content;
+  }
 }
 
 /* Media  Mixins */
@@ -41,40 +46,42 @@
 }
 
 @mixin aspect-ratio($width, $height) {
-    position: relative;
-    overflow: hidden;
-    &::before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-top: calc(($height / $width) * 100%);
-    }
-    > * {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-  
-    > img {
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  
-  // Mixin for removing hover efects on iphone screen
-  @mixin hover-supported {    
-    @media not all and (pointer: coarse) {
-        &:hover {
-            @content;
-        }
-    }
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc(($height / $width) * 100%);
   }
 
+  >* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  >img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}
 
 
-  // Buttons
+
+// Buttons
 
 // @mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
 //     display: inline-flex;
@@ -87,9 +94,9 @@
 //     font-variation-settings: "wght" 430;
 //     border: none;
 //     cursor: pointer;
-  
+
 //     transition: background-color 0.2s;
-  
+
 //     @if $type == regular {
 //       background-color: $bg;
 //       color: $clr;
@@ -112,9 +119,9 @@
 //       }
 //     }
 //   }
-  
+
 //   // Type
-  
+
 //   @mixin type($type: bold) {
 //     // type options: 
 //     // 1.bold 
@@ -135,6 +142,3 @@
 //       font-variation-settings: "wght" 200;
 //     }
 //   }
-  
-
-

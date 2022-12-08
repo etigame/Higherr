@@ -6,21 +6,37 @@
                 <div class="img-container">
                     <img :src="user.imgUrl" />
                 </div>
+                <h2>{{ user.username }}</h2>
 
-                <span v-icon="'edit'"></span>
+
                 <div class="user-stats">
                     <ul>
                         <li class="flex space-between">
-                            <span v-icon="'member'"></span>
-                            Member Since Feb 2021
+                            <div>
+                                <span v-icon="'location'"></span>Country
+                            </div>
+                            <span>{{ user.country }}</span>
+                        </li>
+                        <li class="flex space-between">
+                            <div>
+                                <span v-icon="'member'"></span>Member Since
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="description-container">
-                <h3>Description</h3>
-                <p>{{ user.description }}</p>
+                <ul>
+                    <li>
+                        <h3>Description</h3>
+                        <p>{{ user.description }}</p>
+                    </li>
+                    <li class="languages">
+                        <h3>Languages</h3>
+                        <div v-for="lang in user.languages">{{ lang }}</div>
+                    </li>
+                </ul>
             </div>
 
             <button @click="toggleChat" class="chat-seller-btn">Messages</button>
