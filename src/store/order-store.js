@@ -13,6 +13,7 @@ export const orderStore = {
       return filteredOrders
     },
     buyerOrders({ orders }) {
+      console.log(orders);
       const filteredOrders = orders.filter(
         (order) => order.buyer._id === userStore.state.loggedinUser._id
       )
