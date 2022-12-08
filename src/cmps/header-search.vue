@@ -1,7 +1,7 @@
 <template >
   <div class="header-search flex">
-    <el-input v-model="title" size="large" placeholder="What service are you looking for today?" />
-    <el-button @click="filter" size="large"><span v-icon="'search'"></span></el-button>
+    <el-input v-model="title" placeholder="What service are you looking for today?" />
+    <el-button @click="filter"><span v-icon="'search'"></span></el-button>
   </div>
 </template>
 

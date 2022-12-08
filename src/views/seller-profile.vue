@@ -1,5 +1,5 @@
 <template>
-    <section class="seller-profile flex space-between full">
+    <section v-if="user" class="seller-profile flex space-between full">
 
         <div class="profile-container">
             <div class="user-info">

@@ -8,21 +8,21 @@
   
 <script>
 
-  export default {
-    name: 'hero-search',
-    data() {
-      return {
-          title: '', 
+export default {
+  name: 'hero-search',
+  data() {
+    return {
+      title: '',
     }
   },
-  
+
   methods: {
     filter() {
       this.$emit('filter', this.title)
     },
 
-},
-  }
-  
-  </script>
+  },
+}
+
+</script>
   

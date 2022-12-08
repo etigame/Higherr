@@ -1,6 +1,18 @@
 .seller-register {
+    background-color: $CLR05;
+
+
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
     form {
+        border: 1px solid var(--yro5245);
+        background: white;
+        padding: 30px;
+
+
         .field {
             display: flex;
             width: 100%;
@@ -23,6 +35,9 @@
 
             .info-fill {
 
+                width: 100%;
+
+
                 &.img-container {
                     border-radius: 12em;
                     overflow: hidden;
@@ -30,13 +45,13 @@
                 }
 
                 .el-input__wrapper {
-                    width: 500px;
+
                     margin-inline-end: 15px;
 
                 }
 
                 .el-textarea__inner {
-                    width: 500px;
+
                     height: 150px;
 
                 }

@@ -9,12 +9,14 @@
   transition: border 0.5s ease;
 
   .app-header .el-button.is-text:active {
-      background-color: transparent !important;
-    }
+    background-color: transparent !important;
+  }
+
   .el-button.is-text:not(.is-disabled):active {
-      background-color: transparent !important;
-    }
-  nav > * {
+    background-color: transparent !important;
+  }
+
+  nav>* {
     color: #62646a;
   }
 
@@ -26,11 +28,14 @@
     font-size: 1rem;
     font-weight: 700;
     background-color: inherit;
-    border:0;
+    border: 0;
+
     &:hover {
       background-color: inherit;
+      cursor: pointer;
     }
   }
+
   // .el-button.is-text {
   //   color: #62646a;
   //   padding: 0 10px;
@@ -56,7 +61,7 @@
     margin-inline-end: 32px;
     transition: color 0.2s;
 
-    > * {
+    >* {
       display: inline;
       padding: none;
       text-decoration: none;
@@ -81,11 +86,12 @@
     // flex-basis: 10%;
     margin-inline-start: 32px;
 
-    > button,a{
+    >button,
+    a {
       color: #62646a;
       padding: 0 10px;
 
-      &:hover{
+      &:hover {
         color: $clr1;
       }
     }
@@ -126,19 +132,20 @@
     border-bottom: none;
     transition: background-color 0.5s ease;
 
-    nav > * {
+    nav>* {
       color: #fff;
     }
 
     .btn.txt {
       color: white;
     }
+
     // .el-button.is-text {
     //   color: white;
     // }
 
     .nav-links {
-      > * {
+      >* {
         color: white;
       }
 
@@ -150,22 +157,24 @@
           border: 1px solid $clr1;
           background: $clr1;
           color: #fff;
-          
+
         }
       }
     }
   }
+
   .user-modal,
-   .order-modal{
+  .order-modal {
     position: fixed;
     color: $CLR00;
     z-index: 100;
     background-color: $CLR0;
-    padding:5px 15px;
-    border-radius:8px 0 8px 8px;
+    padding: 5px 15px;
+    border-radius: 8px 0 8px 8px;
     box-shadow: 0px 5px 9px 0;
   }
-  .user-modal{
+
+  .user-modal {
     cursor: pointer;
     flex-direction: column;
     height: 200px;
@@ -214,13 +223,38 @@
         }
       }
     }
-        .user-img {
-          cursor: pointer;
-          height: 32px;
-          width: 32px;
-          margin-inline-start: 8px;
-          img {
-            border-radius: 50%;
-          }
-        }
-}
+
+    .gig-title {
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: $clr4;
+    }
+
+    .img-container {
+      width: 76px;
+      height: 54px;
+      margin-inline-end: 10px;
+    }
+
+    .seller-status {
+      width: 100%;
+      font-weight: 500;
+      color: $CLR00;
+
+      .status {
+        margin-inline-start: 10px;
+        color: $clr1;
+      }
+    }
+  }
+
+  .user-img {
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    margin-inline-start: 8px;
+
+    img {
+      border-radius: 50%;
+    }
+  }
