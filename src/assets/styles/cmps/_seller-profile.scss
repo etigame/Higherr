@@ -8,7 +8,8 @@
 
 
     .profile-container {
-        width: 40%;
+        min-width: 398px;
+        max-width: 398px;
 
         .user-info {
             @include card(100%, 450px);
