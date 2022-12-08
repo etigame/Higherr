@@ -170,7 +170,7 @@
     }
   .user-modal,
   .order-modal{
-    position: fixed;
+    position: absolute;
     color: $CLR00;
     z-index: 100;
     background-color: $CLR0;
@@ -231,17 +231,16 @@
       //   // display: flex;
       // }
       .gig-title{
-        // margin-bottom: 5px;
-        // font-weight: 100;
+        margin-bottom: 5px;
 
         color:$clr4 ;
       }
       .img-container{
-        // width:70px;
-        // height: 54px;
+        width:70px;
+        height: 54px;
+        margin-inline-end: 10px;
         img{
           margin: 10px 0;
-          // margin-inline-end: 10px;
           width:100%;
           height: 100%;
         }
