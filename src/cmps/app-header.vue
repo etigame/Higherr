@@ -21,7 +21,7 @@
         <button v-if="loggedInUser" class="btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div class="no-order">
+          <div v-if="!orders" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
