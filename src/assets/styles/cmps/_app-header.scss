@@ -66,6 +66,7 @@
       padding: none;
       text-decoration: none;
     }
+
   }
 
   .search {
@@ -140,6 +141,7 @@
     .btn.txt {
       color: white;
     }
+
     .nav-links {
       >* {
         color: white;
@@ -158,26 +160,28 @@
       }
     }
   }
-    .modal-tip {
-      position:absolute;
-      background-color: $CLR0;
-      width: 10px;
-      height: 10px;
-      transform: rotate(45deg);
-      border-top: 1px solid $clr9;
-      border-left: 1px solid $clr9;
-      
-    }
+
+  .modal-tip {
+    position: absolute;
+    background-color: $CLR0;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-top: 1px solid $clr9;
+    border-left: 1px solid $clr9;
+
+  }
+
   .user-modal,
-  .order-modal{
+  .order-modal {
     position: absolute;
     color: $CLR00;
     z-index: 100;
     background-color: $CLR0;
     padding: 5px 15px;
     border-radius: 8px;
-    border:solid 1px $clr9;
-    
+    border: solid 1px $clr9;
+
   }
 
   .user-modal {
@@ -187,137 +191,155 @@
     width: 180px;
     right: 0px;
     transform: translate(-20%, 5%);
-    &>*:not(.modal-tip){
+
+    &>*:not(.modal-tip) {
       border-bottom: $clr9 solid 1px;
-      &:hover{
+
+      &:hover {
         border-bottom: $clr1 solid 1px;
       }
     }
-    a{
-      margin:8px 0;
-      color:$clr3;
+
+    a {
+      margin: 8px 0;
+      color: $clr3;
     }
+
     .modal-tip {
       margin-top: -12px;
       margin-inline-start: 80%;
     }
   }
+
   // .user-modal::before{
   //   content:1;
   // }
-    .order-modal{
-      min-height: 434px;
-      width: 400px;
-      top: 60px;
-      padding: 10px 16px;
-      transform: translate(-85%, 0%);
-      .order-container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p{
-          font-size: 14px;
-        }
-        span {
-          font-size: 12px;
-        }
-        // padding: 8px 0;
-        // border-bottom: $clr3 solid 1px;
-        // &:hover{
-        //   // border-bottom: $clr1 solid 3px;
-        // }
+  .order-modal {
+    min-height: 434px;
+    width: 400px;
+    top: 60px;
+    padding: 10px 16px;
+    transform: translate(-85%, 0%);
+
+    .order-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: 14px;
       }
-      // .gig-desc{
-      //   // display: flex;
+
+      span {
+        font-size: 12px;
+      }
+
+      // padding: 8px 0;
+      // border-bottom: $clr3 solid 1px;
+      // &:hover{
+      //   // border-bottom: $clr1 solid 3px;
       // }
-      .gig-title{
-        margin-bottom: 5px;
-
-        color:$clr4 ;
-      }
-      .img-container{
-        width:70px;
-        height: 54px;
-        margin-inline-end: 10px;
-        img{
-          margin: 10px 0;
-          width:100%;
-          height: 100%;
-        }
-      }
-      .seller-status{
-        width: 80%;
-        color: $CLR00;
-        margin-top: -10px;
-        .status{
-          margin-inline-start: 10px;
-          color:$clr1;
-        }
-      }
-      .modal-tip {
-        margin-top: -17px;
-        margin-inline-start: 88%;
-      }
-
-      .no-order{
-        color:$clr3;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        p{
-          text-align: center;
-        }
-        
-        .empty-icon{
-          margin-top: 80px;
-          display:flex;
-          justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-          background-color: $clr2;
-          width: 120px;
-          height: 120px;
-          svg{
-            width:60px;
-            height:40px
-          }
-          // background-color: #62646a;
-        }
-      }
     }
 
+    // .gig-desc{
+    //   // display: flex;
+    // }
     .gig-title {
       margin-bottom: 5px;
-      font-weight: 500;
+
       color: $clr4;
     }
 
     .img-container {
-      width: 76px;
+      width: 70px;
       height: 54px;
       margin-inline-end: 10px;
+
+      img {
+        margin: 10px 0;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .seller-status {
-      width: 100%;
-      font-weight: 500;
+      width: 80%;
       color: $CLR00;
+      margin-top: -10px;
 
       .status {
         margin-inline-start: 10px;
         color: $clr1;
       }
     }
-  }
 
-  .user-img {
-    cursor: pointer;
-    height: 32px;
-    width: 32px;
-    margin-inline-start: 8px;
+    .modal-tip {
+      margin-top: -17px;
+      margin-inline-start: 88%;
+    }
 
-    img {
-      border-radius: 50%;
+    .no-order {
+      color: $clr3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+
+      .empty-icon {
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $clr2;
+        width: 120px;
+        height: 120px;
+
+        svg {
+          width: 60px;
+          height: 40px
+        }
+
+        // background-color: #62646a;
+      }
     }
   }
+
+  .gig-title {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: $clr4;
+  }
+
+  .img-container {
+    width: 76px;
+    height: 54px;
+    margin-inline-end: 10px;
+  }
+
+  .seller-status {
+    width: 100%;
+    font-weight: 500;
+    color: $CLR00;
+
+    .status {
+      margin-inline-start: 10px;
+      color: $clr1;
+    }
+  }
+}
+
+.user-img {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  margin-inline-start: 8px;
+
+  img {
+    border-radius: 50%;
+  }
+}

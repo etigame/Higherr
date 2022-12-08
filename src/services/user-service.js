@@ -69,7 +69,6 @@ function remove(userId) {
 
 async function login(userCred) {
   const user = await httpService.post('auth/login', userCred)
-  console.log(user);
   // const users = await storageService.query(USER_STORAGE_KEY)
   // const user = users.find((user) => user.username === userCred.username)
   if (user) {
@@ -112,10 +111,10 @@ async function logout() {
 
 function setLoggedInUser(user) {
   const userToSave = {
-      _id: user._id,
-      fullname: user.fullname,
-      imgUrl: user.imgUrl
-      // isAdmin: user.isAdmin
+    _id: user._id,
+    fullname: user.fullname,
+    imgUrl: user.imgUrl,
+    // isAdmin: user.isAdmin
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
   return userToSave
