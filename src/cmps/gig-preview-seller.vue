@@ -3,7 +3,7 @@
 
         <div class="gig-info flex column space-between" v-if="!modalOpen">
             <div class="img-container">
-                <img ref="gig-image" :src="gig.image[0]" onerror="changeImgSrc" />
+                <img ref="gig-image" :src="gig.image[0]" />
 
             </div>
             <div class="preview-title">
@@ -49,14 +49,9 @@ export default {
             this.$emit('gigRemoved', this.gig._id)
         },
     },
-    computed: {
-        changeImgSrc() {
-            this.$ref.src = "../assets/img/image-unavailable.jpg"
-        }
-    }
-
 
 }
+
 
 
 </script>
