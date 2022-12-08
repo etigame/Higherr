@@ -68,12 +68,15 @@ export default {
     name: 'gig-edit',
     components: { imgUploader },
     created() {
+        const owner = this.$route.query
+        console.log(this.$route.query)
         const { _id } = this.$route.params
         if (_id) {
+
             gigService.getById(_id).then((gig) => {
                 this.gigToEdit = gig
             })
-        } else this.gigToEdit = gigService.getEmptyGig()
+        } else this.gigToEdit = gigService.getEmptyGig(owner)
     },
 
     data() {

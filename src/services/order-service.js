@@ -65,14 +65,14 @@ async function save(order) {
     savedOrder = await httpService.put(ORDER_URL + order._id, order)
   } else {
     // Later, owner is set by the backend
-    // order.buyer = userService.getLoggedinUser()
+    order.buyer = userService.getLoggedInUser()
     // savedOrder = await storageService.post(ORDER_STORAGE_KEY, order)
     savedOrder = await httpService.post(ORDER_URL, order)
   }
   return savedOrder
 }
 // async function add(order) {
-//   order.byUser = userService.getLoggedinUser()
+//   order.byUser = userService.getLoggedInUser()
 //   order.aboutUser = await userService.getById(order.aboutUserId)
 //   // const addedOrder = await httpService.post(`order`, order)
 //   const addedOrder = await storageService.post('order', order)

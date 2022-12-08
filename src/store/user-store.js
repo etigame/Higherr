@@ -33,7 +33,7 @@ export const userStore = {
     },
   },
   mutations: {
-    setLoggedinUser(state, { user }) {
+    setLoggedInUser(state, { user }) {
       state.loggedinUser = user ? { ...user } : null
     },
     setWatchedUser(state, { user }) {
@@ -50,10 +50,10 @@ export const userStore = {
     async login({ state, commit }, { userCred }) {
       try {
         const user = await userService.login(userCred)
-        commit({ type: 'setLoggedinUser', user })
+        commit({ type: 'setLoggedInUser', user })
 
-        const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
-        socketService.login(localLoggedInUser)
+        // const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
+        // socketService.login(localLoggedInUser)
 
         // socketService.login(state.loggedinUser)  - turn on when connect backend
         // return user
@@ -65,7 +65,7 @@ export const userStore = {
     async signup({ state, commit }, { userCred }) {
       try {
         const user = await userService.signup(userCred)
-        commit({ type: 'setLoggedinUser', user })
+        commit({ type: 'setLoggedInUser', user })
 
         const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
         socketService.signup(localLoggedInUser)
@@ -81,7 +81,7 @@ export const userStore = {
     async logout({ commit }) {
       try {
         await userService.logout()
-        commit({ type: 'setLoggedinUser', user: null })
+        commit({ type: 'setLoggedInUser', user: null })
         socketService.logout()
       } catch (err) {
         console.log('userStore: Error in logout', err)

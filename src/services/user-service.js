@@ -9,7 +9,7 @@ import { store } from '../store/store'
 // } from './socket-service'
 import { showSuccessMsg } from './event-bus-service'
 
-const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
 const USER_STORAGE_KEY = 'user'
 const USER_URL = 'user/'
 
@@ -19,15 +19,16 @@ export const userService = {
   login,
   logout,
   signup,
-  getLoggedinUser,
-  // saveLocalUser,
+  setLoggedInUser,
+  getLoggedInUser,
   getUsers,
   getById,
-  remove,
-  // update,
   saveUser,
-  // getEmptyUser,
+  remove,
   createEmptyUser,
+  // update,
+  // saveLocalUser,
+  // getEmptyUser,
 }
 
 window.userService = userService
@@ -62,16 +63,18 @@ function remove(userId) {
 //   user = await httpService.put(USER_URL + user._id, user)
 //   // await storageService.put(USER_STORAGE_KEY, user)
 //   // Handle case in which admin updates other user's details
-//   // if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+//   // if (getLoggedInUser()._id === user._id) saveLocalUser(user)
 //   return user
 // }
 
 async function login(userCred) {
   const user = await httpService.post('auth/login', userCred)
+  console.log(user);
   // const users = await storageService.query(USER_STORAGE_KEY)
   // const user = users.find((user) => user.username === userCred.username)
   if (user) {
-    return user
+    return setLoggedInUser(user)
+    // return user
     // socketService.login(userCred)
     // return saveLocalUser(user)
   }
@@ -83,7 +86,8 @@ async function signup(userCred) {
 
   const user = await httpService.post('auth/signup', userCred)
   if (user) {
-    return user
+    return setLoggedInUser(user)
+    // return user
   }
   // console.log(userCred)
   // const user = await storageService.post(USER_STORAGE_KEY, userCred)
@@ -105,7 +109,18 @@ async function logout() {
 //   return user
 // }
 
-function getLoggedinUser() {
+function setLoggedInUser(user) {
+  const userToSave = {
+      _id: user._id,
+      fullname: user.fullname,
+      imgUrl: user.imgUrl
+      // isAdmin: user.isAdmin
+  }
+  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
+  return userToSave
+}
+
+function getLoggedInUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
   // return JSON.parse(localStorage.getItem('loggedInUser'))
 }

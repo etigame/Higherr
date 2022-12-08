@@ -103,7 +103,7 @@ export default {
     }
   },
   created() {
-    const user = userService.getLoggedinUser()
+    const user = userService.getLoggedInUser()
     socketService.emit(SOCKET_EMIT_JOIN_CHAT, user)
     const topic = this.gig.owner._id
     socketService.emit(SOCKET_EMIT_SET_TOPIC, topic)
@@ -122,7 +122,7 @@ export default {
       // TODO: next line not needed after connecting to backend
       // this.addMsg(this.msg)
       // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
-      const user = userService.getLoggedinUser()
+      const user = userService.getLoggedInUser()
       const from = (user && user.fullname) || 'Guest'
       this.msg.from = from
       if (this.msg.txt === '') return
