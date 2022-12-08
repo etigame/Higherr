@@ -104,6 +104,7 @@ export default {
             return this.gigsByUser[0]
         },
         user() {
+
             return this.$store.getters.loggedinUser
         }
     }

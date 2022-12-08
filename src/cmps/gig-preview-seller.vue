@@ -3,7 +3,8 @@
 
         <div class="gig-info flex column space-between" v-if="!modalOpen">
             <div class="img-container">
-                <img :src="gig.image[0]" />
+                <img ref="gig-image" :src="gig.image[0]" onerror="changeImgSrc" />
+
             </div>
             <div class="preview-title">
                 <router-link :to="`/gig/${gig._id}`">
@@ -14,7 +15,7 @@
                 <span @click="toggleGigModal" v-icon="'dots'"></span>
 
                 <div class="preview-price-container flex">
-                    <p>starting at </p><span class="preview-price">{{ gig.price }}</span>
+                    <p>starting at </p><span class="preview-price">${{ gig.price }}</span>
                 </div>
             </div>
         </div>
@@ -36,6 +37,7 @@ export default {
     data() {
         return {
             modalOpen: false
+
         }
     },
     methods: {
@@ -45,9 +47,16 @@ export default {
         removeGig() {
             this.toggleGigModal()
             this.$emit('gigRemoved', this.gig._id)
+        },
+    },
+    computed: {
+        changeImgSrc() {
+            this.$ref.src = "../assets/img/image-unavailable.jpg"
         }
-
     }
+
+
 }
+
 
 </script>
