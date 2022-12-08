@@ -38,6 +38,11 @@
     src: url('src/assets/fonts/macan/macan-regular.woff2');
 }
 
+@font-face {
+    font-family: Macan-light;
+    src: url('src/assets/fonts/macan/macan-regular.ttf');
+}
+
 :fonts {
     --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --yro524e: "domainDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;

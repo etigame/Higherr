@@ -26,11 +26,8 @@
             <ul class="features clean-list">
                 <li><span v-icon="'greenV'"></span> 1 concept included</li>
                 <li><span v-icon="'greenV'"></span> Logo transparency</li>
-                <li><span v-icon="'grayV'"></span> Vector file</li>
                 <li><span v-icon="'greenV'"></span> Printable file</li>
                 <li><span v-icon="'greenV'"></span> Include 3D mockup</li>
-                <li><span v-icon="'grayV'"></span> Include source file</li>
-                <li><span v-icon="'grayV'"></span> Include social media kit</li>
             </ul>
             <div class="pricing">
             <p>Service Fee</p>
@@ -41,12 +38,12 @@
             <p>US${{ vatCalc(gig.price) }}</p>
             </div>
             <div class="pricing total">
-            <p>You'll Pay </p>
+            <p>Total </p>
             <p>US${{ totalPrice(gig.price)}}</p>
             </div>
             <div class="pricing">
-            <p>Delivery</p>
-            <p>{{gig.daysToMake}}</p>
+            <p>Delivery Time</p>
+            <p>{{gig.daysToMake}} Days</p>
             </div>
 
             <button @click="addOrder" class="continue-btn">
@@ -78,7 +75,7 @@ export default {
             this.$router.push('/')
         },
         serviceCalc(price){
-            return price * 0.15.toFixed(2)
+            return (price * 0.15).toFixed(2)
         },
         vatCalc(price){
             return ((price - price / 1.17).toFixed(2))

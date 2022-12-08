@@ -111,7 +111,7 @@ export default {
             // this.loadOrders()
         },
         toLocalTime(time){
-            console.log(time.toLocaleTimeString());
+            console.log(time.toLocaleDateString());
             return new Date(time)
         },
     },
@@ -128,18 +128,29 @@ computed: {
     },
     annualIncome(){
         var income = 0
+        var yearTime = 1000 * 60 * 60 * 24 * 365
         this.orders.forEach(order => {
             if (order.status === "Complete") { income += order.gig.price }
         })
         return income
+
+        // this.orders.forEach(order => {
+        //     if (order.status === "Complete" && Date.now() - order.createdAt <= yearTime) { income += order.gig.price }
+        // })
+        // return income
     },
     monthIncome(){
         var income = 0
         var monthTime = 1000*60*60*24*30
+        // this.orders.forEach(order => {
+        //     if (order.status === "Complete"&& Date.now() - order.createdAt <=monthTime) { income+= order.gig.price }
+        // })
+        // return income
         this.orders.forEach(order => {
-            if (order.status === "Complete"&& Date.now() - order.createdAt <=monthTime) { income+= order.gig.price }
+            if (order.status === "Complete") { income += order.gig.price }
         })
         return income
+      
     },
     pendingOrders(){
         var pending = 0
@@ -151,6 +162,12 @@ computed: {
     },
     annualOrdersComplete(){
         var complete = 0
+        var yearTime = 1000 * 60 * 60 * 24 * 365
+        // this.orders.forEach(order => {
+        //     if (order.status === "Complete" && Date.now() - order.createdAt <= yearTime) { complete++ }
+        // })
+        // return complete
+
         this.orders.forEach(order => {
             if(order.status==="Complete"){complete++}
         })
@@ -159,8 +176,13 @@ computed: {
     monthOrdersComplete(){
         var complete = 0
         var monthTime = 1000 * 60 * 60 * 24 * 30
+        // this.orders.forEach(order => {
+        //     if (order.status === "Complete" && Date.now() - order.createdAt <= monthTime){complete++}
+        // })
+        // return complete
+
         this.orders.forEach(order => {
-            if (order.status === "Complete" && Date.now() - order.createdAt <= monthTime){complete++}
+            if (order.status === "Complete") { complete++ }
         })
         return complete
     },
