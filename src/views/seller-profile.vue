@@ -1,66 +1,68 @@
 <template>
-    <section v-if="user" class="seller-profile flex space-between full">
+    <section v-if="user" class="seller-profile flex space-between main-layout full">
+        <section class="content-wrapper flex full">
 
-        <div class="profile-container">
-            <div class="user-info">
-                <div class="img-container">
-                    <img :src="user.imgUrl" />
+            <div class="profile-container">
+                <div class="user-info">
+                    <div class="img-container">
+                        <img :src="user.imgUrl" />
+                    </div>
+                    <h2>{{ user.username }}</h2>
+
+
+                    <div class="user-stats">
+                        <ul>
+                            <li class="flex space-between">
+                                <div>
+                                    <span v-icon="'location'"></span>Country
+                                </div>
+                                <span>{{ user.country }}</span>
+                            </li>
+                            <li class="flex space-between">
+                                <div>
+                                    <span v-icon="'member'"></span>Member Since
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <h2>{{ user.username }}</h2>
 
-
-                <div class="user-stats">
+                <div class="description-container">
                     <ul>
-                        <li class="flex space-between">
-                            <div>
-                                <span v-icon="'location'"></span>Country
-                            </div>
-                            <span>{{ user.country }}</span>
+                        <li>
+                            <h3>Description</h3>
+                            <p>{{ user.description }}</p>
                         </li>
-                        <li class="flex space-between">
-                            <div>
-                                <span v-icon="'member'"></span>Member Since
-                            </div>
+                        <li class="languages">
+                            <h3>Languages</h3>
+                            <div v-for="lang in user.languages">{{ lang }}</div>
                         </li>
                     </ul>
                 </div>
+
+                <button @click="toggleChat" class="chat-seller-btn">Messages</button>
             </div>
 
-            <div class="description-container">
-                <ul>
-                    <li>
-                        <h3>Description</h3>
-                        <p>{{ user.description }}</p>
-                    </li>
-                    <li class="languages">
-                        <h3>Languages</h3>
-                        <div v-for="lang in user.languages">{{ lang }}</div>
-                    </li>
+            <section class="chat-modal" v-if="isChatOpen">
+                <chatVue :gig="randomGig" />
+            </section>
+
+            <div class="gigs-status">
+                <ul class="status-filter-bar flex align-center">
+                    <li>Active Gigs</li>
                 </ul>
-            </div>
 
-            <button @click="toggleChat" class="chat-seller-btn">Messages</button>
-        </div>
-
-        <section class="chat-modal" v-if="isChatOpen">
-            <chatVue :gig="randomGig" />
-        </section>
-
-        <div class="gigs-status">
-            <ul class="status-filter-bar flex align-center">
-                <li>Active Gigs</li>
-            </ul>
-
-            <div class="gigs-list flex">
-                <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
-                <div @click="editGig" class="add-gig  flex justify-center align-center">
-                    <div class="flex column align-center">
-                        <span class="add-gig-btn flex justify-center align-center">+</span>
-                        <h2>Create a new Gig</h2>
+                <div class="gigs-list flex">
+                    <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
+                    <div @click="editGig" class="add-gig  flex justify-center align-center">
+                        <div class="flex column align-center">
+                            <span class="add-gig-btn flex justify-center align-center">+</span>
+                            <h2>Create a new Gig</h2>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 </template>
 
