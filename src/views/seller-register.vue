@@ -10,7 +10,7 @@
                     <p>Ex. John Smith</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.fullname" placeholder="enter your full name" />
+                    <el-input v-model="userToEdit.fullname" value="Roni Siles" placeholder="enter your full name" />
                 </div>
             </div>
             <div class="field">
@@ -19,7 +19,7 @@
                     <p>this name will be shown to other users</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.username" placeholder="enter username" />
+                    <el-input v-model="userToEdit.username" value="rorokoo" placeholder="enter username" />
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                     <p>4 characters or more</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.password" placeholder="enter password" />
+                    <el-input v-model="userToEdit.password" value="1234" placeholder="enter password" />
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                     <p>4 characters or more</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.country" placeholder="where are you from?" />
+                    <el-input v-model="userToEdit.country" value="Israel" placeholder="where are you from?" />
                 </div>
             </div>
 
@@ -88,7 +88,6 @@
 
 <script>
 import imgProfileUploader from "../cmps/img-profile-uploader.vue"
-import { userService } from "../services/user-service.js"
 
 
 export default {
@@ -96,7 +95,17 @@ export default {
     components: { imgProfileUploader },
     data() {
         return {
-            userToEdit: userService.createEmptyUser(),
+            userToEdit: {
+                _id: 'u102',
+                fullname: 'Roni Siles',
+                imgUrl: '',
+                username: 'rorokoo',
+                password: '1234',
+                reviews: [],
+                description: 'I will create an awesome website for your business!',
+                country: 'Israel',
+                languages: [],
+            },
             value1: [],
             options:
 
@@ -133,9 +142,10 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
-            this.$router.push('/seller/profile')
+
             console.log(this.userToEdit)
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
+            this.$router.push('/seller/profile')
 
         },
     }

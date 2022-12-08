@@ -1,4 +1,5 @@
 import { userService } from '../services/user-service'
+import { utilService } from '../services/util-service'
 import {
   socketService,
   SOCKET_EMIT_USER_WATCH,

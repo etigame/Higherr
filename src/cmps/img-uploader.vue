@@ -1,11 +1,19 @@
 <template>
-  <div className="upload-preview">
-    <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '120px', maxHeight: '120px' }" />
-    <label for="imgUpload">{{ uploadMsg }}</label>
+  <section class="img-uploader flex column">
+
+
+    <label for="imgUpload">Upload Images</label>
     <label class="upload-container">
       <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
     </label>
-  </div>
+
+    <div className="upload-preview flex">
+      <div v-for="img in images" class="img-container">
+        <img v-if="images" :src="img" />
+      </div>
+    </div>
+  </section>
+
 </template>
 
 <script>
@@ -14,7 +22,7 @@ import { uploadService } from "../services/upload-service.js"
 export default {
   data() {
     return {
-      imgUrl: null,
+      images: [],
       height: 250,
       width: 500,
       isUploading: false
@@ -25,17 +33,12 @@ export default {
       this.isUploading = true
       const { secure_url, height, width } = await uploadService.uploadImg(ev)
       this.isUploading = false
-      this.imgUrl = secure_url
+      this.images.push(secure_url)
       this.height = height
       this.width = width
-      this.$emit('uploaded', this.imgUrl)
+      this.$emit('uploaded', this.images)
     }
   },
-  computed: {
-    uploadMsg() {
-      if (this.imgUrl) return 'Upload Another?'
-      return this.isUploading ? 'Uploading....' : 'Upload Image'
-    }
-  }
+
 }
 </script>
