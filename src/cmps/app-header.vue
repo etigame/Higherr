@@ -13,16 +13,23 @@
       </div>
       <div class="nav-links flex align-center">
 
-        <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
+        <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
         <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
-        <button v-if="!loggedInUser" class="signin-btn" @click="login">Sign In</button>
-        <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
+        <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
+        <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
         <button v-if="loggedInUser" class="btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
-
+          <div class="modal-tip"></div>
+          <div class="no-order">
+            <div class="empty-icon">
+              <span v-icon="'empty'"></span>
+            </div>
+            <h3>No Order Yet</h3>
+            <p>Use the search box to find the digital service you need</p>
+          </div>
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
-
+            
             <div class="img-container">
               <router-link :to="`/gig/${order.gig._id}`">
                 <img :src="order.gig.img">
@@ -37,10 +44,10 @@
                 <span class="status">{{ order.status }}</span>
               </div>
             </div>
-
+            
+            </div>
           </div>
-
-        </div>
+         
         <button v-if="loggedInUser" class="btn txt">Switch To Selling</button>
 
         <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
@@ -48,8 +55,10 @@
           <!-- {{ loggedInUser.fullname }} -->
 
           <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
-            <router-link to="/seller/profile"><a>Profile</a></router-link>
-            <router-link to="/seller/orders"><a>Dashboard</a></router-link>
+            <div class="modal-tip"></div>
+
+            <router-link to="/seller/profile">Profile</router-link>
+            <router-link to="/seller/orders">Dashboard</router-link>
             <a @click="doLogout">Logout</a>
           </div>
         </div>

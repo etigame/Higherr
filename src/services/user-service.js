@@ -78,7 +78,8 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-  if (!userCred.imgUrl) userCred.imgUrl =
+  if (!userCred.imgUrl)
+    userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
   const user = await httpService.post('auth/signup', userCred)
@@ -94,7 +95,7 @@ async function signup(userCred) {
 async function logout() {
   // sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
   // socketService.logout()
-    return await httpService.post('auth/logout')
+  return await httpService.post('auth/logout')
 }
 
 // function saveLocalUser(user) {

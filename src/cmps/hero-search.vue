@@ -2,7 +2,7 @@
   <div class="hero-search flex">
     <div class="flex input-container">
       <div class="search-icon">
-      <span v-icon="'search'"></span>
+      <span v-icon="'searchGrey'"></span>
       </div>
     <input v-model="title" size="large" placeholder="Try 'Logo Design'">
     </div>
