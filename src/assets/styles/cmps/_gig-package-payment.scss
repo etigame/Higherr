@@ -43,7 +43,7 @@
   }
 // }
 .img-container{
-  max-width: 100px;
+  max-height: 74px;
   margin-inline-end: 10px;
 }
 .package-content {
@@ -84,6 +84,8 @@
     color: $clr3;
   }
     .total {
+      border-top:1px solid $clr9;
+      padding-top:15px;
       color: $clr11;
     }
   .continue-btn {
