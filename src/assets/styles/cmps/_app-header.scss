@@ -90,6 +90,7 @@
     a {
       color: #62646a;
       padding: 0 10px;
+      font-family: Macan;
 
       &:hover {
         color: $clr1;
@@ -222,13 +223,13 @@
         }
         // padding: 8px 0;
         // border-bottom: $clr3 solid 1px;
-        &:hover{
-          // border-bottom: $clr1 solid 3px;
-        }
+        // &:hover{
+        //   // border-bottom: $clr1 solid 3px;
+        // }
       }
-      .gig-desc{
-        // display: flex;
-      }
+      // .gig-desc{
+      //   // display: flex;
+      // }
       .gig-title{
         margin-bottom: 5px;
 

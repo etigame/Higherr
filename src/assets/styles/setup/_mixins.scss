@@ -1,7 +1,7 @@
 /*elements*/
 
 
-@mixin card ($width, $height) {
+@mixin card ($width: 100%, $height) {
   background-color: white;
   width: $width;
   height: $height;
