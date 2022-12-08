@@ -1,12 +1,12 @@
 <template>
-    <div class="hero-search flex">
-      <input v-model="title" size="large" />
-      <!-- <el-input v-model="title" size="large" /> -->
-      <el-button @click="filter"  size="large">Search</el-button>
-    </div>
-  </template>
+  <div class="hero-search flex">
+    <input v-model="title" size="large" placeholder="Try 'Logo Design'">
+    <!-- <el-input v-model="title" size="large" /> -->
+    <el-button @click="filter"  size="large">Search</el-button>
+  </div>
+</template>
   
-  <script>
+<script>
 
   export default {
     name: 'hero-search',
