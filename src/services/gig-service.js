@@ -1,4 +1,5 @@
 import { storageService } from './async-storage-service.js'
+import { httpService } from './http-service.js'
 import { utilService } from './util-service.js'
 import { userService } from './user-service.js'
 import {
@@ -10,10 +11,10 @@ import { store } from '../store/store'
 
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs
 
-const GIG_STORAGE_KEY = 'gig'
+// const GIG_STORAGE_KEY = 'gig'
 const GIG_URL = 'gig/'
 
-_createGigs()
+// _createGigs()
 
 const gigChannel = new BroadcastChannel('gigChannel')
 
@@ -34,35 +35,36 @@ export const gigService = {
 window.gigService = gigService
 
 async function query() {
-  return await storageService.query(GIG_STORAGE_KEY)
+  return httpService.get(GIG_URL)
+  // return await storageService.query(GIG_STORAGE_KEY)
   // var gigs = await storageService.query(GIG_STORAGE_KEY)
 }
 
 async function getById(gigId) {
-  //   return httpService.get(GIG_URL + gigId)
-  var gig = await storageService.get(GIG_STORAGE_KEY, gigId)
-  return gig
+    return httpService.get(GIG_URL + gigId)
+  // var gig = await storageService.get(GIG_STORAGE_KEY, gigId)
+  // return gig
 }
 
 async function remove(gigId) {
-  // return httpService.delete(GIG_URL + gigId)
+  return httpService.delete(GIG_URL + gigId)
 
-  await storageService.remove(GIG_STORAGE_KEY, gigId)
+  // await storageService.remove(GIG_STORAGE_KEY, gigId)
   gigChannel.postMessage(getActionRemoveGig(gigId))
 }
 
 async function save(gig) {
   var savedGig
   if (gig._id) {
-    savedGig = await storageService.put(GIG_STORAGE_KEY, gig)
-    // savedGig = await httpService.put(GIG_URL + gig._id, gig)
-    // gigChannel.postMessage(getActionUpdateGig(savedGig))
+    // savedGig = await storageService.put(GIG_STORAGE_KEY, gig)
+    savedGig = await httpService.put(GIG_URL + gig._id, gig)
+    gigChannel.postMessage(getActionUpdateGig(savedGig))
   } else {
     // Later, owner is set by the backend
-    gig.owner = userService.getLoggedinUser()
-    savedGig = await storageService.post(GIG_STORAGE_KEY, gig)
-    // savedGig = await httpService.post(GIG_URL, gig)
-    // gigChannel.postMessage(getActionAddGig(savedGig))
+    // gig.owner = userService.getLoggedinUser()
+    // savedGig = await storageService.post(GIG_STORAGE_KEY, gig)
+    savedGig = await httpService.post(GIG_URL, gig)
+    gigChannel.postMessage(getActionAddGig(savedGig))
   }
   return savedGig
 }

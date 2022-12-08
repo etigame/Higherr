@@ -2,43 +2,43 @@
     <section v-if="gig" class="gig-payment">
         <section class="payment-container flex">
             <section id="overview" class="main">
-                    <section class="payment-details-container">
-                        <h2>Payment Option</h2>
-                        <section class="credit-selection">
+                <section class="payment-details-container">
+                    <h2>Payment Option</h2>
+                    <section class="credit-selection">
                         <div class="visa">
                             <span v-icon="'visa'"></span>
                         </div>
-                        </section>
+                    </section>
                     <section class="payment-option">
                         <div class="card-info flex">
                             <div>
-                            <p>Card Number</p>
-                        <input class="card-num" type="text" value="4580 5926 2262 7546"/>
-                        </div>
-                        <div class="shorts-input">
-                            <div>
-                            <p>Expiration Date</p>
-                        <input class="short" type="text" value="12 / 26"/>
-                        </div>
-                        <div>
-                            <p>Security Code</p>
-                        <input class="short" type="text"  value="226"/>
-                        </div>
-                        </div>
+                                <p>Card Number</p>
+                                <input class="card-num" type="text" value="4580 5926 2262 7546" />
+                            </div>
+                            <div class="shorts-input">
+                                <div>
+                                    <p>Expiration Date</p>
+                                    <input class="short" type="text" value="12 / 26" />
+                                </div>
+                                <div>
+                                    <p>Security Code</p>
+                                    <input class="short" type="text" value="226" />
+                                </div>
+                            </div>
                         </div>
                         <div class="name-inputs flex">
                             <div>
                                 <p>First Name</p>
-                                <input class="name-input" type="text"/>
-                                </div>
+                                <input class="name-input" type="text" />
+                            </div>
                             <div>
                                 <p>Last Name</p>
-                                <input class="name-input" type="text"/>
+                                <input class="name-input" type="text" />
                             </div>
                         </div>
                     </section>
- 
-                    </section> 
+
+                </section>
             </section>
             <section class="package-container">
                 <gig-package-payment :gig="gig" @addOrder="addOrder" />
@@ -112,10 +112,10 @@ export default {
                     "_id": this.gig._id,
                     "name": this.gig.title,
                     "price": this.gig.price,
-                    "img":this.gig.image[0]
+                    "img": this.gig.image[0]
                 },
                 "status": "Pending",
-                createdAt: new Date()
+                // createdAt: new Date()
             }
 
             this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
