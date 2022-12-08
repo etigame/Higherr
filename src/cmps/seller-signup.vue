@@ -3,7 +3,7 @@
     <section class="seller-signup flex column">
         <h1>Become a Seller!</h1>
         <!-- <img-uploader @uploaded="onUploaded"></img-uploader> -->
-        <form @submit.prevent="updateUser">
+        <form @submit.prevent="">
             <label class="flex"><span>Country:</span><input type="text" v-model="country" /></label>
             <label class="flex"><span>Description:</span>
                 <textarea class="seller-description"
