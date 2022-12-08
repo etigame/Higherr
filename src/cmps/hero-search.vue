@@ -1,6 +1,7 @@
 <template>
     <div class="hero-search flex">
-      <el-input v-model="title" size="large" />
+      <input v-model="title" size="large" />
+      <!-- <el-input v-model="title" size="large" /> -->
       <el-button @click="filter"  size="large">Search</el-button>
     </div>
   </template>

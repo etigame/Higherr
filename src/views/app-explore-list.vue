@@ -1,11 +1,14 @@
 <template>
   <div class="app-explore-list">
     <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
+    <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
+    <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     <div class="advanced-filter">
       <div class="advanced-input">
+        <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
           size="large">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+          <el-option v-for="item in options"  :label="item.label" :value="item.value" />
         </el-select>
 
 
@@ -65,7 +68,7 @@
     </div>
 
     <div class="pagination">
-      <el-pagination large background layout="prev, pager, next" :total="30" class="mt-3" />
+      <el-pagination large background layout="prev, pager, next" :total="10" class="mt-3" />
     </div>
   </div>
 </template>
@@ -80,7 +83,7 @@ export default {
     return {
       filterBy: {
         title: '',
-        category: '',
+        category: null,
         subCategory: '',
         min: null,
         max: null,
@@ -135,11 +138,23 @@ export default {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-
-
     clearBudget() {
       this.filterBy.min = ''
       this.filterBy.max = ''
+      this.filter()
+    },
+    clearAllFilter() {
+    this.filterBy= {
+      title: '',
+      category: '',
+      subCategory: '',
+      min: null,
+      max: null,
+      delivery: null,
+      },
+
+
+
       this.filter()
     },
 

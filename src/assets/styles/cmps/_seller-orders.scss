@@ -1,7 +1,9 @@
 
 
 .seller-orders{
-  
+  h1,h2{
+    color:$CLR00;
+  }
   .headline{
     align-self: flex-start;
   }
@@ -11,25 +13,27 @@
   >*:not(h1,h2){
     border-radius: 5px;
     background-color: $CLR0;
-    box-shadow: 0 0 2px 0;
+    border:1px solid $clr9;
   }
   .income-order-dashboard{
     justify-content: space-evenly;
     align-items: center;
-    height: 150px;
+    height: 170px;
     width:90%;
     margin: 40px 0;
+    padding:20px 0;
 
-    // background-color: aquamarine;
     .dashboard-item{
-      // background-color: aquamarine;
+
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items:center;
-      width:15%;
+      max-width:252px;
+      flex:1;
       justify-content: space-between;
       padding: 20px;
+      border-right: 1px solid $clr9;
       span{
         text-align: center;
         font-weight: 700;
@@ -39,6 +43,8 @@
       h3{
         font-size: 28px;
         font-weight: 500;
+        color: rgb(61, 61, 61);
+
       }
     }
   }
@@ -51,11 +57,20 @@
         span {
             font-weight: 700;
           }
+          .table-span{
+            color:$clr5;
+          }
           p{
             font-weight: 900;
+            color: $CLR00;
+          }
+          h4{
+            font-weight: 900;
+            font-size: 1rem;
+            color:rgb(61, 61, 61);
           }
         height: 80px;
-        border-bottom: 1px solid $CLR00;
+        border-bottom: 1px solid $clr9;
         align-items: center;
         
         &>*{

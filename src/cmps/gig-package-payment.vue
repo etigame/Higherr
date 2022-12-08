@@ -84,7 +84,7 @@ export default {
             return ((price - price / 1.17).toFixed(2))
         },
         totalPrice(price){
-            return (price*1.17 + price*0.15.toFixed(2))
+            return ((price*1.17 + price*0.15).toFixed(2))
         },
     },
 }

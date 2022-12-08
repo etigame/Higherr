@@ -3,11 +3,7 @@
 .hero-search{
     margin: 24px 0;
     height: 3rem;
-    width: 650px;
-
-
- 
-
+    max-width: 650px;
 
     .el-button{
         background-color: $clr1;
@@ -26,14 +22,23 @@
           border-color: #18ad68;
         }
       }
-
+      input{
+        flex:1;
+        box-shadow: 0 0 0 1px grey inset;
+        border:0;
+          border-end-end-radius: 0px;
+          border-start-end-radius: 0px;
+          width: 100%;
+          &.is-focus {
+              box-shadow: 0 0 0 1px black inset;
+          
+            }
+      }
       .el-input__wrapper{
         box-shadow: 0 0 0 1px grey inset;
         border-end-end-radius: 0px;
         border-start-end-radius: 0px;
-        min-width: 100%;
-    
-    
+        
         
     
     

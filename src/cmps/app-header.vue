@@ -14,11 +14,11 @@
       <div class="nav-links flex align-center">
 
         <router-link v-if="!loggedInUser" to="/explore">Explore</router-link>
-        <button v-if="!loggedInUser" class="el-button is-text" @click="registerSeller">Become a Seller</button>
+        <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
         <button v-if="!loggedInUser" class="signin-btn" @click="login">Sign In</button>
         <button v-if="!loggedInUser" class="join-btn" @click="register">Join</button>
 
-        <button v-if="loggedInUser" class="el-button is-text" @click="toggleOrdersModal">Orders</button>
+        <button v-if="loggedInUser" class="btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal">
 
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
@@ -41,11 +41,11 @@
           </div>
 
         </div>
-        <button v-if="loggedInUser" class="el-button is-text">Switch To Selling</button>
+        <button v-if="loggedInUser" class="btn txt">Switch To Selling</button>
 
         <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
-          <!-- <img :src="loggedInUser.imgUrl"> -->
-          {{ loggedInUser.fullname }}
+          <img :src="loggedInUser.imgUrl">
+          <!-- {{ loggedInUser.fullname }} -->
 
           <div v-if="modalOpen" class="user-modal flex">
             <router-link to="/seller/profile"><a>Profile</a></router-link>

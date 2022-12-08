@@ -65,11 +65,11 @@ export const gigStore = {
 
       if (filterBy.min)
         filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price.slice(3)) >= filterBy.min
+          (gig) => parseInt(gig.price) >= filterBy.min
         )
       if (filterBy.max)
         filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price.slice(3)) <= filterBy.max
+          (gig) => parseInt(gig.price) <= filterBy.max
         )
       if (filterBy.delivery)
         filteredGigs = filteredGigs.filter(

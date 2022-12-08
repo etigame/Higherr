@@ -1,6 +1,7 @@
 
 .gig-package-payment{
-  max-width: 320px;
+  width: 320px;
+  
     p {
         font-size: rem(16px);
         min-height: 45px;
@@ -46,6 +47,7 @@
   margin-inline-end: 10px;
 }
 .package-content {
+  border-radius: 3px;
   padding: em(32px, 16px) em(24px, 16px);
   border: 1px solid var(--yro5245);
   margin-block-end: 16px;

@@ -2,6 +2,9 @@
     // background-color: blue;
     margin-top: $layoutPadding;
     margin-bottom: $layoutPadding;
+    h1 {
+        color: $CLR00;
+        }
 }
 
 .list-container {
@@ -37,8 +40,7 @@
     top: 0;
     z-index: 10;
     transition: all .3s ease;
-    // box-shadow: 0 .266px 1.13052px rgba(0,0,0,.069),0 .89345px 3.79717px rgba(0,0,0,.101),0 5px 17px rgba(0,0,0,.17);
-
+    
     .advanced-input {
         display: flex;
         flex-direction: row;
@@ -51,6 +53,21 @@
                 max-width: em(100px);
             }
         }
+        
+        }
+        .clear-filter-btn {
+            width: 104px;
+            height: 40px;
+            border: 1px solid $clr2;
+            background-color:$CLR0 ;
+            margin-top: em(19px);
+            margin-inline-end: em(10px);
+            border-radius: 3px;
+            color:$clr5;
+            cursor: pointer;
+        }
+        .el-input__inner {
+            color: $clr5;
         }
         .budget-input,
         .category-input,
@@ -58,6 +75,7 @@
             margin-inline-end: em(10px);
             width: em(105px);
             margin-top: em(16px);
+            color: $clr5;
         
             .el-input__wrapper {
                 width: em(120px)
@@ -102,13 +120,19 @@
             }
 
             .el-switch__core {
-                height: em(18px);
+                height: em(20px);
                 min-width: em(31px);
+            
             }
 
             .el-switch__action {
-                height: em(14px);
-                width: em(14px);
+                height: em(17px);
+                width: em(16px);
+
+            }
+            .el-switch.is-checked .el-switch__core .el-switch__action {
+                left: calc(100% - 15px);
+                color: var(--el-switch-on-color);
             }
         }
     }
