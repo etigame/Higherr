@@ -1,13 +1,13 @@
 
 .gig-package-payment{
-  width: 320px;
+  min-width: 340px;
   
     p {
         font-size: rem(16px);
         min-height: 45px;
         margin-block-end: 10px;
         line-height: 120%;
-        font-weight: 700;
+        font-weight: 500;
         
       }
       
@@ -43,7 +43,7 @@
   }
 // }
 .img-container{
-  max-height: 74px;
+  max-height: 70px;
   margin-inline-end: 10px;
 }
 .package-content {
@@ -82,11 +82,15 @@
     display: flex;
     justify-content: space-between;
     color: $clr3;
+    
   }
     .total {
       border-top:1px solid $clr9;
       padding-top:15px;
       color: $clr11;
+      p {
+          font-weight: 700;
+        }
     }
   .continue-btn {
     background-color: $clr4;
@@ -133,7 +137,6 @@
     align-items: center;
     font-size: rem(14px);
     color: var(--yro5248);
-    font-weight: 400;
     line-height: em(24px, 14px);
 
     & > span {

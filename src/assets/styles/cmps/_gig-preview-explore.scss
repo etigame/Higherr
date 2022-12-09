@@ -3,35 +3,41 @@
     .vueperslides__parallax-wrapper {
             position: relative;
             overflow: hidden;
-            padding-bottom: 66.66666% !important;
+            padding-bottom: 61.8% !important;
         }
                 .vueperslides {
                     position: relative;
-                    .vueperslides__arrow--prev {
-                        border-radius: 0 50px 50px 0;
-                        }
-                    .vueperslides__arrow--next {
-                        border-radius:50px 0 0 50px ;
-                    }
+                   
                         .vueperslides__arrow {
-                            margin: 0 -20px;
+                            width:25px;
+                            // margin: 0 -20px;
                             padding: 0.2em 0.1em ;
                             transition: 0.2s;
                         & svg {
-                            width: 1em;
+                            width: 1.6em;
+                            // width: 24px;
                             height: 1.4em;
                             vertical-align: middle;
                             stroke: currentColor;
                             fill: none;
-                            width: 2em;
                             padding: 0.3em 0;
                             stroke-width: 2;
                             color: transparent;
                                      
                           }
                         }
+                        .vueperslides__arrow--prev {
+                            border-radius: 0 50px 50px 0;
+                            & svg {
+                                width: 1em;
+                            }
+                        }
+                        
+                        .vueperslides__arrow--next {
+                            border-radius: 50px 0 0 50px;
+                        }
                 &:hover .vueperslides__arrow {
-                    margin: 0 -8px;
+                    margin: 0 -9px;
                     background-color:$CLR0;
                     opacity:1;
                     border:1px solid rgba(126, 125, 125, 0.6);
@@ -39,8 +45,18 @@
                             color:rgba(99, 97, 97, 0.828);
        
                     }
-                }}
-                
+                }
+                .vueperslides__arrow--prev {
+                    border-radius: 0 50px 50px 0;
+
+                    & svg {
+                    width: 1em;
+                    }
+                .vueperslides__arrow--next {
+                    border-radius: 50px 0 0 50px;
+                    }
+            }
+        }
         
     background-color:$CLR0;
     border:1px solid #e4e5e7;
@@ -72,9 +88,15 @@
         text-overflow: ellipsis;
     }
     .seller-info-preview{
+        font-size: rem(14px);
         display: flex;
         align-items: center;
         height: em(54px);
+        .level{
+            padding-block-start: 3px;
+            color:$clr5 ;
+            
+        }
     }
     .seller-img>*{
         max-height: em(24px);
@@ -92,13 +114,16 @@
         .rate-preview{
             color:$clr10;
             padding-inline-end: em(5px);
+            font-size: 14px;
         }
         .preview-rate-icon{
             fill:$clr10;
             padding-inline-end: em(5px);
         }
         .preview-reviews{
-            color:$clr2
+            font-weight: 300;
+            color:$clr2;
+            font-size: 14px;
         }
     }
     .preview-footer{
@@ -113,6 +138,7 @@
         padding:em(10px) em(12px);
         border-top:em(1px) solid #e4e5e7;
         .preview-heart{
+        padding-block-start: 3px;
         fill: $clr2;
         //  background-color:  rgb(108, 108, 205);
         }
@@ -125,6 +151,7 @@
                 letter-spacing: .5px;
                 text-transform: uppercase;}
             .preview-price {
+                color:#404145;
                     margin-inline-start: em(5px);
                     font-size: rem(18px);
                     line-height: rem(20px);

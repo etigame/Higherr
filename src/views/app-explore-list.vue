@@ -1,9 +1,14 @@
 <template>
-  <div class="app-explore-list">
+  <div class="app-explore-list main-layout full">
+    <section class="results-title">
     <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
     <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
     <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
-    <div class="advanced-filter">
+    </section>
+    <!-- <advanced-filter /> -->
+<section class="shadow  main-layout full">
+    <section class="advanced-filter">
+
       <div class="advanced-input">
         <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
         <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
@@ -12,22 +17,26 @@
         </el-select>
 
 
-        <!-- <div class="budget-input-1 flex">
+        <div @click="toggleBudget" class="budget-input-1 flex">
           <span>Budget</span>
-          <div>
-            
-          </div>
-        </div> -->
-        <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
-          <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop
-              placeholder="Any" /></el-option>
-          <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop
-              placeholder="Any" /></el-option>
-          <div><el-button @click="filter()">Apply</el-button><el-button @click="clearBudget()">Clear All</el-button>
-          </div>
-        </el-select>
+          <form @submit.prevent="filterBudget()" v-if="budgetDrop" v-clickOutside="toggleBudget" class="budget-dropdown">
+            <div @click.stop class="inputs">
+              <div>
+              <p>MIN</p>
+              <input v-model.number="filterBy.min"/>
+              </div>
+              <div>
+              <p>MAX</p>
+              <input v-model.number="filterBy.max"/>
+              </div>
+            </div>
+            <div @click.stop class="buttons flex">
+              <div @click.stop="clearBudget()">Clear All</div>
+              <button>Apply</button>
+            </div>
+          </form>
+        </div>
 
-        <!-- // TODO IN V-FOR -->
         <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time"
           size="large">
           <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
@@ -47,8 +56,9 @@
           <h4>Online seller</h4>
         </div>
       </div>
+    </section>
+    </section>
 
-    </div>
     <div class="sorting-click">
       <div class="flex ">
         <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
@@ -76,6 +86,8 @@
 <script>
 
 import gigPreviewExplore from '../cmps/gig-preview-explore.vue'
+import advancedFilter from '../cmps/advanced-filter.vue'
+
 
 
 export default {
@@ -89,6 +101,7 @@ export default {
         max: null,
         delivery: null,
       },
+      budgetDrop: false,
       demoInfo: true,
       options: [
         {
@@ -111,8 +124,8 @@ export default {
           value: 'Other',
           label: 'Other',
         },
-      ]
-
+      ],
+        
     }
   },
   computed: {
@@ -132,6 +145,7 @@ export default {
   },
   components: {
     gigPreviewExplore,
+    advancedFilter
   },
   methods: {
     filter(filterBy = this.filterBy) {
@@ -139,8 +153,13 @@ export default {
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
     clearBudget() {
+      this.budgetDrop = false
       this.filterBy.min = ''
       this.filterBy.max = ''
+      this.filter()
+    },
+    filterBudget(){
+      this.budgetDrop=false
       this.filter()
     },
     clearAllFilter() {
@@ -157,6 +176,9 @@ export default {
 
       this.filter()
     },
+    toggleBudget(){
+      this.budgetDrop=!this.budgetDrop
+    }
 
   },
   watch: {
