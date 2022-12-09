@@ -29,12 +29,11 @@
             <p>Use the search box to find the digital service you need</p>
           </div>
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
-
-            <div class="img-container">
-              <router-link :to="`/gig/${order.gig._id}`">
+            <router-link :to="`/gig/${order.gig._id}`">
+              <div class="img-container">
                 <img :src="order.gig.img">
-              </router-link>
-            </div>
+              </div>
+            </router-link>
             <div>
               <router-link :to="`/gig/${order.gig._id}`">
                 <p class="gig-title">{{ order.gig.name }}</p>
