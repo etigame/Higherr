@@ -3,7 +3,7 @@
   <section class="main-layout">
     <user-msg />
     <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
-      <app-header @filter="filter" />
+      <app-header @filter="filter" :class="{ activeOrders: isActiveOrders }" />
       <categories-list :type="'tag'" @filter="filter" />
     </section>
     <main class="app-container main-layout full">
@@ -38,6 +38,19 @@ export default {
     socketService.on('user-is-watching', (msg) => {
       showSuccessMsg(msg)
     })
+
+    socketService.on('user-ordered-gig', (msg) => {
+      showSuccessMsg(msg)
+    })
+
+    socketService.on('order-approved', (msg) => {
+      showSuccessMsg(msg)
+      this.changeOrdersStyle
+    })
+
+    socketService.on('order-status-update', (msg) => {
+      showSuccessMsg(msg)
+    })
   },
   data() {
     return {
@@ -49,7 +62,8 @@ export default {
         max: null,
         delivery: '',
       },
-      isHeaderSticky: false
+      isHeaderSticky: false,
+      isActiveOrders: false
     }
   },
   methods: {
@@ -59,6 +73,11 @@ export default {
       // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
+  },
+  computed: {
+    changeOrdersStyle() {
+      this.isActiveOrders = true
+    }
   },
   watch: {
     $route: {

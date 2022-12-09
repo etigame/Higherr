@@ -8,6 +8,10 @@
   transition: background-color 0.5s ease;
   transition: border 0.5s ease;
 
+  &.activeOrders .orders {
+    color: red;
+  }
+
   .app-header .el-button.is-text:active {
     background-color: transparent !important;
   }
