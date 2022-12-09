@@ -13,11 +13,11 @@
                         <img :src="review.flag" alt="reviewer-flag">
                         <p class="country">{{ review.country }}</p>
                         <ul class="stars clean-list flex">
-                            <li v-for="n in rateByReviewer"><span v-icon="'star'"
+                            <li v-for="n in review.rate"><span v-icon="'star'"
                                     class="flex justify-center align-center"></span>
                             </li>
                         </ul>
-                        <p class="rating-score"> {{ rateByReviewer }}</p>
+                        <p class="rating-score"> {{ review.rate }}</p>
                     </section>
                 </section>
 
@@ -45,17 +45,16 @@
             <section class="review-content">
                 <section class="review-rate flex align-center">
                     <ul class="stars clean-list flex">
-                        <li v-for="n in rateByReviewer"><span v-icon="'star'"
+                        <li v-for="n in review.rate"><span v-icon="'star'"
                                 class="flex justify-center align-center"></span>
                         </li>
                     </ul>
-                    <p class="rating-score"> {{ rateByReviewer }}</p>
+                    <p class="rating-score"> {{ review.rate }}</p>
                     <p class="reviewed-at">{{ review.reviewedAt }}</p>
                 </section>
                 <p class="review-description">{{ review.review }}</p>
             </section>
         </section>
-
     </section>
 </template>
   
@@ -70,7 +69,7 @@ export default {
     },
     data() {
         return {
-            rateByReviewer: 5,
+            // rateByReviewer: 5,
         }
     },
     computed: {

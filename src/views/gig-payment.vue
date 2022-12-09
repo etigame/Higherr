@@ -93,7 +93,7 @@ export default {
             return [
                 { key: 'From', value: this.gig.loc },
                 { key: 'Member since', value: this.gig.memberSince },
-                { key: 'Avg. response time', value: this.gig.avgResponseTime },
+                { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
         },

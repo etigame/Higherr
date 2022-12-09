@@ -8,7 +8,7 @@
         </div>
         <div class="info-txt flex">
           <h4>Message {{ gig.owner.fullname }}</h4>
-          <span>Avg. response time: {{ gig.avgResponseTime }}</span>
+          <span>Avg. response time: {{ displayAvgResponseTime }}</span>
         </div>
       </section>
     </section>
@@ -21,7 +21,7 @@
           </div>
           <div class="info-txt flex">
             <h2>Message {{ gig.owner.fullname }}</h2>
-            <h4>Avg. response time: {{ gig.avgResponseTime }}</h4>
+            <h4>Avg. response time: {{ displayAvgResponseTime }}</h4>
           </div>
         </div>
         <div @click="toggleChat"><span v-icon="'x'"></span></div>
@@ -136,6 +136,9 @@ export default {
   computed: {
     currRoutePath() {
       return this.$route.path
+    },
+    displayAvgResponseTime() {
+      return this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}`
     }
   }
 }

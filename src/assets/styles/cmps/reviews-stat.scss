@@ -50,8 +50,8 @@
 }
 
 .ranking {
-  min-width: 50%;
-  padding-block-start: 6px;
+  flex: 1;
+  padding-inline-start: 6px;
 
   h6 {
     font-size: 1rem;
@@ -70,6 +70,11 @@
       line-height: 21px;
       color: var(--yro523v);
       font-weight: 700;
+
+      span {
+        display: grid;
+        place-content: center;
+      }
 
       svg {
         fill: var(--yro523v);

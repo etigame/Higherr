@@ -16,7 +16,7 @@
         <div class="content-info">
             <span v-icon="'star'" class="preview-rate-icon"></span>
             <span class="rate-preview">{{ gig.owner.rate }}</span>
-            <span class="preview-reviews" v-if="gig.reviewers">({{ displayReviewsCount }})</span>
+            <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewsCount }})</span>
         </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
@@ -50,11 +50,6 @@ export default {
                     content: 'Slide 2 content.'
                 }
             ]
-        }
-    },
-    computed: {
-        displayReviewsCount() {
-            return utilService.getRandomIntInclusive(80, 220)
         }
     },
     components: {

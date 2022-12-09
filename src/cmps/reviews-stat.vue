@@ -1,7 +1,7 @@
 <template>
-    <section v-if="reviews" class="reviews-stat flex column">
+    <section v-if="gig.reviewers" class="reviews-stat flex column">
         <section class="stat-header flex align-center">
-            <h2>{{ reviews.length }} Reviews </h2>
+            <h2>{{ gig.reviewsCount }} Reviews </h2>
             <section class="reviews-rate flex">
                 <ul class="stars clean-list flex">
                     <li v-for="n in reviewsAvg"><span v-icon="'star'" class="flex justify-center align-center"></span>
@@ -14,11 +14,11 @@
         <section class="stat-main flex">
             <section class="stars-counters">
                 <ul class="clean-list flex column">
-                    <li class="flex align-center" v-for="{ key, reviewsAvg } in starsCounters" :key="key">
+                    <li class="flex align-center" v-for="{ key, reviewsCount } in starsCounters" :key="key">
                         <span class="key">{{ key }}</span>
                         <section class="progress-container flex align-center">
-                            <progress :value="`${reviewsAvg}`" :max="`${reviews.length}`" />
-                            <span class="star-num">({{ reviewsAvg }})</span>
+                            <progress :value="`${reviewsCount}`" :max="`${gig.reviewsCount}`" />
+                            <span class="star-num">({{ reviewsCount }})</span>
                         </section>
                     </li>
                 </ul>
@@ -44,7 +44,7 @@
 export default {
     name: 'reviews-stat',
     props: {
-        reviews: Array // gig.reviewers
+        gig: Object // gig.reviewers
     },
     data() {
         return {
@@ -61,11 +61,11 @@ export default {
         },
         starsCounters() {
             return [
-                { key: '5 Stars', reviewsAvg: this.reviewsAvg },
-                { key: '4 Stars', reviewsAvg: 0 },
-                { key: '3 Stars', reviewsAvg: 0 },
-                { key: '2 Stars', reviewsAvg: 0 },
-                { key: '1 Star', reviewsAvg: 0 },
+                { key: '5 Stars', reviewsCount: Math.ceil(this.gig.reviewsCount * 0.9) },
+                { key: '4 Stars', reviewsCount: Math.ceil(this.gig.reviewsCount * 0.08) },
+                { key: '3 Stars', reviewsCount: Math.ceil(this.gig.reviewsCount * 0.015) },
+                { key: '2 Stars', reviewsCount: Math.ceil(this.gig.reviewsCount * 0.003) },
+                { key: '1 Star', reviewsCount: Math.ceil(this.gig.reviewsCount * 0.002) },
             ]
         }
     }
