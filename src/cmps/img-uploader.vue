@@ -1,10 +1,7 @@
 <template>
   <section class="img-uploader">
-    Upload Images
-
-
-    <label for="imgUpload">something</label>
-    <label class="upload-container"> </label>
+    <label class="upload-container">Upload a file</label>
+    <label for="imgUpload"></label>
     <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
 
 
@@ -19,6 +16,8 @@
 
 <script>
 import { uploadService } from "../services/upload-service.js"
+
+
 
 export default {
   data() {
@@ -43,3 +42,5 @@ export default {
 
 }
 </script>
+
+

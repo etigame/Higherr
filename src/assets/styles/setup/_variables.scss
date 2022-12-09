@@ -15,10 +15,10 @@ $heroHeight: 680px;
 
 
 
-$padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
-$padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
-$padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
-$padded-break-wide: $wide-breakpoint + $layoutPadding * 2;
+$padded-break-mobile: $mobile-breakpoint+$layoutPadding * 2;
+$padded-break-narrow: $narrow-breakpoint+$layoutPadding * 2;
+$padded-break-normal: $normal-breakpoint+$layoutPadding * 2;
+$padded-break-wide: $wide-breakpoint+$layoutPadding * 2;
 
 
 // // LAYOUT BREAKPOINTS - wide screens
@@ -33,19 +33,19 @@ $CLR0: #ffffff; //menu open bgc
 $CLR00: #62646a;
 
 
-$CLR05: rgb(247, 247, 247) ;
+$CLR05: rgb(247, 247, 247);
 
-$CLR01:  #f3fdf9; //SECOND LEVEL BGC
-$CLR02:  #0d084d; // FIVER BUISNESS BGC
-$CLR03:  #023a15; // FIVER HERO BGC
+$CLR01: #f3fdf9; //SECOND LEVEL BGC
+$CLR02: #0d084d; // FIVER BUISNESS BGC
+$CLR03: #023a15; // FIVER HERO BGC
 //HEROS BGC
-$CLR04:  #0c3b24; // GRAFIC DESIGN BGC
-$CLR04:  #bd5272; // DIGITAL MARKETING BGC
-$CLR04:  #254200; // Writing & Translation BGC
-$CLR04:  #4d1627; // Video & Animation // trending BGC
-$CLR04:  #2f0d05; // Programming & Tech BGC
-$CLR04:  #687200; // Business BGC
-$CLR04:  #8f2800; // Lifstyle BGC
+$CLR04: #0c3b24; // GRAFIC DESIGN BGC
+$CLR04: #bd5272; // DIGITAL MARKETING BGC
+$CLR04: #254200; // Writing & Translation BGC
+$CLR04: #4d1627; // Video & Animation // trending BGC
+$CLR04: #2f0d05; // Programming & Tech BGC
+$CLR04: #687200; // Business BGC
+$CLR04: #8f2800; // Lifstyle BGC
 
 
 
@@ -67,12 +67,15 @@ $clr7: #1dbf73;
 $clr8: #02c2a9; // FIVVER PRO LINK
 
 
-$clr9: #dadbdd;; // SWITCH OFF 
+$clr9: #dadbdd;
+; // SWITCH OFF 
 $clr10: #ffbe5b; // STAR RATE COLOR
 
 
 //FONT COLOR
 $clr11: #404145;
+
+
 
 
 :root {
@@ -234,10 +237,13 @@ $clr11: #404145;
     --yro524b: #404145;
     --yro524c: #222325;
 }
+
 :fonts {
---yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
---yro524e: "DomaineDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
---yro524g: Georgia,"Times New Roman",serif;}
-.lala{
-    font-family:anton, Arial, Helvetica, sans-serif ;
+    --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524e: "DomaineDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --yro524g: Georgia, "Times New Roman", serif;
+}
+
+.lala {
+    font-family: anton, Arial, Helvetica, sans-serif;
 }

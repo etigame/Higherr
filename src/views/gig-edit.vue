@@ -20,7 +20,7 @@
                 </label>
             </div>
 
-            <div class="bottom-form flex space-between justify-center">
+            <div class="bottom-form flex space-between">
                 <label class="category flex column">
                     <span class="flex-column">Category
                         <p>Choose the category most suitable for your Gig.</p>
@@ -57,15 +57,18 @@
                     <input v-model="gigToEdit.price" type="number" name="" id=""></label>
             </div>
 
-
-
-            <img-uploader @uploaded="onUploaded"></img-uploader>
+            <div class="images flex-column">
+                <span>Upload Images
+                    <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
+                </span>
+                <img-uploader @uploaded="onUploaded"></img-uploader>
+            </div>
 
 
         </form>
         <div class="btns flex space-between">
-            <button @click="returnToProfile">Cancel</button>
-            <button @click="saveGig">Save</button>
+            <button class="cancel-btn" @click="returnToProfile">Cancel</button>
+            <button class="save-btn" @click="saveGig">Save</button>
 
         </div>
     </section>
