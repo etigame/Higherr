@@ -1,6 +1,6 @@
 <template>
-    <section v-if="gig" class="gig-details">
-        <section class="details-nav">
+    <section v-if="gig" class="gig-details main-layout full">
+        <section class="details-nav main-layout full">
             <ul class="details-nav-list clean-list flex align-center">
                 <!-- //TODO: try implement with exact-active -->
                 <!-- //TODO: fix bug in URL with hash -->
@@ -23,11 +23,11 @@
 
         <section class="details-container flex">
             <section id="overview" class="main">
-                <p class="bread-crumbs">
-                    Graphics & Design
+                <div class="bread-crumbs flex">
+                    <p>Graphics & Design</p>
                     <span v-icon="'breadCrumbsArrow'"></span>
-                    Logo Design
-                </p>
+                    <p>Logo Design</p>
+                </div>
                 <p class="title">{{ gig.title }}</p>
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="gig-gallery">
@@ -36,21 +36,16 @@
                             <vueper-slide v-for="image in gig.image" :key="1" :image="image">
                             </vueper-slide>
                         </vueper-slides>
-                        <div class="img-slider">
-                            <!-- <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
-                             :visible-slides="gig.image.length"
-                            fixed-height="75px" :bullets="false" :touchable="false" :gap="0" :arrows="true" :gig="gig" >
-                            <vueper-slide v-for="image in gig.image" :key="1" :image="image"
-                                @click.native="$refs.vueperslides2.goToSlide(i)"
-                                >
-                            </vueper-slide>
-                        </vueper-slides> -->
+                        <div class="thumbnails-slider">
+                            <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
+                                :visible-slides="gig.image.length" fixed-height="75px" :bullets="false"
+                                :touchable="false" :gap="1" :arrows="true" :gig="gig">
+                                <vueper-slide v-for="image in gig.image" :key="1" :image="image"
+                                    @click.native="$refs.vueperslides2.goToSlide(i)">
+                                </vueper-slide>
+                            </vueper-slides>
                         </div>
-                        <!-- <img :src="gig.image" alt="gig-image"> -->
                     </section>
-                    <!-- <section class="gallery-thumbnails">
-                        <h1>gallery-thumbnails</h1>
-                    </section> -->
                 </section>
 
                 <section class="gig-reviews-snippet" v-if="gig.reviewers">
@@ -89,7 +84,7 @@
                 </section>
 
                 <section id="reviews" class="reviews-container" v-if="gig.reviewers">
-                    <reviews-stat :reviews="gig.reviewers" />
+                    <reviews-stat :gig="gig" />
                     <review-list :type="'reviewLong'" :reviews="gig.reviewers" />
                 </section>
 
@@ -128,7 +123,7 @@ export default {
     data() {
         return {
             gig: null,
-            selected: null,
+            selected: 0,
             links: [
                 { to: 'overview', title: 'Overview' },
                 { to: 'aboutSeller', title: 'About the seller' },
@@ -155,7 +150,7 @@ export default {
             return [
                 { key: 'From', value: this.gig.loc },
                 { key: 'Member since', value: this.gig.memberSince },
-                { key: 'Avg. response time', value: this.gig.avgResponseTime },
+                { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
         },
@@ -164,9 +159,5 @@ export default {
         },
 
     },
-    methods: {
-
-    }
-
 }
 </script>

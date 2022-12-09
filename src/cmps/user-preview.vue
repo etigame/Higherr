@@ -7,13 +7,13 @@
                 <img :src="gig.owner.imgUrl" alt="seller-img" />
             </div>
             <p class="seller-fullname"> {{ gig.owner.fullname }}</p>
-            <p class="seller-level"> Level 2 Seller </p>
+            <p class="seller-level"> Level {{ gig.owner.level }} Seller </p>
             <div class="line"> | </div>
             <ul class="stars clean-list flex">
                 <li v-for="n in sellerRate"><span v-icon="'star'" class="flex justify-center align-center"></span></li>
             </ul>
-            <p class="rate-score"> {{ ratingScore }} </p>
-            <p class="seller-reviews-count" v-if="gig.reviewers">({{ gig.reviewers.length }})</p>
+            <p class="rate-score"> {{ gig.owner.rate }} </p>
+            <p class="seller-reviews-count" v-if="gig.reviewers">({{ gig.reviewsCount }})</p>
         </section>
 
         <!-- SELLER DETAILS LONG -->
@@ -27,19 +27,19 @@
                     <p class="seller-fullname"> {{ gig.owner.fullname }}</p>
                     <div class="online-indicator">
                         <span v-icon="'onlineSeller'"></span>
-                        Online
+                        <p>Online</p>
                     </div>
                 </section>
 
-                <p class="seller-level"> Level 2 Seller </p>
+                <p class="seller-level"> Level {{ gig.owner.level }} Seller </p>
                 <section class="seller-reviews-stat flex align-center">
                     <ul class="stars clean-list flex">
                         <li v-for="n in sellerRate"><span v-icon="'star'"
                                 class="flex justify-center align-center"></span>
                         </li>
                     </ul>
-                    <p class="rate-score"> {{ ratingScore }} </p>
-                    <p class="seller-reviews-count" v-if="gig.reviewers">({{ gig.reviewers.length }})</p>
+                    <p class="rate-score"> {{ gig.owner.rate }} </p>
+                    <p class="seller-reviews-count" v-if="gig.reviewers">({{ gig.reviewsCount }})</p>
                 </section>
                 <button class="contact-me-btn">Contact Me</button>
             </section>
@@ -59,7 +59,6 @@ export default {
     data() {
         return {
             sellerRate: 5,
-            ratingScore: 5
         }
     }
 }

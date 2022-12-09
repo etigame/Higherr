@@ -4,7 +4,10 @@
             <section id="overview" class="main">
                 <section class="payment-details-container">
                     <h2>Payment Option</h2>
-                    <section class="credit-selection">
+                    <section class="credit-selection flex">
+                        <div class="credit-txt">
+                        <p>Credit & Debit Cards</p>
+                        </div>
                         <div class="visa">
                             <span v-icon="'visa'"></span>
                         </div>
@@ -93,7 +96,7 @@ export default {
             return [
                 { key: 'From', value: this.gig.loc },
                 { key: 'Member since', value: this.gig.memberSince },
-                { key: 'Avg. response time', value: this.gig.avgResponseTime },
+                { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
         },

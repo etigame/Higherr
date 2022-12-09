@@ -1,12 +1,16 @@
 <template>
     <section class="gig-preview-explore" v-if="gig">
         <vueper-slides fade :touchable="false">
-            <vueper-slide v-for=" image  in gig.image" :key="1" :image="image">
+            <vueper-slide @click="goToGig(`/gig/${gig._id}`)" v-for=" image  in gig.image" :key="1" :image="image">
             </vueper-slide>
         </vueper-slides>
+
         <div class="seller-info-preview">
             <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
-            <p>{{ gig.owner.fullname }}</p>
+            <div>
+                <p>{{ gig.owner.fullname }}</p>
+                <p class="level">Level {{ gig.owner.level }} seller</p>
+            </div>
         </div>
         <div class="preview-title">
             <router-link :to="`/gig/${gig._id}`">
@@ -16,7 +20,7 @@
         <div class="content-info">
             <span v-icon="'star'" class="preview-rate-icon"></span>
             <span class="rate-preview">{{ gig.owner.rate }}</span>
-            <span class="preview-reviews" v-if="gig.reviewers">({{ displayReviewsCount }})</span>
+            <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewsCount }})</span>
         </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
@@ -52,14 +56,15 @@ export default {
             ]
         }
     },
-    computed: {
-        displayReviewsCount() {
-            return utilService.getRandomIntInclusive(80, 220)
-        }
+    methods: {
+        goToGig(gig) {
+            console.log(this.gig)
+            this.$router.push({ path: gig })
+        },
     },
     components: {
         VueperSlides,
-        VueperSlide
+        VueperSlide,
     },
 }
 </script>

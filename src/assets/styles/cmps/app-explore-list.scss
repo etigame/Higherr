@@ -4,7 +4,13 @@
     margin-bottom: $layoutPadding;
     h1 {
         color: $CLR00;
-        }
+    }
+        //  .el-input__inner {
+        //      color: $clr4;
+        //  }
+                // .el-select .el-input.is-focus .el-input__wrapper {
+                //     box-shadow: 0 0 0 1px black inset !important;
+                // }
 }
 
 .list-container {
@@ -29,17 +35,21 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
+.shadow{
+        box-shadow: 0 12px 11px -12px $clr5;
+        position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: all .3s ease;
+}
 .advanced-filter {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #fff;
     padding-block-end: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    transition: all .3s ease;
+
+ 
     
     .advanced-input {
         display: flex;
@@ -63,15 +73,16 @@
             margin-top: em(19px);
             margin-inline-end: em(10px);
             border-radius: 3px;
-            color:$clr5;
+            color:$clr11;
             cursor: pointer;
         }
-        .el-input__inner {
+        .el-input__inner>* {
             color: $clr5;
         }
         .budget-input,
         .category-input,
-        .delivery-input {
+        .delivery-input ,
+        .budget-input-1{
             margin-inline-end: em(10px);
             width: em(105px);
             margin-top: em(16px);
@@ -83,15 +94,108 @@
         }
         /////////
         .budget-input-1{
+            
             justify-content: center;
             align-items: center;
-            color: $CLR00;
-            margin-inline-end: em(10px);
-            width: em(105px);
-            margin-top: em(16px);
+            color:$clr11;
+            font-size: 12px;
+            margin-top: em(21px);
+            width: em(120px);
+            // margin-inline-end: em(10px);
+            height: em(52px);
             box-shadow: 0 0 1px 0;
+            border-radius: 2px;
+            .budget-dropdown{
+                position: absolute;
+                background-color: $CLR0;
+                transform: translate(106px,118px);
+                width:316px;
+                height: 170px;
+                border-radius: 4px;
+                box-shadow: 0 12px 18px rgb(0 0 0 / 14%);
+                border:1px solid $clr9;
+                .inputs{
+                    display: flex;
+                    justify-content: space-between;
+                    // background-color: brown;
+                    height: 104px;
+                    padding:12px 24px
+                    
+                    
+                }
+                p{
+                    font-size: 12px;
+                    margin-bottom: 10px;
+                    color: #95979d;
+                }
+                input {
+                    max-width: 120px;
+                    height: 40px;
+                    border-radius: 4px;
+                    border:0;
+                    box-shadow: 0 0 0 1px $clr9;
+                    padding-inline-start: 10px;
+                    
+                }
+                                input:focus-visible {
+                                    outline: none;
+                                    border: 0;
+                                    box-shadow: 0 0 0 1px $clr5;
+                                }
+                
+                .buttons{
+                    border-top: 1px solid $clr9;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 12px 24px;
+                    font-size: 14px;
+                    
+                }
+                button{
+                    background-color: $clr1;
+                    font-weight: 700;
+                    height: 30px;
+                    width: 65px;
+                    padding: 4px 12px;
+                    border-radius: 4px;
+                    border:0;
+                    color:$CLR0;
+                }
+                div{
+                    color:#95979d;
+                }
+            }
         }
+            .el-input__wrapper {
+                box-shadow: 0 0 0 1px $clr9 inset !important;
+            }
+            .el-select .el-input.is-focus .el-input__wrapper {
+                box-shadow: 0 0 0 1px $clr9 inset !important;
+            }
+            .el-input__inner{
+                color:black !important;
+                svg{
+                    color: black !important;
+                }
+            }
+            .el-input__inner>*{
+                color:black !important;
+            }
+            .el-select .el-input .el-select__caret {
+                color: gray;
+                transition: transform var(--el-transition-duration);
+                transform: rotateZ(0);
+                cursor: pointer;
+            }
+            .el-input {
+                --el-input-placeholder-color: black;
+                font-size: 13px;
+                font-family: Macan;
+                --el-font-family: Macan , Arial, sans-serif !important;
+                --el-font-weight-primary: 700;
+                --el-font-line-height-primary: 24px;
 
+            }
     }
 
     .advanced-switches {
@@ -136,10 +240,6 @@
             }
         }
     }
-}
-
-.el-input__inner {
-    color: black
 }
 
 .sorting-click {

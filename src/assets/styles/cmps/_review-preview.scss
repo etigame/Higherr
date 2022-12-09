@@ -71,6 +71,8 @@
 }
 
 .stars {
+  margin-block-start: -2px;
+  
   svg {
     fill: var(--yro523v);
   }
@@ -123,12 +125,12 @@
   }
 
   .stars {
-    margin: em(2px, 14px) 0 0 em(8px, 14px);
+    margin: 0 0 0 em(8px, 14px);
   }
 
   .rating-score {
     font-size: rem(14px);
-    padding-inline-start: 0;
+    padding-inline-start: em(4px, 14px);
     padding-block-start: em(2px, 14px);
     border-inline-end: none;
   }
