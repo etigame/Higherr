@@ -6,6 +6,7 @@
       <app-header @filter="filter" :class="{ activeOrders: isActiveOrders }" />
       <categories-list :type="'tag'" @filter="filter" />
     </section>
+
     <main class="app-container main-layout full">
       <router-view />
     </main>

@@ -4,7 +4,10 @@
             <section id="overview" class="main">
                 <section class="payment-details-container">
                     <h2>Payment Option</h2>
-                    <section class="credit-selection">
+                    <section class="credit-selection flex">
+                        <div class="credit-txt">
+                        <p>Credit & Debit Cards</p>
+                        </div>
                         <div class="visa">
                             <span v-icon="'visa'"></span>
                         </div>

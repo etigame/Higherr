@@ -6,7 +6,7 @@
                 <div class="img-container">
                     <img :src="`${gig.image[0]}`" />
                 </div>
-                <h3 class="title">{{ gig.title }}</h3>
+                <p class="title ">{{ gig.title }}</p>
 
             </section>
             <h3 class="price"> US${{ gig.price }} </h3>
@@ -47,7 +47,7 @@
             </div>
 
             <button @click="addOrder" class="continue-btn">
-                Pay In US$
+                Confirm And Pay
             </button>
         </section>
 
