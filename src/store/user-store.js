@@ -56,7 +56,7 @@ export const userStore = {
         // const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
         // socketService.login(localLoggedInUser)
 
-        // socketService.login(state.loggedinUser)  - turn on when connect backend
+        socketService.login(state.loggedinUser)
         // return user
       } catch (err) {
         console.log('userStore: Error in login', err)
@@ -71,8 +71,8 @@ export const userStore = {
         const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
         socketService.signup(localLoggedInUser)
 
-        // socketService.signup(state.loggedinUser)- turn on when connect backend
-        console.log(user)
+        socketService.signup(state.loggedinUser)
+        // console.log(user)
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)

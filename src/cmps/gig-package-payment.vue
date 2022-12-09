@@ -4,10 +4,10 @@
             <section class="header flex space-between">
                 <!-- <h3 class="title">Order Details</h3> -->
                 <div class="img-container">
-                <img :src="`${gig.image[0]}`"/>
+                    <img :src="`${gig.image[0]}`" />
                 </div>
-                <h3 class="title">{{gig.title}}</h3>
-                
+                <h3 class="title">{{ gig.title }}</h3>
+
             </section>
             <h3 class="price"> US${{ gig.price }} </h3>
             <p>1 custom logo+high resolution file+3d mockup+logo transparency+ 300dpi</p>
@@ -30,24 +30,24 @@
                 <li><span v-icon="'greenV'"></span> Include 3D mockup</li>
             </ul>
             <div class="pricing">
-            <p>Service Fee</p>
-            <p> US${{ serviceCalc(gig.price) }}</p>
+                <p>Service Fee</p>
+                <p> US${{ serviceCalc(gig.price) }}</p>
             </div>
             <div class="pricing">
-            <p>VAT </p>
-            <p>US${{ vatCalc(gig.price) }}</p>
+                <p>VAT </p>
+                <p>US${{ vatCalc(gig.price) }}</p>
             </div>
             <div class="pricing total">
-            <p>Total </p>
-            <p>US${{ totalPrice(gig.price)}}</p>
+                <p>Total </p>
+                <p>US${{ totalPrice(gig.price) }}</p>
             </div>
             <div class="pricing">
-            <p>Delivery Time</p>
-            <p>{{gig.daysToMake}} Days</p>
+                <p>Delivery Time</p>
+                <p>{{ gig.daysToMake }} Days</p>
             </div>
 
             <button @click="addOrder" class="continue-btn">
-               Pay In US$
+                Pay In US$
             </button>
         </section>
 
@@ -64,24 +64,29 @@
 </template>
 
 <script>
+import { socketService } from '../services/socket-service'
+
 export default {
     name: 'gig-package',
     props: {
         gig: Object
     },
-    methods:{
-        addOrder(){
+    methods: {
+        addOrder() {
             this.$emit('addOrder')
-            this.$router.push('/')
+            setTimeout(() => {
+                this.$router.push('/')
+            }, 500)
+            socketService.emit('gig-ordered', this.gig)
         },
-        serviceCalc(price){
+        serviceCalc(price) {
             return (price * 0.15).toFixed(2)
         },
-        vatCalc(price){
+        vatCalc(price) {
             return ((price - price / 1.17).toFixed(2))
         },
-        totalPrice(price){
-            return ((price*1.17 + price*0.15).toFixed(2))
+        totalPrice(price) {
+            return ((price * 1.17 + price * 0.15).toFixed(2))
         },
     },
 }

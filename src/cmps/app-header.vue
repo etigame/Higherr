@@ -18,23 +18,22 @@
         <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
         <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
-        <button v-if="loggedInUser" class="btn txt" @click="toggleOrdersModal">Orders</button>
+        <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div v-if="!orders" class="no-order">
+          <div v-if="(!orders || orders.length===0)" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
             <h3>No Order Yet</h3>
-            <p>Use the search box to find the digital service you need</p>
+            <p class="light empty-txt">Use the search box to find the digital service you need</p>
           </div>
           <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
-
-            <div class="img-container">
-              <router-link :to="`/gig/${order.gig._id}`">
+            <router-link :to="`/gig/${order.gig._id}`">
+              <div class="img-container">
                 <img :src="order.gig.img">
-              </router-link>
-            </div>
+              </div>
+            </router-link>
             <div>
               <router-link :to="`/gig/${order.gig._id}`">
                 <p class="gig-title">{{ order.gig.name }}</p>
@@ -49,14 +48,14 @@
         </div>
 
 
-        <div @click="toggleUserModal" class="user-img" v-if="loggedInUser">
+        <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
           <img :src="loggedInUser.imgUrl">
           <!-- {{ loggedInUser.fullname }} -->
 
           <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
             <div class="modal-tip"></div>
 
-            <router-link to="/seller/profile">Profile</router-link>
+            <router-link to="/seller/profile" class=" light">Profile</router-link>
             <router-link to="/seller/orders">Dashboard</router-link>
             <a @click="doLogout">Logout</a>
           </div>
@@ -146,6 +145,7 @@ export default {
       return this.$route.path
     },
     orders() {
+      console.log(this.$store.getters.buyerOrders);
       return this.$store.getters.buyerOrders
     },
   },

@@ -16,7 +16,7 @@
         <div class="content-info">
             <span v-icon="'star'" class="preview-rate-icon"></span>
             <span class="rate-preview">{{ gig.owner.rate }}</span>
-            <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewers.length }})</span>
+            <span class="preview-reviews" v-if="gig.reviewers">({{ displayReviewsCount }})</span>
         </div>
         <div class="preview-footer">
             <span v-icon="'fullHeart'" class="preview-heart"></span>
@@ -31,6 +31,7 @@
 
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
+import { utilService } from '../services/util-service'
 
 export default {
     name: 'gig-preview-explore',
@@ -49,6 +50,11 @@ export default {
                     content: 'Slide 2 content.'
                 }
             ]
+        }
+    },
+    computed: {
+        displayReviewsCount() {
+            return utilService.getRandomIntInclusive(80, 220)
         }
     },
     components: {

@@ -104,7 +104,7 @@ export default {
   },
   created() {
     const user = userService.getLoggedInUser()
-    socketService.emit(SOCKET_EMIT_JOIN_CHAT, user)
+    socketService.emit(SOCKET_EMIT_JOIN_CHAT, user.fullname)
     const topic = this.gig.owner._id
     socketService.emit(SOCKET_EMIT_SET_TOPIC, topic)
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
