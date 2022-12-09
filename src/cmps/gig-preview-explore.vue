@@ -56,11 +56,6 @@ export default {
             ]
         }
     },
-    computed: {
-        displayReviewsCount() {
-            return utilService.getRandomIntInclusive(80, 220)
-        }
-    },
     methods: {
         goToGig(gig) {
             console.log(this.gig)
