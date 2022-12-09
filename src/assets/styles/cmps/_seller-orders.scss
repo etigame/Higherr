@@ -173,7 +173,8 @@ height: 400px;
         padding-inline-end: 10px;
           button {
               border: 0;
-              background-color: transparent;
+              color: $CLR0;
+              // background-color: transparent;
             }
       }
       .user-col{
@@ -190,7 +191,7 @@ height: 400px;
         max-width: 20px;
       }
       .status{
-        background-color: rgb(33, 59, 7);
+        // background-color: rgb(33, 59, 7);
         justify-content: center;
         color: $CLR0;
         font-weight: 500;
@@ -205,34 +206,47 @@ height: 400px;
         flex-direction: column;
         justify-content: space-evenly;
         background-color: $CLR0;
-        opacity: 0.9;
-        box-shadow: 0 0 8px 0;
-        border-radius:10px 0 10px 10px ;
-        width: 250px;
-        height: 300px;
+        box-shadow: 0 0 2px 0;
+        border-radius:4px ;
+        width: 120px;
+        height: 150px;
         position: absolute;
-        // position: fixed;
-        top: 700px;
-        right: 20%;
+        
+        position: fixed;
+        top: 50vh;
+        right: 50vw;
         transform: translate(50%, -50%);
         &>*{
+          margin: 8px;
           padding-bottom: 10px;
           border-bottom: 2px solid transparent;
-        &:hover{
-          
-          border-bottom: 2px solid $clr1;
-        }
         }
         button{
-          font-size: rem(20px);
-          font-weight: 700;
-          &:hover{
-            color:$clr1;
-          }
+          font-size: rem(16px);
+          font-weight: 500;
+          border:1px solid gray;
+          width:90%;
+
         }
         
       }
+
     }
+                    .pending {
+                      background-color: burlywood;
+                    }
+          
+                    .rejected {
+                      background-color: rgb(185, 53, 33);
+                    }
+          
+                    .in-progress {
+                      background-color: rgb(180, 172, 26);
+                    }
+          
+                    .completed {
+                      background-color: rgb(9, 149, 37);
+                    }
 
   }
 

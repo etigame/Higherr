@@ -78,9 +78,9 @@
                     <div class="total-col"><h4>Total</h4></div>
                     <div class="status-col"><h4>Status</h4>
                         <div v-if="setOpen" class="set-status">
-                            <button @click="changeStatus('Completed')">Completed</button>
-                            <button @click="changeStatus('In Progress')">In Progress</button>
-                            <button @click="changeStatus('Reject')">Reject</button>
+                            <button class="completed" @click="changeStatus('Completed')">Completed</button>
+                            <button class="in-progress" @click="changeStatus('In Progress')">In Progress</button>
+                            <button class="rejected" @click="changeStatus('Reject')">Reject</button>
                         </div>
                     </div>
 
@@ -102,7 +102,9 @@
                     <span class="table-span">US${{order.gig.price}}</span>
                 </div>
                 <div  @click="selectOrder(order)" class="status-col flex column">
-                    <div class="status flex">
+                    <div class=" status flex">
+                    <!-- <div class=" status flex" :class="`${order.status}`"> -->
+                    <!-- <div class="status flex"> -->
                         <span class="light">{{order.status}}</span>
                     </div>
                 </div>
@@ -234,6 +236,12 @@ computed: {
         console.log(this.loggedUser);
         return (this.annualOrdersComplete/ this.orders.length)*100
 
+    },
+    className(str){
+        if(str==='Pending') return 'pending'
+        if(str==='Completed') return 'completed'
+        if(str==='In Progress') return 'in-progress'
+        if(str==='Rejected') return 'rejected'
     }
 },
 }
