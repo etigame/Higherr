@@ -1,5 +1,6 @@
 .gig-preview-seller {
-    @include card(230px, 262px);
+    @include card(230px, 254px);
+
 
     .gig-info {
         background-color: $CLR0;
@@ -62,7 +63,9 @@
 
             .preview-price-container {
                 align-items: center;
-                color: $clr5;
+                color: $clr7;
+
+
 
                 p {
                     color: #74767e;
@@ -70,12 +73,14 @@
                     font-weight: 700;
                     letter-spacing: .5px;
                     text-transform: uppercase;
+                    color: $clr7;
                 }
 
                 .preview-price {
                     margin-inline-start: em(5px);
                     font-size: rem(18px);
                     line-height: rem(20px);
+
                 }
             }
 

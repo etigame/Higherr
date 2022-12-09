@@ -55,8 +55,8 @@
                 <div class="gigs-list flex">
                     <div @click="editGig" class="add-gig  flex justify-center align-center">
                         <div class="flex column align-center">
-                            <span class="add-gig-btn flex justify-center align-center">+</span>
-                            <h2>Create a new Gig</h2>
+                            <span class="add-gig-btn">+</span>
+                            <p>Create a new Gig</p>
                         </div>
                     </div>
                     <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
