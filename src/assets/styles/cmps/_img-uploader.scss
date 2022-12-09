@@ -1,9 +1,34 @@
 .img-uploader {
-    width: 100%;
-    height: 100%;
-}
 
-.img-container {
+    background-color: var(--yro528);
     width: 150px;
-    height: 150px;
+    height: 60px;
+    border-radius: 4px;
+    line-height: 60px;
+    padding-left: 20px;
+    color: white;
+    font-family: Macan-Regular;
+
+
+
+    .upload-container {}
+
+
+    #imgUpload {
+        position: relative;
+        bottom: 126px;
+        right: 21px;
+        background-color: red;
+        height: 60px;
+        width: 150px;
+        opacity: 0;
+    }
+
+
+
+
+    .img-container {
+        width: 150px;
+        height: 150px;
+    }
 }

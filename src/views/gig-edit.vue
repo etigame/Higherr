@@ -8,7 +8,7 @@
                             that buyers would likely use to search for a service like yours.
                         </p>
                     </span>
-                    <input v-model="gigToEdit.title" type="text" />
+                    <input v-model="gigToEdit.title" type="text" placeholder="I will..." />
                 </label>
 
                 <label class="description">
@@ -52,14 +52,15 @@
 
                 <label class="price flex column">
                     <span>Price
-                        <p>Price your offering for this gig</p>
+                        <p>Price you're offering for this gig</p>
                     </span>
                     <input v-model="gigToEdit.price" type="number" name="" id=""></label>
             </div>
 
-            <label class="images">
-                <img-uploader @uploaded="onUploaded"></img-uploader>
-            </label>
+
+
+            <img-uploader @uploaded="onUploaded"></img-uploader>
+
 
         </form>
         <div class="btns flex space-between">

@@ -1,11 +1,13 @@
 <template>
-  <section class="img-uploader flex column">
+  <section class="img-uploader">
+    Upload Images
 
 
-    <label for="imgUpload">Upload Images</label>
-    <label class="upload-container">
-      <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
-    </label>
+    <label for="imgUpload">something</label>
+    <label class="upload-container"> </label>
+    <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
+
+
 
     <div className="upload-preview flex">
       <div v-for="img in images" class="img-container">
@@ -13,7 +15,6 @@
       </div>
     </div>
   </section>
-
 </template>
 
 <script>
