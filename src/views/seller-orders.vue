@@ -163,6 +163,9 @@ export default {
             this.toggleSet()
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             // this.loadOrders()
+
+            socketService.emit('order-change-status', this.selectedOrder.buyer)
+
         },
         toLocalTime(time) {
             console.log(time.toLocaleDateString())
