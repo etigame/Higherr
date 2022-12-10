@@ -1,41 +1,44 @@
 <template>
+
   <section v-if="menuOpen" class="side-menu" v-clickOutside="toggleSideMenu">
     <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-    <div v-if="!loggedInUser"  @click="registerSeller">Become a Seller</div>
+    <div v-if="!loggedInUser" @click="registerSeller">Become a Seller</div>
     <div v-if="!loggedInUser" @click="login">Sign In</div>
-    <div v-if="!loggedInUser"  @click="register">Join</div>
+    <div v-if="!loggedInUser" @click="register">Join</div>
     <div class="user-info flex">
-    <div class="img-container">
-    <img  v-if="loggedInUser" :src="loggedInUser.imgUrl">
-    </div>
-    <p  v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
+      <div class="img-container">
+        <img v-if="loggedInUser" :src="loggedInUser.imgUrl">
+      </div>
+      <p v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
     </div>
 
-      <router-link  v-if="loggedInUser" to="/seller/profile" class=" light">Profile</router-link>
-      <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
-      <a v-if="loggedInUser" @click="doLogout">Logout</a>
+    <router-link v-if="loggedInUser" to="/seller/profile" class=" light">Profile</router-link>
+    <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
+    <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
-                <div v-if="(orders && loggedInUser)">  
-                  <h3>orders:</h3>
-                <div v-for="order in orders" class="order-container">
-                  <router-link :to="`/gig/${order.gig._id}`">
-                    <div class="flex">
-                    <div class="img-container">
-                      <img :src="order.gig.img">
-                    </div>
-                    <p class="gig-title">{{ order.gig.name }}</p>
-                    </div>
-                  </router-link>
-                  <div>
-                    <div class="seller-status flex ">
-                      <span> Status:</span>
-                      <span class="status clr1 ">{{ order.status }}</span>
-                    </div>
-                  </div>
-                  </div>
-                </div>
+    <div v-if="(orders && loggedInUser)">
+      <h3>orders:</h3>
+      <div v-for="order in orders" class="order-container">
+        <router-link :to="`/gig/${order.gig._id}`">
+          <div class="flex">
+            <div class="img-container">
+              <img :src="order.gig.img">
+            </div>
+            <p class="gig-title">{{ order.gig.name }}</p>
+          </div>
+        </router-link>
+        <div>
+          <div class="seller-status flex ">
+            <span> Status:</span>
+            <span class="status clr1 ">{{ order.status }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </section>
+
+
   <header class="app-header main-layout full flex align-center"
     :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
     <nav class="flex align-center space-between">
@@ -107,10 +110,11 @@
     </nav>
   </header>
   <section>
-          <div class="search-narrow">
-            <header-search @filter="filter" />
-          </div>
+    <div class="search-narrow">
+      <header-search @filter="filter" />
+    </div>
   </section>
+
 </template>
 
 <script>
@@ -142,7 +146,7 @@ export default {
       isSearchShown: false,
       modalOpen: false,
       orderOpen: false,
-      menuOpen:false,
+      menuOpen: false,
     }
   },
   mounted() {

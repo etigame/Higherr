@@ -1,18 +1,44 @@
-.app-footer{
+.app-footer {
     flex-direction: row;
     height: 80px;
-    border-top: 1px solid var(--yro5247);
+    border-top: 1px solid #e4e5e7;
 
-    .logo, .copy-rights{
+    .logo,
+    .copy-rights {
         margin-right: 30px;
-        color: var(--yro5247);
-        font-size: rem(14px);
+
+
     }
 
-    .social-links{
+    .logo {
+        font-family: Macan;
+        font-size: 1.7rem;
+        color: $clr5;
+
+
+        &::after {
+            content: '®';
+            font-size: 0.6rem;
+            color: var(--yro5247);
+
+        }
+    }
+
+    .copy-rights {
+        font-family: Macan-Regular;
+        color: var(--yro5247);
+        font-size: em(14px);
+
+    }
+
+
+
+
+    .social-links {
+
         // flex-basis: 20%;
-        a{
-            width:100%;
+        a {
+            width: 100%;
             margin-inline-start: 32px;
             cursor: pointer;
         }

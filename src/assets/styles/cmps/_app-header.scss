@@ -75,7 +75,6 @@
 
   .logo {
     // flex-basis: 30%;
-    margin: 4px 0 0;
     min-width: 121px;
     margin-inline-end: 32px;
     transition: color 0.2s;
@@ -84,6 +83,7 @@
       display: inline;
       padding: none;
       text-decoration: none;
+      font-stretch: 50%;
 
       font-weight: 600;
 
