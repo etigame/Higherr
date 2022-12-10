@@ -104,6 +104,7 @@ export default {
     },
     methods: {
         async saveGig() {
+
             await this.$store.dispatch({ type: "addGig", gig: { ...this.gigToEdit } })
             this.$router.push('/seller/profile')
         },

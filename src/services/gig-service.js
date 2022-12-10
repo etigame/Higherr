@@ -41,7 +41,7 @@ async function query() {
 }
 
 async function getById(gigId) {
-    return httpService.get(GIG_URL + gigId)
+  return httpService.get(GIG_URL + gigId)
   // var gig = await storageService.get(GIG_STORAGE_KEY, gigId)
   // return gig
 }
@@ -101,7 +101,7 @@ function getEmptyGig(owner) {
     daysToMake: 3,
     description: '',
     image: [],
-    
+    category: '',
   }
 }
 
