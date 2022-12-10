@@ -1,6 +1,12 @@
 <template>
-  <div v-show="alive" class="alert" :class="alertClass">
-    {{ msg?.txt }}
+  <div v-show="alive" class="alert flex" :class="alertClass">
+    <div class="color-left"></div>
+    <section class="alert-content flex align-center">
+      <span v-icon="'check'"></span>
+      <p>{{ msg?.txt }}</p>
+      <button class="close-btn" @click="(alive = !alive)">X</button>
+    </section>
+
   </div>
 </template>
 
@@ -12,7 +18,7 @@ export default {
   created() {
     eventBus.on(SHOW_MSG, (msg) => {
       this.msg = msg
-      var delay = msg.delay || 6000
+      var delay = msg.delay || 8000
       this.alive = true
       window.scrollTo({ top: 0, behavior: 'smooth' })
       setTimeout(() => {
