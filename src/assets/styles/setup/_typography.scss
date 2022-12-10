@@ -48,6 +48,11 @@
     src: url('src/assets/fonts/macan/macan-light.ttf');
 }
 
+@font-face {
+    font-family: Domain-Display-Italic;
+    src: url('src/assets/fonts/domainDisplay/domain-display-regular-italic.otf');
+}
+
 :fonts {
     --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --yro524e: "domainDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;

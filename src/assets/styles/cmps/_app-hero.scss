@@ -28,10 +28,11 @@
     h1 {
       max-width: 650px;
       font-family: var(--yro524e);
-      font-size: 3rem;
+      font-size: rem(40px);
       span {
         font-style: italic;
-        font-family: DomaineDisplay,Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-family: Domain-Display-Italic;
+        font-weight:700;
       }
     }
 
