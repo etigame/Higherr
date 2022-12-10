@@ -1,5 +1,5 @@
 .seller-profile {
-    padding: 40px 80px;
+    padding-top: 40px;
     background-color: $CLR05;
     color: $clr11;
 
@@ -128,7 +128,7 @@
         flex-wrap: wrap;
 
         .add-gig {
-            @include card(230px, 262px);
+            @include card(230px, 254px);
 
             &:hover {
                 cursor: pointer;
