@@ -1,7 +1,7 @@
 <template>
     <section v-if="gig" class="gig-payment">
         <section class="payment-container flex">
-            <section id="overview" class="main">
+            <!-- <section id="overview" class="main"> -->
                 <section class="payment-details-container">
                     <h2>Payment Option</h2>
                     <section class="credit-selection flex">
@@ -42,7 +42,7 @@
                     </section>
 
                 </section>
-            </section>
+            <!-- </section> -->
             <section class="package-container">
                 <gig-package-payment :gig="gig" @addOrder="addOrder" />
             </section>

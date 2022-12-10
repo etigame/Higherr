@@ -1,7 +1,49 @@
 <template>
+  <section v-if="menuOpen" class="side-menu" v-clickOutside="toggleSideMenu">
+    <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
+    <div v-if="!loggedInUser"  @click="registerSeller">Become a Seller</div>
+    <div v-if="!loggedInUser" @click="login">Sign In</div>
+    <div v-if="!loggedInUser"  @click="register">Join</div>
+    <div class="user-info flex">
+    <div class="img-container">
+    <img  v-if="loggedInUser" :src="loggedInUser.imgUrl">
+    </div>
+    <p  v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
+    </div>
+
+      <router-link  v-if="loggedInUser" to="/seller/profile" class=" light">Profile</router-link>
+      <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
+      <a v-if="loggedInUser" @click="doLogout">Logout</a>
+
+                <div v-if="(orders && loggedInUser)">  
+                  <h3>orders:</h3>
+                <div v-for="order in orders" class="order-container">
+                  <router-link :to="`/gig/${order.gig._id}`">
+                    <div class="flex">
+                    <div class="img-container">
+                      <img :src="order.gig.img">
+                    </div>
+                    <p class="gig-title">{{ order.gig.name }}</p>
+                    </div>
+                  </router-link>
+                  <div>
+                    <div class="seller-status flex ">
+                      <span> Status:</span>
+                      <span class="status clr1 ">{{ order.status }}</span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+  </section>
   <header class="app-header main-layout full flex align-center"
     :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
     <nav class="flex align-center space-between">
+      <div @click="toggleSideMenu" class="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
       <router-link to="/">
         <div class="logo">
           <h1>Higherr.</h1>
@@ -64,6 +106,11 @@
       </div>
     </nav>
   </header>
+  <section>
+          <div class="search-narrow">
+            <header-search @filter="filter" />
+          </div>
+  </section>
 </template>
 
 <script>
@@ -93,7 +140,8 @@ export default {
       windowTop: window.top.scrollY,
       isSearchShown: false,
       modalOpen: false,
-      orderOpen: false
+      orderOpen: false,
+      menuOpen:false,
     }
   },
   mounted() {
@@ -122,6 +170,9 @@ export default {
     },
     login() {
       eventBus.emit('get-cmp', 'login')
+    },
+    toggleSideMenu() {
+      this.menuOpen = !this.menuOpen
     },
     toggleUserModal() {
       this.modalOpen = !this.modalOpen

@@ -36,7 +36,8 @@
     }
 }
 .shadow{
-        box-shadow: 0 12px 11px -12px $clr5;
+        box-shadow: 0 11px 20px -13px #74767ed9;
+
         position: sticky;
             top: 0;
             z-index: 10;
@@ -49,7 +50,10 @@
     background-color: #fff;
     padding-block-end: 16px;
 
- 
+    @media screen and (max-width: 820px) {
+        justify-content: center;
+        }
+
     
     .advanced-input {
         display: flex;
@@ -63,19 +67,9 @@
                 max-width: em(100px);
             }
         }
-        
+  
         }
-        .clear-filter-btn {
-            width: 104px;
-            height: 40px;
-            border: 1px solid $clr2;
-            background-color:$CLR0 ;
-            margin-top: em(19px);
-            margin-inline-end: em(10px);
-            border-radius: 3px;
-            color:$clr11;
-            cursor: pointer;
-        }
+
         .el-input__inner>* {
             color: $clr5;
         }
@@ -303,9 +297,32 @@
             color: $clr4;
     }
 
-        
+ 
 }
+.clear-filter-btn {
+    width: 104px;
+    height: 40px;
+    border: 1px solid $clr2;
+    background-color: $CLR0 ;
+    margin-top: em(19px);
+    margin-inline-end: em(10px);
+    border-radius: 3px;
+    color: $clr11;
+    cursor: pointer;
+}
+.narrow{
+    display: none;
+}
+ @media screen and (max-width: 600px) {
+    .clear-filter-btn {
+            display: none;
+        }
+     .narrow {
+         display: block;
+     }
 
+     
+ }
 
 // TODO: export to reset
 // .el-select .el-input.is-focus .el-input__wrapper,
