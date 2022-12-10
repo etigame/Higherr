@@ -1,6 +1,6 @@
 <template>
     <section v-if="user" class="seller-profile flex space-between main-layout full">
-        <section class="content-wrapper flex full">
+        <section class="content-wrapper flex">
 
             <div class="profile-container">
                 <div class="user-info">

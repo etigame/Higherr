@@ -1,17 +1,19 @@
 <template>
     <section class="hero-container main-layout full">
-        <div class=" img-container full ">
+        <div class=" img-container full">
             <Transition>
-                <img v-if="(idx === 1)" :src="getImageUrl">
-                <img v-else-if="(idx === 2)" :src="getImageUrl">
-                <img v-else-if="(idx === 3)" :src="getImageUrl">
-                <img v-else-if="(idx === 4)" :src="getImageUrl">
-                <img v-else-if="(idx === 5)" :src="getImageUrl">
+                <img v-if="(idx === 1)" :src="getImageUrl" />
+                <img v-else-if="(idx === 2)" :src="getImageUrl" />
+                <img v-else-if="(idx === 3)" :src="getImageUrl" />
+                <img v-else-if="(idx === 4)" :src="getImageUrl" />
+                <img v-else-if="(idx === 5)" :src="getImageUrl" />
             </Transition>
         </div>
+
+
         <div class="search-container full flex">
             <h1>Find the perfect <span>freelance</span> services for your business</h1>
-            <hero-search @filter="titleFilter"/>
+            <hero-search @filter="titleFilter" />
             <div class="categories flex">
                 Popular:
                 <div class="tag" @click="tagFilter(tag)" v-for="tag in tags">{{ tag }}</div>
@@ -33,6 +35,8 @@ import heroService from "../services/hero-service.js"
 export default {
     name: 'hero',
     components: { heroSearch },
+    created() {
+    },
     mounted() {
         setInterval(this.changeCurrImage, 5000)
 

@@ -48,6 +48,12 @@
     src: url('src/assets/fonts/macan/macan-light.ttf');
 }
 
+@font-face {
+    font-family: BrixSlab-Bold;
+    src: url('src/assets/fonts/brixSlab/BrixSlab-Bold.otf');
+}
+
+
 :fonts {
     --yro524d: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --yro524e: "domainDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;

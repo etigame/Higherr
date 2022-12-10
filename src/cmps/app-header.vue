@@ -4,7 +4,7 @@
     <nav class="flex align-center space-between">
       <router-link to="/">
         <div class="logo">
-          <h1>Higherr.</h1>
+          <h1>Higherr</h1>
         </div>
       </router-link>
 
@@ -21,7 +21,7 @@
         <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div v-if="(!orders || orders.length===0)" class="no-order">
+          <div v-if="(!orders || orders.length === 0)" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
