@@ -21,7 +21,7 @@
         <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div v-if="(!orders || orders.length===0)" class="no-order">
+          <div v-if="(!orders || orders.length === 0)" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
@@ -71,6 +71,7 @@ import signup from './signup.vue'
 import login from './login.vue'
 import headerSearch from './header-search.vue'
 import { eventBus } from '../services/event-bus-service.js'
+import { socketService } from '../services/socket-service'
 
 
 export default {
@@ -134,8 +135,6 @@ export default {
       this.toggleUserModal()
       this.$router.push('/')
     },
-
-
   },
   computed: {
     loggedInUser() {
@@ -145,7 +144,7 @@ export default {
       return this.$route.path
     },
     orders() {
-      console.log(this.$store.getters.buyerOrders);
+      console.log(this.$store.getters.buyerOrders)
       return this.$store.getters.buyerOrders
     },
   },

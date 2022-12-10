@@ -4,11 +4,11 @@ import { userService } from './user-service'
 import { utilService } from './util-service'
 
 import { store } from '../store/store'
-// import {
-//   socketService,
-//   SOCKET_EVENT_REVIEW_ADDED,
-//   SOCKET_EVENT_REVIEW_ABOUT_YOU,
-// } from './socket-service'
+import {
+  socketService,
+  SOCKET_EVENT_REVIEW_ADDED,
+  SOCKET_EVENT_REVIEW_ABOUT_YOU,
+} from './socket-service'
 import { showSuccessMsg } from './event-bus-service.js'
 const ORDER_STORAGE_KEY = 'order'
 const orderChannel = new BroadcastChannel('orderChannel')
@@ -17,21 +17,36 @@ const orderChannel = new BroadcastChannel('orderChannel')
 const ORDER_URL = 'order/'
 
 // _createOrders()
-// ;(() => {
-//   //   orderChannel.addEventListener('message', (ev) => {
-//   //     console.log('msg event', ev)
-//   //     store.commit(ev.data)
-//   //   })
-//   setTimeout(() => {
-//     socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
-//       console.log('GOT from socket', order)
-//       store.commit({ type: 'addOrder', order })
-//     })
-//     socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
-//       showSuccessMsg(`New order about me ${order.txt}`)
-//     })
-//   }, 0)
-// })()
+;(() => {
+  //   orderChannel.addEventListener('message', (ev) => {
+  //     console.log('msg event', ev)
+  //     store.commit(ev.data)
+  //   })
+  setTimeout(() => {
+    // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (order) => {
+    //   console.log('GOT from socket', order)
+    //   store.commit({ type: 'addOrder', order })
+    // })
+    // socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
+    //   showSuccessMsg(`New order about me ${order.txt}`)
+    // })
+
+    socketService.on('new-order-seller', (order) => {
+      // console.log('GOT from socket', order)
+      store.commit({ type: 'saveOrder', order })
+    })
+
+    socketService.on('new-order-buyer', (order) => {
+      // console.log('GOT from socket', order)
+      store.commit({ type: 'saveOrder', order })
+    })
+
+    socketService.on('order-changed-status', (order) => {
+      // console.log('GOT from socket', order)
+      store.commit({ type: 'saveOrder', order })
+    })
+  }, 0)
+})()
 
 export const orderService = {
   save,
@@ -47,7 +62,7 @@ async function query() {
 }
 
 async function getById(orderId) {
-    return httpService.get(ORDER_URL + orderId)
+  return httpService.get(ORDER_URL + orderId)
   // var order = await storageService.get(ORDER_STORAGE_KEY, orderId)
   // return order
 }
