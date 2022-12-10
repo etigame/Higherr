@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="main-layout full">
   <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
     <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
     <div v-if="!loggedInUser"  @click="registerSeller">Become a Seller</div>
