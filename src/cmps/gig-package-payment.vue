@@ -12,17 +12,6 @@
             <h3 class="price"> US${{ gig.price }} </h3>
             <p>1 custom logo+high resolution file+3d mockup+logo transparency+ 300dpi</p>
 
-            <!-- <section class="additional-info flex">
-                <div class="delivery-wrapper flex">
-                    <span v-icon="'clock'"></span>
-                    <p> {{ gig.daysToMake }} </p>
-                </div>
-                <div class="revisions-wrapper flex">
-                    <span v-icon="'revisions'"></span>
-                    <p> Unlimited Revisions </p>
-                </div>
-            </section> -->
-
             <ul class="features clean-list">
                 <li><span v-icon="'greenV'"></span> 1 concept included</li>
                 <li><span v-icon="'greenV'"></span> Logo transparency</li>

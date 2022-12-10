@@ -1,7 +1,10 @@
 
 .gig-package-payment{
   min-width: 340px;
-  
+  @media screen and (max-width: 600px) {
+
+      margin-inline-end: 20px;
+    }
     p {
         font-size: rem(16px);
         min-height: 45px;
@@ -13,6 +16,7 @@
       
 .package-container {
   width: 35%;
+ 
   background-color: #fff;
   position: sticky;
   align-self: flex-start;
@@ -43,7 +47,7 @@
   }
 // }
 .img-container{
-  max-height: 70px;
+  height: 70px;
   margin-inline-end: 10px;
 }
 .package-content {
@@ -70,6 +74,7 @@
     font-size: 1rem;
     line-height: em(24px, 16px);
     color: var(--yro524b);
+    flex:1;
   }
 
   .price {

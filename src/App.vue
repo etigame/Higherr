@@ -30,6 +30,8 @@ import { utilService } from './services/util-service'
 
 export default {
   created() {
+    socketService.emit('set-user-socket', userService.getLoggedInUser())
+
     this.$store.dispatch({ type: 'loadGigs' })
     this.$store.dispatch({ type: 'loadOrders' })
 
