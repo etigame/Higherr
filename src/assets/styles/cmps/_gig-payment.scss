@@ -2,10 +2,21 @@
   display: flex;
   margin: $layoutPaddingWide;
   justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    margin:0;
+  }
 .package-container{
   min-width: 350px;
+  flex:1;
+@media screen and (max-width: 600px) {
+    min-width: 300px;
+  }
 }
 .payment-container {
+  @media screen and (max-width: 600px) {
+      min-width: 250px;
+    }
+  
 flex-wrap: wrap;
 }
 .credit-selection{
@@ -30,7 +41,8 @@ flex-wrap: wrap;
 }
 
 .payment-details-container {
-  flex:1;
+  
+  flex:1.5;
   flex-wrap: wrap;
   min-width: 350px;
   border: 1px solid $clr9;
@@ -39,7 +51,13 @@ flex-wrap: wrap;
   margin-block-end: 64px;
   background-color: #fafafa ;
   color: $clr5;
-
+  margin-inline-end: 50px;
+@media screen and (max-width: 600px) {
+    margin-block-start: 20px;
+    min-width: 260px;
+    margin-inline-end: 20px;
+    flex:1;
+  }
 .payment-option{
       input {
           height: 40px;
@@ -62,13 +80,17 @@ flex-wrap: wrap;
 
     .card-num{
       margin-inline-end: 50px;
-      width: 240px;
+      min-width: 240px;
+      @media screen and (max-width: 600px) {
+          min-width: 200px;
+        }
     }
     .shorts-input{
       display: flex;
     .short{
       max-width: 110px;
       margin-inline-end: 20px;
+        
     }
   }
   }
@@ -82,5 +104,7 @@ flex-wrap: wrap;
   }}
 }
 }
+ @media screen and (max-width: 600px) {
 
+ }
 }

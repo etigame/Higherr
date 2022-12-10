@@ -47,6 +47,7 @@
       </div>
 
       <div class="advanced-switches">
+        <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button>
         <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
           <h4>Pro service</h4>
