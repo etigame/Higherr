@@ -35,8 +35,15 @@ export const gigStore = {
   getters: {
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
+      console.log(gigs)
 
-      var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+      // console.log('the gigs', gigs)
+      var filteredGigs = gigs.filter((gig) => {
+        // console.log('the owner id', gig.owner._id)
+
+        return gig.owner._id === user._id
+      })
+
       return filteredGigs
     },
 
@@ -88,7 +95,6 @@ export const gigStore = {
     },
     addGig(state, { gig }) {
       state.gigs.push(gig)
-      console.log(state.gigs)
     },
     updateGig(state, { gig }) {
       const idx = state.gigs.findIndex((c) => c.id === gig._id)
@@ -135,7 +141,6 @@ export const gigStore = {
     },
     async removeGig(context, { gigId }) {
       try {
-        console.log(gigId)
         await gigService.remove(gigId)
         context.commit(getActionRemoveGig(gigId))
       } catch (err) {

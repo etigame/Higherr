@@ -4,10 +4,11 @@
 
             <div class="profile-container">
                 <div class="user-info">
+
                     <div class="img-container">
                         <img :src="user.imgUrl" />
                     </div>
-                    <h2>{{ user.username }}</h2>
+                    <h2>{{ randomGig.owner.fullname }}</h2>
 
 
                     <div class="user-stats">
@@ -16,12 +17,13 @@
                                 <div>
                                     <span v-icon="'location'"></span>Country
                                 </div>
-                                <span>{{ user.country }}</span>
+                                <span>{{ randomGig.loc }}</span>
                             </li>
                             <li class="flex space-between">
                                 <div>
                                     <span v-icon="'member'"></span>Member Since
                                 </div>
+                                <span>{{ randomGig.memberSince }}</span>
                             </li>
                         </ul>
                     </div>
@@ -31,11 +33,7 @@
                     <ul>
                         <li>
                             <h3>Description</h3>
-                            <p>{{ user.description }}</p>
-                        </li>
-                        <li class="languages">
-                            <h3>Languages</h3>
-                            <div v-for="lang in user.languages">{{ lang }}</div>
+                            <p>{{ randomGig.about }}</p>
                         </li>
                     </ul>
                 </div>
@@ -86,13 +84,14 @@ export default {
     },
     async created() {
         await this.$store.dispatch({ type: 'loadGigs' })
-        // console.log(this.loggedUser)
+
     },
     methods: {
         removeGig(gigId) {
             this.$store.dispatch({ type: 'removeGig', gigId })
         },
         editGig() {
+
             this.$router.push({ name: 'gig-edit', query: { ...this.loggedUser } })
         },
         toggleChat() {

@@ -13,7 +13,7 @@
         max-width: 398px;
 
         .user-info {
-            @include card(100%, 450px);
+            @include card(100%, 363px);
             padding: 30px;
             margin-bottom: 20px;
 
@@ -37,8 +37,21 @@
                 border-top: 1px solid var(--yro5245);
                 margin-top: 24px;
 
+
+
+
                 li {
-                    padding-top: 20px
+                    padding-top: 20px;
+
+                    div {
+                        font-family: Macan-Regular;
+                        color: $clr5;
+                    }
+
+                    span {
+                        font-family: Macan;
+                        color: $clr3;
+                    }
                 }
             }
 
@@ -52,20 +65,22 @@
     .description-container {
         @include card(100%, 450px);
         height: fit-content;
-        padding: 30px 30px 50px 30px;
-
-        h3 {
-            margin-bottom: 20px;
-        }
+        padding: 30px 30px 30px 30px;
 
         li:not(:last-child) {
             border-bottom: 1px solid var(--yro5245);
             padding-bottom: 25px;
         }
 
-        .languages {
-            margin: 50px 0px;
+        h3 {
+            margin-bottom: 20px;
         }
+
+        p {
+            line-height: 24px;
+        }
+
+
     }
 
     .chat-seller-btn {
