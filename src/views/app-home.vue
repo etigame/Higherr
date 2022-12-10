@@ -22,8 +22,10 @@
           <h1>A whole world of freelance talent at your fingertips</h1>
           <ul>
             <li v-for="item in getPageText">
-              <span v-icon="'check'"></span>
-              <h3>{{ item.title }}</h3>
+              <section class="flex align-center">
+                <span v-icon="'check'"></span>
+                <h3>{{ item.title }}</h3>
+              </section>
               <p>{{ item.text }}</p>
             </li>
           </ul>

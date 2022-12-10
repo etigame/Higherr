@@ -16,7 +16,7 @@ const tags = {
     subTxt: 'Share Your message',
     imageUrl: 'src/assets/img/voiceover.webp',
   },
-  dataEntry: {
+  videoExplainer: {
     txt: 'Video Explainer',
     subTxt: 'Engage your audience',
     imageUrl: 'src/assets/img/animated-explainer.jpeg',
@@ -25,6 +25,31 @@ const tags = {
     txt: 'Social Media',
     subTxt: 'Reach more costumers',
     imageUrl: 'src/assets/img/social.webp',
+  },
+  seo: {
+    txt: 'SEO',
+    subTxt: 'Unlock growth online',
+    imageUrl: 'src/assets/img/seo.webp',
+  },
+  illustration: {
+    txt: 'Illustration',
+    subTxt: 'Color your dreams',
+    imageUrl: 'src/assets/img/illustration.webp',
+  },
+  translation: {
+    txt: 'Translation',
+    subTxt: 'Go global',
+    imageUrl: 'src/assets/img/translation.webp',
+  },
+  dataEntry: {
+    txt: 'Data Entry',
+    subTxt: 'Learn your business',
+    imageUrl: 'src/assets/img/data-entry.webp',
+  },
+  bookCovers: {
+    txt: 'Book Covers',
+    subTxt: 'Showcase your story',
+    imageUrl: 'src/assets/img/book-covers.webp',
   },
 }
 

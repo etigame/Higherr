@@ -49,6 +49,7 @@
     line-height: em(24px, 16px);
     font-weight: 400;
     color: var(--yro524b);
+    margin-block-start: em(-2px, 16px);
   }
 
   .continue-btn {
@@ -89,7 +90,7 @@
 }
 
 .features {
-  margin-block-end: 20px;
+  margin-block-end: em(32px, 16px);
 
   & > li {
     display: flex;

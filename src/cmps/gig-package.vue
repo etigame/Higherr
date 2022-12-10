@@ -3,7 +3,7 @@
         <section class="package-content">
             <section class="header flex space-between">
                 <h3 class="title">Order Details</h3>
-                <h3 class="price"> US${{ gig.price }} </h3>
+                <h3 class="price regular"> US${{ gig.price }} </h3>
             </section>
             <p>1 custom logo+high resolution file+3d mockup+logo transparency+ 300dpi</p>
 

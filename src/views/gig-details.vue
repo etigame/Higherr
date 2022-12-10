@@ -157,6 +157,9 @@ export default {
         loggedInUser() {
             return this.$store.getters.loggedinUser
         },
+        // displayDescription() {
+        //     return this.gig.description.replace(/\\n/g, '\n')
+        // }
 
     },
 }
