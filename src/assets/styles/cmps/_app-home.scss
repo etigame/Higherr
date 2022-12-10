@@ -24,14 +24,22 @@
 
 
     .video-section{
-        
         background-color: $CLR01;
         min-height:690px;
         padding: 96px 0px;
-    
+    .video-layout{
+        @media screen and (max-width: 1100px) {
+        flex-direction: column;
+    }
+
+        
+    }
 
         .side-text{
            padding-inline-end:30%;
+        @media screen and (max-width: 1100px) {
+                padding-inline-end: 10%;
+            }
            >*{
             line-height: 30px;
            }
@@ -74,6 +82,13 @@
             }
         }
             
+    }
+    .category-svg{
+        // min-height: 100%;
+        @media screen and (max-width: 550px) {
+                margin-bottom: 250px;
+            }
+        
     }
         
  }

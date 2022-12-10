@@ -1,5 +1,6 @@
 <template>
-  <section v-if="menuOpen" class="side-menu" v-clickOutside="toggleSideMenu">
+  <section>
+  <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
     <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
     <div v-if="!loggedInUser"  @click="registerSeller">Become a Seller</div>
     <div v-if="!loggedInUser" @click="login">Sign In</div>
@@ -11,15 +12,15 @@
     <p  v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
     </div>
 
-      <router-link  v-if="loggedInUser" to="/seller/profile" class=" light">Profile</router-link>
+      <router-link  v-if="loggedInUser" to="/seller/profile" class="light">Profile</router-link>
       <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
-                <div v-if="(orders && loggedInUser)">  
-                  <h3>orders:</h3>
+                <div class="orders-container"  v-if="(orders && loggedInUser)">  
+                  <h3>My Orders:</h3>
                 <div v-for="order in orders" class="order-container">
                   <router-link :to="`/gig/${order.gig._id}`">
-                    <div class="flex">
+                    <div class="info flex">
                     <div class="img-container">
                       <img :src="order.gig.img">
                     </div>
@@ -29,7 +30,7 @@
                   <div>
                     <div class="seller-status flex ">
                       <span> Status:</span>
-                      <span class="status clr1 ">{{ order.status }}</span>
+                      <span class="status " :class="classNamer(order.status)" >{{ order.status }}</span>
                     </div>
                   </div>
                   </div>
@@ -63,7 +64,7 @@
         <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div v-if="(!orders || orders.length === 0)" class="no-order">
+          <div v-if="(!orders || orders.length===0)" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
@@ -82,7 +83,7 @@
               </router-link>
               <div class="seller-status">
                 <span>by {{ order.seller.fullname }}</span>
-                <span class="status">{{ order.status }}</span>
+                <span class="status" :class="className(order.status)" >{{ order.status }}</span>
               </div>
             </div>
 
@@ -111,6 +112,7 @@
             <header-search @filter="filter" />
           </div>
   </section>
+  </section>
 </template>
 
 <script>
@@ -118,7 +120,6 @@ import signup from './signup.vue'
 import login from './login.vue'
 import headerSearch from './header-search.vue'
 import { eventBus } from '../services/event-bus-service.js'
-import { socketService } from '../services/socket-service'
 
 
 export default {
@@ -186,6 +187,13 @@ export default {
       this.toggleUserModal()
       this.$router.push('/')
     },
+    classNamer(str) {
+      if (str === 'Pending') return 'pending'
+      if (str === 'Completed') return 'completed'
+      if (str === 'In Progress') return 'in-progress'
+      if (str === 'Rejected') return 'rejected'
+    }
+
   },
   computed: {
     loggedInUser() {
@@ -195,7 +203,6 @@ export default {
       return this.$route.path
     },
     orders() {
-      console.log(this.$store.getters.buyerOrders)
       return this.$store.getters.buyerOrders
     },
   },

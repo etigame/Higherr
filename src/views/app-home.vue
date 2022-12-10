@@ -16,7 +16,7 @@
     <!-- <categories-list :type="'card'" @filter="filter" /> -->
 
     <section class="video-section flex full main-layout">
-      <div class="flex">
+      <div class="flex video-layout">
         <div class="site-info">
           <p class="side-text">
           <h1>A whole world of freelance talent at your fingertips</h1>
@@ -37,8 +37,9 @@
       </div>
     </section>
 
-
+    <section class="category-svg">
     <categories-list :type="'svg'" @filter="filter" />
+    </section>
   </section>
 </template>
 
