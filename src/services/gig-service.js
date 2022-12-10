@@ -31,6 +31,7 @@ export const gigService = {
   remove,
   addGigMsg,
   getEmptyGig,
+  getDemoGig,
 }
 window.gigService = gigService
 
@@ -102,6 +103,26 @@ function getEmptyGig(owner) {
     description: '',
     image: [],
     category: '',
+    country,
+  }
+}
+
+function getDemoGig(owner) {
+  return {
+    owner: owner,
+    title: 'I will create wireframes and prototypes',
+    price: 267,
+    daysToMake: 3,
+    description:
+      'Pick this Gig - your digital product will be ready to run!The prototype is a functional version with final visual UI of your mobile app/ website/ software/ digital platform. my work will definitely bring you Pretty but also Human- Centered User Interfaces which engage and empower your users! As a Product Designer, I can cover the whole process UX and UI and deliver projects of excellent quality. I have a formal and intensive educational background in UX Design from York University. My Master in Finance Management also helps me to envision more strategic values for your business.',
+    image: [],
+    category: 'Graphics & Design',
+    memberSince: 'Aug 2018',
+    avgResponseTime: 1,
+    loc: 'Canada',
+    lastDelivery: 'about 25 minutes',
+    about:
+      "I am a professional graphics designer from Canada. Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
   }
 }
 

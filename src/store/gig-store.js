@@ -35,7 +35,6 @@ export const gigStore = {
   getters: {
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
-      console.log(gigs)
 
       // console.log('the gigs', gigs)
       var filteredGigs = gigs.filter((gig) => {
