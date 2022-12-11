@@ -133,6 +133,7 @@ export default {
     },
     async created() {
         try {
+            console.log(this.$route);
             const { _id } = this.$route.params
             const gig = await gigService.getById(_id)
             this.gig = gig

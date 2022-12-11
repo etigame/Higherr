@@ -4,8 +4,8 @@
 
     <app-hero @filter="filter"></app-hero>
 
-    <div class="trusted-by main-layout full">
-      <div class="logos flex justify-center align-center">
+    <div class="trusted-by main-layout full ">
+      <div class="logos flex align-center justify-center">
         <span>Trusted By:</span>
         <div class="logo-container" v-for="num in 5">
           <img :src="`src/assets/img/trustby${num}.png`">
