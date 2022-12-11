@@ -3,22 +3,37 @@
     line-height: 26px;
     width: 100%;
 
-
     .trusted-by{
+        display: flex;
+        justify-content: center;
         background-color: #fafafa;
         padding: 0px 90px;
         width: 100%;
         margin-bottom: 96px;
         height:96px;
+        @media screen and (max-width: 550px) {
+            padding: 0px 0px;
+        }
       
     }
-
+    .logos{
+        justify-content: space-between;
+        max-width:900px;
+    }
     .logos >*{
+        
         font-weight:600;
         color: $clr2;
         font-size:1em;
-        padding-inline-end: 60px;
+        padding-inline-end: 30px;
+
+      
+        @media screen and (max-width: 550px) {
+                padding:0 10px;
+            }
+        
     }
+
 
 
 
@@ -84,7 +99,7 @@
             
     }
     .category-svg{
-        // min-height: 100%;
+        min-height: 100%;
         @media screen and (max-width: 550px) {
                 margin-bottom: 250px;
             }

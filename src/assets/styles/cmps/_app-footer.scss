@@ -2,7 +2,18 @@
     flex-direction: row;
     height: 80px;
     border-top: 1px solid #e4e5e7;
-
+    .content-container{
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            >*{
+                margin: 10px 10px;
+                >*{
+                    margin-inline-end: 10px;
+                }
+            }
+            }
+        
+    }
     .logo,
     .copy-rights {
         margin-right: 30px;
@@ -35,11 +46,18 @@
 
 
     .social-links {
-
+        flex:1;
+        display:flex;
+        justify-content: space-between;
+        max-width: 450px;
         // flex-basis: 20%;
+        >*{
+            flex: 1;
+        }
         a {
+            
             width: 100%;
-            margin-inline-start: 32px;
+            // margin-inline-start: 32px;
             cursor: pointer;
         }
     }

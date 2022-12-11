@@ -92,6 +92,10 @@ import advancedFilter from '../cmps/advanced-filter.vue'
 
 
 export default {
+  components: {
+    gigPreviewExplore,
+    advancedFilter
+  },
   data() {
     return {
       filterBy: {
@@ -140,19 +144,27 @@ export default {
       return this.$route.params.title
     }
   },
+
+
   created() {
     this.filterBy = { ...this.$route.query }
+    console.log(this.$route);
     this.filter()
   },
-  components: {
-    gigPreviewExplore,
-    advancedFilter
+  watch: {
+    $route: {
+      handler(newValue) {
+        if (newValue.path === '/explore') this.filter(newValue.query)
+      },
+      deep: true
+    },
   },
   methods: {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
+  
     clearBudget() {
       this.budgetDrop = false
       this.filterBy.min = ''
@@ -172,24 +184,15 @@ export default {
       max: null,
       delivery: null,
       },
-
-
-
       this.filter()
     },
     toggleBudget(){
       this.budgetDrop=!this.budgetDrop
-    }
+    },
 
   },
-  watch: {
-    $route: {
-      handler(newValue) {
-        if (newValue.path == '/explore') this.filter(newValue.query)
-      },
-      deep: true
-    },
-  }
+
+
 
 
 }
