@@ -30,7 +30,7 @@
           <div>
             <div class="seller-status flex ">
               <span> Status:</span>
-              <span class="status " :class="classNamer(order.status)">{{ order.status }}</span>
+              <span class="status " :class="className(order.status)">{{ order.status }}</span>
             </div>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default {
       this.toggleUserModal()
       this.$router.push('/')
     },
-    classNamer(str) {
+    className(str) {
       if (str === 'Pending') return 'pending'
       if (str === 'Completed') return 'completed'
       if (str === 'In Progress') return 'in-progress'

@@ -103,7 +103,14 @@ function getEmptyGig(owner) {
     description: '',
     image: [],
     category: '',
-    country,
+    loc:"",
+    about:'',
+    lastDelivery:"",
+    avgResponseTime: null,
+    memberSince:""
+
+
+
   }
 }
 
