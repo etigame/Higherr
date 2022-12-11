@@ -185,15 +185,11 @@ export default {
         max: null,
         delivery: null,
       },
-
-
-
         this.filter()
     },
     toggleBudget() {
       this.budgetDrop = !this.budgetDrop
     }
-
   },
 
 
