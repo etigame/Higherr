@@ -8,7 +8,7 @@
         <div class="seller-info-preview">
             <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
             <div>
-                <p>{{ gig.owner.fullname }}</p>
+                <p class="bold">{{ gig.owner.fullname }}</p>
                 <p class="level">Level {{ gig.owner.level }} seller</p>
             </div>
         </div>

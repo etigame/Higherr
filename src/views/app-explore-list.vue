@@ -1,70 +1,71 @@
 <template>
   <div class="app-explore-list main-layout full">
     <section class="results-title">
-    <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
-    <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
-    <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
+      <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
+      <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
+      <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     </section>
     <!-- <advanced-filter /> -->
-<section class="shadow  main-layout full">
-    <section class="advanced-filter">
+    <section class="shadow  main-layout full">
+      <section class="advanced-filter">
 
-      <div class="advanced-input">
-        <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
-        <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
-          size="large">
-          <el-option v-for="item in options"  :label="item.label" :value="item.value" />
-        </el-select>
+        <div class="advanced-input">
+          <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
+          <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
+            size="large">
+            <el-option v-for="item in options" :label="item.label" :value="item.value" />
+          </el-select>
 
 
-        <div @click="toggleBudget" class="budget-input-1 flex">
-          <span>Budget</span>
-          <form @submit.prevent="filterBudget()" v-if="budgetDrop" v-clickOutside="toggleBudget" class="budget-dropdown">
-            <div @click.stop class="inputs">
-              <div>
-              <p>MIN</p>
-              <input v-model.number="filterBy.min"/>
+          <div @click="toggleBudget" class="budget-input-1 flex">
+            <span>Budget</span>
+            <form @submit.prevent="filterBudget()" v-if="budgetDrop" v-clickOutside="toggleBudget"
+              class="budget-dropdown">
+              <div @click.stop class="inputs">
+                <div>
+                  <p>MIN</p>
+                  <input v-model.number="filterBy.min" />
+                </div>
+                <div>
+                  <p>MAX</p>
+                  <input v-model.number="filterBy.max" />
+                </div>
               </div>
-              <div>
-              <p>MAX</p>
-              <input v-model.number="filterBy.max"/>
+              <div @click.stop class="buttons flex">
+                <div @click.stop="clearBudget()">Clear All</div>
+                <button>Apply</button>
               </div>
-            </div>
-            <div @click.stop class="buttons flex">
-              <div @click.stop="clearBudget()">Clear All</div>
-              <button>Apply</button>
-            </div>
-          </form>
+            </form>
+          </div>
+
+          <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
+            placeholder="Delivery Time" size="large">
+            <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
+            <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
+            <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
+            <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
+          </el-select>
         </div>
 
-        <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery" placeholder="Delivery Time"
-          size="large">
-          <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
-          <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
-          <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
-          <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
-        </el-select>
-      </div>
-
-      <div class="advanced-switches">
-        <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button>
-        <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
-          <h4>Pro service</h4>
+        <div class="advanced-switches">
+          <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button>
+          <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
+              style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
+            <h4>Pro service</h4>
+          </div>
+          <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2"
+              style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
+            <h4>Online seller</h4>
+          </div>
         </div>
-        <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
-          <h4>Online seller</h4>
-        </div>
-      </div>
-    </section>
+      </section>
     </section>
 
     <div class="sorting-click">
       <div class="flex ">
         <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
       </div>
-      <div class="sort-input">
+      <div class="sort-input light">
         <h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance" size="large">
           <el-option value="bestSelling">Best Selling</el-option>
           <el-option value="newestArrivals">Newest Arrivals</el-option>
@@ -74,7 +75,7 @@
 
     <div v-if="gigs" class="gig-list clean-list list-container">
       <gig-preview-explore v-for="gig in gigs" :gig="gig" :key="gig._id" />
-      
+
 
     </div>
 
@@ -126,7 +127,7 @@ export default {
           label: 'Other',
         },
       ],
-        
+
     }
   },
   computed: {
@@ -159,26 +160,26 @@ export default {
       this.filterBy.max = ''
       this.filter()
     },
-    filterBudget(){
-      this.budgetDrop=false
+    filterBudget() {
+      this.budgetDrop = false
       this.filter()
     },
     clearAllFilter() {
-    this.filterBy= {
-      title: '',
-      category: '',
-      subCategory: '',
-      min: null,
-      max: null,
-      delivery: null,
+      this.filterBy = {
+        title: '',
+        category: '',
+        subCategory: '',
+        min: null,
+        max: null,
+        delivery: null,
       },
 
 
 
-      this.filter()
+        this.filter()
     },
-    toggleBudget(){
-      this.budgetDrop=!this.budgetDrop
+    toggleBudget() {
+      this.budgetDrop = !this.budgetDrop
     }
 
   },

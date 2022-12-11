@@ -7,11 +7,11 @@
                 </div>
                 <div class="user-desc flex">
                     <div class="profile-item">
-                        <p class="light">Positive Rating</p>
+                        <p class="regular">Positive Rating</p>
                         <p class="bold">100%</p>
                     </div>
                     <div class="profile-item">
-                        <p class="light">Response Time</p>
+                        <p class="regular">Response Time</p>
                         <p class="bold">1 Hrs.</p>
                     </div>
 
@@ -20,21 +20,21 @@
             <div class="progress">
                 <article class="progress-item">
                     <div class="progress-txt flex">
-                        <p>Response Rate</p>
+                        <p class="bold">Response Rate</p>
                         <p>{{ responseRate }}%</p>
                     </div>
                     <el-progress :percentage="responseRate" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
-                        <p>Orders Completed</p>
-                        <p>{{ completedOrderPrecent }}%</p>
+                        <p class="bold">Orders Completed</p>
+                        <p>{{ completedOrderPercent }}%</p>
                     </div>
-                    <el-progress :percentage="completedOrderPrecent" color="#1dbf73" />
+                    <el-progress :percentage="completedOrderPercent" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
-                        <p>Delivered on Time</p>
+                        <p class="bold">Delivered on Time</p>
                         <p>{{ deliveredOnTime }}%</p>
                     </div>
                     <el-progress :percentage="deliveredOnTime" color="#1dbf73" />
@@ -48,23 +48,23 @@
             <!-- </div> -->
             <div class="income-order-dashboard flex">
                 <div class="dashboard-item">
-                    <span>Annual Revenue</span>
+                    <span class="light">Annual Revenue</span>
                     <h3>${{ annualIncome }}</h3>
                 </div>
                 <div class="dashboard-item">
-                    <span>Monthly Revenue</span>
+                    <span class="light">Monthly Revenue</span>
                     <h3>${{ monthIncome }}</h3>
                 </div>
                 <div class="dashboard-item">
-                    <span>Annual Completed Orders </span>
+                    <span class="light">Completed Orders </span>
                     <h3>{{ annualOrdersComplete }}</h3>
                 </div>
-                <div class="dashboard-item">
-                    <span>Monthly Completed Orders </span>
+                <!-- <div class="dashboard-item">
+                    <span class="light">Monthly Completed Orders </span>
                     <h3>{{ monthOrdersComplete }}</h3>
-                </div>
+                </div> -->
                 <div class="dashboard-item">
-                    <span>Pending Orders </span>
+                    <span class="light">Pending Orders </span>
                     <h3>{{ pendingOrders }}</h3>
                 </div>
             </div>
@@ -95,26 +95,25 @@
 
                 </div>
                 <div class="table-entity flex" v-for="order in orders">
-                    <div class="buyer-col flex user-col">
-                        <img :src="order.buyer.imgUrl">
-
-                        <span>{{ order.buyer.fullname }}</span>
+                    <div class="buyer-col flex align-center user-col">
+                        <img :src="order.buyer.imgUrl" />
+                        <span class="regular">{{ order.buyer.fullname }}</span>
 
                     </div>
                     <div class="gig-col flex column">
-                        <span class="table-span light">{{ order.gig.name }}</span>
+                        <span class="table-span regular">{{ order.gig.name }}</span>
                     </div>
                     <div class="due-on-col flex column">
-                        <span class="table-span">{{ new Date(order.createdAt).toLocaleString() }}</span>
+                        <span class="table-span regular">{{ new Date(order.createdAt).toLocaleDateString() }}</span>
                     </div>
                     <div class="total-col flex column">
-                        <span class="table-span">US${{ order.gig.price }}</span>
+                        <span class="table-span regular">US${{ order.gig.price }}</span>
                     </div>
                     <div @click="selectOrder(order)" class="status-col flex column">
                         <!-- <div class=" status flex"> -->
                         <div class=" status flex" :class="className(order.status)">
                             <!-- <div class="status flex"> -->
-                            <span class="light">{{ order.status }}</span>
+                            <span class="regular">{{ order.status }}</span>
                         </div>
                     </div>
                     <!-- <div class="set-col flex column">
@@ -251,10 +250,9 @@ export default {
             return complete
 
         },
-        completedOrderPrecent() {
+        completedOrderPercent() {
             console.log(this.loggedUser)
-            return (this.annualOrdersComplete / this.orders.length) * 100
-
+            return ((this.annualOrdersComplete / this.orders.length) * 100).toFixed(0)
         },
         // className(str){
         //     if(str==='Pending') return 'pending'
