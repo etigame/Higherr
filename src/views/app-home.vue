@@ -38,7 +38,7 @@
     </section>
 
     <section class="category-svg">
-    <categories-list :type="'svg'" @filter="filter" />
+      <categories-list :type="'svg'" @filter="filter" />
     </section>
   </section>
 </template>

@@ -18,7 +18,7 @@ export default {
   created() {
     eventBus.on(SHOW_MSG, (msg) => {
       this.msg = msg
-      var delay = msg.delay || 8000
+      var delay = msg.delay || 20000
       this.alive = true
       window.scrollTo({ top: 0, behavior: 'smooth' })
       setTimeout(() => {
