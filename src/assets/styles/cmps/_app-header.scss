@@ -374,6 +374,10 @@
   @media screen and (max-width: 600px) {
     border-bottom: 0;
 
+    h1 {
+      color: black;
+    }
+
     .modal-tip {
       margin-top: -18px;
       margin-inline-start: 85%;
