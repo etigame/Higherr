@@ -4,7 +4,7 @@
 
         <section v-if="(type === 'tag')" class="type-tag main-layout full" :class="{ shown: isCategoriesShown }">
             <section class="vuper-display ">
-<vueper-slides class="no-shadow" ref="vueperslides2" :slide-ratio="1 / 8" 
+<vueper-slides class="no-shadow" ref="vueperslides2" :slide-ratio="1 / 8" :touchable="false"
     @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
     :breakpoints="breakpointsCategories" :visible-slides="5" fixed-height="40px" disable-arrows-on-edges  
  >
