@@ -7,8 +7,8 @@
     <div class="trusted-by main-layout full ">
       <div class="logos flex align-center justify-center">
         <span>Trusted By:</span>
-        <div class="logo-container" v-for="num in 5">
-          <img :src="`src/assets/img/trustby${num}.png`">
+        <div class="logo-container" v-for="image in getLogos">
+          <img :src="image">
         </div>
       </div>
     </div>
@@ -32,13 +32,13 @@
           </p>
         </div>
         <div class="vid-container ">
-          <img src="src/assets/img/vid-teaser.webp">
+          <img src="https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793711/gigs/ostlxosopzlu6ccomezg.webp">
         </div>
       </div>
     </section>
 
     <section class="category-svg">
-    <categories-list :type="'svg'" @filter="filter" />
+      <categories-list :type="'svg'" @filter="filter" />
     </section>
   </section>
 </template>
@@ -70,6 +70,9 @@ export default {
         { title: 'Protected payments, every time', text: " Always know what you'll pay upfront. Your payment isn't released until you approve the work." },
         { title: 'Quality work done quickly', text: ' Find the right freelancer to begin working on your project within minutes.' },
       ]
+    },
+    getLogos() {
+      return ['https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/fdbg9kvjrydeqaere8sn.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/hgxyurzmqgdevqmg979v.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/ktprdhufw3xhhsrgd5ij.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/sj7qx56f9tkb3vthvtbl.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/dnvcm1ob8c9r0azmzk2g.png']
     }
 
   },

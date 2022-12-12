@@ -2,22 +2,44 @@
     <section class="hero-container main-layout full">
         <div class=" img-container full">
             <Transition>
-                <img v-if="(idx === 1)" :src="getImageUrl" />
+                <img v-if="(idx === 0)" :src="getImageUrl" />
+                <img v-else-if="(idx === 1)" :src="getImageUrl" />
                 <img v-else-if="(idx === 2)" :src="getImageUrl" />
                 <img v-else-if="(idx === 3)" :src="getImageUrl" />
                 <img v-else-if="(idx === 4)" :src="getImageUrl" />
-                <img v-else-if="(idx === 5)" :src="getImageUrl" />
             </Transition>
+
         </div>
 
 
-        <div class="search-container full flex">
+        <div class="search-container flex">
             <h1>Find the perfect <span>freelance</span> services for your business</h1>
             <hero-search @filter="titleFilter" />
             <div class="categories flex">
                 Popular:
                 <div class="tag" @click="tagFilter(tag)" v-for="tag in tags">{{ tag }}</div>
             </div>
+        </div>
+
+
+        <div class="hero-info flex">
+            <Transition>
+                <p v-if="(idx === 0)">
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }}, <span> {{ getHeroJob
+                }}</span></p>
+                <p v-else-if="(idx === 1)">
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                }}</span></p>
+                <p v-else-if="(idx === 2)">
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                }}</span></p>
+                <p v-else-if="(idx === 3)">
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                }}</span></p>
+                <p v-else-if="(idx === 4)">
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                }}</span></p>
+            </Transition>
         </div>
     </section>
 </template>
@@ -43,7 +65,7 @@ export default {
     },
     data() {
         return {
-            idx: 1,
+            idx: 0,
             tags: categoriesService.popular,
             heroes: heroService.heroes,
             filterBy: {
@@ -59,7 +81,7 @@ export default {
     },
     methods: {
         changeCurrImage() {
-            this.idx = this.idx < 5 ? this.idx + 1 : 1
+            this.idx = this.idx < 4 ? this.idx + 1 : 0
 
         },
 
@@ -76,8 +98,21 @@ export default {
         },
     },
     computed: {
+        // getImageUrl() {
+        //     return `/src/assets/img/hero${this.idx}.webp`
+        // }
         getImageUrl() {
-            return `src/assets/img/hero${this.idx}.webp`
+            return this.heroes[this.idx].imgUrl
+        },
+        getHeroName() {
+            return this.heroes[this.idx].name
+
+        },
+        getHeroJob() {
+            return this.heroes[this.idx].profession
+        },
+        getRate() {
+            return this.heroes[this.idx].rating
         }
     }
 }

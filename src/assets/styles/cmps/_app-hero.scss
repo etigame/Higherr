@@ -2,10 +2,55 @@
   height: $heroHeight;
   position: relative;
 
+
   .img-container {
     img {
       position: absolute;
     }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: opacity 0.9s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+      opacity: 0;
+    }
+  }
+
+
+  .hero-info {
+
+    align-self: center;
+    justify-content: end;
+    position: relative;
+    top: 15px;
+
+
+    p {
+      position: absolute;
+      color: white;
+
+      div {
+        position: absolute;
+        bottom: 25px;
+
+        >span {
+          fill: gold;
+        }
+
+      }
+
+      span {
+
+        color: white;
+        margin-left: 5px;
+        font-family: Macan;
+
+      }
+    }
+
 
     .v-enter-active,
     .v-leave-active {
@@ -24,16 +69,19 @@
     color: white;
     z-index: 20;
     line-height: 1.2;
+    align-self: center;
+
 
     h1 {
       max-width: 650px;
       font-family: var(--yro524e);
       font-size: rem(40px);
       line-height: 48px;
+
       span {
         font-style: italic;
         font-family: Domain-Display-Medium-Italic;
-        font-weight:400;
+        font-weight: 400;
       }
     }
 
@@ -45,7 +93,7 @@
       font-size: rem(14px);
       font-weight: 600;
 
-      > * {
+      >* {
         font-weight: 600;
       }
 
