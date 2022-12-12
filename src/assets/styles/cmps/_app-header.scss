@@ -21,7 +21,7 @@
   }
 
   nav>* {
-    color: #0a0a0a;
+    color: #404145;
   }
 
   .btn.txt {
@@ -376,7 +376,7 @@
     border-bottom: 0;
 
     h1 {
-      color: black;
+      color: #404145
     }
 
     .modal-tip {
@@ -421,20 +421,40 @@
   z-index: 500;
   width: 270px;
   // margin-inline-start: -24px;
-  box-shadow: 4px 0px 80px 0 #222325;
-  padding-inline-start: 20px;
-
-  >* {
-    margin-top: 20px;
+  box-shadow: 40px 20px 800px 10px #040404;
+  padding-inline-start: 20px; 
+  .drop-wrapper{
+    max-width: 230px;
+    // align-items: center;
+    justify-content: space-between;
+    transition: 0.8s;
   }
-
+  .orders-title{
+    cursor: pointer;
+    align-items: center;
+  }
+  .drop-arrow{
+    height: 15px;
+    width: 20px;
+  .dropUp{
+    transform: rotate(180deg);
+  }
+  }
+  >* {
+    margin-top: 40px;
+  }
+  p{
+    font-size: 18px;
+  }
   a,
   button {
     background-color: transparent;
     border: 0;
     text-decoration: none;
-    color: #62646a;
+    color: #757679;
     font-weight: 500;
+    font-size: 18px;
+    
 
     &:hover {
       color: $clr1;
@@ -442,9 +462,12 @@
   }
 
   .orders-container {
-    h3 {
+    a {
       color: $clr3;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      &:hover {
+          color: $clr1;
+        }
     }
 
     margin-top: 90px;
