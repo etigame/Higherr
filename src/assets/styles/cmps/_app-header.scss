@@ -420,11 +420,27 @@
   z-index: 500;
   width: 270px;
   // margin-inline-start: -24px;
-  box-shadow: 4px 0px 80px 0 #222325;
-  padding-inline-start: 20px;
-
+  box-shadow: 40px 20px 800px 10px #040404;
+  padding-inline-start: 20px; 
+  .drop-wrapper{
+    max-width: 230px;
+    // align-items: center;
+    justify-content: space-between;
+    transition: 0.8s;
+  }
+  .orders-title{
+    cursor: pointer;
+    align-items: center;
+  }
+  .drop-arrow{
+    height: 15px;
+    width: 20px;
+  .dropUp{
+    transform: rotate(180deg);
+  }
+  }
   >* {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   a,
@@ -432,8 +448,10 @@
     background-color: transparent;
     border: 0;
     text-decoration: none;
-    color: #62646a;
+    color: #757679;
     font-weight: 500;
+    font-size: 18px;
+    
 
     &:hover {
       color: $clr1;

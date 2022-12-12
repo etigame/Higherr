@@ -1,5 +1,6 @@
 <template>
     <section class="gig-preview-explore" v-if="gig">
+        
         <vueper-slides fade :touchable="false">
             <vueper-slide @click="goToGig(`/gig/${gig._id}`)" v-for=" image  in gig.image" :key="1" :image="image">
             </vueper-slide>

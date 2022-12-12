@@ -47,7 +47,9 @@
                         </div>
                     </section>
                 </section>
-
+                <section class="package-container-narrow">
+                    <gig-package :gig="gig" />
+                </section>
                 <section class="gig-reviews-snippet" v-if="gig.reviewers">
                     <section class="header flex align-center space-between">
                         <h2>What people loved about this seller</h2>
