@@ -95,9 +95,9 @@
 
                 </div>
                 <div class="table-entity flex" v-for="order in orders">
-                    <div class="buyer-col flex align-center user-col">
+                    <div class="buyer-col flex column align-center user-col">
                         <img :src="order.buyer.imgUrl" />
-                        <span class="regular">{{ order.buyer.fullname }}</span>
+                        <p class="regular">{{ order.buyer.fullname }}</p>
 
                     </div>
                     <div class="gig-col flex column">
@@ -144,6 +144,7 @@ export default {
     },
     created() {
         this.loadOrders()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     methods: {
         loadOrders() {

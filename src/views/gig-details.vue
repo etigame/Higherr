@@ -142,6 +142,7 @@ export default {
         } catch (err) {
             console.error(err)
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     unmounted() {
         // socketService.terminate()

@@ -6,7 +6,7 @@
       <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     </section>
     <!-- <advanced-filter /> -->
-    <section class="shadow  main-layout full">
+    <section class="advanced-filter-container main-layout full" :class="{ shadow: isShadow }">
       <section class="advanced-filter">
 
         <div class="advanced-input">
@@ -50,12 +50,12 @@
         <div class="advanced-switches">
           <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button>
           <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
-              style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
-            <h4>Pro service</h4>
+              style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
+            <h4>Pro services</h4>
           </div>
           <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2"
-              style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
-            <h4>Online seller</h4>
+              style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
+            <h4>Online sellers</h4>
           </div>
         </div>
       </section>
@@ -109,6 +109,8 @@ export default {
       },
       budgetDrop: false,
       demoInfo: true,
+      windowTop: window.top.scrollY,
+      isShadow: false,
       options: [
         {
           value: '',
@@ -134,6 +136,12 @@ export default {
 
     }
   },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll)
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser
@@ -145,12 +153,11 @@ export default {
       return this.$route.params.title
     }
   },
-
-
   created() {
     this.filterBy = { ...this.$route.query }
     console.log(this.$route)
     this.filter()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   },
   watch: {
     $route: {
@@ -189,7 +196,11 @@ export default {
     },
     toggleBudget() {
       this.budgetDrop = !this.budgetDrop
-    }
+    },
+    onScroll(e) {
+      this.windowTop = window.top.scrollY
+      this.isShadow = this.windowTop > 170 ? true : false
+    },
   },
 
 
