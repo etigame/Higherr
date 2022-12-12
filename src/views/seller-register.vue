@@ -10,7 +10,7 @@
                     <p>Ex. John Smith</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.fullname" value="Roni Siles" placeholder="enter your full name" />
+                    <el-input v-model="userToEdit.fullname" placeholder="enter your full name" />
                 </div>
             </div>
             <div class="field">
@@ -19,7 +19,7 @@
                     <p>this name will be shown to other users</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.username" value="rorokoo" placeholder="enter username" />
+                    <el-input v-model="userToEdit.username" placeholder="enter username" />
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                     <p>4 characters or more</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.password" value="1234" placeholder="enter password" />
+                    <el-input v-model="userToEdit.password" placeholder="enter password" />
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                     <p>Add a profile picture of yourself so customers will know exactly who they’ll be working with.</p>
                 </label>
                 <div class="info-fill">
-                    <img-profile-uploader @uploaded="getImage"></img-profile-uploader>
+                    <img-profile-uploader @uploaded="getImage" :imgUrl="userToEdit.imgUrl"></img-profile-uploader>
                 </div>
             </div>
             <div class="field">
@@ -48,7 +48,7 @@
                     <h3>Description</h3>
                 </label>
                 <div class="info-fill">
-                    <el-input v-model="userToEdit.description" :rows="2" type="textarea"
+                    <el-input :rows="2" type="textarea"
                         placeholder="Share a bit about your work experience, cool projects you’ve completed, and your area of expertise." />
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <p>4 characters or more</p>
                 </label>
                 <div class="info-fill flex">
-                    <el-input v-model="userToEdit.country" value="Israel" placeholder="where are you from?" />
+                    <el-input v-model="userToEdit.location" placeholder="where are you from?" />
                 </div>
             </div>
 
@@ -88,24 +88,26 @@
 
 <script>
 import imgProfileUploader from "../cmps/img-profile-uploader.vue"
+import { userService } from "../services/user-service.js"
 
 
 export default {
     name: 'seller-register',
     components: { imgProfileUploader },
+    created() {
+        const loggedinUser = this.$store.getters.loggedinUser
+        if (loggedinUser) {
+            userService.getById(loggedinUser._id).then((user) => {
+                this.userToEdit = user
+            })
+        }
+        else {
+            this.userToEdit = userService.createEmptyUser()
+        }
+    },
     data() {
         return {
-            userToEdit: {
-                _id: 'u102',
-                fullname: 'Roni Siles',
-                imgUrl: '',
-                username: 'rorokoo',
-                password: '1234',
-                reviews: [],
-                description: 'I will create an awesome website for your business!',
-                country: 'Israel',
-                languages: [],
-            },
+            userToEdit: null,
             value1: [],
             options:
 
@@ -137,9 +139,9 @@ export default {
                 ]
         }
     },
-    created() {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    },
+    // created() {
+    //     window.scrollTo({ top: 0, behavior: 'smooth' })
+    // },
     methods: {
         getImage(imgUrl) {
             this.userToEdit.imgUrl = imgUrl

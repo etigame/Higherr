@@ -15,10 +15,11 @@
 import { uploadService } from "../services/upload-service.js"
 
 export default {
+    props: ['imgUrl'],
     data() {
         return {
 
-            imgUrl: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+
             height: 250,
             width: 500,
             isUploading: false

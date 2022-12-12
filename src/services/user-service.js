@@ -153,12 +153,14 @@ function createEmptyUser() {
   const user = {
     // _id: utilService.makeId(),
     fullname: '',
-    imgUrl: '',
+    imgUrl:
+      'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
     username: '',
     password: '',
     reviews: [],
     description: '--',
-    country: '--',
+    location: '--',
+    languages: null,
   }
   return user
 }
