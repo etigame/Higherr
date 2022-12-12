@@ -93,14 +93,25 @@
     text-decoration: none;
     transition: 0.3s;
   }
+@media screen and (max-width: 800px) {
+  nav{
+    display: flex;
+    justify-content: center;
+  }
+}
 
   .logo {
-    // flex-basis: 30%;
-    min-width: 121px;
+    
+    // min-width: 121px;
     margin-inline-end: 32px;
     transition: color 0.2s;
     margin-block-start: -5px;
-
+      @media screen and (max-width: 800px) {
+        display: flex;
+        min-width: 100%;
+        justify-content: center;
+        flex:1;
+      }
     h1 {
       display: inline;
       padding: none;
@@ -451,7 +462,7 @@
   z-index: 500;
   width: 270px;
   // margin-inline-start: -24px;
-  box-shadow: 40px 20px 800px 10px #040404;
+  box-shadow: 20px 0px 20px 800px rgba(51, 50, 50, 0.53);
   padding-inline-start: 20px;
   .drop-wrapper {
     max-width: 230px;

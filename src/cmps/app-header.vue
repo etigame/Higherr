@@ -16,7 +16,7 @@
       <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
-      <div class="orders-container" v-if="(orders && loggedInUser)">
+      <div class="orders-container" v-if="(loggedInUser && orders)">
         <div class="flex drop-wrapper" @click.stop="toggleOrdersModal(); closeActiveOrders();">
           <div class="orders-title flex">
             <div v-if="isActiveOrders" class="notification-orders"></div>
@@ -86,7 +86,7 @@
               <h3>No Order Yet</h3>
               <p class="light empty-txt">Use the search box to find the digital service you need</p>
             </div>
-            <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
+            <div v-if="loggedInUser" @click="toggleOrdersModal" v-for="order in orders" class="order-container">
               <router-link :to="`/gig/${order.gig._id}`">
                 <div class="img-container">
                   <img :src="order.gig.img">

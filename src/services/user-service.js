@@ -91,12 +91,12 @@ async function signup(userCred) {
   }
   // console.log(userCred)
   // const user = await storageService.post(USER_STORAGE_KEY, userCred)
-    // socketService.login(user._id)
+  // socketService.login(user._id)
   // return saveLocalUser(user)
 }
 
 async function logout() {
-  // sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+  sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
   // socketService.logout()
   return await httpService.post('auth/logout')
 }
@@ -159,7 +159,6 @@ function createEmptyUser() {
     reviews: [],
     description: '--',
     country: '--',
-    
   }
   return user
 }
