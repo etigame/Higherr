@@ -52,7 +52,7 @@
     border-radius: 1px;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     background-color: #fff;
 
     .menu-icon {
@@ -250,7 +250,7 @@
     top: 60px;
     padding: 10px 16px;
 
-    transform: translate(-85%, 12px);
+    transform: translate(-27%, 12px);
 
     .order-container {
       display: flex;
@@ -372,7 +372,7 @@
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     border-bottom: 0;
 
     h1 {
@@ -402,7 +402,7 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 
   .search-narrow {
     display: block;
@@ -510,7 +510,7 @@
     font-size: 13px;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     display: flex;
   }
 

@@ -43,9 +43,6 @@
 
         </section>
         <section class="seller-orders flex">
-            <!-- <div class="headline"> -->
-            <!-- <h1  class="headline">Earnings</h1> -->
-            <!-- </div> -->
             <div class="income-order-dashboard flex">
                 <div class="dashboard-item">
                     <span class="light">Annual Revenue</span>
@@ -59,10 +56,7 @@
                     <span class="light">Completed Orders </span>
                     <h3>{{ annualOrdersComplete }}</h3>
                 </div>
-                <!-- <div class="dashboard-item">
-                    <span class="light">Monthly Completed Orders </span>
-                    <h3>{{ monthOrdersComplete }}</h3>
-                </div> -->
+
                 <div class="dashboard-item">
                     <span class="light">Pending Orders </span>
                     <h3>{{ pendingOrders }}</h3>
@@ -86,41 +80,10 @@
                     </div>
                     <div class="status-col">
                         <h4>Status</h4>
-                        <div v-if="setOpen" class="set-status" v-clickOutside="toggleSet">
-                            <div class="completed status " @click="changeStatus('Completed')">Completed</div>
-                            <div class="in-progress status" @click="changeStatus('In Progress')">In Progress</div>
-                            <div class="rejected status" @click="changeStatus('Rejected')">Rejected</div>
-                        </div>
                     </div>
 
                 </div>
-                <div class="table-entity flex" v-for="order in orders">
-                    <div class="buyer-col flex column align-center user-col">
-                        <img :src="order.buyer.imgUrl" />
-                        <p class="regular">{{ order.buyer.fullname }}</p>
-
-                    </div>
-                    <div class="gig-col flex column">
-                        <span class="table-span regular">{{ order.gig.name }}</span>
-                    </div>
-                    <div class="due-on-col flex column">
-                        <span class="table-span regular">{{ new Date(order.createdAt).toLocaleDateString() }}</span>
-                    </div>
-                    <div class="total-col flex column">
-                        <span class="table-span regular">US${{ order.gig.price }}</span>
-                    </div>
-                    <div @click="selectOrder(order)" class="status-col flex column">
-                        <!-- <div class=" status flex"> -->
-                        <div class=" status flex" :class="className(order.status)">
-                            <!-- <div class="status flex"> -->
-                            <span class="regular">{{ order.status }}</span>
-                        </div>
-                    </div>
-                    <!-- <div class="set-col flex column">
-                    <button @click="selectOrder(order)"><span v-icon="'dots'"></span></button>
-                    
-                </div> -->
-                </div>
+                <dashboard-article v-for="order in orders" :order="order" :key="order._id" @change="changeStatus"/>
             </div>
 
 
@@ -130,13 +93,16 @@
 
 <script>
 import { socketService } from '../services/socket-service'
+import dashboardArticle from '../cmps/dashboard-list-article.vue'
 
 export default {
     props: ["loggedUser"],
     name: 'seller-orders',
+    components: {
+        dashboardArticle,
+    },
     data() {
         return {
-            setOpen: false,
             selectedOrder: null,
             deliveredOnTime: 95,
             responseRate: 95,
@@ -151,18 +117,16 @@ export default {
             return this.$store.dispatch({ type: 'loadOrders' })
         },
         selectOrder(order) {
-            console.log(order)
             this.selectedOrder = { ...order }
-            console.log(this.selectedOrder)
             this.toggleSet()
         },
         toggleSet() {
             this.setOpen = !this.setOpen
         },
-        changeStatus(status) {
+        changeStatus({status,order}) {
+            this.selectOrder(order)
             this.selectedOrder.status = status
-            console.log(this.selectedOrder)
-            this.toggleSet()
+            console.log(status,order);
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             // this.loadOrders()
             socketService.emit('order-change-status', this.selectedOrder.buyer)
@@ -171,20 +135,8 @@ export default {
             console.log(time.toLocaleDateString())
             return new Date(time)
         },
-        className(str) {
-            if (str === 'Pending') return 'pending'
-            if (str === 'Completed') return 'completed'
-            if (str === 'In Progress') return 'in-progress'
-            if (str === 'Rejected') return 'rejected'
-        }
     },
     computed: {
-        // orders() {
-        //     const orders = this.$store.getters.orders
-        //       const filteredOrders = orders.filter(
-        //           (order) => order.seller._id === this.loggedUser._id)
-        //     return filteredOrders
-        // },
         orders() {
             console.log(this.$store.getters.sellerOrders)
             return this.$store.getters.sellerOrders
@@ -255,12 +207,6 @@ export default {
             console.log(this.loggedUser)
             return ((this.annualOrdersComplete / this.orders.length) * 100).toFixed(0)
         },
-        // className(str){
-        //     if(str==='Pending') return 'pending'
-        //     if(str==='Completed') return 'completed'
-        //     if(str==='In Progress') return 'in-progress'
-        //     if(str==='Rejected') return 'rejected'
-        // }
     },
 }
 </script>
