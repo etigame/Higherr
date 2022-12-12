@@ -34,7 +34,7 @@ export const orderStore = {
         state.orders.splice(idx, 1, order)
         return
       }
-      state.orders.push(order)
+      state.orders.unshift(order)
       console.log(state.orders)
     },
     removeOrder(state, { orderId }) {

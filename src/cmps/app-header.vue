@@ -17,8 +17,9 @@
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
       <div class="orders-container" v-if="(orders && loggedInUser)">
-        <div class="flex drop-wrapper" @click.stop="toggleOrdersModal">
+        <div class="flex drop-wrapper" @click.stop="toggleOrdersModal(); closeActiveOrders();">
           <div class="orders-title flex">
+            <div v-if="isActiveOrders" class="notification-orders"></div>
             <a>My Orders</a>
           </div>
           <div class="drop-arrow">
@@ -52,6 +53,7 @@
       :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
       <nav class="flex align-center space-between">
         <div @click="toggleSideMenu" class="menu-icon">
+          <div v-if="isActiveOrders" class="notification-orders"></div>
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
@@ -72,8 +74,7 @@
           <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
           <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
-          <button v-if="loggedInUser" class="orders btn txt"
-            @click="toggleOrdersModal(); toggleIsActiveOrders();">Orders
+          <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal(); closeActiveOrders();">Orders
             <div v-if="isActiveOrders" class="notification-orders"></div>
           </button>
           <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
@@ -158,6 +159,7 @@
 
 
           <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
+            <div v-if="isActiveDashboard" class="notification-dashboard"></div>
             <img :src="loggedInUser.imgUrl">
             <!-- {{ loggedInUser.fullname }} -->
 
@@ -165,7 +167,8 @@
               <div class="modal-tip"></div>
 
               <router-link to="/seller/profile" class=" light">Profile</router-link>
-              <router-link to="/seller/orders">Dashboard</router-link>
+              <div v-if="isActiveDashboard" class="notification-dashboard"></div>
+              <router-link to="/seller/orders" @click="closeActiveDashboard">Dashboard</router-link>
               <a @click="doLogout">Logout</a>
             </div>
           </div>
@@ -196,7 +199,8 @@ export default {
     headerSearch,
   },
   props: {
-    isActiveOrders: Boolean
+    isActiveOrders: Boolean,
+    isActiveDashboard: Boolean
   },
   data() {
     return {
@@ -251,9 +255,11 @@ export default {
     toggleOrdersModal() {
       this.orderOpen = !this.orderOpen
     },
-    toggleIsActiveOrders() {
-      // this.isActiveOrders = false
-      this.$emit('closeNotification')
+    closeActiveOrders() {
+      this.$emit('closeOrderNotification')
+    },
+    closeActiveDashboard() {
+      this.$emit('closeDashboardNotification')
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
