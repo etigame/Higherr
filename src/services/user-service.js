@@ -91,7 +91,7 @@ async function signup(userCred) {
   }
   // console.log(userCred)
   // const user = await storageService.post(USER_STORAGE_KEY, userCred)
-    // socketService.login(user._id)
+  // socketService.login(user._id)
   // return saveLocalUser(user)
 }
 
@@ -153,13 +153,14 @@ function createEmptyUser() {
   const user = {
     // _id: utilService.makeId(),
     fullname: '',
-    imgUrl: '',
+    imgUrl:
+      'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
     username: '',
     password: '',
     reviews: [],
     description: '--',
-    country: '--',
-    
+    location: '--',
+    languages: null,
   }
   return user
 }

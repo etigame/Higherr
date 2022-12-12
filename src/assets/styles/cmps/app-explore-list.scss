@@ -116,7 +116,6 @@
         }
     }
     .budget-input,
-    .category-input,
     .delivery-input,
     .budget-input-1 {
       margin-inline-end: em(10px);
@@ -130,22 +129,24 @@
     }
     /////////
     .budget-input-1 {
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
       color: $clr11;
       font-size: 12px;
       margin-top: em(21px);
-      width: em(120px);
+      width: em(126px);
       // margin-inline-end: em(10px);
-      height: em(52px);
-      box-shadow: 0 0 1px 0;
-      border-radius: 2px;
+      height: em(53px);
+      // box-shadow: 0 0 1px 0;
+      border:1px solid $clr2;
+      border-radius: 3px;
       .budget-dropdown {
+        z-index: 100;
         position: absolute;
         background-color: $CLR0;
         transform: translate(106px, 118px);
         width: 316px;
-        height: 170px;
+        height: 160px;
         border-radius: 4px;
         box-shadow: 0 12px 18px rgb(0 0 0 / 14%);
         border: 1px solid $clr9;
@@ -174,6 +175,12 @@
           border: 0;
           box-shadow: 0 0 0 1px $clr5;
         }
+        i{
+          font-size: 1rem;
+          position:absolute;
+          transform: translate(-16px,14px);
+          font-style:normal;
+        }
 
         .buttons {
           border-top: 1px solid $clr9;
@@ -196,6 +203,14 @@
           color: #95979d;
         }
       }
+            .drop-arrow {
+              height: 14px;
+              width: 14px;
+      
+              .dropUp {
+                transform: rotate(180deg);
+              }
+            }
     }
     .el-input__wrapper {
       box-shadow: 0 0 0 1px $clr9 inset !important;
@@ -335,6 +350,9 @@
   border-radius: 3px;
   color: $clr11;
   cursor: pointer;
+}
+.delivery-input{
+  width:130px !important
 }
 
 // TODO: export to reset

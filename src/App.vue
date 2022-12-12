@@ -3,7 +3,8 @@
   <section class="main-layout">
     <user-msg />
     <section class="main-header main-layout full" :class="{ sticky: isHeaderSticky }">
-      <app-header @filter="filter" :isActiveOrders="this.isActiveOrders" @closeNotification="closeNotification" />
+      <app-header @filter="filter" :isActiveOrders="this.isActiveOrders" :isActiveDashboard="this.isActiveDashboard"
+        @closeOrderNotification="closeOrderNotification" @closeDashboardNotification="closeDashboardNotification" />
       <categories-list :type="'tag'" @filter="filter" />
     </section>
 
@@ -44,6 +45,7 @@ export default {
 
     socketService.on('user-ordered-gig', (msg) => {
       showSuccessMsg(msg)
+      this.isActiveDashboard = true
     })
 
     socketService.on('order-approved', (msg) => {
@@ -53,6 +55,7 @@ export default {
 
     socketService.on('order-status-update', (msg) => {
       showSuccessMsg(msg)
+      this.isActiveOrders = true
     })
   },
   data() {
@@ -66,7 +69,8 @@ export default {
         delivery: '',
       },
       isHeaderSticky: false,
-      isActiveOrders: false
+      isActiveOrders: false,
+      isActiveDashboard: false
     }
   },
   methods: {
@@ -76,8 +80,11 @@ export default {
       // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-    closeNotification() {
+    closeOrderNotification() {
       this.isActiveOrders = false
+    },
+    closeDashboardNotification() {
+      this.isActiveDashboard = false
     }
   },
   watch: {

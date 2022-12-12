@@ -43,7 +43,7 @@ export const gigStore = {
         return gig.owner._id === user._id
       })
 
-      return filteredGigs
+      if (filteredGigs.length > 0) return filteredGigs
     },
 
     // gigsByUser({ gigs }) {

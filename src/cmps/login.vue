@@ -7,7 +7,7 @@
         <input type="text" v-model="loginCred.username" placeholder="username" />
         <input type="text" v-model="loginCred.password" placeholder="Password" />
         <button>Login</button>
-        <span>Dont have an accout yet?</span><a @click="goToSignup">Open account</a>
+        <span>Don't have an account yet?</span><a @click="goToSignup">Open account</a>
       </form>
     </section>
   </section>

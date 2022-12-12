@@ -27,6 +27,12 @@ export const userStore = {
     watchedUser({ watchedUser }) {
       return watchedUser
     },
+    userById({ users, loggedinUser }) {
+      console.log(loggedinUser)
+
+      const user = users.find((user) => user._id === loggedinUser._id)
+      return user
+    },
   },
   rootGetters: {
     loggedinUser({ loggedinUser }) {

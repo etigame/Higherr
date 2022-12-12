@@ -15,11 +15,10 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #df4d4d;
-      z-index: 9999;
+      background-color: #e61c1c;
       position: absolute;
-      top: -4px;
-      right: 1px;
+      top: -5px;
+      right: -2px;
     }
   }
 
@@ -55,7 +54,7 @@
     display: none;
   }
 
-  .menu-icon > * {
+  .menu-icon > *:not(.notification-orders) {
     width: 24px;
     height: 3px;
     background-color: rgba(42, 39, 39, 0.718);
@@ -68,6 +67,17 @@
 
     .menu-icon {
       display: block;
+      position: relative;
+
+      .notification-orders {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #e61c1c;
+        position: absolute;
+        top: -7px;
+        right: -10px;
+      }
     }
 
     .search {
@@ -223,6 +233,19 @@
     height: 130px;
     width: 120px;
     transform: translate(-85px, 16px);
+    position: relative;
+
+    .notification-dashboard {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #e61c1c;
+      position: absolute;
+      top: 37px;
+      right: 10px;
+    }
+
+    
 
     :last-child {
       padding-top: 10px;
@@ -389,6 +412,18 @@
   height: 32px;
   width: 32px;
   margin-inline-start: 8px;
+  position: relative;
+
+  .notification-dashboard {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e61c1c;
+    position: absolute;
+    top: -4px;
+    right: -13px;
+  }
+  
 
   img {
     border-radius: 50%;
@@ -400,7 +435,6 @@
 }
 
 @media screen and (max-width: 800px) {
-
   .search-narrow {
     display: block;
     // padding-bottom: 10px;
@@ -428,6 +462,17 @@
   .orders-title {
     cursor: pointer;
     align-items: center;
+    position: relative;
+
+    .notification-orders {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #e61c1c;
+      position: absolute;
+      top: -4px;
+      right: -13px;
+    }
   }
   .drop-arrow {
     height: 15px;
