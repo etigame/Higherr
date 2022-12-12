@@ -95,7 +95,7 @@
             <section class="package-container">
                 <gig-package :gig="gig" />
             </section>
-            <chat-seller :gig="gig" />
+            <!-- <chat-seller :gig="gig" /> -->
         </section>
     </section>
 </template>
@@ -135,7 +135,7 @@ export default {
     },
     async created() {
         try {
-            console.log(this.$route);
+            console.log(this.$route)
             const { _id } = this.$route.params
             const gig = await gigService.getById(_id)
             this.gig = gig
@@ -144,6 +144,7 @@ export default {
         } catch (err) {
             console.error(err)
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     unmounted() {
         // socketService.terminate()

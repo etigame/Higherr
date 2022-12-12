@@ -84,6 +84,7 @@ export default {
     },
     async created() {
         await this.$store.dispatch({ type: 'loadGigs' })
+        window.scrollTo({ top: 0, behavior: 'smooth' })
 
     },
     methods: {

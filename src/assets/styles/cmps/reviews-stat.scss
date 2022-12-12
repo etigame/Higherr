@@ -10,6 +10,11 @@
   }
 }
 
+.reviews-rate {
+  .stars {
+    margin-block-start: 0;
+  }
+}
 .stars-counters {
   min-width: 50%;
 
@@ -82,6 +87,7 @@
 
       .value {
         padding-inline-start: em(4px, 16px);
+        margin-block-start: em(2px, 16px);
       }
     }
   }

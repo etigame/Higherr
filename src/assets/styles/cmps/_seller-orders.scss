@@ -156,8 +156,9 @@
       .buyer-col {
         width: 20%;
 
-        span {
+        p {
           color: $clr3;
+          font-weight: normal;
         }
       }
     }
@@ -174,6 +175,7 @@
       min-width: 80px;
     }
     .status-col {
+      text-align: center;
       width: 15%;
       padding-inline-end: 10px;
       position: relative;
@@ -225,7 +227,7 @@
       position: fixed;
       & > * {
         margin: 8px;
-        padding-bottom: 10px;
+        // padding-bottom: 10px;
         border-bottom: 2px solid transparent;
       }
       button {

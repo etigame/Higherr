@@ -1,54 +1,106 @@
 <template>
   <section class="main-layout full">
-  <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
-    <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-    <div v-if="!loggedInUser"  @click="registerSeller">Become a Seller</div>
-    <div v-if="!loggedInUser" @click="login">Sign In</div>
-    <div v-if="!loggedInUser"  @click="register">Join</div>
-    <div class="user-info flex">
-    <div class="img-container">
-    <img  v-if="loggedInUser" :src="loggedInUser.imgUrl">
-    </div>
-    <p  v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
-    </div>
+    <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
+      <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
+      <div v-if="!loggedInUser" @click="registerSeller">Become a Seller</div>
+      <div v-if="!loggedInUser" @click="login">Sign In</div>
+      <div v-if="!loggedInUser" @click="register">Join</div>
+      <div class="user-info flex">
+        <div class="img-container">
+          <img v-if="loggedInUser" :src="loggedInUser.imgUrl">
+        </div>
+        <p v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
+      </div>
 
-      <router-link  v-if="loggedInUser" to="/seller/profile" >Profile</router-link>
+      <router-link v-if="loggedInUser" to="/seller/profile">Profile</router-link>
       <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
-                <div class="orders-container"  v-if="(orders && loggedInUser)">  
-                  <div class="flex drop-wrapper" @click.stop="toggleOrdersModal">
-                    <div class="orders-title flex">
-                    <a>My Orders</a> 
-                    </div>
-                    <div class="drop-arrow">
-                      <span v-if="!orderOpen" v-icon="'dropDown'">
-                    </span>
-                    <div class="dropUp">
-                      <span v-if="orderOpen" v-icon="'dropUp'"></span>
-                    </div>
-                  </div>
-                  </div>
-                <div v-if="orderOpen" v-for="order in orders" class="order-container">
-                  <router-link :to="`/gig/${order.gig._id}`">
-                    <div class="info flex">
-                    <div class="img-container">
-                      <img :src="order.gig.img">
-                    </div>
-                    <p class="gig-title">{{ order.gig.name }}</p>
-                    </div>
-                  </router-link>
-                  <div>
-                    <div class="seller-status flex ">
-                      <span> Status:</span>
-                      <span class="status " :class="className(order.status)" >{{ order.status }}</span>
-                    </div>
-                  </div>
-                  </div>
-                </div>
+      <div class="orders-container" v-if="(orders && loggedInUser)">
+        <div class="flex drop-wrapper" @click.stop="toggleOrdersModal">
+          <div class="orders-title flex">
+            <a>My Orders</a>
+          </div>
+          <div class="drop-arrow">
+            <span v-if="!orderOpen" v-icon="'dropDown'">
+            </span>
+            <div class="dropUp">
+              <span v-if="orderOpen" v-icon="'dropUp'"></span>
+            </div>
+          </div>
+        </div>
+        <div v-if="orderOpen" v-for="order in orders" class="order-container">
+          <router-link :to="`/gig/${order.gig._id}`">
+            <div class="info flex">
+              <div class="img-container">
+                <img :src="order.gig.img">
+              </div>
+              <p class="gig-title">{{ order.gig.name }}</p>
+            </div>
+          </router-link>
+          <div>
+            <div class="seller-status flex ">
+              <span> Status:</span>
+              <span class="status " :class="className(order.status)">{{ order.status }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  </section>
-  <header class="app-header main-layout full flex align-center"
+    <header class="app-header main-layout full flex align-center"
+      :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
+      <nav class="flex align-center space-between">
+        <div @click="toggleSideMenu" class="menu-icon">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <router-link to="/">
+          <div class="logo">
+            <h1>Higherr</h1>
+          </div>
+        </router-link>
+
+        <div class="search" :class="{ shown: isSearchShown }">
+          <header-search @filter="filter" />
+        </div>
+        <div class="nav-links flex align-center">
+
+          <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
+          <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
+          <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
+          <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
+
+          <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
+          <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
+            <div class="modal-tip"></div>
+            <div v-if="(!orders || orders.length === 0)" class="no-order">
+              <div class="empty-icon">
+                <span v-icon="'empty'"></span>
+              </div>
+              <h3>No Order Yet</h3>
+              <p class="light empty-txt">Use the search box to find the digital service you need</p>
+            </div>
+            <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
+              <router-link :to="`/gig/${order.gig._id}`">
+                <div class="img-container">
+                  <img :src="order.gig.img">
+                </div>
+              </router-link>
+              <div>
+                <router-link :to="`/gig/${order.gig._id}`">
+                  <p class="gig-title">{{ order.gig.name }}</p>
+                </router-link>
+                <div class="seller-status">
+                  <span>by {{ order.seller.fullname }}</span>
+                  <span class="status" :class="className(order.status)">{{ order.status }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <header class="app-header main-layout full flex align-center"
     :class="{ transparent: (windowTop === 0 && currRoutePath === '/') }">
     <nav class="flex align-center space-between">
       <div @click="toggleSideMenu" class="menu-icon">
@@ -60,29 +112,29 @@
         <div class="logo">
           <h1>Higherr</h1>
         </div>
-      </router-link>
+      </router-link> -->
 
-      <div class="search" :class="{ shown: isSearchShown }">
+          <!-- <div class="search" :class="{ shown: isSearchShown }">
         <header-search @filter="filter" />
       </div>
-      <div class="nav-links flex align-center">
+      <div class="nav-links flex align-center"> -->
 
-        <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-        <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
+          <!-- <router-link to="/explore" class="btn txt">Explore</router-link>
+        <button class="btn txt" @click="registerSeller">Become a Seller</button>
         <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
         <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
         <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
         <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
           <div class="modal-tip"></div>
-          <div v-if="(!orders || orders.length===0)" class="no-order">
+          <div v-if="(!orders || orders.length === 0)" class="no-order">
             <div class="empty-icon">
               <span v-icon="'empty'"></span>
             </div>
             <h3>No Order Yet</h3>
             <p class="light empty-txt">Use the search box to find the digital service you need</p>
-          </div>
-          <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
+          </div> -->
+          <!-- <div @click="toggleOrdersModal" v-for="order in orders" class="order-container">
             <router-link :to="`/gig/${order.gig._id}`">
               <div class="img-container">
                 <img :src="order.gig.img">
@@ -94,35 +146,35 @@
               </router-link>
               <div class="seller-status">
                 <span>by {{ order.seller.fullname }}</span>
-                <span class="status" :class="className(order.status)" >{{ order.status }}</span>
-              </div>
+                <span class="status" :class="className(order.status)">{{ order.status }}</span>
+              </div> -->
+          <!-- </div>
+
+        </div>
+        </div> -->
+
+
+          <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
+            <img :src="loggedInUser.imgUrl">
+            <!-- {{ loggedInUser.fullname }} -->
+
+            <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
+              <div class="modal-tip"></div>
+
+              <router-link to="/seller/profile" class=" light">Profile</router-link>
+              <router-link to="/seller/orders">Dashboard</router-link>
+              <a @click="doLogout">Logout</a>
             </div>
-
           </div>
+
         </div>
-
-
-        <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
-          <img :src="loggedInUser.imgUrl">
-          <!-- {{ loggedInUser.fullname }} -->
-
-          <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
-            <div class="modal-tip"></div>
-
-            <router-link to="/seller/profile" class=" light">Profile</router-link>
-            <router-link to="/seller/orders">Dashboard</router-link>
-            <a @click="doLogout">Logout</a>
-          </div>
-        </div>
-
+      </nav>
+    </header>
+    <section>
+      <div class="search-narrow">
+        <header-search @filter="filter" />
       </div>
-    </nav>
-  </header>
-  <section>
-          <div class="search-narrow">
-            <header-search @filter="filter" />
-          </div>
-  </section>
+    </section>
   </section>
 </template>
 
@@ -154,7 +206,7 @@ export default {
       isSearchShown: false,
       modalOpen: false,
       orderOpen: false,
-      menuOpen:false,
+      menuOpen: false,
     }
   },
   mounted() {

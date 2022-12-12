@@ -105,6 +105,9 @@ export default {
             gigToEdit: null
         }
     },
+    created() {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    },
     methods: {
         async saveGig() {
 
