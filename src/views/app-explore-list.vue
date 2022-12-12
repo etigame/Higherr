@@ -18,17 +18,27 @@
 
 
           <div @click="toggleBudget" class="budget-input-1 flex">
-            <span>Budget</span>
+              <p>Budget</p>
+            
+            <div class="drop-arrow">
+              <span v-if="!budgetDrop" v-icon="'dropDown'">
+              </span>
+              <div class="dropUp">
+                <span v-if="budgetDrop" v-icon="'dropDown'"></span>
+              </div>
+            </div>
             <form @submit.prevent="filterBudget()" v-if="budgetDrop" v-clickOutside="toggleBudget"
               class="budget-dropdown">
               <div @click.stop class="inputs">
                 <div>
                   <p>MIN</p>
                   <input v-model.number="filterBy.min" />
+                  <i>$</i>
                 </div>
                 <div>
                   <p>MAX</p>
                   <input v-model.number="filterBy.max" />
+                  <i>$</i>
                 </div>
               </div>
               <div @click.stop class="buttons flex">
@@ -40,15 +50,12 @@
 
           <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
             placeholder="Delivery Time" size="large">
-            <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
-            <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
-            <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
-            <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
+            <el-option v-for="item in deliveryOptions" :key="item.value" :label="item.label" :value="item.value" />
           </el-select>
         </div>
 
+
         <div class="advanced-switches">
-          <!-- <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button> -->
           <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
             <h4>Pro services</h4>
@@ -111,29 +118,26 @@ export default {
       demoInfo: true,
       windowTop: window.top.scrollY,
       isShadow: false,
-      options: [
+      deliveryOptions:[
+        {
+          value: '1',
+          label: 'Express 24H',
+        },
+        {
+          value: '3',
+          label: 'Up to 3 days',
+        },
+        {
+          value: '7',
+          label: 'Up to 7 days',
+        },
         {
           value: '',
-          label: 'All category',
+          label: 'Anytime',
         },
-        {
-          value: 'Graphics & Design',
-          label: 'Graphics & Design',
-        },
-        {
-          value: 'Lifestyle',
-          label: 'Lifestyle',
-        },
-        {
-          value: 'Other',
-          label: 'Other',
-        },
-        {
-          value: 'Other',
-          label: 'Other',
-        },
-      ],
+      ]
 
+      
     }
   },
   mounted() {
@@ -169,6 +173,7 @@ created() {
   },
   methods: {
     filter(filterBy = this.filterBy) {
+      console.log(filterBy);
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },

@@ -32,7 +32,26 @@
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="gig-gallery">
                     <section class="slideshow">
-                        <vueper-slides fade :touchable="true">
+
+                        <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
+                            @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })" fixed-height="380px" >
+                            <vueper-slide v-for="image in gig.image" :key="1" :image="image">
+                        </vueper-slide>
+                        </vueper-slides>
+                        <div class="thumbnails-slider">
+                        <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
+                            @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })" :visible-slides="gig.image.length"
+                            fixed-height="75px" :bullets="false" :touchable="false" :gap="1" :arrows="false">
+                            <vueper-slide v-for="(image, i) in gig.image" :key="i" :image="image"
+                                @click.native="$refs.vueperslides2.goToSlide(i)">
+                            </vueper-slide>
+                        </vueper-slides>
+                        </div>
+
+
+
+
+                        <!-- <vueper-slides fade :touchable="true">
                             <vueper-slide v-for="image in gig.image" :key="1" :image="image">
                             </vueper-slide>
                         </vueper-slides>
@@ -44,7 +63,7 @@
                                     @click.native="$refs.vueperslides2.goToSlide(i)">
                                 </vueper-slide>
                             </vueper-slides>
-                        </div>
+                        </div> -->
                     </section>
                 </section>
                 <section class="package-container-narrow">
