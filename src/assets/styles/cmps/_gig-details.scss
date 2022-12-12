@@ -182,12 +182,26 @@
 
 .slideshow {
   
-  .vueperslides__parallax-wrapper {
-    // position: relative;
-    // overflow: hidden;
-    // padding-bottom: 66.66666% !important;
-  }
+  // .vueperslides__parallax-wrapper {
+  //   // position: relative;
+  //   // overflow: hidden;
+  //   // padding-bottom: 66.66666% ;
+  // }
 
+
+.thumbnails .vueperslide {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.thumbnails .vueperslide--active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-color: rgb(92, 87, 87);
+}
 }
 
 .thumbnails-slider {

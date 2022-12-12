@@ -35,7 +35,7 @@
 
                         <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
                             @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
-                            fixed-height="380px">
+                             :slide-ratio="(48 / 67)">
                             <vueper-slide v-for="image in gig.image" :key="1" :image="image">
                             </vueper-slide>
                         </vueper-slides>
