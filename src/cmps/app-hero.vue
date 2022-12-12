@@ -98,9 +98,6 @@ export default {
         },
     },
     computed: {
-        // getImageUrl() {
-        //     return `/src/assets/img/hero${this.idx}.webp`
-        // }
         getImageUrl() {
             return this.heroes[this.idx].imgUrl
         },

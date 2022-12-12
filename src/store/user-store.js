@@ -28,8 +28,6 @@ export const userStore = {
       return watchedUser
     },
     userById({ users, loggedinUser }) {
-      console.log(loggedinUser)
-
       const user = users.find((user) => user._id === loggedinUser._id)
       return user
     },
@@ -78,7 +76,6 @@ export const userStore = {
         socketService.signup(localLoggedInUser)
 
         socketService.signup(state.loggedinUser)
-        // console.log(user)
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)

@@ -107,7 +107,7 @@
           <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
             <div v-if="isActiveDashboard" class="notification-dashboard"></div>
             <img :src="loggedInUser.imgUrl">
-            <!-- {{ loggedInUser.fullname }} -->
+
 
             <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
               <div class="modal-tip"></div>
@@ -175,7 +175,6 @@ export default {
     filter(title) {
       this.filterBy.title = title
       this.$emit('filter', { ...this.filterBy })
-      console.log(this.filterBy)
     },
     onScroll(e) {
       if (this.$route.path !== '/') return

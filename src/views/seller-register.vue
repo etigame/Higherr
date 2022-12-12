@@ -95,6 +95,7 @@ export default {
     name: 'seller-register',
     components: { imgProfileUploader },
     created() {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         const loggedinUser = this.$store.getters.loggedinUser
         if (loggedinUser) {
             userService.getById(loggedinUser._id).then((user) => {
@@ -139,22 +140,15 @@ export default {
                 ]
         }
     },
-    // created() {
-    //     window.scrollTo({ top: 0, behavior: 'smooth' })
-    // },
     methods: {
         getImage(imgUrl) {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
-
-            console.log(this.userToEdit)
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
             this.$router.push('/seller/profile')
-
         },
     }
-
 }
 
 </script>

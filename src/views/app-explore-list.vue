@@ -18,8 +18,8 @@
 
 
           <div @click="toggleBudget" class="budget-input-1 flex">
-              <p>Budget</p>
-            
+            <p>Budget</p>
+
             <div class="drop-arrow">
               <span v-if="!budgetDrop" v-icon="'dropDown'">
               </span>
@@ -118,7 +118,7 @@ export default {
       demoInfo: true,
       windowTop: window.top.scrollY,
       isShadow: false,
-      deliveryOptions:[
+      deliveryOptions: [
         {
           value: '1',
           label: 'Express 24H',
@@ -137,7 +137,7 @@ export default {
         },
       ]
 
-      
+
     }
   },
   mounted() {
@@ -157,9 +157,8 @@ export default {
       return this.$route.params.title
     }
   },
-created() {
+  created() {
     this.filterBy = { ...this.$route.query }
-    console.log(this.$route)
     this.filter()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   },
@@ -173,7 +172,6 @@ created() {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      console.log(filterBy);
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },

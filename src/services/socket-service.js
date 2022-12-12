@@ -48,7 +48,6 @@ function createSocketService() {
     },
     login(user) {
       socket.emit(SOCKET_EMIT_LOGIN, user)
-      console.log(user)
     },
     signup(user) {
       socket.emit(SOCKET_EMIT_SIGNUP, user)

@@ -35,24 +35,11 @@ export const gigStore = {
   getters: {
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
-
-      // console.log('the gigs', gigs)
       var filteredGigs = gigs.filter((gig) => {
-        // console.log('the owner id', gig.owner._id)
-
         return gig.owner._id === user._id
       })
-
       if (filteredGigs.length > 0) return filteredGigs
     },
-
-    // gigsByUser({ gigs }) {
-    //   console.log(gigs)
-    //   const filteredGigs = gigs.filter(
-    //     (gig) => gig.owner._id === userStore.state.loggedinUser._id
-    //   )
-    //   return filteredGigs
-    // },
 
     gigs({ gigs, filterBy }) {
       var filteredGigs = gigs

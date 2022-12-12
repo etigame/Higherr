@@ -126,19 +126,18 @@ export default {
         changeStatus({ status, order }) {
             this.selectOrder(order)
             this.selectedOrder.status = status
-            console.log(status, order)
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             // this.loadOrders()
             socketService.emit('order-change-status', this.selectedOrder.buyer)
         },
         toLocalTime(time) {
-            console.log(time.toLocaleDateString())
+
             return new Date(time)
         },
     },
     computed: {
         orders() {
-            console.log(this.$store.getters.sellerOrders)
+
             return this.$store.getters.sellerOrders
         },
         annualIncome() {
@@ -169,7 +168,6 @@ export default {
         },
         pendingOrders() {
             var pending = 0
-            console.log(this.orders[0])
             this.orders.forEach(order => {
                 if (order.status === "Pending") { pending++ }
             })
@@ -204,7 +202,7 @@ export default {
 
         },
         completedOrderPercent() {
-            console.log(this.loggedUser)
+
             return ((this.annualOrdersComplete / this.orders.length) * 100).toFixed(0)
         },
     },

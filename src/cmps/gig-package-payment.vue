@@ -2,7 +2,7 @@
     <section class="gig-package-payment">
         <section class="package-content">
             <section class="header flex space-between">
-                <!-- <h3 class="title">Order Details</h3> -->
+
                 <div class="img-container">
                     <img :src="`${gig.image[0]}`" />
                 </div>
