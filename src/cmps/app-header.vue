@@ -58,12 +58,13 @@
           <div class="line"></div>
           <div class="line"></div>
         </div>
+        <div class="logo-container">
         <router-link to="/">
           <div class="logo">
             <h1>Higherr</h1>
           </div>
         </router-link>
-
+        </div>
         <div class="search" :class="{ shown: isSearchShown }">
           <header-search @filter="filter" />
         </div>
