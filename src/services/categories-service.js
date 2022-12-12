@@ -22,7 +22,8 @@ const tags = {
   videoExplainer: {
     txt: 'Video Explainer',
     subTxt: 'Engage your audience',
-    imageUrl: '/src/assets/img/animated-explainer.jpeg',
+    imageUrl:
+      'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793304/gigs/oxavedfug6zyrbjorika.jpg',
   },
   socialMedia: {
     txt: 'Social Media',
