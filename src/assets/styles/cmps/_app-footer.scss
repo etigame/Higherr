@@ -3,7 +3,7 @@
     height: 80px;
     border-top: 1px solid #e4e5e7;
     .content-container{
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 800px) {
             flex-direction: column;
             >*{
                 margin: 10px 10px;
