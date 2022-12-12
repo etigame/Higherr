@@ -67,12 +67,15 @@
         </div>
         <div class="nav-links flex align-center">
 
-          <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-          <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
+          <router-link to="/explore" class="btn txt">Explore</router-link>
+          <button class="btn txt" @click="registerSeller">Become a Seller</button>
           <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
           <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
-          <button v-if="loggedInUser" class="orders btn txt" @click="toggleOrdersModal">Orders</button>
+          <button v-if="loggedInUser" class="orders btn txt"
+            @click="toggleOrdersModal(); toggleIsActiveOrders();">Orders
+            <div v-if="isActiveOrders" class="notification-orders"></div>
+          </button>
           <div v-if="orderOpen" class="order-modal" v-clickOutside="toggleOrdersModal">
             <div class="modal-tip"></div>
             <div v-if="(!orders || orders.length === 0)" class="no-order">
@@ -192,6 +195,9 @@ export default {
     login,
     headerSearch,
   },
+  props: {
+    isActiveOrders: Boolean
+  },
   data() {
     return {
       filterBy: {
@@ -244,6 +250,10 @@ export default {
     },
     toggleOrdersModal() {
       this.orderOpen = !this.orderOpen
+    },
+    toggleIsActiveOrders() {
+      // this.isActiveOrders = false
+      this.$emit('closeNotification')
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
