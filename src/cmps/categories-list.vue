@@ -46,9 +46,10 @@
             <div>
                 <h1>Popular professional services</h1>
                 <!-- <div class="cards flex space-between "> -->
-                <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px">
+                <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px" :touchable="false">
                     <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt"
-                        :content="tag.txt" />
+                        :content="tag.txt"  @click="cardFilter(tag.txt)" />
+                        
                 </vueper-slides>
                 <!-- <div class="card" v-for="tag in tags">
                         <h2><small>{{ tag.subTxt }}</small>{{ tag.txt }}</h2>
@@ -162,7 +163,11 @@ export default {
             if (this.$route.path !== '/') return
             this.windowTop = window.top.scrollY
             this.isCategoriesShown = this.windowTop > 150 ? true : false
-        }
+        },
+        cardFilter(tag) {
+            this.filterBy.subCategory =tag
+            this.filter()
+        },
     },
     watch: {
         $route: {

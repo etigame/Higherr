@@ -12,13 +12,24 @@
     <p  v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
     </div>
 
-      <router-link  v-if="loggedInUser" to="/seller/profile" class="light">Profile</router-link>
+      <router-link  v-if="loggedInUser" to="/seller/profile" >Profile</router-link>
       <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
                 <div class="orders-container"  v-if="(orders && loggedInUser)">  
-                  <h3>My Orders:</h3>
-                <div v-for="order in orders" class="order-container">
+                  <div class="flex drop-wrapper" @click.stop="toggleOrdersModal">
+                    <div class="orders-title flex">
+                    <a>My Orders</a> 
+                    </div>
+                    <div class="drop-arrow">
+                      <span v-if="!orderOpen" v-icon="'dropDown'">
+                    </span>
+                    <div class="dropUp">
+                      <span v-if="orderOpen" v-icon="'dropUp'"></span>
+                    </div>
+                  </div>
+                  </div>
+                <div v-if="orderOpen" v-for="order in orders" class="order-container">
                   <router-link :to="`/gig/${order.gig._id}`">
                     <div class="info flex">
                     <div class="img-container">
