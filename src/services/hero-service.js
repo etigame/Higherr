@@ -14,7 +14,7 @@ const heroes = [
       'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670768271/gigs/lagjxyakwvonraw1p43m.webp',
   },
   {
-    name: 'Rikita',
+    name: 'Ritika',
     rating: 0,
     profession: 'Shoemaker and Designer',
     imgUrl:

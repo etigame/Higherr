@@ -8,7 +8,7 @@
                     <div class="img-container">
                         <img :src="user.imgUrl" />
                     </div>
-                    <h2>{{ randomGig.owner.fullname }}</h2>
+                    <h2>{{ user.fullname }}</h2>
 
 
                     <div class="user-stats">
@@ -17,13 +17,13 @@
                                 <div>
                                     <span v-icon="'location'"></span>Country
                                 </div>
-                                <span>{{ randomGig.loc }}</span>
+                                <span>{{ user.location }}</span>
                             </li>
                             <li class="flex space-between">
                                 <div>
                                     <span v-icon="'member'"></span>Member Since
                                 </div>
-                                <span>{{ randomGig.memberSince }}</span>
+                                <span>{{ user.memberSince }}</span>
                             </li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
                     <ul>
                         <li>
                             <h3>Description</h3>
-                            <p>{{ randomGig.about }}</p>
+                            <p>{{ user.description }}</p>
                         </li>
                     </ul>
                 </div>
@@ -41,9 +41,9 @@
                 <button @click="toggleChat" class="chat-seller-btn">Messages</button>
             </div>
 
-            <section class="chat-modal" v-if="isChatOpen">
+            <!-- <section class="chat-modal" v-if="gigsByUser">
                 <chatVue :gig="randomGig" />
-            </section>
+            </section> -->
 
             <div class="gigs-status">
                 <ul class="status-filter-bar flex align-center">
@@ -78,13 +78,19 @@ export default {
     },
     data() {
         return {
+            user: null,
             isChatOpen: false,
             // randomGig: null
         }
     },
     async created() {
+
+        await this.$store.dispatch({ type: 'loadUsers' })
         await this.$store.dispatch({ type: 'loadGigs' })
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        this.user = this.$store.getters.userById
+
+
 
     },
     methods: {
@@ -103,13 +109,10 @@ export default {
         gigsByUser() {
             return this.$store.getters.gigsByUser
         },
-        randomGig() {
-            return this.gigsByUser[0]
-        },
-        user() {
+        // randomGig() {
+        //     return this.gigsByUser[0]
+        // },
 
-            return this.$store.getters.loggedinUser
-        }
     }
 }
 
