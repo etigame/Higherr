@@ -86,28 +86,27 @@ export default {
     name: 'gig-edit',
     components: { imgUploader },
     created() {
-        const owner = this.$route.query
+        const owner = this.$store.getters.loggedinUser
         const { _id } = this.$route.params
         if (_id) {
-
             gigService.getById(_id).then((gig) => {
                 this.gigToEdit = gig
             })
         }
-
-        else this.gigToEdit = gigService.getDemoGig({ ...owner })
-        // _id: utilService.makeId(),
-
+        else {
+            this.gigToEdit = gigService.getDemoGig({ ...owner })
+        }
     },
 
     data() {
         return {
+
             gigToEdit: null
         }
     },
-    created() {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    },
+    // created() {
+    //     window.scrollTo({ top: 0, behavior: 'smooth' })
+    // },
     methods: {
         async saveGig() {
 
@@ -121,6 +120,7 @@ export default {
             this.$router.push('/seller/profile')
         }
 
-    }
+    },
+
 }
 </script>

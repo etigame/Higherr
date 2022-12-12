@@ -1,7 +1,7 @@
 <template>
     <section class="gig-preview-seller">
 
-        <div class="gig-info flex column space-between" v-if="!modalOpen">
+        <div class="gig-info flex column space-between">
             <div class="img-container">
                 <img ref="img" :src="gig.image[0]"
                     onerror="this.onerror=null;this.src='https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670794425/gigs/twojxakjb7tdlrbinkdq.jpg';" />
@@ -13,7 +13,11 @@
                 </router-link>
             </div>
             <div class="preview-footer">
-                <span @click="toggleGigModal" v-icon="'dots'"></span>
+                <div class="tools">
+                    <span @click="previewGig" v-icon="'preview'"></span>
+                    <span @click="editGig" v-icon="'edit'"></span>
+                    <span @click="removeGig" v-icon="'trash'"></span>
+                </div>
 
                 <div class="preview-price-container flex">
                     <p>starting at </p><span class="preview-price">${{ gig.price }}</span>
@@ -21,11 +25,6 @@
             </div>
         </div>
 
-        <div v-else class="user-modal flex column" v-clickOutside="toggleGigModal">
-            <router-link :to="`/gig/edit/${gig._id}`"><button>Edit</button></router-link>
-            <button @click="removeGig">Remove</button>
-            <router-link :to="`/gig/${gig._id}`"><button>Preview</button></router-link>
-        </div>
 
     </section>
 </template>
@@ -35,27 +34,26 @@ export default {
     props: {
         gig: Object
     },
-    data() {
-        return {
-            modalOpen: false
-
-        }
+    created() {
+        console.log(this.gig)
     },
+
     methods: {
-        toggleGigModal() {
-            this.modalOpen = !this.modalOpen
-        },
+
         removeGig() {
-            this.toggleGigModal()
             this.$emit('gigRemoved', this.gig._id)
         },
+        editGig() {
+            this.$emit('gigEdited', this.gig._id)
+            this.$router.push(`/gig/edit/${this.gig._id}`)
+        },
 
-    },
-    computed: {
-        getInvalidImg() {
-            this.$refs.img.src = "/src/assets/img/image-unavailable.jpg"
+        previewGig() {
+            this.$router.push(`/gig/${this.gig._id}`)
         }
+
     }
+
 
 }
 
