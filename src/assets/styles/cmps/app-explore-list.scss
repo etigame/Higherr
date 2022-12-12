@@ -70,8 +70,50 @@
       }
     }
 
-    .el-input__inner > * {
-      color: $clr5;
+    .advanced-switches {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @media screen and (max-width: 710px) {
+            justify-content: center;
+        }
+        width: em(316px);
+
+
+        .pro-switch {
+            justify-content: end;
+            margin-inline-end: em(40px);
+
+        }
+
+        .online-switch,
+        .pro-switch {
+            // font-weight: 600;
+            display: flex;
+            align-items: center;
+            margin-top: em(16px);
+            color: $CLR00;
+
+            .ml-2 {
+                margin-inline-end: em(5px);
+            }
+
+            .el-switch__core {
+                height: em(20px);
+                min-width: em(31px);
+            
+            }
+
+            .el-switch__action {
+                height: em(17px);
+                width: em(16px);
+
+            }
+            .el-switch.is-checked .el-switch__core .el-switch__action {
+                left: calc(100% - 15px);
+                color: var(--el-switch-on-color);
+            }
+        }
     }
     .budget-input,
     .category-input,
@@ -293,17 +335,6 @@
   border-radius: 3px;
   color: $clr11;
   cursor: pointer;
-}
-.narrow {
-  display: none;
-}
-@media screen and (max-width: 600px) {
-  .clear-filter-btn {
-    display: none;
-  }
-  .narrow {
-    display: block;
-  }
 }
 
 // TODO: export to reset
