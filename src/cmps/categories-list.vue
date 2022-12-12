@@ -25,39 +25,22 @@
     category.name
     }}</router-link>
 
-</div>
+                </div>
 
-</section>
-</section>
+            </section>
+        </section>
 
-
-
-        <!-- <section v-if="(type === 'tag')" class="type-tag main-layout full wide-display" :class="{ shown: isCategoriesShown }">
-            <div class="flex space-between ">
-                <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)" to="/explore">{{
-                        category.name
-                }}</router-link>
-
-            </div>
-        </section> -->
 
 
         <section v-if="(type === 'card')" class="type-card ">
             <div>
                 <h1>Popular professional services</h1>
-                <!-- <div class="cards flex space-between "> -->
-                <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px" :touchable="false">
+                <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple
+                    :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px" :touchable="false">
                     <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt"
-                        :content="tag.txt"  @click="cardFilter(tag.txt)" />
-                        
+                        :content="tag.txt" @click="cardFilter(tag.txt)" />
                 </vueper-slides>
-                <!-- <div class="card" v-for="tag in tags">
-                        <h2><small>{{ tag.subTxt }}</small>{{ tag.txt }}</h2>
-                        <div @click="tagFilter(`${tag.txt}`)">
-                            <img :src="tag.imageUrl" />
-                        </div>
-                    </div> -->
-                <!-- </div> -->
+
             </div>
         </section>
 
@@ -94,30 +77,30 @@ export default {
     data() {
         return {
             breakpointsCategories: {
-                
+
                 900: {
-                     visibleSlides:4
+                    visibleSlides: 4
                 },
                 700: {
-                     visibleSlides:3
+                    visibleSlides: 3
                 },
             },
             breakpointsCards: {
-                
+
                 1000: {
-                     visibleSlides:4,
-                     slideRatio:2 / 5,
-                      gap :3,
+                    visibleSlides: 4,
+                    slideRatio: 2 / 5,
+                    gap: 3,
                 },
                 800: {
-                     visibleSlides:3
+                    visibleSlides: 3
                 },
                 620: {
-                     visibleSlides:2
+                    visibleSlides: 2
                 },
                 500: {
-                     visibleSlides:1,
-                     fixedHeight:'350px'
+                    visibleSlides: 1,
+                    fixedHeight: '350px'
                 },
             },
             categories: categoriesService.categories,
@@ -165,7 +148,7 @@ export default {
             this.isCategoriesShown = this.windowTop > 150 ? true : false
         },
         cardFilter(tag) {
-            this.filterBy.subCategory =tag
+            this.filterBy.subCategory = tag
             this.filter()
         },
     },

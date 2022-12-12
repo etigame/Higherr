@@ -13,7 +13,7 @@
 
                     <div class="user-stats">
                         <ul>
-                            <li class="flex space-between">
+                            <li v-if="user.location" class="flex space-between">
                                 <div>
                                     <span v-icon="'location'"></span>Country
                                 </div>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="description-container">
+                <div v-if="user.description" class="description-container">
                     <ul>
                         <li>
                             <h3>Description</h3>
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
 
-                <button @click="toggleChat" class="chat-seller-btn">Messages</button>
+                <button v-if="user.country" @click="toggleChat" class="chat-seller-btn">Messages</button>
             </div>
 
             <!-- <section class="chat-modal" v-if="gigsByUser">
@@ -50,7 +50,7 @@
                     <li>Active Gigs</li>
                 </ul>
 
-                <div class="gigs-list flex">
+                <div v-if="user.location" class="gigs-list flex">
                     <div @click="editGig" class="add-gig  flex justify-center align-center">
                         <div class="flex column align-center">
                             <span class="add-gig-btn">+</span>
@@ -58,9 +58,13 @@
                         </div>
                     </div>
                     <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
-
+                </div>
+                <div v-else>
+                    <h1><a>Become a seller</a> and create your first gig!</h1>
                 </div>
             </div>
+
+
         </section>
     </section>
 </template>
@@ -80,7 +84,6 @@ export default {
         return {
             user: null,
             isChatOpen: false,
-            // randomGig: null
         }
     },
     async created() {
@@ -109,10 +112,6 @@ export default {
         gigsByUser() {
             return this.$store.getters.gigsByUser
         },
-        // randomGig() {
-        //     return this.gigsByUser[0]
-        // },
-
     }
 }
 

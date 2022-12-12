@@ -44,7 +44,7 @@
 export default {
     name: 'reviews-stat',
     props: {
-        gig: Object // gig.reviewers
+        gig: Object
     },
     data() {
         return {

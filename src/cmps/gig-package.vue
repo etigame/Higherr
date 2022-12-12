@@ -37,12 +37,6 @@
         <section class="contact-seller">
             <button>Contact Seller</button>
         </section>
-
-        <!-- <section class="highly-responsive">
-            <span v-icon="'highlyResponsive'" class="highly-responsive-icon"></span>
-            <p>Highly responsive!</p>
-            <p>Known for exceptionally quick replies</p>
-        </section> -->
     </section>
 </template>
 

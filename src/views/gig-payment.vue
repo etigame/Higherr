@@ -125,7 +125,6 @@ export default {
             }
 
             this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
-            console.log(order)
         },
     }
 
