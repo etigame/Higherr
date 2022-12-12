@@ -83,7 +83,7 @@
                     </div>
 
                 </div>
-                <dashboard-article v-for="order in orders" :order="order" :key="order._id" @change="changeStatus"/>
+                <dashboard-article v-for="order in orders" :order="order" :key="order._id" @change="changeStatus" />
             </div>
 
 
@@ -123,10 +123,10 @@ export default {
         toggleSet() {
             this.setOpen = !this.setOpen
         },
-        changeStatus({status,order}) {
+        changeStatus({ status, order }) {
             this.selectOrder(order)
             this.selectedOrder.status = status
-            console.log(status,order);
+            console.log(status, order)
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             // this.loadOrders()
             socketService.emit('order-change-status', this.selectedOrder.buyer)
