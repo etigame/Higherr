@@ -2,7 +2,7 @@
     <section class="dashboard flex">
         <section class="profile-progress">
             <div class="profile flex">
-                <div class="img-container">
+                <div v-if="loggedUser" class="img-container">
                     <img :src="loggedUser.imgUrl">
                 </div>
                 <div class="user-desc flex">
@@ -21,23 +21,23 @@
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Response Rate</p>
-                        <p>{{ responseRate }}%</p>
+                        <p v-if="orders">{{ responseRate }}%</p>
                     </div>
-                    <el-progress :percentage="responseRate" color="#1dbf73" />
+                    <el-progress v-if="(orders.length>0 && orders)" :percentage="responseRate" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Orders Completed</p>
-                        <p>{{ completedOrderPercent }}%</p>
+                        <p v-if="orders">{{ completedOrderPercent }}%</p>
                     </div>
-                    <el-progress :percentage="completedOrderPercent" color="#1dbf73" />
+                    <el-progress v-if="(orders.length>0 && orders)" :percentage="completedOrderPercent" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Delivered on Time</p>
-                        <p>{{ deliveredOnTime }}%</p>
+                        <p v-if="orders">{{ deliveredOnTime }}%</p>
                     </div>
-                    <el-progress :percentage="deliveredOnTime" color="#1dbf73" />
+                    <el-progress v-if="(orders.length>0 && orders)" :percentage="deliveredOnTime" color="#1dbf73" />
                 </article>
             </div>
 
@@ -46,20 +46,20 @@
             <div class="income-order-dashboard flex">
                 <div class="dashboard-item">
                     <span class="light">Annual Revenue</span>
-                    <h3>${{ annualIncome }}</h3>
+                    <h3 v-if="orders">${{ annualIncome }}</h3>
                 </div>
                 <div class="dashboard-item">
                     <span class="light">Monthly Revenue</span>
-                    <h3>${{ monthIncome }}</h3>
+                    <h3 v-if="orders">${{ monthIncome }}</h3>
                 </div>
                 <div class="dashboard-item">
                     <span class="light">Completed Orders </span>
-                    <h3>{{ annualOrdersComplete }}</h3>
+                    <h3 v-if="orders">{{ annualOrdersComplete }}</h3>
                 </div>
 
                 <div class="dashboard-item">
                     <span class="light">Pending Orders </span>
-                    <h3>{{ pendingOrders }}</h3>
+                    <h3 v-if="orders">{{ pendingOrders }}</h3>
                 </div>
             </div>
 
@@ -83,7 +83,7 @@
                     </div>
 
                 </div>
-                <dashboard-article v-for="order in orders" :order="order" :key="order._id" @change="changeStatus" />
+                <dashboard-article v-if="(orders.length > 0 && orders)" v-for="order in orders" :order="order" :key="order._id" @change="changeStatus" />
             </div>
 
 
@@ -96,7 +96,7 @@ import { socketService } from '../services/socket-service'
 import dashboardArticle from '../cmps/dashboard-list-article.vue'
 
 export default {
-    props: ["loggedUser"],
+    // props: ["loggedUser"],
     name: 'seller-orders',
     components: {
         dashboardArticle,
@@ -106,10 +106,12 @@ export default {
             selectedOrder: null,
             deliveredOnTime: 95,
             responseRate: 95,
+            loggedUser :null,
         }
     },
     created() {
         this.loadOrders()
+        this.loggedUser = this.$store.getters.loggedinUser
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     methods: {
@@ -138,7 +140,6 @@ export default {
     },
     computed: {
         orders() {
-            console.log(this.$store.getters.sellerOrders)
             return this.$store.getters.sellerOrders
         },
         annualIncome() {
@@ -169,7 +170,6 @@ export default {
         },
         pendingOrders() {
             var pending = 0
-            console.log(this.orders[0])
             this.orders.forEach(order => {
                 if (order.status === "Pending") { pending++ }
             })
@@ -204,7 +204,6 @@ export default {
 
         },
         completedOrderPercent() {
-            console.log(this.loggedUser)
             return ((this.annualOrdersComplete / this.orders.length) * 100).toFixed(0)
         },
     },
