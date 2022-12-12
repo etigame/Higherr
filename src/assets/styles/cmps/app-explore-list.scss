@@ -196,6 +196,9 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        @media screen and (max-width: 710px) {
+            justify-content: center;
+        }
         width: em(316px);
 
 
@@ -310,19 +313,7 @@
     color: $clr11;
     cursor: pointer;
 }
-.narrow{
-    display: none;
-}
- @media screen and (max-width: 600px) {
-    .clear-filter-btn {
-            display: none;
-        }
-     .narrow {
-         display: block;
-     }
 
-     
- }
 
 // TODO: export to reset
 // .el-select .el-input.is-focus .el-input__wrapper,

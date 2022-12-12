@@ -11,10 +11,10 @@
 
         <div class="advanced-input">
           <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
-          <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
+          <!-- <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
             size="large">
             <el-option v-for="item in options" :label="item.label" :value="item.value" />
-          </el-select>
+          </el-select> -->
 
 
           <div @click="toggleBudget" class="budget-input-1 flex">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="advanced-switches">
-          <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button>
+          <!-- <button class="clear-filter-btn narrow" @click="clearAllFilter">Clear Filter</button> -->
           <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
               style="--el-switch-on-color: #13ce66; --el-switch-off-color: #dadbdd" />
             <h4>Pro service</h4>
@@ -147,7 +147,7 @@ export default {
   },
 
 
-  created() {
+created() {
     this.filterBy = { ...this.$route.query }
     console.log(this.$route)
     this.filter()
