@@ -67,8 +67,8 @@
         </div>
         <div class="nav-links flex align-center">
 
-          <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-          <button v-if="!loggedInUser" class="btn txt" @click="registerSeller">Become a Seller</button>
+          <router-link to="/explore" class="btn txt">Explore</router-link>
+          <button class="btn txt" @click="registerSeller">Become a Seller</button>
           <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
           <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
