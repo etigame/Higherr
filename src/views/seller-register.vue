@@ -48,7 +48,7 @@
                     <h3>Description</h3>
                 </label>
                 <div class="info-fill">
-                    <el-input :rows="2" type="textarea"
+                    <el-input :rows="2" type="textarea" v-model="userToEdit.description"
                         placeholder="Share a bit about your work experience, cool projects you’ve completed, and your area of expertise." />
                 </div>
             </div>
@@ -62,26 +62,10 @@
                     <el-input v-model="userToEdit.location" placeholder="where are you from?" />
                 </div>
             </div>
-
-
-            <div class="field">
-                <label>
-                    <h3>Languages</h3>
-                    <p>Select which languages you can communicate in and your proficiency level.</p>
-                </label>
-                <div class="info-fill">
-                    <div class="m-4">
-                        <el-select v-model="userToEdit.languages" multiple placeholder="Select Languages"
-                            style="width: 240px">
-                            <el-option v-for="item in options" :key="item.value" :label="item.label"
-                                :value="item.value" />
-                        </el-select>
-                    </div>
-                </div>
-            </div>
         </form>
 
-        <button @click="saveUser">Sign up</button>
+        <!-- <button @click="saveUser">Sign up</button> -->
+        <button @click="cancelSignup">Cancel</button>
 
     </section>
 </template>
@@ -145,9 +129,13 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
+            await this.$store.dispatch({ type: "updateUser", userCred: { ...this.userToEdit } })
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
             this.$router.push('/seller/profile')
         },
+        cancelSignup() {
+            this.$router.push('/')
+        }
     }
 }
 

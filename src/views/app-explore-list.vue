@@ -5,7 +5,7 @@
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     </section>
-    <!-- <advanced-filter /> -->
+
     <section class="advanced-filter-container main-layout full" :class="{ shadow: isShadow }">
       <section class="advanced-filter">
 
@@ -62,7 +62,7 @@
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
             <h4>Pro services</h4>
           </div>
-          <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2"
+          <div class="online-switch"><el-switch v-model="demoInfo1" class="ml-2"
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
             <h4>Online sellers</h4>
           </div>
@@ -97,14 +97,13 @@
 <script>
 
 import gigPreviewExplore from '../cmps/gig-preview-explore.vue'
-import advancedFilter from '../cmps/advanced-filter.vue'
+
 
 
 
 export default {
   components: {
     gigPreviewExplore,
-    advancedFilter
   },
   data() {
     return {
@@ -118,6 +117,7 @@ export default {
       },
       budgetDrop: false,
       demoInfo: true,
+      demoInfo1: false,
       windowTop: window.top.scrollY,
       isShadow: false,
       deliveryOptions: [
@@ -174,7 +174,6 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      console.log(filterBy)
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },

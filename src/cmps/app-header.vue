@@ -2,9 +2,9 @@
   <section class="main-layout full">
     <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
       <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-      <div v-if="!loggedInUser" @click="registerSeller">Become a Seller</div>
-      <div v-if="!loggedInUser" @click="login">Sign In</div>
-      <div v-if="!loggedInUser" @click="register">Join</div>
+      <div v-if="!loggedInUser" @click="registerSeller"><a>Become a Seller</a></div>
+      <div v-if="!loggedInUser" @click="login"><a>Sign In</a></div>
+      <div v-if="!loggedInUser" @click="register"><a>Join</a></div>
       <div class="user-info flex">
         <div class="img-container">
           <img v-if="loggedInUser" :src="loggedInUser.imgUrl">

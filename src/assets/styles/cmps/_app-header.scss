@@ -296,6 +296,7 @@
   .orders-wrapper{
     overflow-y: auto;
     max-height: 70vh;
+    min-height: 500px;
     
   }
   .order-modal {
@@ -550,7 +551,7 @@
     border: 0;
     text-decoration: none;
     color: #757679;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 18px;
 
     &:hover {
@@ -573,6 +574,7 @@
            overflow-y: auto;
            max-height: 50vh;
            margin-right: 4px;
+          min-height: 370px;
     
          }
 
