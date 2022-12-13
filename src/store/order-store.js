@@ -33,7 +33,6 @@ export const orderStore = {
         return
       }
       state.orders.unshift(order)
-      console.log(state.orders)
     },
     removeOrder(state, { orderId }) {
       state.orders = state.orders.filter((order) => order._id !== orderId)

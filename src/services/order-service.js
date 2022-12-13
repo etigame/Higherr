@@ -27,22 +27,16 @@ const ORDER_URL = 'order/'
     //   console.log('GOT from socket', order)
     //   store.commit({ type: 'addOrder', order })
     // })
-    // socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (order) => {
-    //   showSuccessMsg(`New order about me ${order.txt}`)
-    // })
 
     socketService.on('new-order-seller', (order) => {
-      // console.log('GOT from socket', order)
       store.commit({ type: 'saveOrder', order })
     })
 
     socketService.on('new-order-buyer', (order) => {
-      // console.log('GOT from socket', order)
       store.commit({ type: 'saveOrder', order })
     })
 
     socketService.on('order-changed-status', (order) => {
-      // console.log('GOT from socket', order)
       store.commit({ type: 'saveOrder', order })
     })
   }, 0)

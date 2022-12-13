@@ -5,7 +5,7 @@
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     </section>
-    <!-- <advanced-filter /> -->
+
     <section class="advanced-filter-container main-layout full" :class="{ shadow: isShadow }">
       <section class="advanced-filter">
 
@@ -174,7 +174,6 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
-      console.log(filterBy)
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },

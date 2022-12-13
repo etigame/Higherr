@@ -3,14 +3,16 @@
   position: fixed;
   top: 150px;
   // left: 50%;
-  left: 2%;
+  left: 50vw;
   margin-inline-end: 2%;
-  // transform: translateX(-50%);
+  transform: translateX(-50%);
   border-radius: em(4px, 14px);
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
   z-index: 9999;
   color: $CLR00;
-
+@media screen and (max-width: 800px) {
+    width: 80vw;
+  }
   .color-left {
     width: 10px;
     border-radius: em(4px, 14px) 0 0 em(4px, 14px);
@@ -53,9 +55,5 @@
       width: 10px;
     }
   }
-
-}
-
-@media screen and (max-width: 800px) {
 
 }
