@@ -103,7 +103,6 @@ function createEmptyUser() {
     reviews: [],
     description: '',
     location: '',
-    languages: [],
     memberSince: '',
   }
   return user

@@ -62,23 +62,6 @@
                     <el-input v-model="userToEdit.location" placeholder="where are you from?" />
                 </div>
             </div>
-
-
-            <div class="field">
-                <label>
-                    <h3>Languages</h3>
-                    <p>Select which languages you can communicate in and your proficiency level.</p>
-                </label>
-                <div class="info-fill">
-                    <div class="m-4">
-                        <el-select v-model="userToEdit.languages" multiple placeholder="Select Languages"
-                            style="width: 240px">
-                            <el-option v-for="item in options" :key="item.value" :label="item.label"
-                                :value="item.value" />
-                        </el-select>
-                    </div>
-                </div>
-            </div>
         </form>
 
         <button @click="saveUser">Sign up</button>
