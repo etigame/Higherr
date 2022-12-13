@@ -30,7 +30,8 @@
             </div>
           </div>
         </div>
-        <div v-if="orderOpen" v-for="order in orders" class="order-container">
+        <section class="orders-wrapper">
+        <article v-if="orderOpen" v-for="order in orders" class="order-container">
           <router-link :to="`/gig/${order.gig._id}`">
             <div class="info flex">
               <div class="img-container">
@@ -45,7 +46,8 @@
               <span class="status " :class="className(order.status)">{{ order.status }}</span>
             </div>
           </div>
-        </div>
+        </article>
+        </section>
       </div>
     </section>
 
@@ -87,7 +89,8 @@
               <h3>No Order Yet</h3>
               <p class="light empty-txt">Use the search box to find the digital service you need</p>
             </div>
-            <div v-if="loggedInUser" @click="toggleOrdersModal" v-for="order in orders" class="order-container">
+            <section class="orders-wrapper">
+            <article v-if="loggedInUser" @click="toggleOrdersModal" v-for="order in orders" class="order-container">
               <router-link :to="`/gig/${order.gig._id}`">
                 <div class="img-container">
                   <img :src="order.gig.img">
@@ -102,13 +105,15 @@
                   <span class="status" :class="className(order.status)">{{ order.status }}</span>
                 </div>
               </div>
-            </div>
+              
+            </article>
+          </section>
           </div>
 
           <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">
             <div v-if="isActiveDashboard" class="notification-dashboard"></div>
             <img :src="loggedInUser.imgUrl">
-            <!-- {{ loggedInUser.fullname }} -->
+
 
             <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
               <div class="modal-tip"></div>
@@ -176,7 +181,6 @@ export default {
     filter(title) {
       this.filterBy.title = title
       this.$emit('filter', { ...this.filterBy })
-      console.log(this.filterBy)
     },
     onScroll(e) {
       if (this.$route.path !== '/') return

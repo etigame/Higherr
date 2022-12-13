@@ -161,7 +161,6 @@ export default {
   },
   created() {
     this.filterBy = { ...this.$route.query }
-    console.log(this.$route)
     this.filter()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   },

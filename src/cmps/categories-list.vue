@@ -4,11 +4,11 @@
 
         <section v-if="(type === 'tag')" class="type-tag main-layout full" :class="{ shown: isCategoriesShown }">
             <section class="vuper-display ">
-                <vueper-slides class="no-shadow" ref="vueperslides2" :slide-ratio="1 / 8"
+                <vueper-slides class="no-shadow" ref="vueperslides2" :slide-ratio="1 / 8" :touchable="false"
                     @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
                     :breakpoints="breakpointsCategories" :visible-slides="5" fixed-height="40px"
                     disable-arrows-on-edges>
-                    <vueper-slide v-for="category in categories" :key="category" style="cursor: pointer"
+                    <vueper-slide v-for="category in categories" :key="category"
                         @click="categoryFilter(`${category.name}`)">
                         <template #content>
                             <div class="vueperslide__content-wrapper">
@@ -34,16 +34,6 @@
 
 
 
-        <!-- <section v-if="(type === 'tag')" class="type-tag main-layout full wide-display" :class="{ shown: isCategoriesShown }">
-            <div class="flex space-between ">
-                <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)" to="/explore">{{
-                        category.name
-                }}</router-link>
-
-            </div>
-        </section> -->
-
-
         <section v-if="(type === 'card')" class="type-card ">
             <div>
                 <h1>Popular professional services</h1>
@@ -54,13 +44,7 @@
                         style="cursor: pointer" :content="tag.txt" @click="cardFilter(tag.txt)" />
 
                 </vueper-slides>
-                <!-- <div class="card" v-for="tag in tags">
-                        <h2><small>{{ tag.subTxt }}</small>{{ tag.txt }}</h2>
-                        <div @click="tagFilter(`${tag.txt}`)">
-                            <img :src="tag.imageUrl" />
-                        </div>
-                    </div> -->
-                <!-- </div> -->
+
             </div>
         </section>
 

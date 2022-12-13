@@ -42,10 +42,11 @@
                         <div class="thumbnails-slider">
                             <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                                 @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="gig.image.length" fixed-height="75px" :bullets="false"
-                                :touchable="false" :gap="1" :arrows="false">
-                                <vueper-slide v-for="(image, i) in gig.image" :key="i" :image="image"
-                                    style="cursor: pointer" @click.native="$refs.vueperslides2.goToSlide(i)">
+                                :visible-slides="5" fixed-height="90px" :bullets="false" :touchable="false" :gap="1"
+                                :arrows="false">
+                                <vueper-slide v-for="(image, i) in gig.image" :slide-ratio="(48 / 67)" :key="i"
+                                    :image="image" style="cursor:pointer"
+                                    @click.native="$refs.vueperslides2.goToSlide(i)">
                                 </vueper-slide>
                             </vueper-slides>
                         </div>
@@ -156,7 +157,6 @@ export default {
     },
     async created() {
         try {
-            console.log(this.$route)
             const { _id } = this.$route.params
             const gig = await gigService.getById(_id)
             this.gig = gig

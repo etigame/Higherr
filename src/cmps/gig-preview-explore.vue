@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         goToGig(gig) {
-            console.log(this.gig)
+
             this.$router.push({ path: gig })
         },
     },

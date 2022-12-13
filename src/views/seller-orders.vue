@@ -21,23 +21,23 @@
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Response Rate</p>
-                        <p v-if="(orders.length > 0 )">{{ responseRate }}%</p>
+                        <p v-if="(orders.length > 0)">{{ responseRate }}%</p>
                     </div>
-                    <el-progress v-if="(orders.length>0 )" :percentage="responseRate" color="#1dbf73" />
+                    <el-progress v-if="(orders.length > 0)" :percentage="responseRate" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Orders Completed</p>
-                        <p v-if="(orders.length > 0 )">{{ completedOrderPercent }}%</p>
+                        <p v-if="(orders.length > 0)">{{ completedOrderPercent }}%</p>
                     </div>
-                    <el-progress v-if="(orders.length>0 )" :percentage="completedOrderPercent" color="#1dbf73" />
+                    <el-progress v-if="(orders.length > 0)" :percentage="completedOrderPercent" color="#1dbf73" />
                 </article>
                 <article class="progress-item">
                     <div class="progress-txt flex">
                         <p class="bold">Delivered on Time</p>
                         <p v-if="(orders.length > 0)">{{ deliveredOnTime }}%</p>
                     </div>
-                    <el-progress v-if="(orders.length>0 )" :percentage="deliveredOnTime" color="#1dbf73" />
+                    <el-progress v-if="(orders.length > 0)" :percentage="deliveredOnTime" color="#1dbf73" />
                 </article>
             </div>
 
@@ -83,7 +83,8 @@
                     </div>
 
                 </div>
-                <dashboard-article v-if="(orders.length>0)" v-for="order in orders" :order="order" :key="order._id" @change="changeStatus" />
+                <dashboard-article v-if="(orders.length > 0)" v-for="order in orders" :order="order" :key="order._id"
+                    @change="changeStatus" />
             </div>
 
 
@@ -106,7 +107,7 @@ export default {
             selectedOrder: null,
             deliveredOnTime: 95,
             responseRate: 95,
-            loggedUser :null,
+            loggedUser: null,
         }
     },
     created() {
@@ -128,13 +129,12 @@ export default {
         changeStatus({ status, order }) {
             this.selectOrder(order)
             this.selectedOrder.status = status
-            console.log(status, order)
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             // this.loadOrders()
             socketService.emit('order-change-status', this.selectedOrder.buyer)
         },
         toLocalTime(time) {
-            console.log(time.toLocaleDateString())
+
             return new Date(time)
         },
     },

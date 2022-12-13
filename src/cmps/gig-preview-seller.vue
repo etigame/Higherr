@@ -34,10 +34,6 @@ export default {
     props: {
         gig: Object
     },
-    created() {
-        console.log(this.gig)
-    },
-
     methods: {
 
         removeGig() {
@@ -51,10 +47,7 @@ export default {
         previewGig() {
             this.$router.push(`/gig/${this.gig._id}`)
         }
-
     }
-
-
 }
 
 

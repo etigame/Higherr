@@ -292,13 +292,42 @@
   // .user-modal::before{
   //   content:1;
   // }
+
+  .orders-wrapper{
+    overflow-y: auto;
+    max-height: 70vh;
+    
+  }
   .order-modal {
     min-height: 434px;
+    max-height: 75vh;
     width: 400px;
     top: 60px;
-    padding: 10px 16px;
-
+    padding:5px 5px 5px 0;
+   
     transform: translate(-27%, 12px);
+
+/* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $clr1;
+  }
 
     .order-container {
       display: flex;
@@ -352,7 +381,7 @@
     }
 
     .modal-tip {
-      margin-top: -18px;
+      margin-top: -13px;
       margin-inline-start: 88%;
     }
 
@@ -538,7 +567,37 @@
       }
     }
 
-    margin-top: 90px;
+    margin-top: 50px;
+    
+         .orders-wrapper {
+           overflow-y: auto;
+           max-height: 50vh;
+           margin-right: 4px;
+    
+         }
+
+           /* width */
+           ::-webkit-scrollbar {
+             width: 8px;
+           }
+    
+           /* Track */
+           ::-webkit-scrollbar-track {
+             background: #f1f1f1;
+             border-radius: 5px;
+           }
+    
+           /* Handle */
+           ::-webkit-scrollbar-thumb {
+             background: #888;
+             border-radius: 5px;
+           }
+    
+           /* Handle on hover */
+           ::-webkit-scrollbar-thumb:hover {
+             background: $clr1;
+           }
+    
   }
 
   .order-container {

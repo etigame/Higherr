@@ -30,7 +30,6 @@
 
         <!-- REVIEW - LONG -->
         <section v-if="(type === 'reviewLong')" class="review-preview-long grid">
-            <!-- <div class="reviewer-first-char"><span>{{ reviewerFirstChar }}</span></div> -->
             <img class="reviewer-img" :src="`https://randomuser.me/api/portraits/${randomGender}/${randomNum}.jpg`"
                 alt="user-img">
 
@@ -66,11 +65,6 @@ export default {
     props: {
         review: Object,
         type: String
-    },
-    data() {
-        return {
-            // rateByReviewer: 5,
-        }
     },
     computed: {
         reviewerFirstChar() {
