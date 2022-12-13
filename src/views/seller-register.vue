@@ -64,7 +64,8 @@
             </div>
         </form>
 
-        <button @click="saveUser">Sign up</button>
+        <!-- <button @click="saveUser">Sign up</button> -->
+        <button @click="cancelSignup">Cancel</button>
 
     </section>
 </template>
@@ -132,6 +133,9 @@ export default {
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
             this.$router.push('/seller/profile')
         },
+        cancelSignup() {
+            this.$router.push('/')
+        }
     }
 }
 
