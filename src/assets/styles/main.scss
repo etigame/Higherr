@@ -54,3 +54,29 @@
 @import "cmps/seller-signup";
 @import "cmps/seller-register";
 @import "cmps/img-profile-uploader";
+
+.el-select-dropdown__item.selected {
+    color: #1dbf73 !important;
+    font-weight: 700;
+}
+
+#delivery {
+    &.el-input__wrapper{
+        width: 150px;
+    }
+}
+
+.delivery-input{
+    width:150px !important;
+
+    .el-input__inner {
+        color: $clr4 !important;
+    }
+  }
+
+  .advanced-filter .advanced-input .el-input__inner{
+    color:$clr4 !important;
+    font-family: Macan;
+    
+  }
+  

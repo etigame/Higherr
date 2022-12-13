@@ -52,7 +52,7 @@
             <span v-for="category in categories">
                 <div @click="categoryFilter(`${category.name}`)">
                     <span v-icon="category.svg"></span>
-                    <h4>{{ category.name }}</h4>
+                    <h4 class="regular">{{ category.name }}</h4>
                 </div>
             </span>
 

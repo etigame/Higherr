@@ -23,6 +23,10 @@
         justify-content: space-between;
         max-width: 900px;
 
+        span {
+            margin-block-start: -7px;
+        }
+
 
         >* {
 
@@ -55,6 +59,7 @@
         background-color: $CLR01;
         min-height: 690px;
         padding: 96px 0px;
+        margin-block-end: 96px;
 
         .video-layout {
             @media screen and (max-width: 1100px) {
@@ -122,6 +127,13 @@
 
     .category-svg {
         min-height: 100%;
+        
+        p {
+            font-size: rem(32px);
+            line-height: 120%;
+            color: $clr11;
+            // margin-block-end: 64px;
+        }
 
         @media screen and (max-width: 550px) {
             margin-bottom: 250px;
