@@ -48,7 +48,7 @@
                     <h3>Description</h3>
                 </label>
                 <div class="info-fill">
-                    <el-input :rows="2" type="textarea"
+                    <el-input :rows="2" type="textarea" v-model="userToEdit.description"
                         placeholder="Share a bit about your work experience, cool projects you’ve completed, and your area of expertise." />
                 </div>
             </div>
@@ -145,6 +145,7 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
+            await this.$store.dispatch({ type: "updateUser", userCred: { ...this.userToEdit } })
             await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
             this.$router.push('/seller/profile')
         },

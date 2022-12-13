@@ -47,6 +47,13 @@ export const userStore = {
     setUsers(state, { users }) {
       state.users = users
     },
+    updateUser(state, { user }) {
+      console.log(state.users)
+      const idx = state.users.findIndex((item) => item.id === user._id)
+      if (idx) state.users.splice(idx, 1, user)
+      else state.users.push(user)
+    },
+
     removeUser(state, { userId }) {
       state.users = state.users.filter((user) => user._id !== userId)
     },
@@ -119,10 +126,10 @@ export const userStore = {
         throw err
       }
     },
-    async updateUser({ commit }, { user }) {
+    async updateUser({ commit }, { userCred }) {
       try {
-        user = await userService.saveUser(user)
-        commit({ type: 'setUser', user })
+        user = await userService.saveUser(userCred)
+        commit({ type: 'updateUser', userCred })
       } catch (err) {
         console.log('userStore: Error in updateUser', err)
         throw err
