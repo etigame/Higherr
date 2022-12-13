@@ -19,7 +19,7 @@ export default {
     data() {
         return {
 
-
+            img: this.imgUrl,
             height: 250,
             width: 500,
             isUploading: false
@@ -30,10 +30,10 @@ export default {
             this.isUploading = true
             const { secure_url, height, width } = await uploadService.uploadImg(ev)
             this.isUploading = false
-            this.imgUrl = secure_url
+            this.img = secure_url
             this.height = height
             this.width = width
-            this.$emit('uploaded', this.imgUrl)
+            this.$emit('uploaded', this.img)
         }
     },
     computed: {

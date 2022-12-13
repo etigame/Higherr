@@ -97,14 +97,13 @@
 <script>
 
 import gigPreviewExplore from '../cmps/gig-preview-explore.vue'
-import advancedFilter from '../cmps/advanced-filter.vue'
+
 
 
 
 export default {
   components: {
     gigPreviewExplore,
-    advancedFilter
   },
   data() {
     return {

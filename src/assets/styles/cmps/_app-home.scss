@@ -14,14 +14,13 @@
 
         @media screen and (max-width: 550px) {
             padding: 0px 0px;
-
         }
-
     }
 
     .logos {
         justify-content: space-between;
         max-width: 900px;
+
 
 
         >* {
@@ -32,6 +31,11 @@
             padding-inline-end: 30px;
 
 
+            >*:not(span) {
+                padding-top: 6px;
+            }
+
+
             @media screen and (max-width: 550px) {
                 padding: 0 10px;
             }
@@ -39,17 +43,12 @@
         }
 
         span {
-            @media screen and (max-width: 550px) {
+            @media screen and (max-width: 900px) {
                 display: none;
             }
         }
 
-
-
     }
-
-
-
 
     .video-section {
         background-color: $CLR01;
@@ -60,8 +59,6 @@
             @media screen and (max-width: 1100px) {
                 flex-direction: column;
             }
-
-
         }
 
         .side-text {

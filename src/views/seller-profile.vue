@@ -13,7 +13,7 @@
 
                     <div class="user-stats">
                         <ul>
-                            <li v-if="user.location" class="flex space-between">
+                            <li class="flex space-between">
                                 <div>
                                     <span v-icon="'location'"></span>Country
                                 </div>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div v-if="user.description" class="description-container">
+                <div class="description-container">
                     <ul>
                         <li>
                             <h3>Description</h3>
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
 
-                <button v-if="user.country" @click="toggleChat" class="chat-seller-btn">Messages</button>
+                <button @click="toggleChat" class="chat-seller-btn">Messages</button>
             </div>
 
             <!-- <section class="chat-modal" v-if="gigsByUser">
@@ -50,7 +50,7 @@
                     <li>Active Gigs</li>
                 </ul>
 
-                <div v-if="user.location" class="gigs-list flex">
+                <div class="gigs-list flex">
                     <div @click="editGig" class="add-gig  flex justify-center align-center">
                         <div class="flex column align-center">
                             <span class="add-gig-btn">+</span>
@@ -59,9 +59,7 @@
                     </div>
                     <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
                 </div>
-                <div v-else>
-                    <h1><a>Become a seller</a> and create your first gig!</h1>
-                </div>
+
             </div>
 
 
@@ -87,11 +85,12 @@ export default {
         }
     },
     async created() {
-
         await this.$store.dispatch({ type: 'loadUsers' })
         await this.$store.dispatch({ type: 'loadGigs' })
         window.scrollTo({ top: 0, behavior: 'smooth' })
         this.user = this.$store.getters.userById
+
+
 
 
 
@@ -111,6 +110,7 @@ export default {
     computed: {
         gigsByUser() {
             return this.$store.getters.gigsByUser
+
         },
     }
 }
