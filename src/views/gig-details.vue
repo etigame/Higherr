@@ -35,8 +35,8 @@
 
                         <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
                             @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
-                             :slide-ratio="(48 / 67)">
-                            <vueper-slide v-for="image in gig.image" :key="1" :image="image">
+                            :slide-ratio="(48 / 67)">
+                            <vueper-slide v-for="image in gig.image" :key="1" :image="image" style="cursor: pointer">
                             </vueper-slide>
                         </vueper-slides>
                         <div class="thumbnails-slider">
@@ -45,7 +45,7 @@
                                 :visible-slides="gig.image.length" fixed-height="75px" :bullets="false"
                                 :touchable="false" :gap="1" :arrows="false">
                                 <vueper-slide v-for="(image, i) in gig.image" :key="i" :image="image"
-                                    @click.native="$refs.vueperslides2.goToSlide(i)">
+                                    style="cursor: pointer" @click.native="$refs.vueperslides2.goToSlide(i)">
                                 </vueper-slide>
                             </vueper-slides>
                         </div>

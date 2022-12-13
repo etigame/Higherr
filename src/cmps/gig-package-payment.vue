@@ -31,7 +31,7 @@
                 <p>US${{ totalPrice(gig.price) }}</p>
             </div>
             <div class="pricing">
-                <p>Delivery Time</p>
+                <p class="bold">Delivery Time</p>
                 <p>{{ gig.daysToMake }} Days</p>
             </div>
 

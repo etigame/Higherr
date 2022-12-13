@@ -47,11 +47,13 @@
         background-color:$clr1 ;
         border: 0;
         border-radius: 4px;
+        cursor: pointer;
     }
         .upload-preview {
             img {
                 border-radius: 50%;
             }
+            cursor: pointer;
         }
 }
 
