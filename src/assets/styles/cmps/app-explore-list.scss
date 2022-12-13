@@ -51,6 +51,7 @@
   justify-content: space-between;
   background-color: #fff;
   padding-block-end: 16px;
+  max-height: 75px;
 
   @media screen and (max-width: 820px) {
     justify-content: center;
@@ -310,7 +311,7 @@
   }
   .sort-input {
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
     align-items: center;
     height: em(40px);
     .el-select .el-input.is-focus .el-input__wrapper,
@@ -360,7 +361,7 @@
   cursor: pointer;
 }
 .delivery-input{
-  width:130px !important
+  width:150px !important
 }
 
 // TODO: export to reset

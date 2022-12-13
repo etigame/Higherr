@@ -2,6 +2,22 @@
     padding-top: 40px;
     background-color: $CLR05;
     color: $clr11;
+    .content-wrapper {
+            @media screen and (max-width: 700px) {
+                flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+    
+                .status-filter-bar {
+                        max-width: 230px;
+                        margin-top: 40px;
+                    }
+            }
+    
+    
+        }
+
+    
 
     ul {
         list-style: none;
@@ -150,6 +166,6 @@
             }
         }
     }
-
+     
 
 }

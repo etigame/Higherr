@@ -62,7 +62,7 @@
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
             <h4>Pro services</h4>
           </div>
-          <div class="online-switch"><el-switch v-model="demoInfo" class="ml-2"
+          <div class="online-switch"><el-switch v-model="demoInfo1" class="ml-2"
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
             <h4>Online sellers</h4>
           </div>
@@ -118,6 +118,7 @@ export default {
       },
       budgetDrop: false,
       demoInfo: true,
+      demoInfo1: false,
       windowTop: window.top.scrollY,
       isShadow: false,
       deliveryOptions: [
