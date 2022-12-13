@@ -82,6 +82,12 @@ export default {
         return {
             breakpointsCategories: {
 
+                1200: {
+                    visibleSlides: 6
+                },
+                1050: {
+                    visibleSlides: 5
+                },
                 900: {
                     visibleSlides: 4
                 },
