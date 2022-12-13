@@ -10,7 +10,8 @@
       <section class="advanced-filter">
 
         <div class="advanced-input">
-          <button class="clear-filter-btn" @click="clearAllFilter">Clear Filter</button>
+          <button class="clear-filter-btn bold" @click="clearAllFilter" style="font-size: 16px; color: #222325">Clear
+            Filter</button>
           <!-- <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
             size="large">
             <el-option v-for="item in options" :label="item.label" :value="item.value" />
@@ -18,7 +19,7 @@
 
 
           <div @click="toggleBudget" class="budget-input-1 flex">
-            <p>Budget</p>
+            <p class="bold">Budget</p>
 
             <div class="drop-arrow">
               <span v-if="!budgetDrop" v-icon="'dropDown'">
@@ -31,12 +32,12 @@
               class="budget-dropdown">
               <div @click.stop class="inputs">
                 <div>
-                  <p>MIN</p>
+                  <p class="bold">MIN.</p>
                   <input v-model.number="filterBy.min" />
                   <i>$</i>
                 </div>
                 <div>
-                  <p>MAX</p>
+                  <p class="bold">MAX.</p>
                   <input v-model.number="filterBy.max" />
                   <i>$</i>
                 </div>
@@ -50,7 +51,8 @@
 
           <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
             placeholder="Delivery Time" size="large">
-            <el-option v-for="item in deliveryOptions" :key="item.value" :label="item.label" :value="item.value" />
+            <el-option v-for="item in deliveryOptions" :key="item.value" :label="item.label" :value="item.value"
+              class="bold" />
           </el-select>
         </div>
 
@@ -171,6 +173,7 @@ export default {
   },
   methods: {
     filter(filterBy = this.filterBy) {
+      console.log(filterBy)
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
