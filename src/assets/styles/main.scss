@@ -12,48 +12,57 @@
 @import 'basics/forms';
 @import 'basics/card';
 
+
 // Components
-@import 'cmps/app-header';
-@import 'cmps/categories-list';
+
+// home-page
 @import 'cmps/app-home';
-@import 'cmps/user-msg';
-@import 'cmps/review-list';
-@import 'cmps/gig-preview-explore';
-@import 'cmps/gig-preview-seller';
-@import 'cmps/gig-details';
-@import 'cmps/gig-package';
-@import 'cmps/app-footer';
+@import 'cmps/categories-list';
 @import 'cmps/app-hero';
-@import 'cmps/login-signup';
-@import 'cmps/user-preview';
-@import 'cmps/header-search';
 @import 'cmps/hero-search';
-@import "cmps/main-header";
-@import "cmps/app-header";
-@import "cmps/categories-list";
-@import "cmps/app-home";
-@import "cmps/user-msg";
-@import "cmps/review-list";
+
+// explore
+@import 'cmps/gig-preview-explore';
 @import "cmps/app-explore-list";
-@import "cmps/gig-details";
-@import "cmps/gig-payment";
-@import "cmps/gig-package-payment";
-@import "cmps/gig-package";
-@import "cmps/app-footer";
-@import "cmps/app-hero";
-@import "cmps/login-signup";
-@import "cmps/user-preview";
+
+// gig-details
+@import 'cmps/gig-details';
+@import 'cmps/gig-preview-seller';
+@import 'cmps/gig-package';
+@import 'cmps/user-preview';
 @import "cmps/review-preview";
 @import "cmps/reviews-stat";
 @import "cmps/chat-seller";
+
+// gig-payment
+@import "cmps/gig-payment";
+@import "cmps/gig-package-payment";
+
+// header
+@import 'cmps/app-header';
+@import "cmps/main-header";
+@import 'cmps/header-search';
+
+// seller-profile
 @import "cmps/seller-profile";
+
+// seller-orders
 @import "cmps/seller-orders";
-@import "cmps/popup-content";
+
+// gig-edit
 @import "cmps/gig-edit";
 @import "cmps/img-uploader";
-@import "cmps/seller-signup";
+
+// seller-register
 @import "cmps/seller-register";
 @import "cmps/img-profile-uploader";
+
+// general
+@import 'cmps/user-msg';
+@import 'cmps/app-footer';
+@import 'cmps/login-signup';
+@import "cmps/popup-content";
+
 
 .el-select-dropdown__item.selected {
     color: #1dbf73 !important;
