@@ -38,6 +38,7 @@
     </section>
 
     <section class="category-svg">
+      <p class="bold">Explore the marketplace</p>
       <categories-list :type="'svg'" @filter="filter" />
     </section>
   </section>
