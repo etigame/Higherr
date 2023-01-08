@@ -57,6 +57,13 @@
     justify-content: center;
     max-height: 110px;
   }
+  @media screen and (max-width: 450px) {
+    .clear-filter-btn {
+      display: none;
+      
+    }
+  }
+    
 
   .advanced-input {
     display: flex;
