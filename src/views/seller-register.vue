@@ -64,7 +64,7 @@
             </div>
         </form>
 
-        <!-- <button @click="saveUser">Sign up</button> -->
+        <button @click="saveUser">Sign up</button>
         <button @click="cancelSignup">Cancel</button>
 
     </section>
@@ -129,9 +129,9 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
-            await this.$store.dispatch({ type: "updateUser", userCred: { ...this.userToEdit } })
-            await this.$store.dispatch({ type: "signup", userCred: { ...this.userToEdit } })
-            this.$router.push('/seller/profile')
+            await this.$store.dispatch({ type: "updateUsers", user: { ...this.userToEdit } })
+            if (!this.userToEdit._id) { await this.$store.dispatch({ type: "signup", user: { ...this.userToEdit } }) }
+            // this.$router.push('/seller/profile')
         },
         cancelSignup() {
             this.$router.push('/')

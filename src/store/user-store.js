@@ -27,10 +27,6 @@ export const userStore = {
     watchedUser({ watchedUser }) {
       return watchedUser
     },
-    userById({ users, loggedinUser }) {
-      const user = users.find((user) => user._id === loggedinUser._id)
-      return user
-    },
   },
   rootGetters: {
     loggedinUser({ loggedinUser }) {
@@ -47,9 +43,8 @@ export const userStore = {
     setUsers(state, { users }) {
       state.users = users
     },
-    updateUser(state, { user }) {
-      console.log(state.users)
-      const idx = state.users.findIndex((item) => item.id === user._id)
+    updateUsers(state, { user }) {
+      const idx = state.users.findIndex((item) => item._id === user._id)
       if (idx) state.users.splice(idx, 1, user)
       else state.users.push(user)
     },
@@ -74,9 +69,10 @@ export const userStore = {
         throw err
       }
     },
-    async signup({ state, commit }, { userCred }) {
+    async signup({ state, commit }, { user }) {
       try {
-        const user = await userService.signup(userCred)
+        await userService.signup(user)
+
         commit({ type: 'setLoggedInUser', user })
 
         const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
@@ -126,12 +122,12 @@ export const userStore = {
         throw err
       }
     },
-    async updateUser({ commit }, { userCred }) {
+    async updateUsers({ commit }, { user }) {
       try {
-        user = await userService.saveUser(userCred)
-        commit({ type: 'updateUser', userCred })
+        await userService.saveUser(user)
+        commit({ type: 'updateUsers', user })
       } catch (err) {
-        console.log('userStore: Error in updateUser', err)
+        console.log('userStore: Error in updateUsers', err)
         throw err
       }
     },

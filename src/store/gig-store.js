@@ -23,6 +23,7 @@ export function getActionUpdateGig(gig) {
 export const gigStore = {
   state: {
     gigs: [],
+    selectedGig: null,
     filterBy: {
       title: '',
       category: '',
@@ -41,6 +42,9 @@ export const gigStore = {
       if (filteredGigs.length > 0) return filteredGigs
     },
 
+    selectedGig({ selectedGig }) {
+      return selectedGig
+    },
     gigs({ gigs, filterBy }) {
       var filteredGigs = gigs
       const regex = new RegExp(filterBy.title, 'i')
@@ -75,6 +79,9 @@ export const gigStore = {
   mutations: {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
+    },
+    setSelectedGig(state, { gig }) {
+      state.selectedGig = gig
     },
     setGigs(state, { gigs }) {
       state.gigs = gigs
@@ -113,6 +120,16 @@ export const gigStore = {
         return gig
       } catch (err) {
         console.log('gigStore: Error in updateGig', err)
+        throw err
+      }
+    },
+
+    async loadGig(context, { gigId }) {
+      try {
+        const gig = await gigService.getById(gigId)
+        context.commit({ type: 'setSelectedGig', gig })
+      } catch (err) {
+        console.log('gigStore: Error in loadGig', err)
         throw err
       }
     },

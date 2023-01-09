@@ -1,5 +1,5 @@
 <template>
-    <section v-if="user" class="seller-profile flex space-between main-layout full">
+    <section v-if="user && gigs" class="seller-profile flex space-between main-layout full">
         <section class="content-wrapper flex space-between">
 
             <div class="profile-container">
@@ -57,7 +57,7 @@
                             <p>Create a new Gig</p>
                         </div>
                     </div>
-                    <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigsByUser" :gig="gig" />
+                    <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigs" :gig="gig" />
                 </div>
 
             </div>
@@ -81,18 +81,18 @@ export default {
     data() {
         return {
             user: null,
+            gigs: null,
             isChatOpen: false,
         }
     },
     async created() {
-        await this.$store.dispatch({ type: 'loadUsers' })
+
+        const _id = this.$route.params.loggedUser._id
+        await this.$store.dispatch({ type: 'loadAndWatchUser', userId: _id })
+        this.user = this.$store.getters.watchedUser
         await this.$store.dispatch({ type: 'loadGigs' })
+        this.gigs = this.$store.getters.gigsByUser
         window.scrollTo({ top: 0, behavior: 'smooth' })
-        this.user = this.$store.getters.userById
-
-
-
-
 
     },
     methods: {
@@ -107,12 +107,6 @@ export default {
             this.isChatOpen = !this.isChatOpen
         }
     },
-    computed: {
-        gigsByUser() {
-            return this.$store.getters.gigsByUser
-
-        },
-    }
 }
 
 </script>

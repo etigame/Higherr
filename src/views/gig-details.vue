@@ -1,5 +1,5 @@
 <template>
-    <section v-if="gig" class="gig-details main-layout full">
+    <section v-if="gig && seller" class="gig-details main-layout full">
         <section class="details-nav main-layout full">
             <ul class="details-nav-list clean-list flex align-center">
                 <!-- //TODO: try implement with exact-active -->
@@ -123,8 +123,6 @@
 </template>
 
 <script>
-import { gigService } from '../services/gig-service.js'
-import { utilService } from '../services/util-service.js'
 import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
@@ -147,6 +145,7 @@ export default {
     data() {
         return {
             gig: null,
+            seller: null,
             selected: 0,
             links: [
                 { to: 'overview', title: 'Overview' },
@@ -156,32 +155,36 @@ export default {
         }
     },
     async created() {
-        try {
-            const { _id } = this.$route.params
-            const gig = await gigService.getById(_id)
-            this.gig = gig
+        const { _id } = this.$route.params
+        await this.$store.dispatch({ type: "loadGig", gigId: _id })
+        this.gig = this.$store.getters.selectedGig
+        await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.gig.owner._id })
+        this.seller = this.$store.getters.watchedUser
+        socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
 
-            socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
-        } catch (err) {
-            console.error(err)
-        }
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     unmounted() {
         // socketService.terminate()
     },
     computed: {
+
         sellerStats() {
             return [
-                { key: 'From', value: this.gig.loc },
+                { key: 'From', value: this.seller.location },
                 { key: 'Member since', value: this.gig.memberSince },
                 { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: this.gig.lastDelivery },
             ]
+
+            // return [
+            //     { key: 'From', value: this.seller.location },
+            //     { key: 'Member since', value: this.seller.memberSince },
+            //     { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
+            //     { key: 'Last delivery', value: this.seller.lastDelivery },
+            // ]
         },
-        loggedInUser() {
-            return this.$store.getters.loggedinUser
-        },
+
         // displayDescription() {
         //     return this.gig.description.replace(/\\n/g, '\n')
         // }
