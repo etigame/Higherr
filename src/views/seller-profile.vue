@@ -81,7 +81,7 @@ export default {
     data() {
         return {
             user: null,
-            gigs: null,
+            gigs: [],
             isChatOpen: false,
         }
     },
@@ -96,8 +96,10 @@ export default {
 
     },
     methods: {
-        removeGig(gigId) {
-            this.$store.dispatch({ type: 'removeGig', gigId })
+        async removeGig(gigId) {
+            await this.$store.dispatch({ type: 'removeGig', gigId })
+            this.gigs = this.$store.getters.gigsByUser
+
         },
         editGig() {
 
@@ -107,6 +109,11 @@ export default {
             this.isChatOpen = !this.isChatOpen
         }
     },
+    // computed: {
+    //     gigs() {
+    //         return this.$store.getters.gigsByUser
+    //     }
+    // }
 }
 
 </script>

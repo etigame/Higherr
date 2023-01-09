@@ -93,35 +93,6 @@ export default {
     data() {
         return {
             userToEdit: null,
-            value1: [],
-            options:
-
-                [{
-                    value: 'Amharic',
-                    label: 'Amharic',
-                },
-                {
-                    value: 'Arabic',
-                    label: 'Arabic',
-                },
-                {
-                    value: 'English',
-                    label: 'English',
-                },
-                {
-                    value: 'French',
-                    label: 'French',
-                },
-                {
-                    value: 'Hebrew',
-                    label: 'Hebrew',
-                },
-                {
-                    value: 'Russian',
-                    label: 'Russian',
-                },
-
-                ]
         }
     },
     methods: {
@@ -129,9 +100,11 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
-            await this.$store.dispatch({ type: "updateUsers", user: { ...this.userToEdit } })
-            if (!this.userToEdit._id) { await this.$store.dispatch({ type: "signup", user: { ...this.userToEdit } }) }
-            // this.$router.push('/seller/profile')
+            if (!this.userToEdit._id) await this.$store.dispatch({ type: "signup", user: { ...this.userToEdit } })
+            else await this.$store.dispatch({ type: "updateUsers", user: { ...this.userToEdit } })
+            this.$router.push('/seller/profile')
+
+
         },
         cancelSignup() {
             this.$router.push('/')

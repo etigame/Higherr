@@ -22,7 +22,7 @@ export function getActionUpdateGig(gig) {
 
 export const gigStore = {
   state: {
-    gigs: [],
+    gigs: null,
     selectedGig: null,
     filterBy: {
       title: '',
@@ -39,7 +39,8 @@ export const gigStore = {
       var filteredGigs = gigs.filter((gig) => {
         return gig.owner._id === user._id
       })
-      if (filteredGigs.length > 0) return filteredGigs
+      if (!filteredGigs.length) return []
+      else return filteredGigs
     },
 
     selectedGig({ selectedGig }) {

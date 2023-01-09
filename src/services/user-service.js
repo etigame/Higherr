@@ -63,10 +63,10 @@ async function signup(user) {
     user.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
-  await httpService.post('auth/signup', user)
+  const response = await httpService.post('auth/signup', user)
 
-  if (user) {
-    return setLoggedInUser(user)
+  if (response) {
+    return setLoggedInUser(response)
   }
 }
 
@@ -90,21 +90,21 @@ function getLoggedInUser() {
 }
 
 function saveUser(user) {
+  console.log(user)
   if (user._id) return httpService.put(USER_URL + user._id, user)
   return httpService.post(USER_URL, user)
 }
 
 function createEmptyUser() {
   const user = {
+    username: '',
+    password: '',
     fullname: '',
     imgUrl:
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
-    username: '',
-    password: '',
-    reviews: [],
-    description: '',
     location: '',
-    memberSince: '',
+    memberSince: utilService.getDate(),
+    description: '',
   }
   return user
 }

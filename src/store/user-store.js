@@ -57,13 +57,12 @@ export const userStore = {
     async login({ state, commit }, { userCred }) {
       try {
         const user = await userService.login(userCred)
-        commit({ type: 'setLoggedInUser', user })
 
-        // const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
-        // socketService.login(localLoggedInUser)
+        const localLoggedInUser = userService.getLoggedInUser()
+        commit({ type: 'setLoggedInUser', user: localLoggedInUser })
+        socketService.login(localLoggedInUser)
 
-        socketService.login(state.loggedinUser)
-        // return user
+        return user
       } catch (err) {
         console.log('userStore: Error in login', err)
         throw err
@@ -73,12 +72,11 @@ export const userStore = {
       try {
         await userService.signup(user)
 
-        commit({ type: 'setLoggedInUser', user })
-
-        const localLoggedInUser = utilService.loadFromStorage('loggedInUser')
+        const localLoggedInUser = userService.getLoggedInUser()
+        await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.signup(localLoggedInUser)
 
-        socketService.signup(state.loggedinUser)
+        // socketService.signup({ ...state.loggedinUser })
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)
@@ -107,6 +105,7 @@ export const userStore = {
     async loadAndWatchUser({ commit }, { userId }) {
       try {
         const user = await userService.getById(userId)
+
         commit({ type: 'setWatchedUser', user })
       } catch (err) {
         console.log('userStore: Error in loadAndWatchUser', err)
