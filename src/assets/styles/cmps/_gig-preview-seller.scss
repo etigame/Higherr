@@ -6,8 +6,9 @@
     .gig-info {
         background-color: $CLR0;
         height: 100%;
-
-
+        @media screen and (max-width: 400px) {
+        min-width: 250px;
+        }
 
         h3 {
             font-size: 1rem;

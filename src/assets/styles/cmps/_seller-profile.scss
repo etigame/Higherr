@@ -27,12 +27,16 @@
     .profile-container {
         min-width: 398px;
         max-width: 398px;
-
+@media screen and (max-width: 460px) {
+    min-width: 90%
+}
         .user-info {
             @include card(100%, 363px);
             padding: 30px;
             margin-bottom: 20px;
-
+            @media screen and (max-width: 400px) {
+                    padding: 15px;
+                }
 
             h2 {
                 text-align: center;
@@ -81,8 +85,10 @@
     .description-container {
         @include card(100%, 450px);
         height: fit-content;
-        padding: 30px 30px 30px 30px;
-
+        padding: 30px;
+        @media screen and (max-width: 400px) {
+                padding: 15px;
+            }
         li:not(:last-child) {
             border-bottom: 1px solid var(--yro5245);
             padding-bottom: 25px;
@@ -132,11 +138,18 @@
 .gigs-status {
     padding-inline-start: 20px;
     width: 60%;
+    @media screen and (max-width: 400px) {
+            width: 90%;
+            padding-inline-start: 0;
+        }
 
     .status-filter-bar {
         @include card(100%, 60px);
         margin-bottom: 40px;
         padding: 23px 25px;
+        @media screen and (max-width: 400px) {
+                min-width: 250px;
+            }
     }
 
     .gigs-list {
@@ -149,7 +162,9 @@
             &:hover {
                 cursor: pointer;
             }
-
+                        @media screen and (max-width: 400px) {
+                            min-width: 250px;
+                        }
 
             .add-gig-btn {
                 color: white;
