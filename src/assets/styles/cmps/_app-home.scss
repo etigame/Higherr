@@ -2,6 +2,12 @@
     color: $clr11;
     line-height: 26px;
     width: 100%;
+@media screen and (max-width: 760px) {
+        margin-bottom: 100px;
+    }
+@media screen and (max-width: 550px) {
+        margin-bottom: 180px;
+    }
 
     .trusted-by {
         display: flex;
@@ -129,7 +135,6 @@
             font-size: rem(32px);
             line-height: 120%;
             color: $clr11;
-            // margin-block-end: 64px;
         }
 
         @media screen and (max-width: 550px) {

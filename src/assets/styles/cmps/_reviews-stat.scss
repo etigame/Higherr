@@ -11,6 +11,7 @@
 }
 
 .reviews-rate {
+  flex-direction: column;
   .stars {
     margin-block-start: 0;
   }
@@ -95,4 +96,12 @@
 
 .reviews-stat {
   margin-block-end: 24px;
+
+}
+.stat-main{
+  
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+  }
+
 }

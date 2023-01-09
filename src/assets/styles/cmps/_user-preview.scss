@@ -47,11 +47,42 @@
     color: var(--yro523v);
     font-weight: 600;
   }
+  .text-container{
+    display: flex;
+  }
+  .text,
+  .rate{
+    display: flex;
+    align-items: center;
+    >*{
+      margin-inline-end: em(10px);
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .text-container {
+      height: 40px;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    .line{
+      display: none;
+    }
+
+  }
 }
 
 .seller-preview-long {
   margin-block-end: 24px;
   font-size: 1rem;
+  @media screen and (max-width: 550px) {
+      flex-direction: column;
+      align-items: center;
+      >*{
+        margin-bottom: 10px;
+        text-align: center;
+      }
+    }
 
   .img-container {
     height: 110px;
@@ -64,13 +95,23 @@
 
   .seller-details {
     padding-inline-start: em(15px, 16px);
-
+@media screen and (max-width: 550px) {
+  width: 100%;
+  >*{
+    justify-content: center;
+    text-align: center;
+  }
+  }
+    
     .seller-fullname {
       color: $clr3;
       cursor: pointer;
       font-weight: 700;
       line-height: em(20px, 16px);
       padding-block-end: em(5px, 16px);
+      @media screen and (max-width: 550px) {
+          font-size: rem(20px);
+        }
     }
 
     .online-indicator {
@@ -101,6 +142,9 @@
         float: left;
         height: 100%;
       }
+      @media screen and (max-width: 550px) {
+      display: none;
+      }
     }
 
     .seller-level,
@@ -129,6 +173,7 @@
     .seller-reviews-count {
       padding-inline-start: em(4px, 14px);
       padding-block-end: 2px;
+     
     }
 
     .stars {
@@ -157,7 +202,9 @@
   border: 1px solid $clr3;
   border-radius: em(4px, 14px);
   max-width: 130px;
-
+  @media screen and (max-width: 550px) {
+    max-width: 90%;
+    }
   &:hover {
     background-color: $clr5;
     color: #fff;

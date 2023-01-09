@@ -104,7 +104,7 @@
   &.selected a {
     color: $clr4;
   }
-
+  
   a {
     font-size: rem(14px);
     color: var(--yro5248);
@@ -113,7 +113,10 @@
     text-decoration: none;
     transition: color 0.2s;
     font-family: Macan;
-
+    @media screen and (max-width: 370px) {
+      line-height: em(25px, 14px);
+      text-align: center;
+    }
     &:hover {
       color: var(--yro5249);
     }
@@ -225,10 +228,12 @@
 }
 
 .review-list-container {
+
   border: 1px solid var(--yro5244);
   border-radius: em(4px, 16px);
   padding: em(16px, 16px) em(24px, 16px);
   height: 130px;
+   
 }
 
 .gig-desc {
@@ -287,4 +292,9 @@
     line-height: 150%;
     padding-block-start: em(15px, 16px);
   }
+}
+.review-list{
+  @media screen and (max-width: 500px) {
+      display: none;
+    }
 }
