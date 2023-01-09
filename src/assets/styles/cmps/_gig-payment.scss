@@ -24,6 +24,11 @@ flex-wrap: wrap;
   height: 50px;
   margin: 0px -24px;
   padding-inline-start: $layoutPadding;
+  @media screen and (max-width: 400px) {
+      display: flex;
+      margin-top: 10px;
+      flex-direction: column;
+    }
 }
 .visa{
   width: 100px;
@@ -58,6 +63,7 @@ flex-wrap: wrap;
     margin-inline-end: 20px;
     flex:1;
   }
+
 .payment-option{
       input {
           height: 40px;
@@ -74,15 +80,20 @@ flex-wrap: wrap;
           font-weight: 700;
         }
   .card-info{
-    // margin-top: 30px;
-    // height: 110px;
     flex-wrap: wrap;
+    @media screen and (max-width: 400px) {
+      }
 
     .card-num{
+      display: flex;
       margin-inline-end: 50px;
       min-width: 240px;
+      flex: 1;
       @media screen and (max-width: 800px) {
-          min-width: 200px;
+          min-width: 100px;
+        }
+      @media screen and (max-width: 400px) {
+        margin-inline-end: 0px;
         }
     }
     .shorts-input{
@@ -90,10 +101,15 @@ flex-wrap: wrap;
     .short{
       max-width: 110px;
       margin-inline-end: 20px;
-        
+      @media screen and (max-width: 400px) {
+          max-width: 100px;
+          margin-inline-end: 10px;
+      
+        }
     }
   }
   }
+ 
 
   .name-inputs{
     flex-direction: row;
@@ -101,10 +117,16 @@ flex-wrap: wrap;
     .name-input{
       width: 240px;
       margin-inline-end: 50px;
-  }}
+      @media screen and (max-width: 400px) {
+        width: 210px;
+          margin-inline-end: 0px;
+      
+        }
+       
+  }
+     
 }
 }
- @media screen and (max-width: 800px) {
-
- }
+}
+ 
 }

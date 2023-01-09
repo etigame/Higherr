@@ -14,7 +14,7 @@
                 </section>
                 <section class="payment-option">
                     <div class="card-info flex">
-                        <div>
+                        <div class="card-num-container">
                             <p>Card Number</p>
                             <input class="card-num" type="text" value="4580 5926 2262 7546" />
                         </div>

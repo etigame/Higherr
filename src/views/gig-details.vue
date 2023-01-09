@@ -42,8 +42,8 @@
                         <div class="thumbnails-slider">
                             <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                                 @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="5" fixed-height="90px" :bullets="false" :touchable="false" :gap="1"
-                                :arrows="false">
+                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false" :touchable="false" :gap="1"
+                                :arrows="false" :breakpoints="breakpoints">
                                 <vueper-slide v-for="(image, i) in gig.image" :slide-ratio="(48 / 67)" :key="i"
                                     :image="image" style="cursor:pointer"
                                     @click.native="$refs.vueperslides2.goToSlide(i)">
@@ -51,22 +51,6 @@
                             </vueper-slides>
                         </div>
 
-
-
-
-                        <!-- <vueper-slides fade :touchable="true">
-                            <vueper-slide v-for="image in gig.image" :key="1" :image="image">
-                            </vueper-slide>
-                        </vueper-slides>
-                        <div class="thumbnails-slider">
-                            <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
-                                :visible-slides="gig.image.length" fixed-height="75px" :bullets="false"
-                                :touchable="false" :gap="1" :arrows="true" :gig="gig">
-                                <vueper-slide v-for="image in gig.image" :key="1" :image="image"
-                                    @click.native="$refs.vueperslides2.goToSlide(i)">
-                                </vueper-slide>
-                            </vueper-slides>
-                        </div> -->
                     </section>
                 </section>
                 <section class="package-container-narrow">
@@ -152,7 +136,24 @@ export default {
                 { to: 'overview', title: 'Overview' },
                 { to: 'aboutSeller', title: 'About the seller' },
                 { to: 'reviews', title: 'Reviews' },
-            ]
+            ],
+            breakpoints: {
+                1150: {
+                    fixedHeight: "80px"
+                },
+                850: {
+                    fixedHeight: "70px"
+                },
+                700: {
+                    fixedHeight: "80px"
+                },
+                550: {
+                    fixedHeight: "60px"
+                },
+                420: {
+                    fixedHeight: "50px"
+                },
+            },
         }
     },
     async created() {

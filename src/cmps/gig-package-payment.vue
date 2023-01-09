@@ -13,10 +13,10 @@
             <p>1 custom logo+high resolution file+3d mockup+logo transparency+ 300dpi</p>
 
             <ul class="features clean-list">
-                <li class="regular"><span v-icon="'greenV'"></span> 1 concept included</li>
-                <li class="regular"><span v-icon="'greenV'"></span> Logo transparency</li>
-                <li class="regular"><span v-icon="'greenV'"></span> Printable file</li>
-                <li class="regular"><span v-icon="'greenV'"></span> Include 3D mockup</li>
+                <li class="regular"><div class="v-svg-container"><span v-icon="'greenV'"></span></div> 1 concept included</li>
+                <li class="regular"><div class="v-svg-container"><span v-icon="'greenV'"></span></div> Logo transparency</li>
+                <li class="regular"><div class="v-svg-container"><span v-icon="'greenV'"></span></div> Printable file</li>
+                <li class="regular"><div class="v-svg-container"><span v-icon="'greenV'"></span></div> Include 3D mockup</li>
             </ul>
             <div class="pricing">
                 <p>Service Fee</p>

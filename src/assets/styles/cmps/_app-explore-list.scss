@@ -40,7 +40,7 @@
   top: 0;
   z-index: 10;
   transition: all 0.3s ease;
-  
+
   &.shadow {
     box-shadow: 0 9px 20px -13px rgb(116 118 126 / 85%);
   }
@@ -63,6 +63,10 @@
       
     }
   }
+        @media screen and (max-width: 400px) {
+          max-height: 120px;
+        }
+ 
     
 
   .advanced-input {
@@ -85,16 +89,20 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        max-width: em(316px);
+
         @media screen and (max-width: 710px) {
             justify-content: center;
         }
-        width: em(316px);
 
 
         .pro-switch {
-            justify-content: end;
+            justify-content:flex-end;
             margin-inline-end: em(40px);
-
+            @media screen and (max-width: 450px) {
+              margin-inline-end: em(0px);
+              justify-content: flex-start;
+              }
         }
 
         .online-switch,
@@ -162,6 +170,7 @@
         border-radius: 4px;
         box-shadow: 0 12px 18px rgb(0 0 0 / 14%);
         border: 1px solid $clr9;
+        
         .inputs {
           display: flex;
           justify-content: space-between;
@@ -169,6 +178,7 @@
           height: 104px;
           padding: 18px 24px;
         }
+       
         p {
           font-size: 12px;
           margin-bottom: 10px;
@@ -215,6 +225,14 @@
         div {
           color: #95979d;
         }
+                 @media screen and (max-width: 400px) {
+                   width: 250px;
+                   height: 160px;
+        
+                   input {
+                     width: 90px;
+                   }
+                 }
       }
             .drop-arrow {
               height: 14px;
@@ -264,7 +282,14 @@
     align-items: center;
     justify-content: flex-end;
     width: em(316px);
+            @media screen and (max-width: 400px) {
+                >* {
+                  flex-direction: row;
+                }
+            
+                max-width: em(250px);
 
+              }
     .pro-switch {
       justify-content: end;
       margin-inline-end: em(40px);

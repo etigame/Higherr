@@ -2,8 +2,10 @@
 .gig-package-payment{
   min-width: 340px;
   @media screen and (max-width: 800px) {
-
       margin-inline-end: 20px;
+    }
+  @media screen and (max-width: 400px) {
+      min-width: 200px;
     }
     p {
         font-size: rem(16px);
@@ -163,5 +165,9 @@
       color: #fff;
     }
   }
+}
+.v-svg-container{
+  width:16px;
+  height: 16px;
 }
 }
