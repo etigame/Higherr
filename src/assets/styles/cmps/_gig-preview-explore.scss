@@ -134,6 +134,12 @@
       color: $clr5;
     }
 
+    span.liked {
+      svg {
+        fill: #f74040;
+      }
+    }
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -142,7 +148,8 @@
     border-top: em(1px) solid #e4e5e7;
     .preview-heart {
       padding-block-start: 3px;
-      fill: $clr2;
+      cursor: pointer;
+      // fill: $clr2;
       //  background-color:  rgb(108, 108, 205);
     }
     .preview-price-container {

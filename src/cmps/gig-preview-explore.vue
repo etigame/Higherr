@@ -25,7 +25,8 @@
             <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewsCount }})</span>
         </div>
         <div class="preview-footer">
-            <span v-icon="'fullHeart'" class="preview-heart"></span>
+            <span v-icon="'fullHeart'" class="preview-heart" @click="isLiked = !isLiked"
+                :class="{ liked: isLiked }"></span>
             <div class="preview-price-container flex">
                 <p>starting at </p><span class="preview-price">US${{ gig.price }}</span>
             </div>
@@ -55,7 +56,8 @@ export default {
                     title: 'Slide #2',
                     content: 'Slide 2 content.'
                 }
-            ]
+            ],
+            isLiked: false
         }
     },
     methods: {
@@ -64,6 +66,11 @@ export default {
             this.$router.push({ path: gig })
         },
     },
+    // computed: {
+    //     toggleHeartIcon() {
+    //         return this.isLiked ? 'fullHeartActive' : 'fullHeart'
+    //     }
+    // },
     components: {
         VueperSlides,
         VueperSlide,
