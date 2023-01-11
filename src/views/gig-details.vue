@@ -163,9 +163,9 @@ export default {
         sellerStats() {
             return [
                 { key: 'From', value: this.seller.location },
-                { key: 'Member since', value: this.gig.memberSince },
-                { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
-                { key: 'Last delivery', value: this.gig.lastDelivery },
+                { key: 'Member since', value: this.seller.memberSince },
+                { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
+                { key: 'Last delivery', value: this.seller.lastDelivery },
             ]
 
             // return [

@@ -7,7 +7,7 @@
           <img :src="gig.owner.imgUrl" alt="seller-img" />
         </div>
         <div class="info-txt flex">
-          <h4>Message {{ gig.owner.fullname }}</h4>
+          <h4>Message {{ gig.owner.username }}</h4>
           <span>Avg. response time: {{ displayAvgResponseTime }}</span>
         </div>
       </section>
@@ -20,7 +20,7 @@
             <img :src="gig.owner.imgUrl" alt="seller-img" />
           </div>
           <div class="info-txt flex">
-            <h2>Message {{ gig.owner.fullname }}</h2>
+            <h2>Message {{ gig.owner.username }}</h2>
             <h4>Avg. response time: {{ displayAvgResponseTime }}</h4>
           </div>
         </div>
@@ -28,7 +28,7 @@
       </section>
 
       <section class="text-explanation">
-        <span>Ask {{ gig.owner.fullname }} question or share your project details (requirements, timeline, budget,
+        <span>Ask {{ gig.owner.username }} question or share your project details (requirements, timeline, budget,
           etc.)</span>
       </section>
 
@@ -42,7 +42,7 @@
 
       <section class="write-msg flex">
         <form @submit.prevent="sendMsg" class="flex">
-          <input type="text" v-model="msg.txt" :placeholder="`Write ${gig.owner.fullname} here`" />
+          <input type="text" v-model="msg.txt" :placeholder="`Write ${gig.owner.username} here`" />
           <div><span v-icon="'clip'"></span></div>
           <button class="flex send-btn"><span v-icon="'send'">Send Message</span></button>
         </form>
@@ -72,7 +72,7 @@
 
       <section class="write-msg flex">
         <form @submit.prevent="sendMsg" class="flex">
-          <input type="text" v-model="msg.txt" :placeholder="`Write ${gig.owner.fullname} here`" />
+          <input type="text" v-model="msg.txt" :placeholder="`Write ${gig.owner.username} here`" />
           <div><span v-icon="'clip'"></span></div>
           <button class="flex send-btn"><span v-icon="'send'">Send Message</span></button>
         </form>
@@ -104,7 +104,7 @@ export default {
   },
   created() {
     const user = userService.getLoggedInUser()
-    socketService.emit(SOCKET_EMIT_JOIN_CHAT, user.fullname)
+    socketService.emit(SOCKET_EMIT_JOIN_CHAT, user.username)
     const topic = this.gig.owner._id
     socketService.emit(SOCKET_EMIT_SET_TOPIC, topic)
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
@@ -123,7 +123,7 @@ export default {
       // this.addMsg(this.msg)
       // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
       const user = userService.getLoggedInUser()
-      const from = (user && user.fullname) || 'Guest'
+      const from = (user && user.username) || 'Guest'
       this.msg.from = from
       if (this.msg.txt === '') return
       socketService.emit(SOCKET_EMIT_SEND_MSG, this.msg)

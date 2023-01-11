@@ -4,7 +4,7 @@
         <h1>Register as Seller</h1>
 
         <form>
-            <div class="field">
+            <!-- <div class="field">
                 <label>
                     <h3>Full Name</h3>
                     <p>Ex. John Smith</p>
@@ -12,7 +12,7 @@
                 <div class="info-fill flex">
                     <el-input v-model="userToEdit.fullname" placeholder="enter your full name" />
                 </div>
-            </div>
+            </div> -->
             <div class="field">
                 <label>
                     <h3>Username</h3>

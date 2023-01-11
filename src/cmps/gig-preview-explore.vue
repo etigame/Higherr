@@ -10,8 +10,8 @@
         <div class="seller-info-preview">
             <div class="seller-img"><img :src="gig.owner.imgUrl"></div>
             <div>
-                <p class="bold">{{ gig.owner.fullname }}</p>
-                <p class="level">Level {{ gig.owner.level }} seller</p>
+                <p class="bold">{{ gig.owner.username }}</p>
+                <p class="level">{{ level }} Seller</p>
             </div>
         </div>
         <div class="preview-title">
@@ -20,8 +20,8 @@
             </router-link>
         </div>
         <div class="content-info">
-            <span v-icon="'star'" class="preview-rate-icon"></span>
-            <span class="rate-preview">{{ gig.owner.rate }}</span>
+            <span v-icon="'star'" v-if="gig.owner.rate" class="preview-rate-icon"></span>
+            <span v-if="gig.owner.rate" class="rate-preview">{{ gig.owner.rate }}</span>
             <span class="preview-reviews" v-if="gig.reviewers">({{ gig.reviewsCount }})</span>
         </div>
         <div class="preview-footer">
@@ -66,9 +66,18 @@ export default {
             this.$router.push({ path: gig })
         },
     },
+    computed: {
+        level() {
+            const level = this.gig.owner.level ? `Level ${this.gig.owner.level}` : 'New'
+            return level
+        }
+    },
+
+
     components: {
         VueperSlides,
         VueperSlide,
-    },
+    }
 }
+
 </script>

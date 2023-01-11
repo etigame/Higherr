@@ -107,18 +107,18 @@ function loadFromStorage(key) {
 
 function getDate() {
   const months = [
-    'January',
-    'February',
+    'Jan',
+    'Feb',
     'March',
     'April',
     'May',
     'June',
     'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
   ]
   const date = new Date()
 
