@@ -11,11 +11,6 @@
 
         <section class="details-container flex">
             <section id="overview" class="main">
-                <div class="bread-crumbs flex">
-                    <p>Graphics & Design</p>
-                    <span v-icon="'breadCrumbsArrow'"></span>
-                    <p>Logo Design</p>
-                </div>
                 <p class="title">{{ gig.title }}</p>
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="gig-gallery">
@@ -76,7 +71,7 @@
                         </section>
 
                         <section class="seller-desc">
-                            <p>{{ gig.about }}</p>
+                            <p>{{ seller.description }}</p>
                         </section>
                     </section>
                 </section>

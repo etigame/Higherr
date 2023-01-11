@@ -51,6 +51,15 @@
 
   .text-container {
     display: flex;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-decoration-color: $clr11;
+    }
   }
 
   .text,

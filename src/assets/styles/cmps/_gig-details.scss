@@ -151,30 +151,6 @@
   }
 }
 
-.bread-crumbs {
-  color: var(--yro52j);
-  font-size: rem(14px);
-  cursor: pointer;
-  margin-block-end: em(10px, 14px);
-
-  span {
-    width: rem(12px);
-    height: rem(12px);
-    position: relative;
-    margin: 0 em(8px, 14px);
-
-    svg {
-      width: rem(12px);
-      height: rem(12px);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      stroke: 2px;
-    }
-  }
-}
-
 .gig-gallery {
   
   margin-block-end: 64px;
