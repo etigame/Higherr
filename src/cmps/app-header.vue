@@ -9,7 +9,7 @@
         <div class="img-container">
           <img v-if="loggedInUser" :src="loggedInUser.imgUrl">
         </div>
-        <p v-if="loggedInUser">{{ loggedInUser.fullname }}</p>
+        <p v-if="loggedInUser">{{ loggedInUser.username }}</p>
       </div>
 
       <router-link v-if="loggedInUser" to="/seller/profile">Profile</router-link>
@@ -31,22 +31,22 @@
           </div>
         </div>
         <section class="orders-wrapper">
-        <article v-if="orderOpen" v-for="order in orders" class="order-container">
-          <router-link :to="`/gig/${order.gig._id}`">
-            <div class="info flex">
-              <div class="img-container">
-                <img :src="order.gig.img">
+          <article v-if="orderOpen" v-for="order in orders" class="order-container">
+            <router-link :to="`/gig/${order.gig._id}`">
+              <div class="info flex">
+                <div class="img-container">
+                  <img :src="order.gig.img">
+                </div>
+                <p class="gig-title">{{ order.gig.name }}</p>
               </div>
-              <p class="gig-title">{{ order.gig.name }}</p>
+            </router-link>
+            <div>
+              <div class="seller-status flex ">
+                <span> Status:</span>
+                <span class="status " :class="className(order.status)">{{ order.status }}</span>
+              </div>
             </div>
-          </router-link>
-          <div>
-            <div class="seller-status flex ">
-              <span> Status:</span>
-              <span class="status " :class="className(order.status)">{{ order.status }}</span>
-            </div>
-          </div>
-        </article>
+          </article>
         </section>
       </div>
     </section>
@@ -61,11 +61,11 @@
           <div class="line"></div>
         </div>
         <div class="logo-container">
-        <router-link to="/">
-          <div class="logo">
-            <h1>Higherr</h1>
-          </div>
-        </router-link>
+          <router-link to="/">
+            <div class="logo">
+              <h1>Higherr</h1>
+            </div>
+          </router-link>
         </div>
         <div class="search" :class="{ shown: isSearchShown }">
           <header-search @filter="filter" />
@@ -90,24 +90,24 @@
               <p class="light empty-txt">Use the search box to find the digital service you need</p>
             </div>
             <section class="orders-wrapper">
-            <article v-if="loggedInUser" @click="toggleOrdersModal" v-for="order in orders" class="order-container">
-              <router-link :to="`/gig/${order.gig._id}`">
-                <div class="img-container">
-                  <img :src="order.gig.img">
-                </div>
-              </router-link>
-              <div>
+              <article v-if="loggedInUser" @click="toggleOrdersModal" v-for="order in orders" class="order-container">
                 <router-link :to="`/gig/${order.gig._id}`">
-                  <p class="gig-title">{{ order.gig.name }}</p>
+                  <div class="img-container">
+                    <img :src="order.gig.img">
+                  </div>
                 </router-link>
-                <div class="seller-status">
-                  <span>by {{ order.seller.fullname }}</span>
-                  <span class="status" :class="className(order.status)">{{ order.status }}</span>
+                <div>
+                  <router-link :to="`/gig/${order.gig._id}`">
+                    <p class="gig-title">{{ order.gig.name }}</p>
+                  </router-link>
+                  <div class="seller-status">
+                    <span>by {{ order.seller.fullname }}</span>
+                    <span class="status" :class="className(order.status)">{{ order.status }}</span>
+                  </div>
                 </div>
-              </div>
-              
-            </article>
-          </section>
+
+              </article>
+            </section>
           </div>
 
           <div @click="toggleUserModal" class="user-img " v-if="loggedInUser">

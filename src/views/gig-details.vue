@@ -42,8 +42,8 @@
                         <div class="thumbnails-slider">
                             <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                                 @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false" :touchable="false" :gap="1"
-                                :arrows="false" :breakpoints="breakpoints">
+                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false"
+                                :touchable="false" :gap="1" :arrows="false" :breakpoints="breakpoints">
                                 <vueper-slide v-for="(image, i) in gig.image" :slide-ratio="(48 / 67)" :key="i"
                                     :image="image" style="cursor:pointer"
                                     @click.native="$refs.vueperslides2.goToSlide(i)">
@@ -173,9 +173,9 @@ export default {
         sellerStats() {
             return [
                 { key: 'From', value: this.seller.location },
-                { key: 'Member since', value: this.gig.memberSince },
-                { key: 'Avg. response time', value: this.gig.avgResponseTime + `${this.gig.avgResponseTime > 1 ? ' hours' : ' hour'}` },
-                { key: 'Last delivery', value: this.gig.lastDelivery },
+                { key: 'Member since', value: this.seller.memberSince },
+                { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
+                { key: 'Last delivery', value: this.seller.lastDelivery },
             ]
 
             // return [

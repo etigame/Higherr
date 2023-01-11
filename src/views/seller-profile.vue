@@ -8,7 +8,7 @@
                     <div class="img-container">
                         <img :src="user.imgUrl" />
                     </div>
-                    <h2>{{ user.fullname }}</h2>
+                    <h2>{{ user.username }}</h2>
 
 
                     <div class="user-stats">

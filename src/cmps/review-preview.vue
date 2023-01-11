@@ -8,7 +8,7 @@
                     alt="user-img">
 
                 <section class="reviewer-details flex">
-                    <p class="fullname">{{ review.name }}</p>
+                    <p class="username">{{ review.name }}</p>
                     <section class="country-wrapper flex">
                         <img :src="review.flag" alt="reviewer-flag">
                         <p class="country">{{ review.country }}</p>
@@ -34,7 +34,7 @@
                 alt="user-img">
 
             <section class="reviewer-details flex column">
-                <p class="fullname">{{ review.name }}</p>
+                <p class="username">{{ review.name }}</p>
                 <section class="country-wrapper flex">
                     <img :src="review.flag" alt="reviewer-flag">
                     <p class="country">{{ review.country }}</p>

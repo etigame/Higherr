@@ -38,7 +38,7 @@ function getUsers() {
 }
 
 function onUserUpdate(user) {
-  showSuccessMsg(`This user ${user.fullname} just got updated from socket`)
+  showSuccessMsg(`This user ${user.username} just got updated from socket`)
   store.commit({ type: 'setWatchedUser', user })
 }
 
@@ -78,7 +78,7 @@ async function logout() {
 function setLoggedInUser(user) {
   const userToSave = {
     _id: user._id,
-    fullname: user.fullname,
+    username: user.username,
     imgUrl: user.imgUrl,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
@@ -99,12 +99,15 @@ function createEmptyUser() {
   const user = {
     username: '',
     password: '',
-    fullname: '',
     imgUrl:
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
     location: '',
     memberSince: utilService.getDate(),
     description: '',
+    level: null,
+    rate: null,
+    avgResponseTime: 1,
+    lastDelivery: '---',
   }
   return user
 }
