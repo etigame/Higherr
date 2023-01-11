@@ -218,6 +218,15 @@
   .header {
     margin-block-end: 25px;
 
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-decoration-color: $clr1;
+    }
+
     p {
       font-size: rem(14px);
       color: $clr1;

@@ -2,22 +2,10 @@
     <section v-if="gig && seller" class="gig-details main-layout full">
         <section class="details-nav main-layout full">
             <ul class="details-nav-list clean-list flex align-center">
-                <!-- //TODO: try implement with exact-active -->
-                <!-- //TODO: fix bug in URL with hash -->
                 <li v-for="({ to, title }, idx) in links" :key="to" @click="(selected = idx)"
                     :class="{ selected: selected === idx }">
                     <router-link :to="`#${to}`"> {{ title }}</router-link>
                 </li>
-
-                <!-- <li @click="selected = 1" :class="{ selected: selected == 1 }">
-                    <router-link to="#overview">Overview</router-link>
-                </li>
-                <li @click="selected = 2" :class="{ selected: selected == 2 }">
-                    <router-link to="#aboutSeller">About the seller</router-link>
-                </li>
-                <li @click="selected = 3" :class="{ selected: selected == 3 }">
-                    <router-link to="#reviews">Reviews</router-link>
-                </li> -->
             </ul>
         </section>
 
@@ -42,8 +30,8 @@
                         <div class="thumbnails-slider">
                             <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                                 @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false" :touchable="false" :gap="1"
-                                :arrows="false" :breakpoints="breakpoints">
+                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false"
+                                :touchable="false" :gap="1" :arrows="false" :breakpoints="breakpoints">
                                 <vueper-slide v-for="(image, i) in gig.image" :slide-ratio="(48 / 67)" :key="i"
                                     :image="image" style="cursor:pointer"
                                     @click.native="$refs.vueperslides2.goToSlide(i)">
@@ -59,7 +47,9 @@
                 <section class="gig-reviews-snippet" v-if="gig.reviewers">
                     <section class="header flex align-center space-between">
                         <h2>What people loved about this seller</h2>
-                        <p>See all reviews</p>
+                        <router-link to="#reviews">
+                            <p>See all reviews</p>
+                        </router-link>
                     </section>
                     <section class="review-list-container">
                         <review-list :type="'reviewSnippet'" :reviews="gig.reviewers" />

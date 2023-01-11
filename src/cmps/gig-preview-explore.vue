@@ -66,11 +66,6 @@ export default {
             this.$router.push({ path: gig })
         },
     },
-    // computed: {
-    //     toggleHeartIcon() {
-    //         return this.isLiked ? 'fullHeartActive' : 'fullHeart'
-    //     }
-    // },
     components: {
         VueperSlides,
         VueperSlide,
