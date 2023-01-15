@@ -62,7 +62,7 @@
 
                     <section class="seller-details-container">
                         <section class="seller-stat">
-                            <ul class="grid clean-list">
+                            <ul class="grid clean-list user-info">
                                 <li class="flex column" v-for="{ key, value } in sellerStats" :key="key">
                                     <span class="key">{{ key }}</span>
                                     <span class="value">{{ value }}</span>

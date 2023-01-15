@@ -63,6 +63,9 @@
       align-items: center;
       height: 120px;
       margin-inline-start: 20px;
+      @media screen and (max-width: 480px) {
+          margin-inline-start: 0px;
+        }
     }
     .progress {
       .el-progress__text {
@@ -148,10 +151,10 @@
       width: 100%;
       margin-top: 40px;
       @media screen and (max-width: 650px) {
-          overflow-x: auto;
-          // overflow-y: auto;
+          overflow-x: scroll;
+          overflow-y: auto;
           max-width: 350px;
-          max-height: 200px;
+          max-height: 180px;
       
         }
       
@@ -179,7 +182,10 @@
       }
       .table-head,
       .table-entity {
-       
+        @media screen and (max-width: 650px) {
+          width: 200%;
+
+          }
         .table-span {
           color: $clr5;
         }
