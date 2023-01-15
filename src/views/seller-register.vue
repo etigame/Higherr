@@ -4,68 +4,63 @@
         <h1>Register as Seller</h1>
 
         <form>
-            <!-- <div class="field">
-                <label>
-                    <h3>Full Name</h3>
+
+            <label>
+                <span>Full Name
                     <p>Ex. John Smith</p>
-                </label>
-                <div class="info-fill flex">
-                    <el-input v-model="userToEdit.fullname" placeholder="enter your full name" />
-                </div>
-            </div> -->
-            <div class="field">
-                <label>
-                    <h3>Username</h3>
-                    <p>this name will be shown to other users</p>
-                </label>
-                <div class="info-fill flex">
-                    <el-input v-model="userToEdit.username" placeholder="enter username" />
-                </div>
-            </div>
+                </span>
+                <input v-model="userToEdit.fullname" />
+            </label>
 
-            <div class="field">
+            <div class="flex column space-between">
                 <label>
-                    <h3>Password</h3>
-                    <p>4 characters or more</p>
+                    <span class="flex-column">Username
+                        <p>this name will be shown to other users</p>
+                    </span>
+                    <input v-model="userToEdit.username" />
                 </label>
-                <div class="info-fill flex">
-                    <el-input v-model="userToEdit.password" placeholder="enter password" />
-                </div>
-            </div>
 
 
-            <div class="field ">
                 <label>
-                    <h3>Profile Picture</h3>
-                    <p>Add a profile picture of yourself so customers will know exactly who they’ll be working with.</p>
+                    <span class="flex-column">Password
+                        <p>4 characters or more</p>
+                    </span>
+                    <input v-model="userToEdit.password" />
                 </label>
-                <div class="info-fill">
+
+                <label>
+                    <span class="flex-column">Profile Picture
+                        <p>Add a profile picture of yourself so customers will know exactly who they’ll be working with.
+                        </p>
+                    </span>
                     <img-profile-uploader @uploaded="getImage" :imgUrl="userToEdit.imgUrl"></img-profile-uploader>
-                </div>
-            </div>
-            <div class="field">
-                <label>
-                    <h3>Description</h3>
                 </label>
-                <div class="info-fill">
-                    <el-input :rows="2" type="textarea" v-model="userToEdit.description"
-                        placeholder="Share a bit about your work experience, cool projects you’ve completed, and your area of expertise." />
-                </div>
+
+                <label>
+                    <span class="flex-column">Description
+                        <p>Share a bit about your work experience, cool projects you’ve completed, and your area of
+                            expertise.</p>
+                    </span>
+                    <textarea v-model="userToEdit.description" />
+                </label>
+
+
+                <label>
+                    <span>Country
+                        <p>Where are you from?</p>
+                    </span>
+                    <input v-model="userToEdit.location" />
+                </label>
             </div>
 
-            <div class="field">
-                <label>
-                    <h3>Country</h3>
-                    <p>4 characters or more</p>
-                </label>
-                <div class="info-fill flex">
-                    <el-input v-model="userToEdit.location" placeholder="where are you from?" />
-                </div>
-            </div>
         </form>
 
-        <button @click="saveUser">Sign up</button>
-        <button @click="cancelSignup">Cancel</button>
+        <div class="btns flex space-between">
+            <button class="cancel-btn" @click="saveUser">Sign up</button>
+            <button class="save-btn" @click="cancelSignup">Cancel</button>
+        </div>
+
+
 
     </section>
 </template>
@@ -97,6 +92,7 @@ export default {
     },
     methods: {
         getImage(imgUrl) {
+            if (!imgUrl) return
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {

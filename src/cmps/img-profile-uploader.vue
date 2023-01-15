@@ -1,16 +1,15 @@
 <template>
     <section class="img-profile-uploader">
-        <div className="upload-preview">
-            <div class="img-container">
-                <img v-if="imgUrl" :src="imgUrl" />
-            </div>
-            <label class="upload-container">
-                <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
-            </label>
+        <!-- <div className="upload-preview"> -->
+        <div class="img-container">
+            <img :src="imgUrl" />
         </div>
+        <label for="imgUpload"></label>
+        <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
+        <!-- </div> -->
     </section>
 </template>
-  
+
 <script>
 import { uploadService } from "../services/upload-service.js"
 
@@ -41,4 +40,3 @@ export default {
     }
 }
 </script>
-  

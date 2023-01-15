@@ -4,9 +4,6 @@
 
     form {
         @include card(772px, fit-content);
-
-
-
         background: white;
         padding: 30px;
         margin: 30px auto;
@@ -39,7 +36,7 @@
             height: 217px;
             padding: 10px;
             font-family: Macan-Regular;
-            line-height: 21px;
+            line-height: 25px;
             font-size: 1rem;
 
             ::placeholder {
@@ -54,6 +51,7 @@
             flex-shrink: 0;
             font-weight: 600;
             color: $clr11;
+            padding-top: 10px;
 
 
             p {
