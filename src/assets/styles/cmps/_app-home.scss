@@ -2,12 +2,9 @@
     color: $clr11;
     line-height: 26px;
     width: 100%;
-@media screen and (max-width: 760px) {
-        margin-bottom: 100px;
-    }
-@media screen and (max-width: 550px) {
-        margin-bottom: 180px;
-    }
+    margin-bottom: 50px;
+
+
 
     .trusted-by {
         display: flex;
@@ -131,22 +128,26 @@
     .category-svg {
         // text-align: center;
         min-height: 100%;
-        
+
         p {
             font-size: rem(32px);
             line-height: 120%;
             color: $clr11;
+            margin-bottom: 64px;
         }
 
         @media screen and (max-width: 730px) {
             margin-bottom: 50px;
         }
+
         @media screen and (max-width: 550px) {
             margin-bottom: 0px;
         }
+
         @media screen and (max-width: 415px) {
             margin-bottom: 20px;
         }
+
         @media screen and (max-width: 330px) {
             margin-bottom: 350px;
         }
