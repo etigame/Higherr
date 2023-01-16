@@ -68,9 +68,39 @@ export const userStore = {
         throw err
       }
     },
+    async loginViaGoogle({ state, commit }, { userCred }) {
+      try {
+        const user = await userService.loginViaGoogle(userCred)
+
+        const localLoggedInUser = userService.getLoggedInUser()
+        commit({ type: 'setLoggedInUser', user: localLoggedInUser })
+        socketService.login(localLoggedInUser)
+
+        return user
+      } catch (err) {
+        console.log('userStore: Error in login', err)
+        throw err
+      }
+    },
     async signup({ state, commit }, { user }) {
       try {
         await userService.signup(user)
+
+        const localLoggedInUser = userService.getLoggedInUser()
+        await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
+        socketService.signup(localLoggedInUser)
+
+        // socketService.signup({ ...state.loggedinUser })
+        return user
+      } catch (err) {
+        console.log('userStore: Error in signup', err)
+        throw err
+      }
+    },
+    async signupViaGoogle({ state, commit }, { user }) {
+      console.log('from store')
+      try {
+        await userService.signupViaGoogle(user)
 
         const localLoggedInUser = userService.getLoggedInUser()
         await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
