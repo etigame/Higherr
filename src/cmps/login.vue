@@ -69,11 +69,16 @@ export default {
       const userData = decodeCredential(response.credential)
       console.log("Handle the userData", userData)
 
-      // this.$router.push('/explore')
-      // this.$store.dispatch({ type: "login", userCred: this.loginCred })
-      // this.close()
-    }
+      const userCred = {
+        fullName: userData.name,
+        username: userData.given_name,
+        imgUrl: userData.picture
+      }
 
+      this.$router.push('/explore')
+      this.$store.dispatch({ type: "loginViaGoogle", userCred })
+      this.close()
+    },
   },
 
 }

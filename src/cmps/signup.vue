@@ -9,12 +9,18 @@
       <button>Signup</button>
       <img-uploader class="upload-img" @uploaded="onUploaded"></img-uploader>
     </form>
+
+    <GoogleLogin :callback="callback" class="googleLogin" />
   </section>
 </template>
 
 <script>
 import imgUploader from './img-uploader.vue'
+<<<<<<< HEAD
 import { userService } from '../services/user-service'
+=======
+import { decodeCredential } from 'vue3-google-login'
+>>>>>>> 0602491ec412ab49c06811e58ac59707140e4aca
 
 export default {
   name: 'signup',
@@ -36,18 +42,18 @@ export default {
     this.loadUsers()
   },
   methods: {
-    async doLogin() {
-      if (!this.loginCred.username) {
-        this.msg = 'Please enter username/password'
-        return
-      }
-      try {
-        await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-      } catch (err) {
-        console.log(err)
-        this.msg = 'Failed to login'
-      }
-    },
+    // async doLogin() {    // not in use - delete
+    //   if (!this.loginCred.username) {
+    //     this.msg = 'Please enter username/password'
+    //     return
+    //   }
+    //   try {
+    //     await this.$store.dispatch({ type: "login", userCred: this.loginCred })
+    //   } catch (err) {
+    //     console.log(err)
+    //     this.msg = 'Failed to login'
+    //   }
+    // },
     async doSignup() {
       if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
         this.msg = 'Please fill up the form'
@@ -55,8 +61,23 @@ export default {
       }
       await this.$store.dispatch({ type: 'signup', user: { ...this.signupCred, isSeller: false } })
       this.close()
-
     },
+
+    callback(response) {
+      const userData = decodeCredential(response.credential)
+      console.log("Handle the userData", userData)
+
+      const userCred = {
+        fullName: userData.name,
+        username: userData.given_name,
+        imgUrl: userData.picture
+      }
+
+      this.$router.push('/explore')
+      this.$store.dispatch({ type: "signupViaGoogle", user: userCred })
+      this.close()
+    },
+
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" })
     },

@@ -17,8 +17,10 @@ const USER_URL = 'user/'
 
 export const userService = {
   login,
+  loginViaGoogle,
   logout,
   signup,
+  signupViaGoogle,
   setLoggedInUser,
   getLoggedInUser,
   getUsers,
@@ -58,12 +60,31 @@ async function login(userCred) {
   }
 }
 
+async function loginViaGoogle(userCred) {
+  const user = await httpService.post('auth/loginViaGoogle', userCred)
+  if (user) {
+    return setLoggedInUser(user)
+  }
+}
+
 async function signup(user) {
   if (!user.imgUrl)
     user.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
   const response = await httpService.post('auth/signup', user)
+
+  if (response) {
+    return setLoggedInUser(response)
+  }
+}
+
+async function signupViaGoogle(user) {
+  if (!user.imgUrl)
+    user.imgUrl =
+      'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+
+  const response = await httpService.post('auth/signupViaGoogle', user)
 
   if (response) {
     return setLoggedInUser(response)
