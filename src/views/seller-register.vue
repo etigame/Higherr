@@ -21,7 +21,7 @@
                 </label>
 
 
-                <label>
+                <label v-if="!userToEdit.username">
                     <span class="flex-column">Password
                         <p>4 characters or more</p>
                     </span>
@@ -56,8 +56,9 @@
         </form>
 
         <div class="btns flex space-between">
-            <button class="cancel-btn" @click="saveUser">Sign up</button>
-            <button class="save-btn" @click="cancelSignup">Cancel</button>
+            <button class="cancel-btn" @click="cancelSignup">Cancel</button>
+            <button class="save-btn" @click="saveUser">Sign up</button>
+
         </div>
 
 
@@ -96,8 +97,8 @@ export default {
             this.userToEdit.imgUrl = imgUrl
         },
         async saveUser() {
-            if (!this.userToEdit._id) await this.$store.dispatch({ type: "signup", user: { ...this.userToEdit } })
-            else await this.$store.dispatch({ type: "updateUsers", user: { ...this.userToEdit } })
+            if (!this.userToEdit._id) await this.$store.dispatch({ type: "signup", user: { ...this.userToEdit, isSeller: true } })
+            else await this.$store.dispatch({ type: "updateUsers", user: { ...this.userToEdit, isSeller: true } })
             this.$router.push('/seller/profile')
 
 

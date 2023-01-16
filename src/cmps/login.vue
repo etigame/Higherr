@@ -13,7 +13,7 @@
 
   </section>
 </template>
-     
+
 <script>
 import { decodeCredential } from 'vue3-google-login'
 
@@ -45,7 +45,7 @@ export default {
       }
       try {
         this.$router.push('/explore')
-        await this.$store.dispatch({ type: "login", userCred: this.loginCred })
+        await this.$store.dispatch({ type: "login", userCred: { ...this.loginCred } })
         this.close()
       } catch (err) {
         console.log(err)
@@ -78,4 +78,3 @@ export default {
 
 }
 </script> 
-     

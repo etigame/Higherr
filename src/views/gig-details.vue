@@ -155,12 +155,13 @@ export default {
     },
     computed: {
 
+
         sellerStats() {
             return [
                 { key: 'From', value: this.seller.location },
                 { key: 'Member since', value: this.seller.memberSince },
                 { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
-                { key: 'Last delivery', value: this.seller.lastDelivery },
+                { key: 'Last delivery', value: `${this.seller.lastDelivery ? this.seller.lastDelivery : "---"}` },
             ]
 
             // return [

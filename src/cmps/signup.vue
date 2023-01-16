@@ -1,26 +1,27 @@
      
 <template>
   <section class="signup">
+    <h2>Signup</h2>
     <form @submit.prevent="doSignup">
-      <h2>Signup</h2>
       <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
       <input type="text" v-model="signupCred.password" placeholder="Password" />
       <input type="text" v-model="signupCred.username" placeholder="Username" />
-      <img-uploader class="upload-img" @uploaded="onUploaded"></img-uploader>
       <button>Signup</button>
+      <img-uploader class="upload-img" @uploaded="onUploaded"></img-uploader>
     </form>
   </section>
 </template>
 
 <script>
 import imgUploader from './img-uploader.vue'
+import { userService } from '../services/user-service'
 
 export default {
   name: 'signup',
   data() {
     return {
       msg: '',
-      signupCred: { username: '', password: '', fullname: '' },
+      signupCred: userService.createEmptyUser(),
     }
   },
   computed: {
@@ -52,7 +53,7 @@ export default {
         this.msg = 'Please fill up the form'
         return
       }
-      await this.$store.dispatch({ type: 'signup', user: this.signupCred })
+      await this.$store.dispatch({ type: 'signup', user: { ...this.signupCred, isSeller: false } })
       this.close()
 
     },

@@ -90,13 +90,13 @@ function getLoggedInUser() {
 }
 
 function saveUser(user) {
-  console.log(user)
   if (user._id) return httpService.put(USER_URL + user._id, user)
   return httpService.post(USER_URL, user)
 }
 
 function createEmptyUser() {
   const user = {
+    fulllname: '',
     username: '',
     password: '',
     imgUrl:
@@ -107,7 +107,8 @@ function createEmptyUser() {
     level: null,
     rate: null,
     avgResponseTime: 1,
-    lastDelivery: '---',
+    lastDelivery: null,
+    isSeller: false,
   }
   return user
 }

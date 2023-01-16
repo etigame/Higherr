@@ -79,6 +79,7 @@
 <script>
 
 import { gigService } from "../services/gig-service.js"
+import { userService } from "../services/user-service.js"
 
 import imgUploader from "../cmps/img-uploader.vue"
 
@@ -88,6 +89,9 @@ export default {
     async created() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
         const owner = this.$store.getters.loggedinUser
+        await userService.getById(owner._id).then((user) => {
+            this.user = user
+        })
         const { _id } = this.$route.params
         if (_id) {
             gigService.getById(_id).then((gig) => {
@@ -96,14 +100,15 @@ export default {
         }
         else {
 
-            this.gigToEdit = gigService.getEmptyGig({ ...owner })
+            this.gigToEdit = gigService.getEmptyGig({ ...owner, level: this.user.level, rate: this.user.rate })
 
         }
     },
 
     data() {
         return {
-            gigToEdit: null
+            gigToEdit: null,
+            user: null
 
         }
     },

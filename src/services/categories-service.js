@@ -101,6 +101,10 @@ const categories = [
     name: 'Data',
     svg: 'data',
   },
+  {
+    name: 'Photography',
+    svg: 'camera',
+  },
 ]
 
 export default { popular, tags, categories }

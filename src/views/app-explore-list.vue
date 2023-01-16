@@ -98,9 +98,6 @@
 
 import gigPreviewExplore from '../cmps/gig-preview-explore.vue'
 
-
-
-
 export default {
   components: {
     gigPreviewExplore,
@@ -149,9 +146,7 @@ export default {
     window.removeEventListener("scroll", this.onScroll)
   },
   computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedinUser
-    },
+
     gigs() {
       return this.$store.getters.gigs
     },

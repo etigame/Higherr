@@ -229,6 +229,7 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
+
     currRoutePath() {
       return this.$route.path
     },

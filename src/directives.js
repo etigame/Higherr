@@ -20,9 +20,9 @@ const clickOutsideDirective = {
         )
       ) {
         cb()
-        console.log('outside')
+        // console.log('outside')
       } else {
-        console.log('inside')
+        // console.log('inside')
       }
     }
     setTimeout(() => {
