@@ -58,15 +58,13 @@
   }
 
   .social-links {
-    flex: 1;
     display: flex;
     justify-content: space-between;
     max-width: 450px;
 
-    // flex-basis: 20%;
-    // > * {
-    //   flex: 1;
-    // }
+    > * {
+      margin-inline-start: 20px;
+    }
 
     a {
       width: 100%;
