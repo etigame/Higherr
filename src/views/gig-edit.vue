@@ -85,7 +85,7 @@ import imgUploader from "../cmps/img-uploader.vue"
 export default {
     name: 'gig-edit',
     components: { imgUploader },
-    created() {
+    async created() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
         const owner = this.$store.getters.loggedinUser
         const { _id } = this.$route.params
@@ -95,13 +95,16 @@ export default {
             })
         }
         else {
-            this.gigToEdit = gigService.getDemoGig({ ...owner })
+
+            this.gigToEdit = gigService.getEmptyGig({ ...owner })
+
         }
     },
 
     data() {
         return {
             gigToEdit: null
+
         }
     },
     methods: {

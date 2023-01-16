@@ -83,9 +83,22 @@
       display: grid;
       padding-inline-start: 20px;
       padding-inline-end: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       height: 350px;
+      gap: 15px;
+      @media screen and (max-width: 570px) {
+        
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding-inline-start: 0px;
+          padding-inline-end: 0px;
+        >*{
+          text-align: center;
+        }
+        }
+      @media screen and (max-width: 470px) {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
+        }
       h4 {
         font-family: Macan-light;
       }

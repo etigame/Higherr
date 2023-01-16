@@ -99,7 +99,7 @@ function getEmptyGig(owner) {
     // _id: utilService.makeId(),
     title: '',
     price: null,
-    daysToMake: 3,
+    daysToMake: null,
     description: '',
     image: [],
     category: '',
