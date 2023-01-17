@@ -16,11 +16,8 @@
 
 <script>
 import imgUploader from './img-uploader.vue'
-<<<<<<< HEAD
-import { userService } from '../services/user-service'
-=======
 import { decodeCredential } from 'vue3-google-login'
->>>>>>> 0602491ec412ab49c06811e58ac59707140e4aca
+import { userService } from '../services/user-service'
 
 export default {
   name: 'signup',
