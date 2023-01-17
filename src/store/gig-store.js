@@ -24,7 +24,9 @@ export const gigStore = {
   state: {
     gigs: null,
     selectedGig: null,
+
     filterBy: {
+      sort_by: 'relevance',
       title: '',
       category: '',
       subCategory: '',
@@ -47,9 +49,21 @@ export const gigStore = {
       return selectedGig
     },
     gigs({ gigs, filterBy }) {
-      var filteredGigs = gigs
+      var sortedGigs = [...gigs]
+
+      if (filterBy.sort_by === 'rating') {
+        sortedGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
+      }
+
+      if (filterBy.sort_by === 'level') {
+        sortedGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
+      }
+
+      console.log(sortedGigs)
+
+      var filteredGigs = sortedGigs
       const regex = new RegExp(filterBy.title, 'i')
-      filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+      filteredGigs = sortedGigs.filter((gig) => regex.test(gig.title))
 
       if (filterBy.category)
         filteredGigs = filteredGigs.filter(
@@ -78,6 +92,9 @@ export const gigStore = {
     },
   },
   mutations: {
+    // setSort(state, { sortBy }) {
+    //   state.sortBy = sortBy
+    // },
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },

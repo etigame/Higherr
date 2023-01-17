@@ -75,9 +75,10 @@
         <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
       </div>
       <div class="sort-input light">
-        <h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance" size="large">
-          <el-option value="bestSelling">Best Selling</el-option>
-          <el-option value="newestArrivals">Newest Arrivals</el-option>
+        <h4> Sort by </h4><el-select @change="filter()" id="sortby-select" v-model="filterBy.sort_by"
+          class="m-2 sortby-select" placeholder="Relevance" size="large">
+          <el-option value="rating" label="Highest Rating">Highest Rating</el-option>
+          <el-option value="level" label="Seller Level">Seller Level</el-option>
         </el-select>
       </div>
     </div>
@@ -104,7 +105,9 @@ export default {
   },
   data() {
     return {
+
       filterBy: {
+        sort_by: 'relevance',
         title: '',
         category: null,
         subCategory: '',
@@ -112,6 +115,7 @@ export default {
         max: null,
         delivery: null,
       },
+
       budgetDrop: false,
       demoInfo: true,
       demoInfo1: false,
@@ -162,16 +166,24 @@ export default {
   watch: {
     $route: {
       handler(newValue) {
-        if (newValue.path === '/explore') this.filter(newValue.query)
+        if (newValue.path === '/explore') {
+          this.filter(newValue.query)
+        }
       },
       deep: true
     },
   },
   methods: {
+
+    // sort(sortBy = this.sortBy) {
+    //   this.$router.push({ name: 'app-explore-list', query: { ...this.filterBy } })
+    //   this.$store.commit({ type: 'setSort', sortBy: sortBy })
+    // },
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
+
 
     clearBudget() {
       this.budgetDrop = false

@@ -12,46 +12,47 @@
                 <input v-model="userToEdit.fullname" />
             </label>
 
-            <div class="flex column space-between">
+
+            <label>
+                <span class="flex-column">Username
+                    <p>this name will be shown to other users</p>
+                </span>
+                <input v-model="userToEdit.username" />
+            </label>
+
+
+            <label v-if="!userToEdit.username">
+                <span class="flex-column">Password
+                    <p>4 characters or more</p>
+                </span>
+                <input v-model="userToEdit.password" />
+            </label>
+
+            <div>
+                <span class="flex-column">Profile Picture
+                    <p>Add a profile picture of yourself so customers will know exactly who they’ll be working with.
+                    </p>
+                </span>
                 <label>
-                    <span class="flex-column">Username
-                        <p>this name will be shown to other users</p>
-                    </span>
-                    <input v-model="userToEdit.username" />
-                </label>
-
-
-                <label v-if="!userToEdit.username">
-                    <span class="flex-column">Password
-                        <p>4 characters or more</p>
-                    </span>
-                    <input v-model="userToEdit.password" />
-                </label>
-
-                <label>
-                    <span class="flex-column">Profile Picture
-                        <p>Add a profile picture of yourself so customers will know exactly who they’ll be working with.
-                        </p>
-                    </span>
                     <img-profile-uploader @uploaded="getImage" :imgUrl="userToEdit.imgUrl"></img-profile-uploader>
                 </label>
-
-                <label>
-                    <span class="flex-column">Description
-                        <p>Share a bit about your work experience, cool projects you’ve completed, and your area of
-                            expertise.</p>
-                    </span>
-                    <textarea v-model="userToEdit.description" />
-                </label>
-
-
-                <label>
-                    <span>Country
-                        <p>Where are you from?</p>
-                    </span>
-                    <input v-model="userToEdit.location" />
-                </label>
             </div>
+
+            <label>
+                <span class="flex-column">Description
+                    <p>Share a bit about your work experience, cool projects you’ve completed, and your area of
+                        expertise.</p>
+                </span>
+                <textarea v-model="userToEdit.description" />
+            </label>
+
+
+            <label>
+                <span>Country
+                    <p>Where are you from?</p>
+                </span>
+                <input v-model="userToEdit.location" />
+            </label>
 
         </form>
 

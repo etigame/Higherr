@@ -17,28 +17,34 @@
         margin: 0 auto;
 
 
-
-
-
-        input,
-        textarea {
-            color: $clr11;
-            border: 1px solid rgba(0, 0, 0, 0.274);
-            border-radius: 4px;
-
-
-            &:focus {
-                border: none;
-                outline: 0.2px solid grey;
-
-            }
-        }
-
-        label {
+        label,
+        div {
             display: flex;
             gap: 20px;
             margin-bottom: 50px;
+
+
+
+            input,
+            textarea {
+                color: $clr11;
+                border: 1px solid rgba(0, 0, 0, 0.274);
+                border-radius: 4px;
+
+
+                &:focus {
+                    border: none;
+                    outline: 0.2px solid grey;
+
+                }
+            }
+
+            label {
+                margin: 0px;
+            }
         }
+
+
 
         input {
             height: 50px;
