@@ -71,7 +71,7 @@ export default {
 
       const userCred = {
         fullName: userData.name,
-        username: userData.given_name,
+        username: userData.email.substring(0, userData.email.indexOf('@')),
         imgUrl: userData.picture
       }
 
