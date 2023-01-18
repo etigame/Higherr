@@ -1,9 +1,6 @@
 <template>
   <section class="app-home main-layout full">
-
-
     <app-hero @filter="filter"></app-hero>
-
     <div class="trusted-by main-layout full ">
       <div class="logos flex align-center justify-center">
         <span>Trusted By:</span>
@@ -13,8 +10,6 @@
       </div>
     </div>
     <categories-list :type="'card'" @filter="filter" />
-    <!-- <categories-list :type="'card'" @filter="filter" /> -->
-
     <section class="video-section flex full main-layout">
       <div class="flex video-layout">
         <div class="site-info">
@@ -51,16 +46,16 @@ import categoriesList from '../cmps/categories-list.vue'
 export default {
   name: 'app-home',
   components: { categoriesList, appHero },
-
   data() {
     return {
-      // pageText: [
-      //   { title: 'The best for every budget', text: ' Find high-quality services at every price point. No hourly rates, just project-based pricing.' },
-      //   { title: 'Quality work done quickly', text: ' Find the right freelancer to begin working on your project within minutes.' },
-      //   { title: 'Protected payments, every time', text: " Always know what you'll pay upfront. Your payment isn't released until you approve the work." },
-      //   { title: 'Quality work done quickly', text: ' Find the right freelancer to begin working on your project within minutes.' },
-      // ]
-
+      filterBy: {
+        title: '',
+        category: '',
+        subCategory: '',
+        min: null,
+        max: null,
+        delivery: '',
+      },
     }
   },
   computed: {
@@ -75,22 +70,9 @@ export default {
     getLogos() {
       return ['https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/fdbg9kvjrydeqaere8sn.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/hgxyurzmqgdevqmg979v.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/ktprdhufw3xhhsrgd5ij.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/sj7qx56f9tkb3vthvtbl.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/dnvcm1ob8c9r0azmzk2g.png']
     }
-
   },
   created() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  },
-  data() {
-    return {
-      filterBy: {
-        title: '',
-        category: '',
-        subCategory: '',
-        min: null,
-        max: null,
-        delivery: '',
-      },
-    }
   },
   methods: {
     filter(filterBy = this.filterBy) {
@@ -98,6 +80,5 @@ export default {
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
   }
-
 }
 </script>

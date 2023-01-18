@@ -8,14 +8,12 @@
                 </li>
             </ul>
         </section>
-
         <section class="details-container flex">
             <section id="overview" class="main">
                 <p class="title">{{ gig.title }}</p>
                 <user-preview :type="'sellerShort'" :gig="gig" />
                 <section class="gig-gallery">
                     <section class="slideshow">
-
                         <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
                             @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
                             :slide-ratio="(48 / 67)">
@@ -33,7 +31,6 @@
                                 </vueper-slide>
                             </vueper-slides>
                         </div>
-
                     </section>
                 </section>
                 <section class="package-container-narrow">
@@ -50,16 +47,13 @@
                         <review-list :type="'reviewSnippet'" :reviews="gig.reviewers" />
                     </section>
                 </section>
-
                 <section class="gig-desc">
                     <h2>About This Gig</h2>
                     <p>{{ gig.description }}</p>
                 </section>
-
                 <section id="aboutSeller" class="seller-preview">
                     <h2>About The Seller</h2>
                     <user-preview :type="'sellerLong'" :gig="gig" />
-
                     <section class="seller-details-container">
                         <section class="seller-stat">
                             <ul class="grid clean-list user-info">
@@ -69,24 +63,19 @@
                                 </li>
                             </ul>
                         </section>
-
                         <section class="seller-desc">
                             <p>{{ seller.description }}</p>
                         </section>
                     </section>
                 </section>
-
                 <section id="reviews" class="reviews-container" v-if="gig.reviewers">
                     <reviews-stat :gig="gig" />
                     <review-list :type="'reviewLong'" :reviews="gig.reviewers" />
                 </section>
-
             </section>
-
             <section class="package-container">
                 <gig-package :gig="gig" />
             </section>
-            <!-- <chat-seller :gig="gig" /> -->
         </section>
     </section>
 </template>
@@ -96,9 +85,8 @@ import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
-import chatSeller from '../cmps/chat.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
-import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
+import { socketService, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
 
 export default {
     name: 'gig-details',
@@ -107,7 +95,6 @@ export default {
         userPreview,
         reviewList,
         reviewsStat,
-        chatSeller,
         VueperSlides,
         VueperSlide
     },
@@ -147,15 +134,9 @@ export default {
         await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.gig.owner._id })
         this.seller = this.$store.getters.watchedUser
         socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
-
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },
-    unmounted() {
-        // socketService.terminate()
-    },
     computed: {
-
-
         sellerStats() {
             return [
                 { key: 'From', value: this.seller.location },
@@ -163,19 +144,7 @@ export default {
                 { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: `${this.seller.lastDelivery ? this.seller.lastDelivery : "---"}` },
             ]
-
-            // return [
-            //     { key: 'From', value: this.seller.location },
-            //     { key: 'Member since', value: this.seller.memberSince },
-            //     { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
-            //     { key: 'Last delivery', value: this.seller.lastDelivery },
-            // ]
         },
-
-        // displayDescription() {
-        //     return this.gig.description.replace(/\\n/g, '\n')
-        // }
-
     },
 }
 </script>

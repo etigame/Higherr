@@ -12,15 +12,9 @@
         <div class="advanced-input">
           <button class="clear-filter-btn bold" @click="clearAllFilter" style="font-size: 16px; color: #222325">Clear
             Filter</button>
-          <!-- <el-select v-model="filterBy.category" @change="filter()" class="m-2 category-input" placeholder="Category"
-            size="large">
-            <el-option v-for="item in options" :label="item.label" :value="item.value" />
-          </el-select> -->
-
 
           <div @click="toggleBudget" class="budget-input-1 flex">
             <p class="bold">Budget</p>
-
             <div class="drop-arrow">
               <span v-if="!budgetDrop" v-icon="'dropDown'">
               </span>
@@ -67,6 +61,7 @@
             <h4>Online sellers</h4>
           </div>
         </div>
+
       </section>
     </section>
 
@@ -139,8 +134,6 @@ export default {
           label: 'Anytime',
         },
       ]
-
-
     }
   },
   mounted() {
@@ -150,7 +143,6 @@ export default {
     window.removeEventListener("scroll", this.onScroll)
   },
   computed: {
-
     gigs() {
       return this.$store.getters.gigs
     },
@@ -175,16 +167,10 @@ export default {
   },
   methods: {
 
-    // sort(sortBy = this.sortBy) {
-    //   this.$router.push({ name: 'app-explore-list', query: { ...this.filterBy } })
-    //   this.$store.commit({ type: 'setSort', sortBy: sortBy })
-    // },
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-
-
     clearBudget() {
       this.budgetDrop = false
       this.filterBy.min = ''
@@ -214,9 +200,5 @@ export default {
       this.isShadow = this.windowTop > 170 ? true : false
     },
   },
-
-
-
-
 }
 </script>

@@ -7,7 +7,6 @@
         @closeOrderNotification="closeOrderNotification" @closeDashboardNotification="closeDashboardNotification" />
       <categories-list :type="'tag'" @filter="filter" />
     </section>
-
     <main class="app-container main-layout full">
       <router-view />
     </main>
@@ -17,7 +16,6 @@
 
 <script>
 
-
 import { store } from './store/store'
 import appHeader from './cmps/app-header.vue'
 import userMsg from './cmps/user-msg.vue'
@@ -26,19 +24,20 @@ import appFooter from './cmps/app-footer.vue'
 import { userService } from './services/user-service'
 import popupContent from './cmps/UI/popup-content.vue'
 import { socketService } from './services/socket-service'
-import { eventBus, showSuccessMsg } from './services/event-bus-service'
-import { utilService } from './services/util-service'
+import { showSuccessMsg } from './services/event-bus-service'
+
 
 export default {
-  created() {
+  async created() {
     console.log("Check out Higherr on Github!")
     console.log("https://github.com/etigame/Higherr")
-    if (userService.getLoggedInUser()) socketService.emit('set-user-socket', userService.getLoggedInUser())
+    const user = await userService.getLoggedInUser()
+    if (user) socketService.emit('set-user-socket', user)
 
     this.$store.dispatch({ type: 'loadGigs' })
     this.$store.dispatch({ type: 'loadOrders' })
 
-    const user = userService.getLoggedInUser()
+
     if (user) store.commit({ type: 'setLoggedInUser', user })
 
     socketService.on('user-is-watching', (msg) => {
@@ -79,7 +78,6 @@ export default {
     filter(filterBy = this.filterBy) {
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
       this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
-      // this.$router.push({ name: 'app-explore-list', query: JSON.parse(JSON.stringify(filterBy)) })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
     closeOrderNotification() {
@@ -102,7 +100,6 @@ export default {
     categoriesList,
     appFooter,
     popupContent
-
   },
 }
 </script>

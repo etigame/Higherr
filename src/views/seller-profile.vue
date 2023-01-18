@@ -1,16 +1,12 @@
 <template>
     <section v-if="user && gigs" class="seller-profile flex space-between main-layout full">
         <section class="content-wrapper flex space-between">
-
             <div class="profile-container">
                 <div class="user-info">
-
                     <div class="img-container">
                         <img :src="user.imgUrl" />
                     </div>
                     <h2>{{ user.username }}</h2>
-
-
                     <div class="user-stats">
                         <ul>
                             <li class="flex space-between">
@@ -28,7 +24,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="description-container">
                     <ul>
                         <li>
@@ -37,19 +32,12 @@
                         </li>
                     </ul>
                 </div>
-
-                <button @click="toggleChat" class="chat-seller-btn">Messages</button>
+                <button class="chat-seller-btn">Messages</button>
             </div>
-
-            <!-- <section class="chat-modal" v-if="gigsByUser">
-                <chatVue :gig="randomGig" />
-            </section> -->
-
             <div class="gigs-status">
                 <ul class="status-filter-bar flex align-center">
                     <li>Active Gigs</li>
                 </ul>
-
                 <div class="gigs-list flex">
                     <div @click="editGig" class="add-gig  flex justify-center align-center">
                         <div class="flex column align-center">
@@ -59,10 +47,7 @@
                     </div>
                     <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigs" :gig="gig" />
                 </div>
-
             </div>
-
-
         </section>
     </section>
 </template>
@@ -86,7 +71,6 @@ export default {
         }
     },
     async created() {
-
         const _id = this.$route.params.loggedUser._id
         await this.$store.dispatch({ type: 'loadAndWatchUser', userId: _id })
         this.user = this.$store.getters.watchedUser
@@ -99,21 +83,10 @@ export default {
         async removeGig(gigId) {
             await this.$store.dispatch({ type: 'removeGig', gigId })
             this.gigs = this.$store.getters.gigsByUser
-
         },
         editGig() {
-
             this.$router.push({ name: 'gig-edit', query: { ...this.loggedUser } })
         },
-        toggleChat() {
-            this.isChatOpen = !this.isChatOpen
-        }
     },
-    // computed: {
-    //     gigs() {
-    //         return this.$store.getters.gigsByUser
-    //     }
-    // }
 }
-
 </script>
