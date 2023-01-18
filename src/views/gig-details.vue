@@ -89,6 +89,8 @@
             <!-- <chat-seller :gig="gig" /> -->
         </section>
     </section>
+
+    <skeleton v-else />
 </template>
 
 <script>
@@ -97,6 +99,7 @@ import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
 import chatSeller from '../cmps/chat.vue'
+import skeleton from './skeleton.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
 
@@ -108,6 +111,7 @@ export default {
         reviewList,
         reviewsStat,
         chatSeller,
+        skeleton,
         VueperSlides,
         VueperSlide
     },
