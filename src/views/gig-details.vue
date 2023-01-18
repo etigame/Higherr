@@ -17,15 +17,15 @@
                         <vueper-slides ref="vueperslides1" :touchable="false" :autoplay="false" :bullets="false"
                             @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
                             :slide-ratio="(48 / 67)">
-                            <vueper-slide v-for="image in gig.image" :key="1" :image="image" style="cursor: pointer">
+                            <vueper-slide v-for="image in gig.images" :key="1" :image="image" style="cursor: pointer">
                             </vueper-slide>
                         </vueper-slides>
                         <div class="thumbnails-slider">
                             <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
                                 @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
-                                :visible-slides="gig.image.length" :fixed-height="'90px'" :bullets="false"
+                                :visible-slides="gig.images.length" :fixed-height="'90px'" :bullets="false"
                                 :touchable="false" :gap="1" :arrows="false" :breakpoints="breakpoints">
-                                <vueper-slide v-for="(image, i) in gig.image" :slide-ratio="(48 / 67)" :key="i"
+                                <vueper-slide v-for="(image, i) in gig.images" :slide-ratio="(48 / 67)" :key="i"
                                     :image="image" style="cursor:pointer"
                                     @click.native="$refs.vueperslides2.goToSlide(i)">
                                 </vueper-slide>
@@ -137,8 +137,8 @@ export default {
         const { _id } = this.$route.params
         await this.$store.dispatch({ type: "loadGig", gigId: _id })
         this.gig = this.$store.getters.selectedGig
-        await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.gig.owner._id })
-        this.seller = this.$store.getters.watchedUser
+        await this.$store.dispatch({ type: "loadUser", userId: this.gig.owner._id })
+        this.seller = this.$store.getters.user
         socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },

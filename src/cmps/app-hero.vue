@@ -25,19 +25,24 @@
         <div class="hero-info flex">
             <Transition>
                 <p v-if="(idx === 0)">
-                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }}, <span> {{ getHeroJob
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }}, <span> {{
+                    getHeroJob
                 }}</span></p>
                 <p v-else-if="(idx === 1)">
-                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{
+                    getHeroJob
                 }}</span></p>
                 <p v-else-if="(idx === 2)">
-                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{
+                    getHeroJob
                 }}</span></p>
                 <p v-else-if="(idx === 3)">
-                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{
+                    getHeroJob
                 }}</span></p>
                 <p v-else-if="(idx === 4)">
-                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{ getHeroJob
+                <div><span v-for="n in getRate" v-icon="'star'"></span></div>{{ getHeroName }},<span>{{
+                    getHeroJob
                 }}</span></p>
             </Transition>
         </div>
@@ -49,9 +54,8 @@
 <script>
 
 import heroSearch from "./hero-search.vue"
-import categoriesService from "../services/categories-service.js"
-import heroService from "../services/hero-service.js"
-
+import categoriesService from "../data/gig-categories"
+import heroService from "../data/heroes.js"
 
 
 export default {

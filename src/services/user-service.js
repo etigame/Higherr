@@ -41,7 +41,7 @@ function getUsers() {
 
 function onUserUpdate(user) {
   showSuccessMsg(`This user ${user.username} just got updated from socket`)
-  store.commit({ type: 'setWatchedUser', user })
+  store.commit({ type: 'setUser', user })
 }
 
 function getById(userId) {

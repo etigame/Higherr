@@ -45,7 +45,7 @@
                             <p>Create a new Gig</p>
                         </div>
                     </div>
-                    <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigs" :gig="gig" />
+                    <gig-preview-seller @gigRemoved="removeGig" v-for="gig in gigs" :images="gig.images" :gig="gig" />
                 </div>
             </div>
         </section>
@@ -72,8 +72,8 @@ export default {
     },
     async created() {
         const _id = this.$route.params.loggedUser._id
-        await this.$store.dispatch({ type: 'loadAndWatchUser', userId: _id })
-        this.user = this.$store.getters.watchedUser
+        await this.$store.dispatch({ type: 'loadUser', userId: _id })
+        this.user = this.$store.getters.user
         await this.$store.dispatch({ type: 'loadGigs' })
         this.gigs = this.$store.getters.gigsByUser
         window.scrollTo({ top: 0, behavior: 'smooth' })

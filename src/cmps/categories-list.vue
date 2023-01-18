@@ -24,7 +24,7 @@
                 <div class="flex space-between wide-display">
                     <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)"
                         to="/explore">{{
-                                category.name
+                            category.name
                         }}</router-link>
 
                 </div>
@@ -65,23 +65,20 @@
 
 <script>
 
-import categoriesService from "../services/categories-service.js"
+import categoriesService from "../data/gig-categories"
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
 export default {
     name: 'categories-list',
-
     props: {
         type: {
             type: String,
             required: true,
-
         },
     },
     data() {
         return {
             breakpointsCategories: {
-
                 1200: {
                     visibleSlides: 6
                 },

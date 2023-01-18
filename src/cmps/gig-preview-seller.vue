@@ -3,7 +3,7 @@
 
         <div class="gig-info flex column space-between">
             <div class="img-container">
-                <img ref="img" :src="gig.image[0]"
+                <img ref="img" :src="gig.images[0]"
                     onerror="this.onerror=null;this.src='https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670794425/gigs/twojxakjb7tdlrbinkdq.jpg';" />
 
             </div>

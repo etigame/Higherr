@@ -20,9 +20,11 @@ import { uploadService } from "../services/upload-service.js"
 
 
 export default {
+  props: ['images'],
+
   data() {
     return {
-      images: [],
+      // images: [],
       height: 250,
       width: 500,
       isUploading: false

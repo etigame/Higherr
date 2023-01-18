@@ -5,14 +5,11 @@
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
     </section>
-
     <section class="advanced-filter-container main-layout full" :class="{ shadow: isShadow }">
       <section class="advanced-filter">
-
         <div class="advanced-input">
           <button class="clear-filter-btn bold" @click="clearAllFilter" style="font-size: 16px; color: #222325">Clear
             Filter</button>
-
           <div @click="toggleBudget" class="budget-input-1 flex">
             <p class="bold">Budget</p>
             <div class="drop-arrow">
@@ -42,15 +39,12 @@
               </div>
             </form>
           </div>
-
           <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
             placeholder="Delivery Time" size="large">
             <el-option v-for="item in deliveryOptions" :key="item.value" :label="item.label" :value="item.value"
               class="bold" />
           </el-select>
         </div>
-
-
         <div class="advanced-switches">
           <div class="pro-switch"><el-switch v-model="demoInfo" class="ml-2"
               style="--el-switch-on-color: #1dbf73; --el-switch-off-color: #dadbdd" />
@@ -64,7 +58,6 @@
 
       </section>
     </section>
-
     <div class="sorting-click">
       <div class="flex ">
         <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
@@ -77,13 +70,9 @@
         </el-select>
       </div>
     </div>
-
     <div v-if="gigs" class="gig-list clean-list list-container">
       <gig-preview-explore v-for="gig in gigs" :gig="gig" :key="gig._id" />
-
-
     </div>
-
     <div class="pagination">
       <el-pagination large background layout="prev, pager, next" :total="10" class="mt-3" />
     </div>

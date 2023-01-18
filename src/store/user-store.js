@@ -1,10 +1,5 @@
 import { userService } from '../services/user-service'
-import { utilService } from '../services/util-service'
-import {
-  socketService,
-  SOCKET_EMIT_USER_WATCH,
-  SOCKET_EVENT_USER_UPDATED,
-} from '../services/socket-service'
+import { socketService } from '../services/socket-service'
 
 var localLoggedinUser = null
 
@@ -15,7 +10,7 @@ export const userStore = {
   state: {
     loggedinUser: null,
     users: [],
-    watchedUser: null,
+    user: null,
   },
   getters: {
     users({ users }) {
@@ -24,8 +19,8 @@ export const userStore = {
     loggedinUser({ loggedinUser }) {
       return loggedinUser
     },
-    watchedUser({ watchedUser }) {
-      return watchedUser
+    user({ user }) {
+      return user
     },
   },
   rootGetters: {
@@ -37,8 +32,8 @@ export const userStore = {
     setLoggedInUser(state, { user }) {
       state.loggedinUser = user ? { ...user } : null
     },
-    setWatchedUser(state, { user }) {
-      state.watchedUser = user
+    setUser(state, { user }) {
+      state.user = user
     },
     setUsers(state, { users }) {
       state.users = users
@@ -132,13 +127,13 @@ export const userStore = {
         throw err
       }
     },
-    async loadAndWatchUser({ commit }, { userId }) {
+    async loadUser({ commit }, { userId }) {
       try {
         const user = await userService.getById(userId)
 
-        commit({ type: 'setWatchedUser', user })
+        commit({ type: 'setUser', user })
       } catch (err) {
-        console.log('userStore: Error in loadAndWatchUser', err)
+        console.log('userStore: Error in loadUser', err)
         throw err
       }
     },
@@ -159,11 +154,6 @@ export const userStore = {
         console.log('userStore: Error in updateUsers', err)
         throw err
       }
-    },
-
-    // Keep this action for compatability with a common user.service ReactJS/VueJS
-    setWatchedUser({ commit }, payload) {
-      commit(payload)
     },
   },
 }

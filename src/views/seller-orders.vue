@@ -54,7 +54,6 @@
                     <span class="light">Completed Orders </span>
                     <h3 v-if="(orders.length > 0)">{{ annualOrdersComplete }}</h3>
                 </div>
-
                 <div class="dashboard-item">
                     <span class="light">Pending Orders </span>
                     <h3 v-if="(orders.length > 0)">{{ pendingOrders }}</h3>
@@ -125,9 +124,6 @@ export default {
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
             socketService.emit('order-change-status', this.selectedOrder.buyer)
         },
-        toLocalTime(time) {
-            return new Date(time)
-        },
     },
     computed: {
         orders() {
@@ -146,7 +142,6 @@ export default {
                 if (order.status === "Completed") { income += order.gig.price }
             })
             return income
-
         },
         pendingOrders() {
             var pending = 0
@@ -154,7 +149,6 @@ export default {
                 if (order.status === "Pending") { pending++ }
             })
             return pending
-
         },
         annualOrdersComplete() {
             var complete = 0

@@ -101,7 +101,7 @@
                     <p class="gig-title">{{ order.gig.name }}</p>
                   </router-link>
                   <div class="seller-status">
-                    <span>by {{ order.seller.fullname }}</span>
+                    <span>by {{ order.seller.username }}</span>
                     <span class="status" :class="className(order.status)">{{ order.status }}</span>
                   </div>
                 </div>

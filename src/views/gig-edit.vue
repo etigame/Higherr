@@ -55,7 +55,7 @@
                 <span>Upload Images
                     <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
                 </span>
-                <img-uploader @uploaded="onUploaded"></img-uploader>
+                <img-uploader @uploaded="onUploaded" :images="gigToEdit.images"></img-uploader>
             </div>
         </form>
         <div class="btns flex space-between">
@@ -79,10 +79,11 @@ export default {
         if (_id) {
             gigService.getById(_id).then((gig) => {
                 this.gigToEdit = gig
+                console.log(this.gigToEdit)
             })
         }
         else {
-            this.gigToEdit = gigService.getEmptyGig({ ...owner, level: this.user.level, rate: this.user.rate })
+            this.gigToEdit = gigService.getEmptyGig({ owner: { _id: this.user._id, username: this.user.username, level: this.user.level, rate: this.user.rate } })
         }
     },
     data() {
@@ -97,7 +98,7 @@ export default {
             this.$router.push('/seller/profile')
         },
         onUploaded(images) {
-            this.gigToEdit.image = images
+            this.gigToEdit.images = images
         },
         returnToProfile() {
             this.$router.push('/seller/profile')
