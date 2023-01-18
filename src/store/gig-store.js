@@ -59,8 +59,6 @@ export const gigStore = {
         sortedGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
       }
 
-      console.log(sortedGigs)
-
       var filteredGigs = sortedGigs
       const regex = new RegExp(filterBy.title, 'i')
       filteredGigs = sortedGigs.filter((gig) => regex.test(gig.title))

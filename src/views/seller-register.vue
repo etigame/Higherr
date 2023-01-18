@@ -21,7 +21,7 @@
             </label>
 
 
-            <label v-if="!userToEdit.username">
+            <label v-if="!userToEdit._id">
                 <span class="flex-column">Password
                     <p>4 characters or more</p>
                 </span>

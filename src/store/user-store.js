@@ -58,7 +58,7 @@ export const userStore = {
       try {
         const user = await userService.login(userCred)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.login(localLoggedInUser)
 
@@ -72,7 +72,7 @@ export const userStore = {
       try {
         const user = await userService.loginViaGoogle(userCred)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.login(localLoggedInUser)
 
@@ -86,7 +86,7 @@ export const userStore = {
       try {
         await userService.signup(user)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.signup(localLoggedInUser)
 
@@ -102,7 +102,7 @@ export const userStore = {
       try {
         await userService.signupViaGoogle(user)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.signup(localLoggedInUser)
 

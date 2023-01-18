@@ -12,8 +12,8 @@
         <p v-if="loggedInUser">{{ loggedInUser.username }}</p>
       </div>
 
-      <router-link v-if="loggedInUser" to="/seller/profile">Profile</router-link>
-      <router-link v-if="loggedInUser" to="/seller/orders">Dashboard</router-link>
+      <router-link v-if="loggedInUser.isSeller" to="/seller/profile">Profile</router-link>
+      <router-link v-if="loggedInUser.isSeller" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
       <div class="orders-container" v-if="(loggedInUser && orders)">
@@ -118,9 +118,10 @@
             <div v-if="modalOpen" class="user-modal flex" v-clickOutside="toggleUserModal">
               <div class="modal-tip"></div>
 
-              <router-link to="/seller/profile" class=" light">Profile</router-link>
+              <router-link v-if="loggedInUser.isSeller" to="/seller/profile" class=" light">Profile</router-link>
               <div v-if="isActiveDashboard" class="notification-dashboard"></div>
-              <router-link to="/seller/orders" @click="closeActiveDashboard">Dashboard</router-link>
+              <router-link v-if="loggedInUser.isSeller" to="/seller/orders"
+                @click="closeActiveDashboard">Dashboard</router-link>
               <a @click="doLogout">Logout</a>
             </div>
           </div>
@@ -141,6 +142,7 @@ import signup from './signup.vue'
 import login from './login.vue'
 import headerSearch from './header-search.vue'
 import { eventBus } from '../services/event-bus-service.js'
+
 
 
 export default {
@@ -171,6 +173,7 @@ export default {
       menuOpen: false,
     }
   },
+
   mounted() {
     window.addEventListener("scroll", this.onScroll)
   },
@@ -178,6 +181,14 @@ export default {
     window.removeEventListener("scroll", this.onScroll)
   },
   methods: {
+    // async getloggedInUser() {
+    //   if (this.$store.getters.loggedinUser) {
+    //     const user = this.$store.getters.loggedinUser
+    //     await userService.getById(user._id).then((user) => this.loggedInUser = user)
+    //     console.log(this.loggedInUser)
+    //   }
+    //   else return null
+    // },
     filter(title) {
       this.filterBy.title = title
       this.$emit('filter', { ...this.filterBy })
@@ -226,6 +237,7 @@ export default {
 
   },
   computed: {
+
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
@@ -245,5 +257,6 @@ export default {
     },
   }
 }
+
 
 </script>

@@ -31,6 +31,8 @@ import { utilService } from './services/util-service'
 
 export default {
   created() {
+    console.log("Check out Higherr on Github!")
+    console.log("https://github.com/etigame/Higherr")
     if (userService.getLoggedInUser()) socketService.emit('set-user-socket', userService.getLoggedInUser())
 
     this.$store.dispatch({ type: 'loadGigs' })

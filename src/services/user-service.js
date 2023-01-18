@@ -44,9 +44,8 @@ function onUserUpdate(user) {
   store.commit({ type: 'setWatchedUser', user })
 }
 
-async function getById(userId) {
-  const user = await httpService.get(USER_URL + userId)
-  return user
+function getById(userId) {
+  return httpService.get(USER_URL + userId)
 }
 
 function remove(userId) {
@@ -107,7 +106,9 @@ function setLoggedInUser(user) {
 }
 
 function getLoggedInUser() {
-  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  const miniUser = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  if (!miniUser) return
+  return getById(miniUser._id)
 }
 
 function saveUser(user) {
@@ -117,7 +118,7 @@ function saveUser(user) {
 
 function createEmptyUser() {
   const user = {
-    fulllname: '',
+    fullname: '',
     username: '',
     password: '',
     imgUrl:

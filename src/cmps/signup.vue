@@ -72,9 +72,11 @@ export default {
       console.log("Handle the userData", userData)
 
       const userCred = {
-        fullName: userData.name,
+        fullname: userData.name,
         username: userData.email.substring(0, userData.email.indexOf('@')),
-        imgUrl: userData.picture
+        imgUrl: userData.picture,
+        memberSince: this.signupCred.memberSince,
+        isSeller: this.signupCred.isSeller
       }
 
       this.$router.push('/explore')
