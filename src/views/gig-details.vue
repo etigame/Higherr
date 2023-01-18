@@ -78,6 +78,8 @@
             </section>
         </section>
     </section>
+
+    <skeleton v-else />
 </template>
 
 <script>
@@ -85,6 +87,8 @@ import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
+import chatSeller from '../cmps/chat.vue'
+import skeleton from './skeleton.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import { socketService, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
 
@@ -95,6 +99,8 @@ export default {
         userPreview,
         reviewList,
         reviewsStat,
+        chatSeller,
+        skeleton,
         VueperSlides,
         VueperSlide
     },
