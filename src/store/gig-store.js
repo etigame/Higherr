@@ -1,5 +1,4 @@
 import { gigService } from '../services/gig-service'
-// import { userStore } from '../store/user-store.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -7,12 +6,14 @@ export function getActionRemoveGig(gigId) {
     gigId,
   }
 }
+
 export function getActionAddGig(gig) {
   return {
     type: 'addGig',
     gig,
   }
 }
+
 export function getActionUpdateGig(gig) {
   return {
     type: 'updateGig',
@@ -24,7 +25,6 @@ export const gigStore = {
   state: {
     gigs: null,
     selectedGig: null,
-
     filterBy: {
       sort_by: 'relevance',
       title: '',
@@ -38,16 +38,16 @@ export const gigStore = {
   getters: {
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
-      var filteredGigs = gigs.filter((gig) => {
-        return gig.owner._id === user._id
-      })
+      var filteredGigs = gigs.filter(gig => gig.owner._id === user._id)
+
       if (!filteredGigs.length) return []
-      else return filteredGigs
+      return filteredGigs
     },
 
     selectedGig({ selectedGig }) {
       return selectedGig
     },
+
     gigs({ gigs, filterBy }) {
       var sortedGigs = [...gigs]
 
@@ -61,57 +61,53 @@ export const gigStore = {
 
       var filteredGigs = sortedGigs
       const regex = new RegExp(filterBy.title, 'i')
-      filteredGigs = sortedGigs.filter((gig) => regex.test(gig.title))
+      filteredGigs = filteredGigs.filter(gig => regex.test(gig.title))
 
       if (filterBy.category)
-        filteredGigs = filteredGigs.filter(
-          (gig) => gig.category === filterBy.category
-        )
+        filteredGigs = filteredGigs.filter(gig => gig.category === filterBy.category)
 
-      if (filterBy.subCategory)
-        filteredGigs = filteredGigs.filter(
-          (gig) => gig.subCategory === filterBy.subCategory
-        )
+      if (filterBy.subCategory) 
+        filteredGigs = filteredGigs.filter(gig => gig.subCategory === filterBy.subCategory)
 
       if (filterBy.min)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) >= filterBy.min
-        )
+        filteredGigs = filteredGigs.filter(gig => parseInt(gig.price) >= filterBy.min)
+      
       if (filterBy.max)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) <= filterBy.max
-        )
+        filteredGigs = filteredGigs.filter(gig => parseInt(gig.price) <= filterBy.max)
+
       if (filterBy.delivery)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
-        )
+        filteredGigs = filteredGigs.filter(gig => parseInt(gig.daysToMake) <= filterBy.delivery)
 
       return filteredGigs
     },
   },
+
   mutations: {
-    // setSort(state, { sortBy }) {
-    //   state.sortBy = sortBy
-    // },
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
+
     setSelectedGig(state, { gig }) {
       state.selectedGig = gig
     },
+
     setGigs(state, { gigs }) {
       state.gigs = gigs
     },
+
     addGig(state, { gig }) {
       state.gigs.push(gig)
     },
+
     updateGig(state, { gig }) {
-      const idx = state.gigs.findIndex((c) => c.id === gig._id)
+      const idx = state.gigs.findIndex(gig => gig.id === gig._id)
       state.gigs.splice(idx, 1, gig)
     },
+
     removeGig(state, { gigId }) {
-      state.gigs = state.gigs.filter((gig) => gig._id !== gigId)
+      state.gigs = state.gigs.filter(gig => gig._id !== gigId)
     },
+
     addGigMsg(state, { gigId, msg }) {
       const gig = state.gigs.find((gig) => gig._id === gigId)
       if (!gig.msgs) gig.msgs = []

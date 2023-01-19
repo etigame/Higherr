@@ -10,8 +10,5 @@ export const store = Vuex.createStore({
     userStore,
     gigStore,
     orderStore,
-  },
-  state: {},
-  mutations: {},
-  actions: {},
+  }
 })
