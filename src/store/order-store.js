@@ -5,39 +5,42 @@ export const orderStore = {
   state: {
     orders: [],
   },
+
   getters: {
     sellerOrders({ orders }) {
       const filteredOrders = orders.filter(
-        (order) => order.seller._id === userStore.state.loggedinUser._id
+        order => order.seller._id === userStore.state.loggedinUser._id
       )
       return filteredOrders
     },
+
     buyerOrders({ orders }) {
       const filteredOrders = orders.filter(
-        (order) => order.buyer._id === userStore.state.loggedinUser._id
+        order => order.buyer._id === userStore.state.loggedinUser._id
       )
       return filteredOrders
     },
-    // orders({ orders }) {
-    //   return orders
-    // },
   },
+
   mutations: {
     setOrders(state, { orders }) {
       state.orders = orders
     },
+
     saveOrder(state, { order }) {
-      const idx = state.orders.findIndex((o) => o._id === order._id)
+      const idx = state.orders.findIndex(o => o._id === order._id)
       if (idx !== -1) {
         state.orders.splice(idx, 1, order)
         return
       }
       state.orders.unshift(order)
     },
+
     removeOrder(state, { orderId }) {
-      state.orders = state.orders.filter((order) => order._id !== orderId)
+      state.orders = state.orders.filter(order => order._id !== orderId)
     },
   },
+
   actions: {
     async saveOrder(context, { order }) {
       try {
@@ -49,6 +52,7 @@ export const orderStore = {
         throw err
       }
     },
+
     async loadOrders(context) {
       try {
         const orders = await orderService.query()
@@ -58,6 +62,7 @@ export const orderStore = {
         throw err
       }
     },
+    
     async removeOrder(context, { orderId }) {
       try {
         await orderService.remove(orderId)
