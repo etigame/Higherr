@@ -1,11 +1,6 @@
 import { userService } from '../services/user-service'
 import { socketService } from '../services/socket-service'
 
-// var localLoggedinUser = null
-
-// if (sessionStorage.user)
-//   localLoggedinUser = JSON.parse(sessionStorage.user || null)
-
 export const userStore = {
   state: {
     loggedinUser: null,
@@ -47,13 +42,13 @@ export const userStore = {
     },
 
     updateUsers(state, { user }) {
-      const idx = state.users.findIndex(u => u._id === user._id)
+      const idx = state.users.findIndex((u) => u._id === user._id)
       if (idx !== -1) state.users.splice(idx, 1, user)
       else state.users.push(user)
     },
 
     removeUser(state, { userId }) {
-      state.users = state.users.filter(user => user._id !== userId)
+      state.users = state.users.filter((user) => user._id !== userId)
     },
   },
 
@@ -158,7 +153,7 @@ export const userStore = {
         throw err
       }
     },
-    
+
     async updateUsers({ commit }, { user }) {
       try {
         await userService.saveUser(user)

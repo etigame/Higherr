@@ -27,7 +27,7 @@ export default {
   },
 
   created() {
-    this.unsubscribe = eventBus.on('get-cmp', this.getCmp)
+    eventBus.on('get-cmp', this.getCmp)
   },
 
   methods: {
@@ -39,9 +39,6 @@ export default {
       this.currComponent = null
     },
 
-    unmounted() {
-      this.unsubscribe()
-    },
   },
 }
 </script>

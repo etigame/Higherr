@@ -3,7 +3,7 @@
 
     <!-- SIDE-MENU ON MOBILE-SCREEN -->
     <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
-      <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
+
 
       <div v-if="!loggedInUser" @click="login"><a>Sign In</a></div>
       <div v-if="!loggedInUser" @click="register"><a>Join</a></div>
@@ -13,6 +13,7 @@
         </div>
         <p v-if="loggedInUser">{{ loggedInUser.username }}</p>
       </div>
+      <router-link to="/explore" class="btn txt">Explore</router-link>
       <div v-if="(!loggedInUser || !loggedInUser.isSeller)" @click="registerSeller"><a>Become a Seller</a></div>
       <router-link v-if="(loggedInUser && loggedInUser.isSeller)" to="/seller/profile">Profile</router-link>
       <router-link v-if="(loggedInUser && loggedInUser.isSeller)" to="/seller/orders">Dashboard</router-link>

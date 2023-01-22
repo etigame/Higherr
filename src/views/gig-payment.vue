@@ -94,7 +94,7 @@ export default {
                     "_id": this.gig._id,
                     "name": this.gig.title,
                     "price": this.gig.price,
-                    "img": this.gig.image[0]
+                    "img": this.gig.images[0]
                 },
                 "status": "Pending",
             }
