@@ -54,14 +54,12 @@
 
 <script>
 import gigPreviewSeller from "../cmps/gig-preview-seller.vue"
-import chatVue from '../cmps/chat.vue'
 
 export default {
     name: 'seller-profile',
     props: ['loggedUser'],
     components: {
         gigPreviewSeller,
-        chatVue
     },
     data() {
         return {

@@ -9,26 +9,32 @@
                 <span class="table-span regular">{{ order.gig.name }}</span>
             </div>
             <div class="due-on-col flex column">
-                <span class="table-span regular">{{ new Date(order.createdAt).toLocaleDateString() }}</span>
+                <span class="table-span regular">
+                    {{ new Date(order.createdAt).toLocaleDateString() }}
+                </span>
             </div>
             <div class="total-col flex column">
                 <span class="table-span regular">US${{ order.gig.price }}</span>
             </div>
             <div @click="toggleSet()" class="status-col flex column">
-                <div class=" status flex" :class="className(order.status)">
+                <div class="status flex" :class="className(order.status)">
                     <span class="regular">{{ order.status }}</span>
                 </div>
             </div>
             <div>
                 <div v-if="setOpen" class="set-status" v-clickOutside="toggleSet">
-                    <div class="completed status " @click="changeStatus('Completed')">Completed</div>
-                    <div class="in-progress status" @click="changeStatus('In Progress')">In Progress</div>
-                    <div class="rejected status" @click="changeStatus('Rejected')">Rejected</div>
+                    <div class="completed status" @click="changeStatus('Completed')">
+                        Completed
+                    </div>
+                    <div class="in-progress status" @click="changeStatus('In Progress')">
+                        In Progress
+                    </div>
+                    <div class="rejected status" @click="changeStatus('Rejected')">
+                        Rejected
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </section>
 </template>
 
@@ -58,6 +64,4 @@ export default {
         },
     },
 }
-
-
 </script>

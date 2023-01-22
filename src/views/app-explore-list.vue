@@ -93,7 +93,6 @@ export default {
   data() {
     return {
       filterBy: {},
-
       budgetDrop: false,
       demoInfo: true,
       demoInfo1: false,

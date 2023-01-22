@@ -87,10 +87,10 @@ import gigPackage from '../cmps/gig-package.vue'
 import userPreview from '../cmps/user-preview.vue'
 import reviewList from '../cmps/review-list.vue'
 import reviewsStat from '../cmps/reviews-stat.vue'
-import chatSeller from '../cmps/chat.vue'
 import skeleton from './skeleton.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import { socketService, SOCKET_EMIT_USER_WATCH } from '../services/socket-service'
+import { store } from '../store/store'
 
 export default {
     name: 'gig-details',
@@ -99,7 +99,6 @@ export default {
         userPreview,
         reviewList,
         reviewsStat,
-        chatSeller,
         skeleton,
         VueperSlides,
         VueperSlide
@@ -139,7 +138,9 @@ export default {
         this.gig = this.$store.getters.selectedGig
         await this.$store.dispatch({ type: "loadUser", userId: this.gig.owner._id })
         this.seller = this.$store.getters.user
-        socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
+
+        if (this.loggedInUser._id !== this.gig.owner._id) socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
+
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     computed: {
@@ -150,6 +151,9 @@ export default {
                 { key: 'Avg. response time', value: this.seller.avgResponseTime + `${this.seller.avgResponseTime > 1 ? ' hours' : ' hour'}` },
                 { key: 'Last delivery', value: `${this.seller.lastDelivery ? this.seller.lastDelivery : "---"}` },
             ]
+        },
+        loggedInUser() {
+            return this.$store.getters.loggedinUser
         },
     },
 }

@@ -1,9 +1,7 @@
 <template>
-
     <section class="categories-list main-layout full">
-
         <section v-if="(type === 'tag')" class="type-tag main-layout full" :class="{ shown: isCategoriesShown }">
-            <section class="vuper-display ">
+            <section class="vuper-display">
                 <vueper-slides class="no-shadow" ref="vueperslides2" :slide-ratio="1 / 8" :touchable="false"
                     @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
                     :breakpoints="breakpointsCategories" :visible-slides="5" fixed-height="40px"
@@ -20,21 +18,18 @@
                     </vueper-slide>
                 </vueper-slides>
             </section>
+
             <section>
                 <div class="flex space-between wide-display">
                     <router-link v-for="category in categories" @click="categoryFilter(`${category.name}`)"
-                        to="/explore">{{
-                            category.name
-                        }}</router-link>
-
+                        to="/explore">
+                        {{ category.name }}
+                    </router-link>
                 </div>
-
             </section>
         </section>
 
-
-
-        <section v-if="(type === 'card')" class="type-card ">
+        <section v-if="(type === 'card')" class="type-card">
             <div>
                 <h1>Popular professional services</h1>
                 <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple
@@ -52,16 +47,11 @@
                     <h4 class="regular">{{ category.name }}</h4>
                 </div>
             </span>
-
         </section>
-
-
-
     </section>
 </template>
 
 <script>
-
 import categoriesService from "../data/gig-categories"
 import { VueperSlides, VueperSlide } from 'vueperslides'
 
@@ -94,7 +84,6 @@ export default {
                 },
             },
             breakpointsCards: {
-
                 1000: {
                     visibleSlides: 4,
                     slideRatio: 2 / 5,
@@ -122,11 +111,7 @@ export default {
         window.removeEventListener("scroll", this.onScroll)
     },
     computed: {
-        getImage(item) {
-            return {
-                backgroundImage: url(item.imageUrl)
-            }
-        },
+
         categories() {
             return categoriesService.categories
         },
@@ -143,9 +128,11 @@ export default {
             this.filterBy.subCategory = tag
             this.filter()
         },
+
         filter() {
             this.$emit('filter', { ...this.filterBy })
         },
+
         onScroll(e) {
             if (this.$route.path !== '/') return
             this.windowTop = window.top.scrollY
@@ -165,5 +152,4 @@ export default {
         VueperSlide
     },
 }
-
 </script>
