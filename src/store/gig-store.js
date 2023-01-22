@@ -24,9 +24,8 @@ export const gigStore = {
   state: {
     gigs: null,
     selectedGig: null,
-
     filterBy: {
-      sort_by: 'relevance',
+      sortBy: '',
       title: '',
       category: '',
       subCategory: '',
@@ -36,6 +35,14 @@ export const gigStore = {
     },
   },
   getters: {
+    filterBy({ filterBy }) {
+      const filters = { ...filterBy }
+      for (const key in filters) {
+        if (!filters[key]) delete filters[key]
+      }
+      return filters
+    },
+
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
       var filteredGigs = gigs.filter((gig) => {
@@ -49,19 +56,11 @@ export const gigStore = {
       return selectedGig
     },
     gigs({ gigs, filterBy }) {
-      var sortedGigs = [...gigs]
+      if (!gigs) return null
 
-      if (filterBy.sort_by === 'rating') {
-        sortedGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
-      }
-
-      if (filterBy.sort_by === 'level') {
-        sortedGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
-      }
-
-      var filteredGigs = sortedGigs
+      var filteredGigs = gigs
       const regex = new RegExp(filterBy.title, 'i')
-      filteredGigs = sortedGigs.filter((gig) => regex.test(gig.title))
+      filteredGigs = gigs.filter((gig) => regex.test(gig.title))
 
       if (filterBy.category)
         filteredGigs = filteredGigs.filter(
@@ -74,27 +73,28 @@ export const gigStore = {
         )
 
       if (filterBy.min)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) >= filterBy.min
-        )
+        filteredGigs = filteredGigs.filter((gig) => gig.price >= filterBy.min)
       if (filterBy.max)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) <= filterBy.max
-        )
+        filteredGigs = filteredGigs.filter((gig) => gig.price <= filterBy.max)
       if (filterBy.delivery)
         filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+          (gig) => gig.daysToMake <= filterBy.delivery
         )
+
+      if (filterBy.sortBy === 'rating') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
+      }
+
+      if (filterBy.sortBy === 'level') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
+      }
 
       return filteredGigs
     },
   },
   mutations: {
-    // setSort(state, { sortBy }) {
-    //   state.sortBy = sortBy
-    // },
     setFilter(state, { filterBy }) {
-      state.filterBy = filterBy
+      state.filterBy = { ...state.filterBy, ...filterBy }
     },
     setSelectedGig(state, { gig }) {
       state.selectedGig = gig

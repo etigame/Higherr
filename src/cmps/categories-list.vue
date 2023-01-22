@@ -37,14 +37,11 @@
         <section v-if="(type === 'card')" class="type-card ">
             <div>
                 <h1>Popular professional services</h1>
-                <!-- <div class="cards flex space-between "> -->
                 <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple
                     :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px" :touchable="false">
                     <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt"
-                        style="cursor: pointer" :content="tag.txt" @click="cardFilter(tag.txt)" />
-
+                        style="cursor: pointer" :content="tag.txt" @click="tagFilter(tag.txt)" />
                 </vueper-slides>
-
             </div>
         </section>
 
@@ -78,6 +75,10 @@ export default {
     },
     data() {
         return {
+            filterBy: {
+                category: '',
+                subCategory: '',
+            },
             breakpointsCategories: {
                 1200: {
                     visibleSlides: 6
@@ -110,16 +111,6 @@ export default {
                     fixedHeight: '350px'
                 },
             },
-            categories: categoriesService.categories,
-            tags: categoriesService.tags,
-            filterBy: {
-                title: '',
-                category: '',
-                subCategory: '',
-                min: null,
-                max: null,
-                delivery: '',
-            },
             windowTop: window.top.scrollY,
             isCategoriesShown: false
         }
@@ -136,6 +127,12 @@ export default {
                 backgroundImage: url(item.imageUrl)
             }
         },
+        categories() {
+            return categoriesService.categories
+        },
+        tags() {
+            return categoriesService.tags
+        }
     },
     methods: {
         categoryFilter(category) {
@@ -154,10 +151,7 @@ export default {
             this.windowTop = window.top.scrollY
             this.isCategoriesShown = this.windowTop > 150 ? true : false
         },
-        cardFilter(tag) {
-            this.filterBy.subCategory = tag
-            this.filter()
-        },
+
     },
     watch: {
         $route: {

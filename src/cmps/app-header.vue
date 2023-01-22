@@ -2,18 +2,19 @@
   <section class="main-layout full">
     <section v-if="menuOpen" @click="toggleSideMenu" class="side-menu" v-clickOutside="toggleSideMenu">
       <router-link v-if="!loggedInUser" to="/explore" class="btn txt">Explore</router-link>
-      <div v-if="!loggedInUser" @click="registerSeller"><a>Become a Seller</a></div>
+
       <div v-if="!loggedInUser" @click="login"><a>Sign In</a></div>
       <div v-if="!loggedInUser" @click="register"><a>Join</a></div>
-      <div class="user-info flex">
+      <div v-if="loggedInUser" class="user-info flex">
         <div class="img-container">
           <img v-if="loggedInUser" :src="loggedInUser.imgUrl">
         </div>
         <p v-if="loggedInUser">{{ loggedInUser.username }}</p>
       </div>
+      <div v-if="(!loggedInUser || !loggedInUser.isSeller)" @click="registerSeller"><a>Become a Seller</a></div>
+      <router-link v-if="(loggedInUser && loggedInUser.isSeller)" to="/seller/profile">Profile</router-link>
+      <router-link v-if="(loggedInUser && loggedInUser.isSeller)" to="/seller/orders">Dashboard</router-link>
 
-      <router-link v-if="loggedInUser.isSeller" to="/seller/profile">Profile</router-link>
-      <router-link v-if="loggedInUser.isSeller" to="/seller/orders">Dashboard</router-link>
       <a v-if="loggedInUser" @click="doLogout">Logout</a>
 
       <div class="orders-container" v-if="(loggedInUser && orders)">
@@ -73,7 +74,8 @@
         <div class="nav-links flex align-center">
 
           <router-link to="/explore" class="btn txt">Explore</router-link>
-          <button class="btn txt" @click="registerSeller">Become a Seller</button>
+          <button class="btn txt" @click="registerSeller">Become a
+            Seller</button>
           <button v-if="!loggedInUser" class="signin-btn btn txt" @click="login">Sign In</button>
           <button v-if="!loggedInUser" class="join-btn btn txt" @click="register">Join</button>
 
@@ -158,14 +160,6 @@ export default {
   },
   data() {
     return {
-      filterBy: {
-        title: '',
-        category: '',
-        subCategory: '',
-        min: null,
-        max: null,
-        delivery: '',
-      },
       windowTop: window.top.scrollY,
       isSearchShown: false,
       modalOpen: false,
@@ -173,7 +167,6 @@ export default {
       menuOpen: false,
     }
   },
-
   mounted() {
     window.addEventListener("scroll", this.onScroll)
   },
@@ -181,17 +174,8 @@ export default {
     window.removeEventListener("scroll", this.onScroll)
   },
   methods: {
-    // async getloggedInUser() {
-    //   if (this.$store.getters.loggedinUser) {
-    //     const user = this.$store.getters.loggedinUser
-    //     await userService.getById(user._id).then((user) => this.loggedInUser = user)
-    //     console.log(this.loggedInUser)
-    //   }
-    //   else return null
-    // },
     filter(title) {
-      this.filterBy.title = title
-      this.$emit('filter', { ...this.filterBy })
+      this.$emit('filter', { title: title })
     },
     onScroll(e) {
       if (this.$route.path !== '/') return
@@ -237,11 +221,9 @@ export default {
 
   },
   computed: {
-
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
-
     currRoutePath() {
       return this.$route.path
     },

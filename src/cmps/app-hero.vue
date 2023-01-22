@@ -72,33 +72,20 @@ export default {
             idx: 0,
             tags: categoriesService.popular,
             heroes: heroService.heroes,
-            filterBy: {
-                title: '',
-                category: '',
-                subCategory: '',
-                min: null,
-                max: null,
-                delivery: '',
-            },
-
         }
     },
     methods: {
         changeCurrImage() {
             this.idx = this.idx < 4 ? this.idx + 1 : 0
-
-        },
-
-        filter() {
-            this.$emit('filter', { ...this.filterBy })
         },
         titleFilter(title) {
-            this.filterBy.title = title
-            this.filter()
+            this.filter({ title: title })
         },
         tagFilter(tag) {
-            this.filterBy.subCategory = tag
-            this.filter()
+            this.filter({ subCategory: tag })
+        },
+        filter(filterBy) {
+            this.$emit('filter', filterBy)
         },
     },
     computed: {
@@ -107,7 +94,6 @@ export default {
         },
         getHeroName() {
             return this.heroes[this.idx].name
-
         },
         getHeroJob() {
             return this.heroes[this.idx].profession
@@ -117,9 +103,6 @@ export default {
         }
     }
 }
-
-
-
 </script>
 
 

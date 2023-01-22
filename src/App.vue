@@ -37,7 +37,6 @@ export default {
     this.$store.dispatch({ type: 'loadGigs' })
     this.$store.dispatch({ type: 'loadOrders' })
 
-
     if (user) store.commit({ type: 'setLoggedInUser', user })
 
     socketService.on('user-is-watching', (msg) => {
@@ -61,24 +60,15 @@ export default {
   },
   data() {
     return {
-      filterBy: {
-        title: '',
-        category: '',
-        subCategory: '',
-        min: null,
-        max: null,
-        delivery: '',
-      },
       isHeaderSticky: false,
       isActiveOrders: false,
-      isActiveDashboard: false
+      isActiveDashboard: false,
     }
   },
   methods: {
-    filter(filterBy = this.filterBy) {
-      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
-      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+    filter(filterBy) {
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+      this.$router.push({ name: 'app-explore-list', query: { ...this.$store.getters.filterBy } })
     },
     closeOrderNotification() {
       this.isActiveOrders = false
