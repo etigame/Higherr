@@ -13,23 +13,12 @@
       </p>
 
       <ul class="features clean-list">
-        <li class="regular">
+        <li class="regular" v-for="feature in features">
           <div class="v-svg-container"><span v-icon="'greenV'"></span></div>
-          1 concept included
-        </li>
-        <li class="regular">
-          <div class="v-svg-container"><span v-icon="'greenV'"></span></div>
-          Logo transparency
-        </li>
-        <li class="regular">
-          <div class="v-svg-container"><span v-icon="'greenV'"></span></div>
-          Printable file
-        </li>
-        <li class="regular">
-          <div class="v-svg-container"><span v-icon="'greenV'"></span></div>
-          Include 3D mockup
+          {{ feature }}
         </li>
       </ul>
+
       <div class="pricing">
         <p>Service Fee</p>
         <p>US${{ serviceCalc(gig.price) }}</p>
@@ -49,16 +38,6 @@
 
       <button @click="addOrder" class="continue-btn">Confirm And Pay</button>
     </section>
-
-    <!-- <section class="contact-seller">
-            <button>Contact Seller</button>
-        </section> -->
-
-    <!-- <section class="highly-responsive">
-            <span v-icon="'highlyResponsive'" class="highly-responsive-icon"></span>
-            <p>Highly responsive!</p>
-            <p>Known for exceptionally quick replies</p>
-        </section> -->
   </section>
 </template>
 
@@ -70,6 +49,11 @@ export default {
   props: {
     gig: Object,
   },
+  data() {
+    return {
+      features: ['1 concept included', 'Logo transparency', 'Printable file', 'Include 3D mockup']
+    }
+  },
   methods: {
     addOrder() {
       this.$emit('addOrder')
@@ -78,12 +62,15 @@ export default {
       }, 500)
       socketService.emit('gig-ordered', this.gig)
     },
+
     serviceCalc(price) {
       return (price * 0.15).toFixed(2)
     },
+
     vatCalc(price) {
       return (price - price / 1.17).toFixed(2)
     },
+
     totalPrice(price) {
       return (price * 1.17 + price * 0.15).toFixed(2)
     },

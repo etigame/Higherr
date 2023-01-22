@@ -63,7 +63,7 @@
         <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
       </div>
       <div class="sort-input light">
-        <h4> Sort by </h4><el-select @change="filter()" id="sortby-select" v-model="filterBy.sort_by"
+        <h4> Sort by </h4><el-select @change="filter()" id="sortby-select" v-model="filterBy.sortBy"
           class="m-2 sortby-select" placeholder="Relevance" size="large">
           <el-option value="rating" label="Highest Rating">Highest Rating</el-option>
           <el-option value="level" label="Seller Level">Seller Level</el-option>
@@ -91,7 +91,7 @@ export default {
     return {
 
       filterBy: {
-        sort_by: 'relevance',
+        sortBy: 'relevance',
         title: '',
         category: null,
         subCategory: '',

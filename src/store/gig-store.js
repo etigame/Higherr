@@ -26,7 +26,7 @@ export const gigStore = {
     gigs: null,
     selectedGig: null,
     filterBy: {
-      sort_by: 'relevance',
+      sortBy: 'relevance',
       title: '',
       category: '',
       subCategory: '',
@@ -51,11 +51,11 @@ export const gigStore = {
     gigs({ gigs, filterBy }) {
       var sortedGigs = [...gigs]
 
-      if (filterBy.sort_by === 'rating') {
+      if (filterBy.sortBy === 'rating') {
         sortedGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
       }
 
-      if (filterBy.sort_by === 'level') {
+      if (filterBy.sortBy === 'level') {
         sortedGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
       }
 
