@@ -113,7 +113,7 @@ export const userStore = {
       }
     },
 
-    async logout({ commit }) {
+    async logout({ state, commit }) {
       try {
         await userService.logout()
         commit({ type: 'setLoggedInUser', user: null })

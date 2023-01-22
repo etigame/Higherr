@@ -99,6 +99,10 @@ export default {
                 "status": "Pending",
             }
             this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
+            setTimeout(() => {
+                this.$router.push('/')
+            }, 500)
+            socketService.emit('gig-ordered', this.gig)
         },
     }
 }

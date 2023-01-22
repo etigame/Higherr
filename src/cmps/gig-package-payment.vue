@@ -57,10 +57,10 @@ export default {
   methods: {
     addOrder() {
       this.$emit('addOrder')
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 500)
-      socketService.emit('gig-ordered', this.gig)
+      // setTimeout(() => {
+      //   this.$router.push('/')
+      // }, 500)
+      // socketService.emit('gig-ordered', this.gig)
     },
 
     serviceCalc(price) {

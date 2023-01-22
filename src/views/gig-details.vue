@@ -139,7 +139,7 @@ export default {
         await this.$store.dispatch({ type: "loadUser", userId: this.gig.owner._id })
         this.seller = this.$store.getters.user
 
-        if (this.loggedInUser._id !== this.gig.owner._id) socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
+        if (this.loggedInUser && this.loggedInUser._id !== this.gig.owner._id) socketService.emit(SOCKET_EMIT_USER_WATCH, this.gig.owner)
 
         window.scrollTo({ top: 0, behavior: 'smooth' })
     },
