@@ -3,11 +3,12 @@
         <div class="img-container full">
             <Transition>
                 <img v-if="(idx === 0)" :src="getImageUrl" />
-                <img v-else-if="(idx === 1)" :src="getImageUrl" />
+                <img v-else-if="(idx == 1)" :src="getImageUrl" />
                 <img v-else-if="(idx === 2)" :src="getImageUrl" />
                 <img v-else-if="(idx === 3)" :src="getImageUrl" />
                 <img v-else-if="(idx === 4)" :src="getImageUrl" />
             </Transition>
+
         </div>
 
         <div class="search-container flex">

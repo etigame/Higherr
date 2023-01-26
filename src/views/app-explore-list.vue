@@ -4,9 +4,6 @@
       <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
       <h1 v-if="$route.query.category">{{ $route.query.category }}</h1>
       <h1 v-if="$route.query.subCategory">{{ $route.query.subCategory }}</h1>
-      <!-- <h1 v-if="filterBy.title">Results for "{{ filterBy.title }}"</h1>
-      <h1 v-if="filterBy.category">{{ filterBy.category }}</h1>
-      <h1 v-if="filterBy.subCategory">{{ filterBy.subCategory }}</h1> -->
     </section>
     <section class="advanced-filter-container main-layout full" :class="{ shadow: isShadow }">
       <section class="advanced-filter">

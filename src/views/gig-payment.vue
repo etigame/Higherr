@@ -94,11 +94,15 @@ export default {
                     "_id": this.gig._id,
                     "name": this.gig.title,
                     "price": this.gig.price,
-                    "img": this.gig.image[0]
+                    "img": this.gig.images[0]
                 },
                 "status": "Pending",
             }
             this.$store.dispatch({ type: 'saveOrder', order: { ...order } })
+            setTimeout(() => {
+                this.$router.push('/')
+            }, 500)
+            socketService.emit('gig-ordered', this.gig)
         },
     }
 }
