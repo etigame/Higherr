@@ -1,36 +1,40 @@
 <template>
-    <section >
-                        <div class="table-entity flex">
-                            <div class="buyer-col flex column align-center user-col">
-                                <img :src="order.buyer.imgUrl" />
-                                <p class="regular">{{ order.buyer.fullname }}</p>
-                        
-                            </div>
-                            <div class="gig-col flex column">
-                                <span class="table-span regular">{{ order.gig.name }}</span>
-                            </div>
-                            <div class="due-on-col flex column">
-                                <span class="table-span regular">{{ new Date(order.createdAt).toLocaleDateString() }}</span>
-                            </div>
-                            <div class="total-col flex column">
-                                <span class="table-span regular">US${{ order.gig.price }}</span>
-                            </div>
-                            <div @click="toggleSet()" class="status-col flex column">
-                                <div class=" status flex" :class="className(order.status)">
-                                    <span class="regular">{{ order.status }}</span>
-                                </div>
-                                
-                            </div>
-                            <div>
-                            <div v-if="setOpen" class="set-status" v-clickOutside="toggleSet">
-                                <div class="completed status " @click="changeStatus('Completed')">Completed</div>
-                                <div class="in-progress status" @click="changeStatus('In Progress')">In Progress</div>
-                                <div class="rejected status" @click="changeStatus('Rejected')">Rejected</div>
-                            </div>
-                        </div>
-                        </div>
-                       
-
+    <section>
+        <div class="table-entity flex">
+            <div class="buyer-col flex column align-center user-col">
+                <img :src="order.buyer.imgUrl" />
+                <p class="regular">{{ order.buyer.username }}</p>
+            </div>
+            <div class="gig-col flex column">
+                <span class="table-span regular">{{ order.gig.name }}</span>
+            </div>
+            <div class="due-on-col flex column">
+                <span class="table-span regular">
+                    {{ new Date(order.createdAt).toLocaleDateString() }}
+                </span>
+            </div>
+            <div class="total-col flex column">
+                <span class="table-span regular">US${{ order.gig.price }}</span>
+            </div>
+            <div @click="toggleSet()" class="status-col flex column">
+                <div class="status flex" :class="className(order.status)">
+                    <span class="regular">{{ order.status }}</span>
+                </div>
+            </div>
+            <div>
+                <div v-if="setOpen" class="set-status" v-clickOutside="toggleSet">
+                    <div class="completed status" @click="changeStatus('Completed')">
+                        Completed
+                    </div>
+                    <div class="in-progress status" @click="changeStatus('In Progress')">
+                        In Progress
+                    </div>
+                    <div class="rejected status" @click="changeStatus('Rejected')">
+                        Rejected
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -42,7 +46,6 @@ export default {
     data() {
         return {
             setOpen: false,
-
         }
     },
     methods: {
@@ -56,15 +59,9 @@ export default {
             this.setOpen = !this.setOpen
         },
         changeStatus(status) {
-            this.$emit('change', { status, order:this.order})
+            this.$emit('change', { status, order: this.order })
             this.toggleSet()
         },
     },
-    computed: {
-     
-    }
-
 }
-
-
 </script>

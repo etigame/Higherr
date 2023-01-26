@@ -14,7 +14,6 @@
                         <p class="regular">Response Time</p>
                         <p class="bold">1 Hrs.</p>
                     </div>
-
                 </div>
             </div>
             <div class="progress">
@@ -40,7 +39,6 @@
                     <el-progress v-if="(orders.length > 0)" :percentage="deliveredOnTime" color="#1dbf73" />
                 </article>
             </div>
-
         </section>
         <section class="seller-orders flex">
             <div class="income-order-dashboard flex">
@@ -56,13 +54,11 @@
                     <span class="light">Completed Orders </span>
                     <h3 v-if="(orders.length > 0)">{{ annualOrdersComplete }}</h3>
                 </div>
-
                 <div class="dashboard-item">
                     <span class="light">Pending Orders </span>
                     <h3 v-if="(orders.length > 0)">{{ pendingOrders }}</h3>
                 </div>
             </div>
-
             <h2 class="headline">Manage Orders</h2>
             <div class="order-table">
                 <div class="table-head flex">
@@ -81,13 +77,10 @@
                     <div class="status-col">
                         <h4>Status</h4>
                     </div>
-
                 </div>
                 <dashboard-article v-if="(orders.length > 0)" v-for="order in orders" :order="order" :key="order._id"
                     @change="changeStatus" />
             </div>
-
-
         </section>
     </section>
 </template>
@@ -97,7 +90,6 @@ import { socketService } from '../services/socket-service'
 import dashboardArticle from '../cmps/dashboard-list-article.vue'
 
 export default {
-    // props: ["loggedUser"],
     name: 'seller-orders',
     components: {
         dashboardArticle,
@@ -130,12 +122,7 @@ export default {
             this.selectOrder(order)
             this.selectedOrder.status = status
             this.$store.dispatch({ type: 'saveOrder', order: this.selectedOrder })
-            // this.loadOrders()
             socketService.emit('order-change-status', this.selectedOrder.buyer)
-        },
-        toLocalTime(time) {
-
-            return new Date(time)
         },
     },
     computed: {
@@ -144,29 +131,17 @@ export default {
         },
         annualIncome() {
             var income = 0
-            var yearTime = 1000 * 60 * 60 * 24 * 365
             this.orders.forEach(order => {
                 if (order.status === "Completed") { income += order.gig.price }
             })
             return income
-
-            // this.orders.forEach(order => {
-            //     if (order.status === "Complete" && Date.now() - order.createdAt <= yearTime) { income += order.gig.price }
-            // })
-            // return income
         },
         monthIncome() {
             var income = 0
-            var monthTime = 1000 * 60 * 60 * 24 * 30
-            // this.orders.forEach(order => {
-            //     if (order.status === "Complete"&& Date.now() - order.createdAt <=monthTime) { income+= order.gig.price }
-            // })
-            // return income
             this.orders.forEach(order => {
                 if (order.status === "Completed") { income += order.gig.price }
             })
             return income
-
         },
         pendingOrders() {
             var pending = 0
@@ -174,16 +149,9 @@ export default {
                 if (order.status === "Pending") { pending++ }
             })
             return pending
-
         },
         annualOrdersComplete() {
             var complete = 0
-            var yearTime = 1000 * 60 * 60 * 24 * 365
-            // this.orders.forEach(order => {
-            //     if (order.status === "Complete" && Date.now() - order.createdAt <= yearTime) { complete++ }
-            // })
-            // return complete
-
             this.orders.forEach(order => {
                 if (order.status === "Completed") { complete++ }
             })
@@ -191,20 +159,13 @@ export default {
         },
         monthOrdersComplete() {
             var complete = 0
-            var monthTime = 1000 * 60 * 60 * 24 * 30
-            // this.orders.forEach(order => {
-            //     if (order.status === "Complete" && Date.now() - order.createdAt <= monthTime){complete++}
-            // })
-            // return complete
-
             this.orders.forEach(order => {
                 if (order.status === "Complete") { complete++ }
             })
             return complete
-
         },
         completedOrderPercent() {
-            return ((this.annualOrdersComplete / this.orders.length) * 100).toFixed(0)
+            return Math.round(((this.annualOrdersComplete / this.orders.length) * 100))
         },
     },
 }

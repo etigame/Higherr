@@ -2,7 +2,7 @@
 <template>
   <section class="login">
     <form @submit.prevent="doLogin">
-      <h2>Sign In to Fiverr</h2>
+      <h2>Sign In to Higherr</h2>
       <input type="text" v-model="loginCred.username" placeholder="username" />
       <input type="text" v-model="loginCred.password" placeholder="Password" />
       <button>Login</button>
@@ -71,7 +71,7 @@ export default {
 
       const userCred = {
         fullName: userData.name,
-        username: userData.given_name,
+        username: userData.email.substring(0, userData.email.indexOf('@')),
         imgUrl: userData.picture
       }
 

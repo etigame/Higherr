@@ -1,13 +1,16 @@
      
 <template>
   <section class="signup">
-    <h2>Signup</h2>
+    <h2>Sign Up to Higherr</h2>
     <form @submit.prevent="doSignup">
+      <label>
+        <img-profile-uploader @uploaded="getImage" :imgUrl="signupCred.imgUrl"></img-profile-uploader>
+      </label>
       <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-      <input type="text" v-model="signupCred.password" placeholder="Password" />
       <input type="text" v-model="signupCred.username" placeholder="Username" />
+      <input type="text" v-model="signupCred.password" placeholder="Password" />
       <button>Signup</button>
-      <img-uploader class="upload-img" @uploaded="onUploaded"></img-uploader>
+
     </form>
 
     <GoogleLogin :callback="callback" class="googleLogin" />
@@ -15,8 +18,9 @@
 </template>
 
 <script>
-import imgUploader from './img-uploader.vue'
+import imgProfileUploader from './img-profile-uploader.vue'
 import { decodeCredential } from 'vue3-google-login'
+import { userService } from '../services/user-service'
 
 export default {
   name: 'signup',
@@ -58,15 +62,21 @@ export default {
       await this.$store.dispatch({ type: 'signup', user: { ...this.signupCred, isSeller: false } })
       this.close()
     },
+    getImage(imgUrl) {
+      if (!imgUrl) return
+      this.signupCred.imgUrl = imgUrl
+    },
 
     callback(response) {
       const userData = decodeCredential(response.credential)
       console.log("Handle the userData", userData)
 
       const userCred = {
-        fullName: userData.name,
-        username: userData.given_name,
-        imgUrl: userData.picture
+        fullname: userData.name,
+        username: userData.email.substring(0, userData.email.indexOf('@')),
+        imgUrl: userData.picture,
+        memberSince: this.signupCred.memberSince,
+        isSeller: this.signupCred.isSeller
       }
 
       this.$router.push('/explore')
@@ -94,7 +104,7 @@ export default {
 
   },
   components: {
-    imgUploader
+    imgProfileUploader
   }
 }
 </script> 

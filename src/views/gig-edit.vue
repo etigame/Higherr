@@ -10,7 +10,6 @@
                     </span>
                     <input v-model="gigToEdit.title" type="text" placeholder="I will..." />
                 </label>
-
                 <label class="description">
                     <span class="flex-column">Description
                         <p>Briefly Describe Your Gig</p>
@@ -19,7 +18,6 @@
                         placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry...."> </textarea>
                 </label>
             </div>
-
             <div class="bottom-form flex space-between">
                 <label class="category flex column">
                     <span class="flex-column">Category
@@ -37,50 +35,38 @@
                         <option value="Data">Data</option>
                     </select>
                 </label>
-
                 <label class="days-to-make flex column">
                     <span>Days to Make
                         <p>Days it will take you on average to finish this gig</p>
                     </span>
-
                     <select name="" id="" v-model="gigToEdit.daysToMake">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
                 </label>
-
                 <label class="price flex column">
                     <span>Price
                         <p>Price you're offering for this gig</p>
                     </span>
                     <input v-model="gigToEdit.price" type="number" name="" id=""></label>
             </div>
-
             <div class="images flex-column">
                 <span>Upload Images
                     <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
                 </span>
-                <img-uploader @uploaded="onUploaded"></img-uploader>
+                <img-uploader @uploaded="onUploaded" :images="gigToEdit.images"></img-uploader>
             </div>
-
-
         </form>
         <div class="btns flex space-between">
             <button class="cancel-btn" @click="returnToProfile">Cancel</button>
             <button class="save-btn" @click="saveGig">Save</button>
-
         </div>
     </section>
 </template>
-
-
-
 <script>
 
 import { gigService } from "../services/gig-service.js"
-import { userService } from "../services/user-service.js"
-
 import imgUploader from "../cmps/img-uploader.vue"
 
 export default {
@@ -88,38 +74,31 @@ export default {
     components: { imgUploader },
     async created() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
-        const owner = this.$store.getters.loggedinUser
-        await userService.getById(owner._id).then((user) => {
-            this.user = user
-        })
+        this.user = this.$store.getters.loggedinUser
         const { _id } = this.$route.params
         if (_id) {
             gigService.getById(_id).then((gig) => {
                 this.gigToEdit = gig
+                console.log(this.gigToEdit)
             })
         }
         else {
-
-            this.gigToEdit = gigService.getEmptyGig({ ...owner, level: this.user.level, rate: this.user.rate })
-
+            this.gigToEdit = gigService.getEmptyGig({ owner: { _id: this.user._id, username: this.user.username, level: this.user.level, rate: this.user.rate } })
         }
     },
-
     data() {
         return {
             gigToEdit: null,
             user: null
-
         }
     },
     methods: {
         async saveGig() {
-
             await this.$store.dispatch({ type: "addGig", gig: { ...this.gigToEdit } })
             this.$router.push('/seller/profile')
         },
         onUploaded(images) {
-            this.gigToEdit.image = images
+            this.gigToEdit.images = images
         },
         returnToProfile() {
             this.$router.push('/seller/profile')

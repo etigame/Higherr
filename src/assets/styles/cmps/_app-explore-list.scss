@@ -2,9 +2,11 @@
   // background-color: blue;
   margin-top: $layoutPadding;
   margin-bottom: $layoutPadding;
+
   h1 {
     color: $CLR00;
   }
+
   //  .el-input__inner {
   //      color: $clr4;
   //  }
@@ -45,6 +47,7 @@
     box-shadow: 0 9px 20px -13px rgb(116 118 126 / 85%);
   }
 }
+
 .advanced-filter {
   display: flex;
   flex-wrap: wrap;
@@ -57,98 +60,104 @@
     justify-content: center;
     max-height: 110px;
   }
+
   @media screen and (max-width: 450px) {
     .clear-filter-btn {
       display: none;
-      
+
     }
   }
-        @media screen and (max-width: 400px) {
-          max-height: 120px;
-        }
- 
-    
+
+  @media screen and (max-width: 400px) {
+    max-height: 120px;
+  }
+
+
 
   .advanced-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     .preview-budget-container {
       flex-direction: column;
+
       .preview-budget {
         .el-input {
           min-width: none;
           max-width: em(100px);
           color: $clr4;
-          
+
         }
       }
     }
 
     .advanced-switches {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: em(316px);
+
+      @media screen and (max-width: 710px) {
+        justify-content: center;
+      }
+
+
+      .pro-switch {
+        justify-content: flex-end;
+        margin-inline-end: em(40px);
+
+        @media screen and (max-width: 450px) {
+          margin-inline-end: em(0px);
+          justify-content: flex-start;
+        }
+      }
+
+      .online-switch,
+      .pro-switch {
+        // font-weight: 600;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        max-width: em(316px);
+        margin-top: em(16px);
+        color: $CLR00;
 
-        @media screen and (max-width: 710px) {
-            justify-content: center;
+        .ml-2 {
+          margin-inline-end: em(5px);
         }
 
+        .el-switch__core {
+          height: em(20px);
+          min-width: em(31px);
 
-        .pro-switch {
-            justify-content:flex-end;
-            margin-inline-end: em(40px);
-            @media screen and (max-width: 450px) {
-              margin-inline-end: em(0px);
-              justify-content: flex-start;
-              }
         }
 
-        .online-switch,
-        .pro-switch {
-            // font-weight: 600;
-            display: flex;
-            align-items: center;
-            margin-top: em(16px);
-            color: $CLR00;
+        .el-switch__action {
+          height: em(17px);
+          width: em(16px);
 
-            .ml-2 {
-                margin-inline-end: em(5px);
-            }
-
-            .el-switch__core {
-                height: em(20px);
-                min-width: em(31px);
-            
-            }
-
-            .el-switch__action {
-                height: em(17px);
-                width: em(16px);
-
-            }
-            .el-switch.is-checked .el-switch__core .el-switch__action {
-                left: calc(100% - 15px);
-                color: var(--el-switch-on-color);
-            }
         }
+
+        .el-switch.is-checked .el-switch__core .el-switch__action {
+          left: calc(100% - 15px);
+          color: var(--el-switch-on-color);
+        }
+      }
     }
+
     .budget-input,
     .delivery-input,
     .budget-input-1 {
       margin-inline-end: em(10px);
-      width: em(105px);
+      // width: em(105px);
       margin-block-start: 19px;
       color: $clr4;
       font-size: 1rem;
-      width: 152px;
+      // width: 152px;
       cursor: pointer;
 
-      .el-input__wrapper {
-        width: em(120px);
-      }
+
     }
+
     /////////
     .budget-input-1 {
       justify-content: space-evenly;
@@ -158,8 +167,10 @@
       width: 6.875em;
       // margin-inline-end: em(10px);
       // box-shadow: 0 0 1px 0;
-      border:1px solid #dadbdd;;
+      border: 1px solid #dadbdd;
+      ;
       border-radius: 4px;
+
       .budget-dropdown {
         z-index: 100;
         position: absolute;
@@ -170,7 +181,7 @@
         border-radius: 4px;
         box-shadow: 0 12px 18px rgb(0 0 0 / 14%);
         border: 1px solid $clr9;
-        
+
         .inputs {
           display: flex;
           justify-content: space-between;
@@ -178,12 +189,13 @@
           height: 104px;
           padding: 18px 24px;
         }
-       
+
         p {
           font-size: 12px;
           margin-bottom: 10px;
           color: #95979d;
         }
+
         input {
           max-width: 120px;
           height: 40px;
@@ -192,16 +204,18 @@
           box-shadow: 0 0 0 1px $clr9;
           padding-inline-start: 10px;
         }
+
         input:focus-visible {
           outline: none;
           border: 0;
           box-shadow: 0 0 0 1px $clr5;
         }
-        i{
+
+        i {
           font-size: rem(14px);
-          position:absolute;
-          transform: translate(-16px,14px);
-          font-style:normal;
+          position: absolute;
+          transform: translate(-16px, 14px);
+          font-style: normal;
         }
 
         .buttons {
@@ -211,6 +225,7 @@
           padding: 12px 24px;
           font-size: 14px;
         }
+
         button {
           background-color: $clr1;
           font-weight: 700;
@@ -222,51 +237,61 @@
           color: $CLR0;
           font-size: rem(14px);
         }
+
         div {
           color: #95979d;
         }
-                 @media screen and (max-width: 400px) {
-                   width: 250px;
-                   height: 160px;
-        
-                   input {
-                     width: 90px;
-                   }
-                 }
+
+        @media screen and (max-width: 400px) {
+          width: 250px;
+          height: 160px;
+
+          input {
+            width: 90px;
+          }
+        }
       }
-            .drop-arrow {
-              height: 14px;
-              width: 14px;
-      
-              .dropUp {
-                transform: rotate(180deg);
-              }
-            }
+
+      .drop-arrow {
+        height: 14px;
+        width: 14px;
+
+        .dropUp {
+          transform: rotate(180deg);
+        }
+      }
     }
+
     .el-input__wrapper {
       box-shadow: 0 0 0 1px $clr9 inset !important;
     }
+
     .el-select .el-input.is-focus .el-input__wrapper {
       box-shadow: 0 0 0 1px $clr9 inset !important;
     }
+
     .el-input__inner {
       color: $clr4 !important;
       font-weight: 600;
       font-size: 1rem;
+
       svg {
         color: black !important;
         stroke: 2px;
       }
     }
-    .el-input__inner > * {
+
+    .el-input__inner>* {
       color: black !important;
     }
+
     .el-select .el-input .el-select__caret {
       color: gray;
       transition: transform var(--el-transition-duration);
       transform: rotateZ(0);
       cursor: pointer;
     }
+
     .el-input {
       --el-input-placeholder-color: $clr4;
       font-size: 13px;
@@ -282,14 +307,16 @@
     align-items: center;
     justify-content: flex-end;
     width: em(316px);
-            @media screen and (max-width: 400px) {
-                >* {
-                  flex-direction: row;
-                }
-            
-                max-width: em(250px);
 
-              }
+    @media screen and (max-width: 400px) {
+      >* {
+        flex-direction: row;
+      }
+
+      max-width: em(250px);
+
+    }
+
     .pro-switch {
       justify-content: end;
       margin-inline-end: em(40px);
@@ -316,6 +343,7 @@
         height: em(17px);
         width: em(16px);
       }
+
       .el-switch.is-checked .el-switch__core .el-switch__action {
         left: calc(100% - 15px);
         color: var(--el-switch-on-color);
@@ -331,28 +359,33 @@
   justify-content: space-between;
   margin: em(15px) 0;
   color: $CLR00;
+
   .available-services {
     font-size: rem(14px);
     line-height: rem(22px);
     font-weight: 600;
   }
+
   h4 {
     font-size: 16px;
     line-height: 120%;
     font-weight: 600;
     margin-block-start: 2px;
   }
+
   .sort-input {
     display: flex;
     // flex-direction: row;
     align-items: center;
     height: em(40px);
+
     .el-select .el-input.is-focus .el-input__wrapper,
     .el-select .el-input__wrapper.is-focus {
       box-shadow: 0 0 0 0 transparent !important;
     }
+
     .sortby-select {
-      width: em(130px);
+      width: em(150px);
 
       .el-input__wrapper {
         box-shadow: 0 0 0 0;
@@ -365,10 +398,12 @@
     }
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
   margin: em(45px) em(30px);
+
   .el-pagination.is-background .btn-next,
   .el-pagination.is-background .btn-prev,
   .el-pagination.is-background .el-pager li {
@@ -377,15 +412,18 @@
     border: 1px $clr2 solid;
     font-size: 1rem;
   }
+
   .el-pagination.is-background .el-pager li.is-active {
     background-color: transparent;
     color: $clr4;
   }
 }
+
 .clear-filter-btn {
   width: 112px;
   height: 40px;
-  border: 1px solid #dadbdd;;
+  border: 1px solid #dadbdd;
+  ;
   background-color: $CLR0;
   margin-top: em(19px);
   margin-inline-end: em(10px);
@@ -393,8 +431,10 @@
   color: $clr11;
   cursor: pointer;
 }
-.delivery-input{
-  width:150px !important
+
+.el-select.delivery-input {
+
+  width: 165px !important
 }
 
 // TODO: export to reset

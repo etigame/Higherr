@@ -1,64 +1,68 @@
 import { userService } from '../services/user-service'
-import { utilService } from '../services/util-service'
-import {
-  socketService,
-  SOCKET_EMIT_USER_WATCH,
-  SOCKET_EVENT_USER_UPDATED,
-} from '../services/socket-service'
+import { socketService } from '../services/socket-service'
 
-var localLoggedinUser = null
+// var localLoggedinUser = null
 
-if (sessionStorage.user)
-  localLoggedinUser = JSON.parse(sessionStorage.user || null)
+// if (sessionStorage.user)
+//   localLoggedinUser = JSON.parse(sessionStorage.user || null)
 
 export const userStore = {
   state: {
     loggedinUser: null,
     users: [],
-    watchedUser: null,
+    user: null,
   },
+
   getters: {
     users({ users }) {
       return users
     },
+
     loggedinUser({ loggedinUser }) {
       return loggedinUser
     },
-    watchedUser({ watchedUser }) {
-      return watchedUser
+
+    user({ user }) {
+      return user
     },
   },
+
   rootGetters: {
     loggedinUser({ loggedinUser }) {
       return loggedinUser
     },
   },
+
   mutations: {
     setLoggedInUser(state, { user }) {
       state.loggedinUser = user ? { ...user } : null
     },
-    setWatchedUser(state, { user }) {
-      state.watchedUser = user
+
+    setUser(state, { user }) {
+      state.user = user
     },
+
     setUsers(state, { users }) {
       state.users = users
     },
+
     updateUsers(state, { user }) {
-      const idx = state.users.findIndex((item) => item._id === user._id)
-      if (idx) state.users.splice(idx, 1, user)
+      const idx = state.users.findIndex(u => u._id === user._id)
+      if (idx !== -1) state.users.splice(idx, 1, user)
       else state.users.push(user)
     },
 
     removeUser(state, { userId }) {
-      state.users = state.users.filter((user) => user._id !== userId)
+      state.users = state.users.filter(user => user._id !== userId)
     },
   },
+
   actions: {
     async login({ state, commit }, { userCred }) {
       try {
         const user = await userService.login(userCred)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.login(localLoggedInUser)
 
@@ -68,11 +72,12 @@ export const userStore = {
         throw err
       }
     },
+
     async loginViaGoogle({ state, commit }, { userCred }) {
       try {
         const user = await userService.loginViaGoogle(userCred)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.login(localLoggedInUser)
 
@@ -82,37 +87,37 @@ export const userStore = {
         throw err
       }
     },
+
     async signup({ state, commit }, { user }) {
       try {
         await userService.signup(user)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.signup(localLoggedInUser)
 
-        // socketService.signup({ ...state.loggedinUser })
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)
         throw err
       }
     },
+
     async signupViaGoogle({ state, commit }, { user }) {
-      console.log('from store')
       try {
         await userService.signupViaGoogle(user)
 
-        const localLoggedInUser = userService.getLoggedInUser()
+        const localLoggedInUser = await userService.getLoggedInUser()
         await commit({ type: 'setLoggedInUser', user: localLoggedInUser })
         socketService.signup(localLoggedInUser)
 
-        // socketService.signup({ ...state.loggedinUser })
         return user
       } catch (err) {
         console.log('userStore: Error in signup', err)
         throw err
       }
     },
+
     async logout({ commit }) {
       try {
         await userService.logout()
@@ -123,6 +128,7 @@ export const userStore = {
         throw err
       }
     },
+
     async loadUsers({ commit }) {
       try {
         const users = await userService.getUsers()
@@ -132,16 +138,17 @@ export const userStore = {
         throw err
       }
     },
-    async loadAndWatchUser({ commit }, { userId }) {
+
+    async loadUser({ commit }, { userId }) {
       try {
         const user = await userService.getById(userId)
-
-        commit({ type: 'setWatchedUser', user })
+        commit({ type: 'setUser', user })
       } catch (err) {
-        console.log('userStore: Error in loadAndWatchUser', err)
+        console.log('userStore: Error in loadUser', err)
         throw err
       }
     },
+
     async removeUser({ commit }, { userId }) {
       try {
         await userService.remove(userId)
@@ -151,6 +158,7 @@ export const userStore = {
         throw err
       }
     },
+    
     async updateUsers({ commit }, { user }) {
       try {
         await userService.saveUser(user)
@@ -159,11 +167,6 @@ export const userStore = {
         console.log('userStore: Error in updateUsers', err)
         throw err
       }
-    },
-
-    // Keep this action for compatability with a common user.service ReactJS/VueJS
-    setWatchedUser({ commit }, payload) {
-      commit(payload)
     },
   },
 }
