@@ -58,7 +58,7 @@
                 <img-uploader @uploaded="onUploaded" :images="gigToEdit.images"></img-uploader>
             </div>
         </form>
-        <div class="btns flex space-between">
+        <div class="btns  flex space-between">
             <button class="cancel-btn" @click="returnToProfile">Cancel</button>
             <button class="save-btn" @click="saveGig">Save</button>
         </div>

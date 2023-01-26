@@ -218,6 +218,10 @@
         position: relative;
         overflow: hidden;
         padding-bottom: 26% !important;
+          @media screen and (min-width: 1100px) {
+          padding-bottom: 20% !important;
+          
+            }
       }
 
       .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {

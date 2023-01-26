@@ -74,6 +74,8 @@
   }
 
   .preview-title {
+    flex:1;
+    min-height: em(43px);
     max-height: em(43px);
     padding: 0 em(12px);
     line-height: 22px;

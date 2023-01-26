@@ -33,7 +33,7 @@
             <div>
                 <h1>Popular professional services</h1>
                 <vueper-slides class="no-shadow" :breakpoints="breakpointsCards" :visible-slides="5" slide-multiple
-                    :slide-ratio="(1 / 5)" :gap="3" fixed-height="280px" :touchable="false">
+                    :slide-ratio="(1 / 5)" :gap="3" fixed-height="350px" :touchable="false">
                     <vueper-slide v-for="tag in tags" :key="tag" :image="tag.imageUrl" :title="tag.subTxt"
                         style="cursor: pointer" :content="tag.txt" @click="tagFilter(tag.txt)" />
                 </vueper-slides>
@@ -84,6 +84,16 @@ export default {
                 },
             },
             breakpointsCards: {
+                1300: {
+                    slideRatio: 2 / 5,
+                    gap: 3,
+                    fixedHeight: '320px'
+                },
+                1100: {
+                    slideRatio: 2 / 5,
+                    gap: 3,
+                    fixedHeight: '300px'
+                },
                 1000: {
                     visibleSlides: 4,
                     slideRatio: 2 / 5,
@@ -93,7 +103,7 @@ export default {
                     visibleSlides: 3
                 },
                 620: {
-                    visibleSlides: 2
+                    visibleSlides: 2,
                 },
                 500: {
                     visibleSlides: 1,

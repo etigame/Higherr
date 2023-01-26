@@ -47,9 +47,11 @@
     </section>
 </template>
 <script>
-
+import signup from '../cmps/signup.vue'
+import login from '../cmps/login.vue'
 import { gigService } from '../services/gig-service.js'
 import gigPackagePayment from '../cmps/gig-package-payment.vue'
+import { eventBus } from '../services/event-bus-service.js'
 
 export default {
     name: 'gig-details',
@@ -85,7 +87,11 @@ export default {
     },
     methods: {
         addOrder() {
-            if (!this.loggedInUser) return
+            if (!this.loggedInUser) {
+                this.login()
+                return
+            }
+
             const order =
             {
                 "buyer": '',
@@ -103,6 +109,9 @@ export default {
                 this.$router.push('/')
             }, 500)
             socketService.emit('gig-ordered', this.gig)
+        },
+        login() {
+            eventBus.emit('get-cmp', 'login')
         },
     }
 }
