@@ -11,9 +11,9 @@ deployed website here: https://higherr.onrender.com/#/
 
 ## Tech Stack
 
-**Client:** Vue, Vuex, Sass,
+**Client:** Vue.js, Vuex, SCSS
 
-**Server:** Node, Express, MongoDB
+**Server:** REST APIs, Web Sockets, Node.js, Express.js, Cookie Session, MongoDB, GoogleAuth Login
 
 ## Authors
 
