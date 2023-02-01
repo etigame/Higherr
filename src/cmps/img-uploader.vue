@@ -24,7 +24,6 @@ export default {
 
   data() {
     return {
-      // images: [],
       height: 250,
       width: 500,
       isUploading: false

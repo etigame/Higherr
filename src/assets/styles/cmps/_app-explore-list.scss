@@ -1,5 +1,4 @@
 .app-explore-list {
-  // background-color: blue;
   margin-top: $layoutPadding;
   margin-bottom: $layoutPadding;
 
@@ -7,12 +6,6 @@
     color: $CLR00;
   }
 
-  //  .el-input__inner {
-  //      color: $clr4;
-  //  }
-  // .el-select .el-input.is-focus .el-input__wrapper {
-  //     box-shadow: 0 0 0 1px black inset !important;
-  // }
 }
 
 .list-container {
@@ -20,9 +13,6 @@
   grid-template-columns: repeat(1, 1fr);
   grid-gap: $layoutPadding;
 
-  // @media screen and (min-width: $mobile-breakpoint) {
-  //     grid-template-columns: repeat(2, 1fr)
-  // }
   @media screen and (min-width: $narrow-breakpoint) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -115,7 +105,6 @@
 
       .online-switch,
       .pro-switch {
-        // font-weight: 600;
         display: flex;
         align-items: center;
         margin-top: em(16px);
@@ -148,11 +137,9 @@
     .delivery-input,
     .budget-input-1 {
       margin-inline-end: em(10px);
-      // width: em(105px);
       margin-block-start: 19px;
       color: $clr4;
       font-size: 1rem;
-      // width: 152px;
       cursor: pointer;
 
 
@@ -165,8 +152,6 @@
       color: $clr4;
       font-size: 1rem;
       width: 6.875em;
-      // margin-inline-end: em(10px);
-      // box-shadow: 0 0 1px 0;
       border: 1px solid #dadbdd;
       ;
       border-radius: 4px;
@@ -185,7 +170,6 @@
         .inputs {
           display: flex;
           justify-content: space-between;
-          // background-color: brown;
           height: 104px;
           padding: 18px 24px;
         }
@@ -324,7 +308,6 @@
 
     .online-switch,
     .pro-switch {
-      // font-weight: 600;
       display: flex;
       align-items: center;
       margin-top: em(16px);
@@ -375,7 +358,6 @@
 
   .sort-input {
     display: flex;
-    // flex-direction: row;
     align-items: center;
     height: em(40px);
 
@@ -436,9 +418,3 @@
 
   width: 165px !important
 }
-
-// TODO: export to reset
-// .el-select .el-input.is-focus .el-input__wrapper,
-// .el-select .el-input__wrapper.is-focus {
-//     box-shadow: 0 0 0 0 transparent !important;
-// }
