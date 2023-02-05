@@ -11,9 +11,9 @@ deployed website here: https://higherr.onrender.com/#/
 
 ## Tech Stack
 
-**Client:** Vue.js, Vuex, SCSS
+**Client:** Vue.js, Vuex, Sass. Use Element Plus, Vueper Slides and Google Login libraries.
 
-**Server:** REST APIs, Web Sockets, Node.js, Express.js, Cookie Session, MongoDB, GoogleAuth Login
+**Server:** Node.js, Express.js, MongoDB, REST APIs, Postman, Web Sockets, Cookie Session.
 
 ## Authors
 
