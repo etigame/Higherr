@@ -1,19 +1,30 @@
 # Higherr
 
-An immitation of the marketplace website "Fiverr".
-The project was created as part of our participation in "Coding Academy" bootcamp, based in Israel.
+It's a pleasure to meet you Higherr 💫 
 
-The goal of the project was to build an end-to-end web application using technologies we have learned throughout the bootcamp, to experience working with a team of developers, and to use Git to manage our code.
+A marketplace website inspired by Fiverr.
 
-Project link: https://github.com/etigame/Higherr
+Take a look at this video to get an idea of what the project is about 🕶️ - [Higherr on YouTube](https://www.youtube.com/watch?v=7gcyrgOTvNk) 
 
-deployed website here: https://higherr.onrender.com/#/
+Link to Higherr on Render: [Higherr](https://higherr.onrender.com/#/)
+
+Higherr is a responsive, end-to-end application built with the latest technologies: 
+Vue.js | Vuex | Sass | Node.js | Express.js | MongoDB | REST APIs | Postman | Web sockets and more.
+
+![image](https://user-images.githubusercontent.com/113992121/224575072-157bfe4a-f651-4270-9e5f-9f9ea2eeabc4.png)
+
 
 ## Tech Stack
 
-**Client:** Vue.js, Vuex, Sass. Use Element Plus, Vueper Slides and Google Login libraries.
+**Client:** JavaScript(ES6), HTML5, CSS3, Sass, Vue.js, Vuex, Axios
 
 **Server:** Node.js, Express.js, MongoDB, REST APIs, Postman, Web Sockets, Cookie Session.
+
+## Features
+- We used **Web sockets** to ensure that our users are updated in real time: notification to the seller when a user views his product, update to the seller when an order is placed, and update to the buyer when an order status changes. 
+- Processes for **authentication**, as well as the ability to connect through **Google Login**.
+- **Full CRUDL** - registration as a seller, publishing new products, editing, deleting.
+- **Vueper Slides** library for an impressive display of all the photos, **Element Plus** library and more.
 
 ## Authors
 
