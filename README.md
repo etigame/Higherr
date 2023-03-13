@@ -12,6 +12,11 @@ Higherr is a responsive, end-to-end application built with the latest technologi
 Vue.js | Vuex | Sass | Node.js | Express.js | MongoDB | REST APIs | Postman | Web sockets and more.
 
 ![image](https://user-images.githubusercontent.com/113992121/224575072-157bfe4a-f651-4270-9e5f-9f9ea2eeabc4.png)
+![image](https://user-images.githubusercontent.com/113992121/224635816-b9ffd92c-1140-477a-97b4-67bb1b614c1c.png)
+![image](https://user-images.githubusercontent.com/113992121/224635898-63987bb8-2377-4559-89b8-5a9ab87ffefa.png)
+![image](https://user-images.githubusercontent.com/113992121/224635924-990ca15c-5456-44da-b38f-28f57fad4c97.png)
+![image](https://user-images.githubusercontent.com/113992121/224635937-f5d5963d-0447-4ea2-b7e5-35cc4546fec1.png)
+
 
 
 ## Tech Stack
