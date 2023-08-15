@@ -1,5 +1,4 @@
 import { gigService } from '../services/gig-service'
-// import { userStore } from '../store/user-store.js'
 
 export function getActionRemoveGig(gigId) {
   return {
@@ -7,12 +6,14 @@ export function getActionRemoveGig(gigId) {
     gigId,
   }
 }
+
 export function getActionAddGig(gig) {
   return {
     type: 'addGig',
     gig,
   }
 }
+
 export function getActionUpdateGig(gig) {
   return {
     type: 'updateGig',
@@ -24,9 +25,8 @@ export const gigStore = {
   state: {
     gigs: null,
     selectedGig: null,
-
     filterBy: {
-      sort_by: 'relevance',
+      sortBy: '',
       title: '',
       category: '',
       subCategory: '',
@@ -36,32 +36,32 @@ export const gigStore = {
     },
   },
   getters: {
+    filterBy({ filterBy }) {
+      const filters = { ...filterBy }
+      for (const key in filters) {
+        if (!filters[key]) delete filters[key]
+      }
+      return filters
+    },
+
     gigsByUser({ gigs }, rootGetters) {
       const user = rootGetters.loggedinUser
-      var filteredGigs = gigs.filter((gig) => {
-        return gig.owner._id === user._id
-      })
+      var filteredGigs = gigs.filter((gig) => gig.owner._id === user._id)
+
       if (!filteredGigs.length) return []
-      else return filteredGigs
+      return filteredGigs
     },
 
     selectedGig({ selectedGig }) {
       return selectedGig
     },
+
     gigs({ gigs, filterBy }) {
-      var sortedGigs = [...gigs]
+      if (!gigs) return null
 
-      if (filterBy.sort_by === 'rating') {
-        sortedGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
-      }
-
-      if (filterBy.sort_by === 'level') {
-        sortedGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
-      }
-
-      var filteredGigs = sortedGigs
+      var filteredGigs = gigs
       const regex = new RegExp(filterBy.title, 'i')
-      filteredGigs = sortedGigs.filter((gig) => regex.test(gig.title))
+      filteredGigs = filteredGigs.filter((gig) => regex.test(gig.title))
 
       if (filterBy.category)
         filteredGigs = filteredGigs.filter(
@@ -74,50 +74,55 @@ export const gigStore = {
         )
 
       if (filterBy.min)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) >= filterBy.min
-        )
+        filteredGigs = filteredGigs.filter((gig) => gig.price >= filterBy.min)
+
       if (filterBy.max)
-        filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.price) <= filterBy.max
-        )
+        filteredGigs = filteredGigs.filter((gig) => gig.price <= filterBy.max)
+
       if (filterBy.delivery)
         filteredGigs = filteredGigs.filter(
-          (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+          (gig) => gig.daysToMake <= filterBy.delivery
         )
+
+      if (filterBy.sortBy === 'rating') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.rate - gig1.owner.rate)
+      }
+
+      if (filterBy.sortBy === 'level') {
+        filteredGigs.sort((gig1, gig2) => gig2.owner.level - gig1.owner.level)
+      }
 
       return filteredGigs
     },
   },
+
   mutations: {
-    // setSort(state, { sortBy }) {
-    //   state.sortBy = sortBy
-    // },
     setFilter(state, { filterBy }) {
-      state.filterBy = filterBy
+      state.filterBy = { ...state.filterBy, ...filterBy }
     },
+
     setSelectedGig(state, { gig }) {
       state.selectedGig = gig
     },
+
     setGigs(state, { gigs }) {
       state.gigs = gigs
     },
+
     addGig(state, { gig }) {
       state.gigs.push(gig)
     },
+
     updateGig(state, { gig }) {
-      const idx = state.gigs.findIndex((c) => c.id === gig._id)
+      const idx = state.gigs.findIndex((gig) => gig.id === gig._id)
       state.gigs.splice(idx, 1, gig)
     },
+
     removeGig(state, { gigId }) {
       state.gigs = state.gigs.filter((gig) => gig._id !== gigId)
     },
-    addGigMsg(state, { gigId, msg }) {
-      const gig = state.gigs.find((gig) => gig._id === gigId)
-      if (!gig.msgs) gig.msgs = []
-      gig.msgs.push(msg)
-    },
   },
+
   actions: {
     async addGig(context, { gig }) {
       try {
@@ -129,6 +134,7 @@ export const gigStore = {
         throw err
       }
     },
+
     async updateGig(context, { gig }) {
       try {
         gig = await gigService.save(gig)
@@ -149,6 +155,7 @@ export const gigStore = {
         throw err
       }
     },
+
     async loadGigs(context, { filterBy }) {
       try {
         const gigs = await gigService.query()
@@ -158,21 +165,13 @@ export const gigStore = {
         throw err
       }
     },
+
     async removeGig(context, { gigId }) {
       try {
         await gigService.remove(gigId)
         context.commit(getActionRemoveGig(gigId))
       } catch (err) {
         console.log('gigStore: Error in removeGig', err)
-        throw err
-      }
-    },
-    async addGigMsg(context, { gigId, txt }) {
-      try {
-        const msg = await gigService.addGigMsg(gigId, txt)
-        context.commit({ type: 'addGigMsg', gigId, msg })
-      } catch (err) {
-        console.log('gigStore: Error in addGigMsg', err)
         throw err
       }
     },

@@ -42,18 +42,7 @@ export default {
     this.loadUsers()
   },
   methods: {
-    // async doLogin() {    // not in use - delete
-    //   if (!this.loginCred.username) {
-    //     this.msg = 'Please enter username/password'
-    //     return
-    //   }
-    //   try {
-    //     await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-    //   } catch (err) {
-    //     console.log(err)
-    //     this.msg = 'Failed to login'
-    //   }
-    // },
+
     async doSignup() {
       if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
         this.msg = 'Please fill up the form'

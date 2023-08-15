@@ -1,12 +1,10 @@
 <template>
     <section class="img-profile-uploader">
-        <!-- <div className="upload-preview"> -->
         <div class="img-container">
             <img :src="imgUrl" />
         </div>
         <label for="imgUpload"></label>
         <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
-        <!-- </div> -->
     </section>
 </template>
 

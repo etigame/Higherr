@@ -46,18 +46,6 @@ import categoriesList from '../cmps/categories-list.vue'
 export default {
   name: 'app-home',
   components: { categoriesList, appHero },
-  data() {
-    return {
-      filterBy: {
-        title: '',
-        category: '',
-        subCategory: '',
-        min: null,
-        max: null,
-        delivery: '',
-      },
-    }
-  },
   computed: {
     getPageText() {
       return [
@@ -69,15 +57,15 @@ export default {
     },
     getLogos() {
       return ['https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/fdbg9kvjrydeqaere8sn.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/hgxyurzmqgdevqmg979v.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/ktprdhufw3xhhsrgd5ij.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/sj7qx56f9tkb3vthvtbl.png', 'https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670793766/gigs/dnvcm1ob8c9r0azmzk2g.png']
-    }
+    },
   },
   created() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   },
   methods: {
-    filter(filterBy = this.filterBy) {
-      this.$router.push({ name: 'app-explore-list', query: { ...filterBy } })
+    filter(filterBy) {
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+      this.$router.push({ name: 'app-explore-list', query: { ...this.$store.getters.filterBy } })
     },
   }
 }

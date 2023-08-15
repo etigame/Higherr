@@ -7,11 +7,22 @@
     h1 {
         margin: 30px auto;
         width: 770px;
-
+        @media screen and (max-width: 800px) {
+                width: 90%;
+        
+            }
     }
 
     form {
         @include card(770px, fit-content);
+        @media screen and (max-width: 800px) {
+                width: 90%;
+            >*{
+                display: flex;
+                flex-direction: column;
+            }
+            }
+
         background: white;
         padding: 30px;
         margin: 0 auto;
@@ -97,7 +108,10 @@
         margin: auto;
         margin-bottom: 20px;
         margin-top: 20px;
-
+        @media screen and (max-width: 800px) {
+                width: 90%;
+        
+            }
 
 
         button {

@@ -52,7 +52,6 @@
 
         @media screen and (max-width: 1200px) {
           display: block;
-          // background-color: aqua;
         }
 
         .vueperslide__content-wrapper {
@@ -211,13 +210,14 @@
         }
       }
 
-      // :visible-slides="5" slide-multiple :slide-ratio="(1 / 5)" :gap="3"
-
-
       .vueperslides__parallax-wrapper {
         position: relative;
         overflow: hidden;
         padding-bottom: 26% !important;
+          @media screen and (min-width: 1100px) {
+          padding-bottom: 20% !important;
+          
+            }
       }
 
       .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
@@ -231,11 +231,6 @@
         color: $CLR0;
         transition: opacity .3s ease-in-out;
         opacity: 1;
-
-        // &:hover {
-        //   opacity: .85;
-        //   transition: opacity .3s ease-in-out;
-        // }
 
         :nth-child(2) {
           font-size: 23px;
@@ -274,7 +269,6 @@
 
         &.vueperslides__arrow--prev {
           transform: translate(70%, -50%);
-          // margin-inline-start: 50px;
         }
 
         &.vueperslides__arrow--next {

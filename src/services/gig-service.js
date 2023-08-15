@@ -23,7 +23,6 @@ export const gigService = {
   getById,
   save,
   remove,
-  addGigMsg,
   getEmptyGig,
   getDemoGig,
 }
@@ -62,27 +61,6 @@ async function save(gig) {
   return savedGig
 }
 
-// LOCAL-STORAGE
-async function addGigMsg(gigId, txt) {
-  const gig = await getById(gigId)
-  if (!gig.msgs) gig.msgs = []
-
-  const msg = {
-    id: utilService.makeId(),
-    by: userService.getLoggedInUser(),
-    txt,
-  }
-  gig.msgs.push(msg)
-  await storageService.put(GIG_STORAGE_KEY, gig)
-
-  return msg
-}
-
-// BACKEND
-// async function addGigMsg(gigId, txt) {
-//   const savedMsg = await httpService.post(GIG_URL + gigId + '/msg', {txt})
-//   return savedMsg
-// }
 
 function getEmptyGig(owner) {
   return {

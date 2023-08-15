@@ -1,6 +1,5 @@
 .dashboard {
-  // flex-wrap: wrap;
-  // margin-bottom: 50px;
+
   margin: 30px 40px 50px 40px;
 @media screen and (max-width: 1000px) {
    flex-direction: column;
@@ -41,7 +40,6 @@
       @media screen and (max-width: 480px) {
         flex-direction: column;
         align-items: center;
-        // margin: 0 0px 0px 0;
       }
       .light {
         margin-bottom: 7px;
@@ -146,8 +144,6 @@
       }
     }
     .order-table {
-      // background-color: #f1f1f1;
-      // background-color: brown;
       width: 100%;
       margin-top: 40px;
       @media screen and (max-width: 650px) {
@@ -158,7 +154,7 @@
       
         }
       
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 420px) {
           max-width: 300px;
         }
         
@@ -184,8 +180,7 @@
       .table-entity {
         @media screen and (max-width: 650px) {
           width: 200%;
-
-          }
+        }
         .table-span {
           color: $clr5;
         }
@@ -214,6 +209,8 @@
           
         
       }
+        
+      
 
       img {
         max-width: 35px;
@@ -276,7 +273,6 @@
       button {
         border: 0;
         color: $CLR0;
-        // background-color: transparent;
       }
     }
     .user-col {
@@ -284,7 +280,6 @@
       align-items: center;
 
       > * {
-        // max-width: 40%;
         margin: 0;
       }
     }
@@ -309,20 +304,22 @@
       flex-direction: column;
       justify-content: space-evenly;
       background-color: $CLR0;
-      // box-shadow: 0 0 1px 0;
       border: $clr9 1px solid;
       border-radius: 4px;
       width: 105px;
       height: 160px;
       position: absolute;
-      // top: 150px;
-      // right: 50vw;
-      transform: translate(-212%, -17%);
 
-      // position: fixed;
+      transform: translate(-212%, -17%);
+      @media screen and (max-width: 650px) {
+        transform: translate(-438%, -17%);
+        position:absolute;
+      }
+      @media screen and (max-width: 420px) {
+        transform: translate(-390%, -17%);
+        position:absolute;
+      }
       & > * {
-        margin: 8px;
-        // padding-bottom: 10px;
         border-bottom: 2px solid transparent;
       }
       button {

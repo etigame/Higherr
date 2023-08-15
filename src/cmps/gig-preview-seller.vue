@@ -1,11 +1,9 @@
 <template>
     <section class="gig-preview-seller">
-
         <div class="gig-info flex column space-between">
             <div class="img-container">
                 <img ref="img" :src="gig.images[0]"
                     onerror="this.onerror=null;this.src='https://res.cloudinary.com/dhsdxj3y3/image/upload/v1670794425/gigs/twojxakjb7tdlrbinkdq.jpg';" />
-
             </div>
             <div class="preview-title">
                 <router-link :to="`/gig/${gig._id}`">
@@ -20,12 +18,11 @@
                 </div>
 
                 <div class="preview-price-container flex">
-                    <p>starting at </p><span class="preview-price">${{ gig.price }}</span>
+                    <p>starting at</p>
+                    <span class="preview-price">${{ gig.price }}</span>
                 </div>
             </div>
         </div>
-
-
     </section>
 </template>
 
@@ -35,12 +32,11 @@ export default {
         gig: Object
     },
     methods: {
-
         removeGig() {
             this.$emit('gigRemoved', this.gig._id)
         },
+
         editGig() {
-            this.$emit('gigEdited', this.gig._id)
             this.$router.push(`/gig/edit/${this.gig._id}`)
         },
 
@@ -49,6 +45,4 @@ export default {
         }
     }
 }
-
-
 </script>
