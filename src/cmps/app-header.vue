@@ -128,10 +128,7 @@
           <button
             v-if="loggedInUser"
             class="orders btn txt"
-            @click="
-              toggleOrdersModal()
-              closeActiveOrders()
-            "
+            @click="toggleOrdersModal(), closeActiveOrders()"
           >
             Orders
             <div v-if="isActiveOrders" class="notification-orders"></div>
